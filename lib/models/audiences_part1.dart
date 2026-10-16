@@ -8,6 +8,7 @@ part of 'audiences.dart';
 class CreateAudienceOptions {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The name of the audience you want to create.
   final String name;
 
@@ -15,230 +16,398 @@ class CreateAudienceOptions {
 
   CreateAudienceOptions Function({String name}) get copyWith => _copyWith;
 
-  CreateAudienceOptions _copyWith({Object? name = sdkOmittedValue}) => CreateAudienceOptions(
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-  );
+  CreateAudienceOptions _copyWith({Object? name = sdkOmittedValue}) =>
+      CreateAudienceOptions(
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+      );
 
-  factory CreateAudienceOptions.fromJson(Map<String, dynamic> json) => CreateAudienceOptions(
-    name: (json['name'] as String?)!,
-  );
+  factory CreateAudienceOptions.fromJson(Map<String, dynamic> json) =>
+      CreateAudienceOptions(
+        name: (json['name'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'name': name,
-  };
+        'name': name,
+      };
 }
 
 /// Typed representation of the `CreateAudienceResponseSuccess` API schema.
 class CreateAudienceResponseSuccess {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The ID of the audience.
   final SdkOptional<String> id;
+
   /// The object of the audience.
   final SdkOptional<String> object;
+
   /// The name of the audience.
   final SdkOptional<String> name;
 
-  const CreateAudienceResponseSuccess({this.id = const SdkOmitted(), this.object = const SdkOmitted(), this.name = const SdkOmitted()});
+  const CreateAudienceResponseSuccess(
+      {this.id = const SdkOmitted(),
+      this.object = const SdkOmitted(),
+      this.name = const SdkOmitted()});
 
-  CreateAudienceResponseSuccess Function({SdkOptional<String> id, SdkOptional<String> object, SdkOptional<String> name}) get copyWith => _copyWith;
+  CreateAudienceResponseSuccess Function(
+      {SdkOptional<String> id,
+      SdkOptional<String> object,
+      SdkOptional<String> name}) get copyWith => _copyWith;
 
-  CreateAudienceResponseSuccess _copyWith({Object? id = sdkOmittedValue, Object? object = sdkOmittedValue, Object? name = sdkOmittedValue}) => CreateAudienceResponseSuccess(
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<String>,
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-  );
+  CreateAudienceResponseSuccess _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? object = sdkOmittedValue,
+          Object? name = sdkOmittedValue}) =>
+      CreateAudienceResponseSuccess(
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as SdkOptional<String>,
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+      );
 
-  factory CreateAudienceResponseSuccess.fromJson(Map<String, dynamic> json) => CreateAudienceResponseSuccess(
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    object: json['object'] != null ? SdkPresent((json['object'] as String?)!) : const SdkOmitted(),
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-  );
+  factory CreateAudienceResponseSuccess.fromJson(Map<String, dynamic> json) =>
+      CreateAudienceResponseSuccess(
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        object: json['object'] != null
+            ? SdkPresent((json['object'] as String?)!)
+            : const SdkOmitted(),
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (object) {
-      SdkPresent<String>(value: final value) => {'object': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (object) {
+          SdkPresent<String>(value: final value) => {
+              'object': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `GetAudienceResponseSuccess` API schema.
 class GetAudienceResponseSuccess {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The ID of the audience.
   final SdkOptional<String> id;
+
   /// The object of the audience.
   final SdkOptional<String> object;
+
   /// The name of the audience.
   final SdkOptional<String> name;
+
   /// The date that the object was created.
   final SdkOptional<String> createdAt;
 
-  const GetAudienceResponseSuccess({this.id = const SdkOmitted(), this.object = const SdkOmitted(), this.name = const SdkOmitted(), this.createdAt = const SdkOmitted()});
+  const GetAudienceResponseSuccess(
+      {this.id = const SdkOmitted(),
+      this.object = const SdkOmitted(),
+      this.name = const SdkOmitted(),
+      this.createdAt = const SdkOmitted()});
 
-  GetAudienceResponseSuccess Function({SdkOptional<String> id, SdkOptional<String> object, SdkOptional<String> name, SdkOptional<String> createdAt}) get copyWith => _copyWith;
+  GetAudienceResponseSuccess Function(
+      {SdkOptional<String> id,
+      SdkOptional<String> object,
+      SdkOptional<String> name,
+      SdkOptional<String> createdAt}) get copyWith => _copyWith;
 
-  GetAudienceResponseSuccess _copyWith({Object? id = sdkOmittedValue, Object? object = sdkOmittedValue, Object? name = sdkOmittedValue, Object? createdAt = sdkOmittedValue}) => GetAudienceResponseSuccess(
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<String>,
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
-  );
+  GetAudienceResponseSuccess _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? object = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue}) =>
+      GetAudienceResponseSuccess(
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as SdkOptional<String>,
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as SdkOptional<String>,
+      );
 
-  factory GetAudienceResponseSuccess.fromJson(Map<String, dynamic> json) => GetAudienceResponseSuccess(
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    object: json['object'] != null ? SdkPresent((json['object'] as String?)!) : const SdkOmitted(),
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
-  );
+  factory GetAudienceResponseSuccess.fromJson(Map<String, dynamic> json) =>
+      GetAudienceResponseSuccess(
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        object: json['object'] != null
+            ? SdkPresent((json['object'] as String?)!)
+            : const SdkOmitted(),
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        createdAt: json['created_at'] != null
+            ? SdkPresent((json['created_at'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (object) {
-      SdkPresent<String>(value: final value) => {'object': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (createdAt) {
-      SdkPresent<String>(value: final value) => {'created_at': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (object) {
+          SdkPresent<String>(value: final value) => {
+              'object': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (createdAt) {
+          SdkPresent<String>(value: final value) => {
+              'created_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Required object value serialized in the `data[]` wire field.
 class ListAudiencesResponseSuccessDataItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Unique identifier for the audience.
   final SdkOptional<String> id;
+
   /// Name of the audience.
   final SdkOptional<String> name;
+
   /// Timestamp indicating when the audience was created.
   final SdkOptional<String> createdAt;
 
-  const ListAudiencesResponseSuccessDataItem({this.id = const SdkOmitted(), this.name = const SdkOmitted(), this.createdAt = const SdkOmitted()});
+  const ListAudiencesResponseSuccessDataItem(
+      {this.id = const SdkOmitted(),
+      this.name = const SdkOmitted(),
+      this.createdAt = const SdkOmitted()});
 
-  ListAudiencesResponseSuccessDataItem Function({SdkOptional<String> id, SdkOptional<String> name, SdkOptional<String> createdAt}) get copyWith => _copyWith;
+  ListAudiencesResponseSuccessDataItem Function(
+      {SdkOptional<String> id,
+      SdkOptional<String> name,
+      SdkOptional<String> createdAt}) get copyWith => _copyWith;
 
-  ListAudiencesResponseSuccessDataItem _copyWith({Object? id = sdkOmittedValue, Object? name = sdkOmittedValue, Object? createdAt = sdkOmittedValue}) => ListAudiencesResponseSuccessDataItem(
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
-  );
+  ListAudiencesResponseSuccessDataItem _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue}) =>
+      ListAudiencesResponseSuccessDataItem(
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as SdkOptional<String>,
+      );
 
-  factory ListAudiencesResponseSuccessDataItem.fromJson(Map<String, dynamic> json) => ListAudiencesResponseSuccessDataItem(
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
-  );
+  factory ListAudiencesResponseSuccessDataItem.fromJson(
+          Map<String, dynamic> json) =>
+      ListAudiencesResponseSuccessDataItem(
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        createdAt: json['created_at'] != null
+            ? SdkPresent((json['created_at'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (createdAt) {
-      SdkPresent<String>(value: final value) => {'created_at': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (createdAt) {
+          SdkPresent<String>(value: final value) => {
+              'created_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `ListAudiencesResponseSuccess` API schema.
 class ListAudiencesResponseSuccess {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Type of the response object.
   final SdkOptional<String> object;
+
   /// Array containing audience information.
   final SdkOptional<List<ListAudiencesResponseSuccessDataItem>> data;
 
-  const ListAudiencesResponseSuccess({this.object = const SdkOmitted(), this.data = const SdkOmitted()});
+  const ListAudiencesResponseSuccess(
+      {this.object = const SdkOmitted(), this.data = const SdkOmitted()});
 
-  ListAudiencesResponseSuccess Function({SdkOptional<String> object, SdkOptional<List<ListAudiencesResponseSuccessDataItem>> data}) get copyWith => _copyWith;
+  ListAudiencesResponseSuccess Function(
+          {SdkOptional<String> object,
+          SdkOptional<List<ListAudiencesResponseSuccessDataItem>> data})
+      get copyWith => _copyWith;
 
-  ListAudiencesResponseSuccess _copyWith({Object? object = sdkOmittedValue, Object? data = sdkOmittedValue}) => ListAudiencesResponseSuccess(
-    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<String>,
-    data: identical(data, sdkOmittedValue) ? this.data : data as SdkOptional<List<ListAudiencesResponseSuccessDataItem>>,
-  );
+  ListAudiencesResponseSuccess _copyWith(
+          {Object? object = sdkOmittedValue, Object? data = sdkOmittedValue}) =>
+      ListAudiencesResponseSuccess(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as SdkOptional<String>,
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as SdkOptional<List<ListAudiencesResponseSuccessDataItem>>,
+      );
 
-  factory ListAudiencesResponseSuccess.fromJson(Map<String, dynamic> json) => ListAudiencesResponseSuccess(
-    object: json['object'] != null ? SdkPresent((json['object'] as String?)!) : const SdkOmitted(),
-    data: json['data'] != null ? SdkPresent(((json['data'] as List?)?.map((e) => ListAudiencesResponseSuccessDataItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory ListAudiencesResponseSuccess.fromJson(Map<String, dynamic> json) =>
+      ListAudiencesResponseSuccess(
+        object: json['object'] != null
+            ? SdkPresent((json['object'] as String?)!)
+            : const SdkOmitted(),
+        data: json['data'] != null
+            ? SdkPresent(((json['data'] as List?)
+                ?.map((e) => ListAudiencesResponseSuccessDataItem.fromJson(
+                    e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (object) {
-      SdkPresent<String>(value: final value) => {'object': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (data) {
-      SdkPresent<List<ListAudiencesResponseSuccessDataItem>>(value: final value) => {'data': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (object) {
+          SdkPresent<String>(value: final value) => {
+              'object': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (data) {
+          SdkPresent<List<ListAudiencesResponseSuccessDataItem>>(
+            value: final value
+          ) =>
+            {
+              'data': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `RemoveAudienceResponseSuccess` API schema.
 class RemoveAudienceResponseSuccess {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The ID of the audience.
   final SdkOptional<String> id;
+
   /// The object of the audience.
   final SdkOptional<String> object;
+
   /// The deleted attribute indicates that the corresponding audience has been deleted.
   final SdkOptional<bool> deleted;
 
-  const RemoveAudienceResponseSuccess({this.id = const SdkOmitted(), this.object = const SdkOmitted(), this.deleted = const SdkOmitted()});
+  const RemoveAudienceResponseSuccess(
+      {this.id = const SdkOmitted(),
+      this.object = const SdkOmitted(),
+      this.deleted = const SdkOmitted()});
 
-  RemoveAudienceResponseSuccess Function({SdkOptional<String> id, SdkOptional<String> object, SdkOptional<bool> deleted}) get copyWith => _copyWith;
+  RemoveAudienceResponseSuccess Function(
+      {SdkOptional<String> id,
+      SdkOptional<String> object,
+      SdkOptional<bool> deleted}) get copyWith => _copyWith;
 
-  RemoveAudienceResponseSuccess _copyWith({Object? id = sdkOmittedValue, Object? object = sdkOmittedValue, Object? deleted = sdkOmittedValue}) => RemoveAudienceResponseSuccess(
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<String>,
-    deleted: identical(deleted, sdkOmittedValue) ? this.deleted : deleted as SdkOptional<bool>,
-  );
+  RemoveAudienceResponseSuccess _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? object = sdkOmittedValue,
+          Object? deleted = sdkOmittedValue}) =>
+      RemoveAudienceResponseSuccess(
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as SdkOptional<String>,
+        deleted: identical(deleted, sdkOmittedValue)
+            ? this.deleted
+            : deleted as SdkOptional<bool>,
+      );
 
-  factory RemoveAudienceResponseSuccess.fromJson(Map<String, dynamic> json) => RemoveAudienceResponseSuccess(
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    object: json['object'] != null ? SdkPresent((json['object'] as String?)!) : const SdkOmitted(),
-    deleted: json['deleted'] != null ? SdkPresent((json['deleted'] as bool?)!) : const SdkOmitted(),
-  );
+  factory RemoveAudienceResponseSuccess.fromJson(Map<String, dynamic> json) =>
+      RemoveAudienceResponseSuccess(
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        object: json['object'] != null
+            ? SdkPresent((json['object'] as String?)!)
+            : const SdkOmitted(),
+        deleted: json['deleted'] != null
+            ? SdkPresent((json['deleted'] as bool?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (object) {
-      SdkPresent<String>(value: final value) => {'object': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (deleted) {
-      SdkPresent<bool>(value: final value) => {'deleted': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (object) {
+          SdkPresent<String>(value: final value) => {
+              'object': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (deleted) {
+          SdkPresent<bool>(value: final value) => {
+              'deleted': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

@@ -6,191 +6,246 @@ part of 'inline.dart';
 // Inline operation models (part 8)
 /// How the attachment should be displayed.
 final class ListAttachmentsResponseDataItemContentDisposition {
-
   final String value;
 
   const ListAttachmentsResponseDataItemContentDisposition._(this.value);
 
-  factory ListAttachmentsResponseDataItemContentDisposition.fromJson(String value) => ListAttachmentsResponseDataItemContentDisposition._(value);
+  factory ListAttachmentsResponseDataItemContentDisposition.fromJson(
+          String value) =>
+      ListAttachmentsResponseDataItemContentDisposition._(value);
 
-  static const inline = ListAttachmentsResponseDataItemContentDisposition._('inline');
-  static const attachment = ListAttachmentsResponseDataItemContentDisposition._('attachment');
+  static const inline =
+      ListAttachmentsResponseDataItemContentDisposition._('inline');
+  static const attachment =
+      ListAttachmentsResponseDataItemContentDisposition._('attachment');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ListAttachmentsResponseDataItemContentDisposition && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ListAttachmentsResponseDataItemContentDisposition &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of bounce. Only present when `type` is `bounced`.
 final class ListBroadcastRecipientsResponseSuccessDataItemBounceType {
-
   final String value;
 
   const ListBroadcastRecipientsResponseSuccessDataItemBounceType._(this.value);
 
-  factory ListBroadcastRecipientsResponseSuccessDataItemBounceType.fromJson(String value) => ListBroadcastRecipientsResponseSuccessDataItemBounceType._(value);
+  factory ListBroadcastRecipientsResponseSuccessDataItemBounceType.fromJson(
+          String value) =>
+      ListBroadcastRecipientsResponseSuccessDataItemBounceType._(value);
 
-  static const permanent = ListBroadcastRecipientsResponseSuccessDataItemBounceType._('permanent');
-  static const transient = ListBroadcastRecipientsResponseSuccessDataItemBounceType._('transient');
-  static const undetermined = ListBroadcastRecipientsResponseSuccessDataItemBounceType._('undetermined');
+  static const permanent =
+      ListBroadcastRecipientsResponseSuccessDataItemBounceType._('permanent');
+  static const transient =
+      ListBroadcastRecipientsResponseSuccessDataItemBounceType._('transient');
+  static const undetermined =
+      ListBroadcastRecipientsResponseSuccessDataItemBounceType._(
+          'undetermined');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ListBroadcastRecipientsResponseSuccessDataItemBounceType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ListBroadcastRecipientsResponseSuccessDataItemBounceType &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The status of the domain.
 final class ListDomainsItemStatus {
-
   final String value;
 
   const ListDomainsItemStatus._(this.value);
 
-  factory ListDomainsItemStatus.fromJson(String value) => ListDomainsItemStatus._(value);
+  factory ListDomainsItemStatus.fromJson(String value) =>
+      ListDomainsItemStatus._(value);
 
   static const pending = ListDomainsItemStatus._('pending');
   static const verified = ListDomainsItemStatus._('verified');
   static const failed = ListDomainsItemStatus._('failed');
   static const notStarted = ListDomainsItemStatus._('not_started');
-  static const partiallyVerified = ListDomainsItemStatus._('partially_verified');
+  static const partiallyVerified =
+      ListDomainsItemStatus._('partially_verified');
   static const partiallyFailed = ListDomainsItemStatus._('partially_failed');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ListDomainsItemStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ListDomainsItemStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// How the attachment should be displayed.
 final class ListReceivedEmailsResponseDataItemAttachmentsItemContentDisposition {
-
   final String value;
 
-  const ListReceivedEmailsResponseDataItemAttachmentsItemContentDisposition._(this.value);
+  const ListReceivedEmailsResponseDataItemAttachmentsItemContentDisposition._(
+      this.value);
 
-  factory ListReceivedEmailsResponseDataItemAttachmentsItemContentDisposition.fromJson(String value) => ListReceivedEmailsResponseDataItemAttachmentsItemContentDisposition._(value);
+  factory ListReceivedEmailsResponseDataItemAttachmentsItemContentDisposition.fromJson(
+          String value) =>
+      ListReceivedEmailsResponseDataItemAttachmentsItemContentDisposition._(
+          value);
 
-  static const inline = ListReceivedEmailsResponseDataItemAttachmentsItemContentDisposition._('inline');
-  static const attachment = ListReceivedEmailsResponseDataItemAttachmentsItemContentDisposition._('attachment');
+  static const inline =
+      ListReceivedEmailsResponseDataItemAttachmentsItemContentDisposition._(
+          'inline');
+  static const attachment =
+      ListReceivedEmailsResponseDataItemAttachmentsItemContentDisposition._(
+          'attachment');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ListReceivedEmailsResponseDataItemAttachmentsItemContentDisposition && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other
+          is ListReceivedEmailsResponseDataItemAttachmentsItemContentDisposition &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Origin of the suppression.
 final class ListSuppressionsResponseSuccessDataItemOrigin {
-
   final String value;
 
   const ListSuppressionsResponseSuccessDataItemOrigin._(this.value);
 
-  factory ListSuppressionsResponseSuccessDataItemOrigin.fromJson(String value) => ListSuppressionsResponseSuccessDataItemOrigin._(value);
+  factory ListSuppressionsResponseSuccessDataItemOrigin.fromJson(
+          String value) =>
+      ListSuppressionsResponseSuccessDataItemOrigin._(value);
 
-  static const bounce = ListSuppressionsResponseSuccessDataItemOrigin._('bounce');
-  static const complaint = ListSuppressionsResponseSuccessDataItemOrigin._('complaint');
-  static const manual = ListSuppressionsResponseSuccessDataItemOrigin._('manual');
+  static const bounce =
+      ListSuppressionsResponseSuccessDataItemOrigin._('bounce');
+  static const complaint =
+      ListSuppressionsResponseSuccessDataItemOrigin._('complaint');
+  static const manual =
+      ListSuppressionsResponseSuccessDataItemOrigin._('manual');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ListSuppressionsResponseSuccessDataItemOrigin && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ListSuppressionsResponseSuccessDataItemOrigin &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The default subscription status for the topic.
 final class ListTopicsResponseSuccessDataItemDefaultSubscription {
-
   final String value;
 
   const ListTopicsResponseSuccessDataItemDefaultSubscription._(this.value);
 
-  factory ListTopicsResponseSuccessDataItemDefaultSubscription.fromJson(String value) => ListTopicsResponseSuccessDataItemDefaultSubscription._(value);
+  factory ListTopicsResponseSuccessDataItemDefaultSubscription.fromJson(
+          String value) =>
+      ListTopicsResponseSuccessDataItemDefaultSubscription._(value);
 
-  static const optIn = ListTopicsResponseSuccessDataItemDefaultSubscription._('opt_in');
-  static const optOut = ListTopicsResponseSuccessDataItemDefaultSubscription._('opt_out');
+  static const optIn =
+      ListTopicsResponseSuccessDataItemDefaultSubscription._('opt_in');
+  static const optOut =
+      ListTopicsResponseSuccessDataItemDefaultSubscription._('opt_out');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ListTopicsResponseSuccessDataItemDefaultSubscription && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ListTopicsResponseSuccessDataItemDefaultSubscription &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The visibility of the topic.
 final class ListTopicsResponseSuccessDataItemVisibility {
-
   final String value;
 
   const ListTopicsResponseSuccessDataItemVisibility._(this.value);
 
-  factory ListTopicsResponseSuccessDataItemVisibility.fromJson(String value) => ListTopicsResponseSuccessDataItemVisibility._(value);
+  factory ListTopicsResponseSuccessDataItemVisibility.fromJson(String value) =>
+      ListTopicsResponseSuccessDataItemVisibility._(value);
 
   static const public = ListTopicsResponseSuccessDataItemVisibility._('public');
-  static const private = ListTopicsResponseSuccessDataItemVisibility._('private');
+  static const private =
+      ListTopicsResponseSuccessDataItemVisibility._('private');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ListTopicsResponseSuccessDataItemVisibility && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ListTopicsResponseSuccessDataItemVisibility &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The delivery status of the event for this webhook.
 final class ListWebhookEventsResponseDataItemStatus {
-
   final String value;
 
   const ListWebhookEventsResponseDataItemStatus._(this.value);
 
-  factory ListWebhookEventsResponseDataItemStatus.fromJson(String value) => ListWebhookEventsResponseDataItemStatus._(value);
+  factory ListWebhookEventsResponseDataItemStatus.fromJson(String value) =>
+      ListWebhookEventsResponseDataItemStatus._(value);
 
   static const pending = ListWebhookEventsResponseDataItemStatus._('pending');
-  static const attempting = ListWebhookEventsResponseDataItemStatus._('attempting');
+  static const attempting =
+      ListWebhookEventsResponseDataItemStatus._('attempting');
   static const success = ListWebhookEventsResponseDataItemStatus._('success');
   static const failed = ListWebhookEventsResponseDataItemStatus._('failed');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ListWebhookEventsResponseDataItemStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ListWebhookEventsResponseDataItemStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The HTTP method used.
 final class LogMethod {
-
   final String value;
 
   const LogMethod._(this.value);
@@ -206,17 +261,18 @@ final class LogMethod {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is LogMethod && other.value == value;
+  @override
+  bool operator ==(Object other) => other is LogMethod && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The HTTP method used.
 final class LogSummaryMethod {
-
   final String value;
 
   const LogSummaryMethod._(this.value);
@@ -232,53 +288,62 @@ final class LogSummaryMethod {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is LogSummaryMethod && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is LogSummaryMethod && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The status of the automation.
 final class PatchAutomationRequestStatus {
-
   final String value;
 
   const PatchAutomationRequestStatus._(this.value);
 
-  factory PatchAutomationRequestStatus.fromJson(String value) => PatchAutomationRequestStatus._(value);
+  factory PatchAutomationRequestStatus.fromJson(String value) =>
+      PatchAutomationRequestStatus._(value);
 
   static const enabled = PatchAutomationRequestStatus._('enabled');
   static const disabled = PatchAutomationRequestStatus._('disabled');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is PatchAutomationRequestStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is PatchAutomationRequestStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Indicates whether the draft was successfully deleted.
 final class RemoveInboxDraftResponseSuccessDeleted {
-
   final bool value;
 
   const RemoveInboxDraftResponseSuccessDeleted._(this.value);
 
-  factory RemoveInboxDraftResponseSuccessDeleted.fromJson(bool value) => RemoveInboxDraftResponseSuccessDeleted._(value);
+  factory RemoveInboxDraftResponseSuccessDeleted.fromJson(bool value) =>
+      RemoveInboxDraftResponseSuccessDeleted._(value);
 
   static const true_ = RemoveInboxDraftResponseSuccessDeleted._(true);
 
   bool toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is RemoveInboxDraftResponseSuccessDeleted && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is RemoveInboxDraftResponseSuccessDeleted && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

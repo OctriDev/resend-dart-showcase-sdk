@@ -8,149 +8,256 @@ part of 'domain.dart';
 class DomainCreatedEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The event type.
   final DomainCreatedEventType type_;
+
   /// Timestamp when the event was emitted.
   final String createdAt;
+
   /// Required object value serialized in the `data` wire field.
   final DomainEventData data;
 
-  const DomainCreatedEvent({required this.type_, required this.createdAt, required this.data});
+  const DomainCreatedEvent(
+      {required this.type_, required this.createdAt, required this.data});
 
-  DomainCreatedEvent Function({DomainCreatedEventType type_, String createdAt, DomainEventData data}) get copyWith => _copyWith;
+  DomainCreatedEvent Function(
+      {DomainCreatedEventType type_,
+      String createdAt,
+      DomainEventData data}) get copyWith => _copyWith;
 
-  DomainCreatedEvent _copyWith({Object? type_ = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? data = sdkOmittedValue}) => DomainCreatedEvent(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as DomainCreatedEventType,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as String,
-    data: identical(data, sdkOmittedValue) ? this.data : data as DomainEventData,
-  );
+  DomainCreatedEvent _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? data = sdkOmittedValue}) =>
+      DomainCreatedEvent(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as DomainCreatedEventType,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as String,
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as DomainEventData,
+      );
 
-  factory DomainCreatedEvent.fromJson(Map<String, dynamic> json) => DomainCreatedEvent(
-    type_: (json['type'] != null ? DomainCreatedEventType.fromJson(json['type'] as String) : null)!,
-    createdAt: (json['created_at'] as String?)!,
-    data: (json['data'] != null ? DomainEventData.fromJson(json['data'] as Map<String, dynamic>) : null)!,
-  );
+  factory DomainCreatedEvent.fromJson(Map<String, dynamic> json) =>
+      DomainCreatedEvent(
+        type_: (json['type'] != null
+            ? DomainCreatedEventType.fromJson(json['type'] as String)
+            : null)!,
+        createdAt: (json['created_at'] as String?)!,
+        data: (json['data'] != null
+            ? DomainEventData.fromJson(json['data'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'created_at': createdAt,
-    'data': data.toJson(),
-  };
+        'type': type_.toJson(),
+        'created_at': createdAt,
+        'data': data.toJson(),
+      };
 }
 
 /// Typed representation of the `DomainDeletedEvent` API schema.
 class DomainDeletedEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The event type.
   final DomainDeletedEventType type_;
+
   /// Timestamp when the event was emitted.
   final String createdAt;
+
   /// Required object value serialized in the `data` wire field.
   final DomainEventData data;
 
-  const DomainDeletedEvent({required this.type_, required this.createdAt, required this.data});
+  const DomainDeletedEvent(
+      {required this.type_, required this.createdAt, required this.data});
 
-  DomainDeletedEvent Function({DomainDeletedEventType type_, String createdAt, DomainEventData data}) get copyWith => _copyWith;
+  DomainDeletedEvent Function(
+      {DomainDeletedEventType type_,
+      String createdAt,
+      DomainEventData data}) get copyWith => _copyWith;
 
-  DomainDeletedEvent _copyWith({Object? type_ = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? data = sdkOmittedValue}) => DomainDeletedEvent(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as DomainDeletedEventType,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as String,
-    data: identical(data, sdkOmittedValue) ? this.data : data as DomainEventData,
-  );
+  DomainDeletedEvent _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? data = sdkOmittedValue}) =>
+      DomainDeletedEvent(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as DomainDeletedEventType,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as String,
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as DomainEventData,
+      );
 
-  factory DomainDeletedEvent.fromJson(Map<String, dynamic> json) => DomainDeletedEvent(
-    type_: (json['type'] != null ? DomainDeletedEventType.fromJson(json['type'] as String) : null)!,
-    createdAt: (json['created_at'] as String?)!,
-    data: (json['data'] != null ? DomainEventData.fromJson(json['data'] as Map<String, dynamic>) : null)!,
-  );
+  factory DomainDeletedEvent.fromJson(Map<String, dynamic> json) =>
+      DomainDeletedEvent(
+        type_: (json['type'] != null
+            ? DomainDeletedEventType.fromJson(json['type'] as String)
+            : null)!,
+        createdAt: (json['created_at'] as String?)!,
+        data: (json['data'] != null
+            ? DomainEventData.fromJson(json['data'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'created_at': createdAt,
-    'data': data.toJson(),
-  };
+        'type': type_.toJson(),
+        'created_at': createdAt,
+        'data': data.toJson(),
+      };
 }
 
 /// Typed representation of the `DomainEventData` API schema.
 class DomainEventData {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Unique identifier for the domain.
   final String id;
+
   /// The domain name (e.g., `example.com`).
   final String name;
+
   /// Aggregated verification status of the domain.
   final DomainEventDataStatus status;
+
   /// Timestamp when the domain was created.
   final String createdAt;
+
   /// AWS region where the domain is configured.
   final DomainEventDataRegion region;
+
   /// DNS records required for domain verification.
   final List<WebhookDomainRecord> records;
 
-  const DomainEventData({required this.id, required this.name, required this.status, required this.createdAt, required this.region, required this.records});
+  const DomainEventData(
+      {required this.id,
+      required this.name,
+      required this.status,
+      required this.createdAt,
+      required this.region,
+      required this.records});
 
-  DomainEventData Function({String id, String name, DomainEventDataStatus status, String createdAt, DomainEventDataRegion region, List<WebhookDomainRecord> records}) get copyWith => _copyWith;
+  DomainEventData Function(
+      {String id,
+      String name,
+      DomainEventDataStatus status,
+      String createdAt,
+      DomainEventDataRegion region,
+      List<WebhookDomainRecord> records}) get copyWith => _copyWith;
 
-  DomainEventData _copyWith({Object? id = sdkOmittedValue, Object? name = sdkOmittedValue, Object? status = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? region = sdkOmittedValue, Object? records = sdkOmittedValue}) => DomainEventData(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    status: identical(status, sdkOmittedValue) ? this.status : status as DomainEventDataStatus,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as String,
-    region: identical(region, sdkOmittedValue) ? this.region : region as DomainEventDataRegion,
-    records: identical(records, sdkOmittedValue) ? this.records : records as List<WebhookDomainRecord>,
-  );
+  DomainEventData _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? status = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? region = sdkOmittedValue,
+          Object? records = sdkOmittedValue}) =>
+      DomainEventData(
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as DomainEventDataStatus,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as String,
+        region: identical(region, sdkOmittedValue)
+            ? this.region
+            : region as DomainEventDataRegion,
+        records: identical(records, sdkOmittedValue)
+            ? this.records
+            : records as List<WebhookDomainRecord>,
+      );
 
-  factory DomainEventData.fromJson(Map<String, dynamic> json) => DomainEventData(
-    id: (json['id'] as String?)!,
-    name: (json['name'] as String?)!,
-    status: (json['status'] != null ? DomainEventDataStatus.fromJson(json['status'] as String) : null)!,
-    createdAt: (json['created_at'] as String?)!,
-    region: (json['region'] != null ? DomainEventDataRegion.fromJson(json['region'] as String) : null)!,
-    records: ((json['records'] as List?)?.map((e) => WebhookDomainRecord.fromJson(e as Map<String, dynamic>)).toList())!,
-  );
+  factory DomainEventData.fromJson(Map<String, dynamic> json) =>
+      DomainEventData(
+        id: (json['id'] as String?)!,
+        name: (json['name'] as String?)!,
+        status: (json['status'] != null
+            ? DomainEventDataStatus.fromJson(json['status'] as String)
+            : null)!,
+        createdAt: (json['created_at'] as String?)!,
+        region: (json['region'] != null
+            ? DomainEventDataRegion.fromJson(json['region'] as String)
+            : null)!,
+        records: ((json['records'] as List?)
+            ?.map(
+                (e) => WebhookDomainRecord.fromJson(e as Map<String, dynamic>))
+            .toList())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-    'name': name,
-    'status': status.toJson(),
-    'created_at': createdAt,
-    'region': region.toJson(),
-    'records': records.map((item) => item.toJson()).toList(),
-  };
+        'id': id,
+        'name': name,
+        'status': status.toJson(),
+        'created_at': createdAt,
+        'region': region.toJson(),
+        'records': records.map((item) => item.toJson()).toList(),
+      };
 }
 
 /// Typed representation of the `DomainUpdatedEvent` API schema.
 class DomainUpdatedEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The event type.
   final DomainUpdatedEventType type_;
+
   /// Timestamp when the event was emitted.
   final String createdAt;
+
   /// Required object value serialized in the `data` wire field.
   final DomainEventData data;
 
-  const DomainUpdatedEvent({required this.type_, required this.createdAt, required this.data});
+  const DomainUpdatedEvent(
+      {required this.type_, required this.createdAt, required this.data});
 
-  DomainUpdatedEvent Function({DomainUpdatedEventType type_, String createdAt, DomainEventData data}) get copyWith => _copyWith;
+  DomainUpdatedEvent Function(
+      {DomainUpdatedEventType type_,
+      String createdAt,
+      DomainEventData data}) get copyWith => _copyWith;
 
-  DomainUpdatedEvent _copyWith({Object? type_ = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? data = sdkOmittedValue}) => DomainUpdatedEvent(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as DomainUpdatedEventType,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as String,
-    data: identical(data, sdkOmittedValue) ? this.data : data as DomainEventData,
-  );
+  DomainUpdatedEvent _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? data = sdkOmittedValue}) =>
+      DomainUpdatedEvent(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as DomainUpdatedEventType,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as String,
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as DomainEventData,
+      );
 
-  factory DomainUpdatedEvent.fromJson(Map<String, dynamic> json) => DomainUpdatedEvent(
-    type_: (json['type'] != null ? DomainUpdatedEventType.fromJson(json['type'] as String) : null)!,
-    createdAt: (json['created_at'] as String?)!,
-    data: (json['data'] != null ? DomainEventData.fromJson(json['data'] as Map<String, dynamic>) : null)!,
-  );
+  factory DomainUpdatedEvent.fromJson(Map<String, dynamic> json) =>
+      DomainUpdatedEvent(
+        type_: (json['type'] != null
+            ? DomainUpdatedEventType.fromJson(json['type'] as String)
+            : null)!,
+        createdAt: (json['created_at'] as String?)!,
+        data: (json['data'] != null
+            ? DomainEventData.fromJson(json['data'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'created_at': createdAt,
-    'data': data.toJson(),
-  };
+        'type': type_.toJson(),
+        'created_at': createdAt,
+        'data': data.toJson(),
+      };
 }

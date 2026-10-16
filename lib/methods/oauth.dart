@@ -24,17 +24,20 @@ Future<ListOAuthGrantsResponse> listGrants(ClientConfig config,
   return (await sdkRequest<ListOAuthGrantsResponse>('GET', '/oauth/grants',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true),
-            'before': SdkQueryValue(SdkUtils.unwrapOptional(before), style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
+                style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
+                style: 'form', explode: true),
+            'before': SdkQueryValue(SdkUtils.unwrapOptional(before),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listGrants',
-          fromJsonRaw: (value) => ListOAuthGrantsResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ListOAuthGrantsResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
-
 
 /// Revokes an OAuth grant, removing the authorization associated with it. Supply the grant's ID to identify which authorization to revoke. The response includes the revocation time and reason.
 ///
@@ -46,7 +49,8 @@ Future<RevokeOAuthGrantResponse> revokeGrant(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'revokeGrant',
-          fromJsonRaw: (value) => RevokeOAuthGrantResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              RevokeOAuthGrantResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }

@@ -37,11 +37,11 @@ Future<CreateTopicResponseSuccess> topicsCreate(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'topicsCreate',
-          fromJsonRaw: (value) => CreateTopicResponseSuccess.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => CreateTopicResponseSuccess.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
-
 
 /// Lists topics with cursor-based pagination. Use `after` or `before` to navigate results and `limit` to control the number of topics returned.
 ///
@@ -60,17 +60,20 @@ Future<ListTopicsResponseSuccess> topicsList(ClientConfig config,
   return (await sdkRequest<ListTopicsResponseSuccess>('GET', '/topics',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true),
-            'before': SdkQueryValue(SdkUtils.unwrapOptional(before), style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
+                style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
+                style: 'form', explode: true),
+            'before': SdkQueryValue(SdkUtils.unwrapOptional(before),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'topicsList',
-          fromJsonRaw: (value) => ListTopicsResponseSuccess.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ListTopicsResponseSuccess.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
-
 
 /// Retrieves a topic by its identifier. Use the topic ID to look up its name, subscription default, visibility, and other details.
 ///
@@ -82,11 +85,11 @@ Future<GetTopicResponseSuccess> topicsGet(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'topicsGet',
-          fromJsonRaw: (value) => GetTopicResponseSuccess.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              GetTopicResponseSuccess.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
-
 
 /// Updates the name, description, or visibility of an existing topic. Supply only the fields you want to change; `visibility` must be `public` or `private`.
 ///
@@ -117,11 +120,11 @@ Future<UpdateTopicResponseSuccess> topicsUpdate(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'topicsUpdate',
-          fromJsonRaw: (value) => UpdateTopicResponseSuccess.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => UpdateTopicResponseSuccess.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
-
 
 /// Deletes an existing topic. Use the topic ID to select the topic to remove.
 ///
@@ -133,7 +136,8 @@ Future<RemoveTopicResponseSuccess> topicsRemove(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'topicsRemove',
-          fromJsonRaw: (value) => RemoveTopicResponseSuccess.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => RemoveTopicResponseSuccess.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }

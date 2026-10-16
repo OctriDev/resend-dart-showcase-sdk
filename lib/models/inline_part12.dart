@@ -5,12 +5,12 @@ part of 'inline.dart';
 
 // Inline operation models (part 12)
 final class SuppressionsListOrigin {
-
   final String value;
 
   const SuppressionsListOrigin._(this.value);
 
-  factory SuppressionsListOrigin.fromJson(String value) => SuppressionsListOrigin._(value);
+  factory SuppressionsListOrigin.fromJson(String value) =>
+      SuppressionsListOrigin._(value);
 
   static const bounce = SuppressionsListOrigin._('bounce');
   static const complaint = SuppressionsListOrigin._('complaint');
@@ -18,10 +18,13 @@ final class SuppressionsListOrigin {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is SuppressionsListOrigin && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is SuppressionsListOrigin && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
