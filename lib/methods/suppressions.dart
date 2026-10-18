@@ -18,11 +18,11 @@ Future<CreateSuppressionResponseSuccess> suppressionsAdd(ClientConfig config,
           body: {'email': email},
           decoder: SdkResponseDecoder.json,
           operationId: 'suppressionsAdd',
-          fromJsonRaw: (value) => CreateSuppressionResponseSuccess.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => CreateSuppressionResponseSuccess.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Lists suppressions, with an optional filter for their origin. Use `after` or `before` to navigate results and `limit` to control the number of suppressions returned per request.
 ///
@@ -44,30 +44,24 @@ Future<ListSuppressionsResponseSuccess> suppressionsList(ClientConfig config,
           'GET', '/suppressions',
           config: config,
           query: {
-            'origin': SdkQueryValue(SdkUtils.unwrapOptional(origin),
-                style: 'form', explode: true),
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
-                style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
-                style: 'form', explode: true),
-            'before': SdkQueryValue(SdkUtils.unwrapOptional(before),
-                style: 'form', explode: true)
+            'origin': SdkQueryValue(SdkUtils.unwrapOptional(origin), style: 'form', explode: true),
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true),
+            'before': SdkQueryValue(SdkUtils.unwrapOptional(before), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'suppressionsList',
-          fromJsonRaw: (value) => ListSuppressionsResponseSuccess.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ListSuppressionsResponseSuccess.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
 
+
 /// Adds multiple email addresses to the suppression list in one request. Supply an `emails` array containing between 1 and 100 addresses.
 ///
 /// [emails] Email addresses to suppress.
-Future<BatchAddSuppressionsResponseSuccess> suppressionsBatchAdd(
-    ClientConfig config,
-    {required List<String> emails,
-    RequestOptions? requestOptions}) async {
+Future<BatchAddSuppressionsResponseSuccess> suppressionsBatchAdd(ClientConfig config,
+    {required List<String> emails, RequestOptions? requestOptions}) async {
   validateItems('emails', emails, min: 1, max: 100);
 
   return (await sdkRequest<BatchAddSuppressionsResponseSuccess>(
@@ -76,21 +70,21 @@ Future<BatchAddSuppressionsResponseSuccess> suppressionsBatchAdd(
           body: {'emails': emails},
           decoder: SdkResponseDecoder.json,
           operationId: 'suppressionsBatchAdd',
-          fromJsonRaw: (value) => BatchAddSuppressionsResponseSuccess.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => BatchAddSuppressionsResponseSuccess.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Removes multiple suppressions from the suppression list in one request. Provide either an `emails` array or an `ids` array, but not both, with between 1 and 100 values in the selected array.
 ///
 /// [emails] Email addresses to remove from the suppression list.
 /// [ids] Suppression IDs to remove from the suppression list.
-Future<BatchRemoveSuppressionsResponseSuccess> suppressionsBatchRemove(
-    ClientConfig config,
-    {SdkOptional<List<String>> emails = const SdkOmitted(),
-    SdkOptional<List<String>> ids = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<BatchRemoveSuppressionsResponseSuccess>
+    suppressionsBatchRemove(ClientConfig config,
+        {SdkOptional<List<String>> emails = const SdkOmitted(),
+        SdkOptional<List<String>> ids = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   if (emails is SdkPresent<List<String>>) {
     validateItems('emails', emails.value, min: 1, max: 100);
   }
@@ -107,12 +101,11 @@ Future<BatchRemoveSuppressionsResponseSuccess> suppressionsBatchRemove(
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'suppressionsBatchRemove',
-          fromJsonRaw: (value) =>
-              BatchRemoveSuppressionsResponseSuccess.fromJson(
-                  value as Map<String, dynamic>),
+          fromJsonRaw: (value) => BatchRemoveSuppressionsResponseSuccess.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Retrieves a single suppression by its identifier or email address. Use `suppression` to look up the matching suppression record.
 ///
@@ -124,11 +117,11 @@ Future<GetSuppressionResponseSuccess> suppressionsGet(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'suppressionsGet',
-          fromJsonRaw: (value) => GetSuppressionResponseSuccess.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => GetSuppressionResponseSuccess.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Deletes a single suppression by its identifier or email address. Use `suppression` to select the suppression to remove.
 ///
@@ -140,8 +133,7 @@ Future<RemoveSuppressionResponseSuccess> suppressionsRemove(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'suppressionsRemove',
-          fromJsonRaw: (value) => RemoveSuppressionResponseSuccess.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => RemoveSuppressionResponseSuccess.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }

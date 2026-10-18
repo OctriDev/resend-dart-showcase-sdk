@@ -29,11 +29,11 @@ Future<CreateApiKeyResponse> apiKeysCreate(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'apiKeysCreate',
-          fromJsonRaw: (value) =>
-              CreateApiKeyResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => CreateApiKeyResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Lists API keys available to the authenticated user. Use `after` or `before` to navigate the results with a cursor, and `limit` to control the number of items returned.
 ///
@@ -52,20 +52,17 @@ Future<ListApiKeysResponse> apiKeysList(ClientConfig config,
   return (await sdkRequest<ListApiKeysResponse>('GET', '/api-keys',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
-                style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
-                style: 'form', explode: true),
-            'before': SdkQueryValue(SdkUtils.unwrapOptional(before),
-                style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true),
+            'before': SdkQueryValue(SdkUtils.unwrapOptional(before), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'apiKeysList',
-          fromJsonRaw: (value) =>
-              ListApiKeysResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ListApiKeysResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Updates the name of an existing API key. Supply the new `name` in the request body and the key's ID in the path. The response identifies the updated API key.
 ///
@@ -81,11 +78,11 @@ Future<UpdateApiKeyResponse> apiKeysUpdate(ClientConfig config,
           body: {'name': name},
           decoder: SdkResponseDecoder.json,
           operationId: 'apiKeysUpdate',
-          fromJsonRaw: (value) =>
-              UpdateApiKeyResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => UpdateApiKeyResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Deletes an existing API key. Supply the key's ID to identify the API key to remove. The response indicates whether the key was deleted.
 ///
@@ -97,8 +94,7 @@ Future<DeleteApiKeyResponse> apiKeysRemove(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'apiKeysRemove',
-          fromJsonRaw: (value) =>
-              DeleteApiKeyResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => DeleteApiKeyResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }

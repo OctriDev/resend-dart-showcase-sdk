@@ -8,97 +8,61 @@ part of 'inbox_deleted_event.dart';
 class InboxDeletedEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The event type.
   final InboxDeletedEventType type_;
-
   /// Timestamp when the event was emitted.
   final String createdAt;
-
   /// The data of an `inbox.deleted` event.
   final InboxDeletedEventData data;
 
-  const InboxDeletedEvent(
-      {required this.type_, required this.createdAt, required this.data});
+  const InboxDeletedEvent({required this.type_, required this.createdAt, required this.data});
 
-  InboxDeletedEvent Function(
-      {InboxDeletedEventType type_,
-      String createdAt,
-      InboxDeletedEventData data}) get copyWith => _copyWith;
+  InboxDeletedEvent Function({InboxDeletedEventType type_, String createdAt, InboxDeletedEventData data}) get copyWith => _copyWith;
 
-  InboxDeletedEvent _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? data = sdkOmittedValue}) =>
-      InboxDeletedEvent(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as InboxDeletedEventType,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as String,
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as InboxDeletedEventData,
-      );
+  InboxDeletedEvent _copyWith({Object? type_ = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? data = sdkOmittedValue}) => InboxDeletedEvent(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as InboxDeletedEventType,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as String,
+    data: identical(data, sdkOmittedValue) ? this.data : data as InboxDeletedEventData,
+  );
 
-  factory InboxDeletedEvent.fromJson(Map<String, dynamic> json) =>
-      InboxDeletedEvent(
-        type_: (json['type'] != null
-            ? InboxDeletedEventType.fromJson(json['type'] as String)
-            : null)!,
-        createdAt: (json['created_at'] as String?)!,
-        data: (json['data'] != null
-            ? InboxDeletedEventData.fromJson(
-                json['data'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory InboxDeletedEvent.fromJson(Map<String, dynamic> json) => InboxDeletedEvent(
+    type_: (json['type'] != null ? InboxDeletedEventType.fromJson(json['type'] as String) : null)!,
+    createdAt: (json['created_at'] as String?)!,
+    data: (json['data'] != null ? InboxDeletedEventData.fromJson(json['data'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'created_at': createdAt,
-        'data': data.toJson(),
-      };
+    'type': type_.toJson(),
+    'created_at': createdAt,
+    'data': data.toJson(),
+  };
 }
 
 /// The data of an `inbox.deleted` event.
 class InboxDeletedEventData {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// What made the change.
   final InboxEventSource source;
-
   /// The ID of the inbox.
   final String inboxId;
 
   const InboxDeletedEventData({required this.source, required this.inboxId});
 
-  InboxDeletedEventData Function({InboxEventSource source, String inboxId})
-      get copyWith => _copyWith;
+  InboxDeletedEventData Function({InboxEventSource source, String inboxId}) get copyWith => _copyWith;
 
-  InboxDeletedEventData _copyWith(
-          {Object? source = sdkOmittedValue,
-          Object? inboxId = sdkOmittedValue}) =>
-      InboxDeletedEventData(
-        source: identical(source, sdkOmittedValue)
-            ? this.source
-            : source as InboxEventSource,
-        inboxId: identical(inboxId, sdkOmittedValue)
-            ? this.inboxId
-            : inboxId as String,
-      );
+  InboxDeletedEventData _copyWith({Object? source = sdkOmittedValue, Object? inboxId = sdkOmittedValue}) => InboxDeletedEventData(
+    source: identical(source, sdkOmittedValue) ? this.source : source as InboxEventSource,
+    inboxId: identical(inboxId, sdkOmittedValue) ? this.inboxId : inboxId as String,
+  );
 
-  factory InboxDeletedEventData.fromJson(Map<String, dynamic> json) =>
-      InboxDeletedEventData(
-        source: (json['source'] != null
-            ? InboxEventSource.fromJson(json['source'] as String)
-            : null)!,
-        inboxId: (json['inbox_id'] as String?)!,
-      );
+  factory InboxDeletedEventData.fromJson(Map<String, dynamic> json) => InboxDeletedEventData(
+    source: (json['source'] != null ? InboxEventSource.fromJson(json['source'] as String) : null)!,
+    inboxId: (json['inbox_id'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'source': source.toJson(),
-        'inbox_id': inboxId,
-      };
+    'source': source.toJson(),
+    'inbox_id': inboxId,
+  };
 }

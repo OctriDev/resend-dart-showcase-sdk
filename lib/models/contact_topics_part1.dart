@@ -8,142 +8,90 @@ part of 'contact_topics.dart';
 class ContactTopicsEventDataTopicsItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Unique identifier for the topic.
   final String id;
-
   /// The new subscription status for this topic.
   final ContactTopicsEventDataTopicsItemSubscription subscription;
 
-  const ContactTopicsEventDataTopicsItem(
-      {required this.id, required this.subscription});
+  const ContactTopicsEventDataTopicsItem({required this.id, required this.subscription});
 
-  ContactTopicsEventDataTopicsItem Function(
-          {String id,
-          ContactTopicsEventDataTopicsItemSubscription subscription})
-      get copyWith => _copyWith;
+  ContactTopicsEventDataTopicsItem Function({String id, ContactTopicsEventDataTopicsItemSubscription subscription}) get copyWith => _copyWith;
 
-  ContactTopicsEventDataTopicsItem _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? subscription = sdkOmittedValue}) =>
-      ContactTopicsEventDataTopicsItem(
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        subscription: identical(subscription, sdkOmittedValue)
-            ? this.subscription
-            : subscription as ContactTopicsEventDataTopicsItemSubscription,
-      );
+  ContactTopicsEventDataTopicsItem _copyWith({Object? id = sdkOmittedValue, Object? subscription = sdkOmittedValue}) => ContactTopicsEventDataTopicsItem(
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    subscription: identical(subscription, sdkOmittedValue) ? this.subscription : subscription as ContactTopicsEventDataTopicsItemSubscription,
+  );
 
-  factory ContactTopicsEventDataTopicsItem.fromJson(
-          Map<String, dynamic> json) =>
-      ContactTopicsEventDataTopicsItem(
-        id: (json['id'] as String?)!,
-        subscription: (json['subscription'] != null
-            ? ContactTopicsEventDataTopicsItemSubscription.fromJson(
-                json['subscription'] as String)
-            : null)!,
-      );
+  factory ContactTopicsEventDataTopicsItem.fromJson(Map<String, dynamic> json) => ContactTopicsEventDataTopicsItem(
+    id: (json['id'] as String?)!,
+    subscription: (json['subscription'] != null ? ContactTopicsEventDataTopicsItemSubscription.fromJson(json['subscription'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-        'subscription': subscription.toJson(),
-      };
+    'id': id,
+    'subscription': subscription.toJson(),
+  };
 }
 
 /// Typed representation of the `ContactTopicsEventData` API schema.
 class ContactTopicsEventData {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Contact's email address.
   final String email;
-
   /// Topics whose subscription changed in this update.
   final List<ContactTopicsEventDataTopicsItem> topics;
 
   const ContactTopicsEventData({required this.email, required this.topics});
 
-  ContactTopicsEventData Function(
-      {String email,
-      List<ContactTopicsEventDataTopicsItem> topics}) get copyWith => _copyWith;
+  ContactTopicsEventData Function({String email, List<ContactTopicsEventDataTopicsItem> topics}) get copyWith => _copyWith;
 
-  ContactTopicsEventData _copyWith(
-          {Object? email = sdkOmittedValue,
-          Object? topics = sdkOmittedValue}) =>
-      ContactTopicsEventData(
-        email: identical(email, sdkOmittedValue) ? this.email : email as String,
-        topics: identical(topics, sdkOmittedValue)
-            ? this.topics
-            : topics as List<ContactTopicsEventDataTopicsItem>,
-      );
+  ContactTopicsEventData _copyWith({Object? email = sdkOmittedValue, Object? topics = sdkOmittedValue}) => ContactTopicsEventData(
+    email: identical(email, sdkOmittedValue) ? this.email : email as String,
+    topics: identical(topics, sdkOmittedValue) ? this.topics : topics as List<ContactTopicsEventDataTopicsItem>,
+  );
 
-  factory ContactTopicsEventData.fromJson(Map<String, dynamic> json) =>
-      ContactTopicsEventData(
-        email: (json['email'] as String?)!,
-        topics: ((json['topics'] as List?)
-            ?.map((e) => ContactTopicsEventDataTopicsItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList())!,
-      );
+  factory ContactTopicsEventData.fromJson(Map<String, dynamic> json) => ContactTopicsEventData(
+    email: (json['email'] as String?)!,
+    topics: ((json['topics'] as List?)?.map((e) => ContactTopicsEventDataTopicsItem.fromJson(e as Map<String, dynamic>)).toList())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'email': email,
-        'topics': topics.map((item) => item.toJson()).toList(),
-      };
+    'email': email,
+    'topics': topics.map((item) => item.toJson()).toList(),
+  };
 }
 
 /// Typed representation of the `ContactTopicsUpdatedEvent` API schema.
 class ContactTopicsUpdatedEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The event type.
   final ContactTopicsUpdatedEventType type_;
-
   /// Timestamp when the event was emitted.
   final String createdAt;
-
   /// Required object value serialized in the `data` wire field.
   final ContactTopicsEventData data;
 
-  const ContactTopicsUpdatedEvent(
-      {required this.type_, required this.createdAt, required this.data});
+  const ContactTopicsUpdatedEvent({required this.type_, required this.createdAt, required this.data});
 
-  ContactTopicsUpdatedEvent Function(
-      {ContactTopicsUpdatedEventType type_,
-      String createdAt,
-      ContactTopicsEventData data}) get copyWith => _copyWith;
+  ContactTopicsUpdatedEvent Function({ContactTopicsUpdatedEventType type_, String createdAt, ContactTopicsEventData data}) get copyWith => _copyWith;
 
-  ContactTopicsUpdatedEvent _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? data = sdkOmittedValue}) =>
-      ContactTopicsUpdatedEvent(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as ContactTopicsUpdatedEventType,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as String,
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as ContactTopicsEventData,
-      );
+  ContactTopicsUpdatedEvent _copyWith({Object? type_ = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? data = sdkOmittedValue}) => ContactTopicsUpdatedEvent(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ContactTopicsUpdatedEventType,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as String,
+    data: identical(data, sdkOmittedValue) ? this.data : data as ContactTopicsEventData,
+  );
 
-  factory ContactTopicsUpdatedEvent.fromJson(Map<String, dynamic> json) =>
-      ContactTopicsUpdatedEvent(
-        type_: (json['type'] != null
-            ? ContactTopicsUpdatedEventType.fromJson(json['type'] as String)
-            : null)!,
-        createdAt: (json['created_at'] as String?)!,
-        data: (json['data'] != null
-            ? ContactTopicsEventData.fromJson(
-                json['data'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory ContactTopicsUpdatedEvent.fromJson(Map<String, dynamic> json) => ContactTopicsUpdatedEvent(
+    type_: (json['type'] != null ? ContactTopicsUpdatedEventType.fromJson(json['type'] as String) : null)!,
+    createdAt: (json['created_at'] as String?)!,
+    data: (json['data'] != null ? ContactTopicsEventData.fromJson(json['data'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'created_at': createdAt,
-        'data': data.toJson(),
-      };
+    'type': type_.toJson(),
+    'created_at': createdAt,
+    'data': data.toJson(),
+  };
 }

@@ -8,491 +8,279 @@ part of 'emails.dart';
 class SendEmailRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Sender email address. To include a friendly name, use the format "Your Name &lt;sender@domain.com&gt;".
   final String from;
-
   /// Recipient email address. For multiple addresses, send as an array of strings. Max 50.
   final dynamic to;
-
   /// Email subject.
   final String subject;
-
   /// Bcc recipient email address. For multiple addresses, send as an array of strings.
   final SdkOptional<dynamic> bcc;
-
   /// Cc recipient email address. For multiple addresses, send as an array of strings.
   final SdkOptional<dynamic> cc;
-
   /// Reply-to email address. For multiple addresses, send as an array of strings.
   final SdkOptional<dynamic> replyTo;
-
   /// The HTML version of the message.
   final SdkOptional<String> html;
-
   /// The plain text version of the message.
   final SdkOptional<String> text;
-
   /// Use a published template to send the email. If provided, do not include html or text.
   final SdkOptional<EmailTemplateInput> template;
-
   /// Custom headers to add to the email.
   final SdkOptional<Map<String, dynamic>> headers;
-
   /// Schedule email to be sent later. The date should be in ISO 8601 format.
   final SdkOptional<String> scheduledAt;
-
   /// Optional array value serialized in the `attachments` wire field.
   final SdkOptional<List<Attachment>> attachments;
-
   /// Optional array value serialized in the `tags` wire field.
   final SdkOptional<List<Tag>> tags;
-
   /// The topic ID to scope the email to. If the recipient is a contact and opted-in to the topic, the email is sent. If opted-out, the email is not sent. If the recipient is not a contact, the email is sent if the topic's default subscription is opt_in.
   final SdkOptional<String> topicId;
 
-  const SendEmailRequest(
-      {required this.from,
-      required this.to,
-      required this.subject,
-      this.bcc = const SdkOmitted(),
-      this.cc = const SdkOmitted(),
-      this.replyTo = const SdkOmitted(),
-      this.html = const SdkOmitted(),
-      this.text = const SdkOmitted(),
-      this.template = const SdkOmitted(),
-      this.headers = const SdkOmitted(),
-      this.scheduledAt = const SdkOmitted(),
-      this.attachments = const SdkOmitted(),
-      this.tags = const SdkOmitted(),
-      this.topicId = const SdkOmitted()});
+  const SendEmailRequest({required this.from, required this.to, required this.subject, this.bcc = const SdkOmitted(), this.cc = const SdkOmitted(), this.replyTo = const SdkOmitted(), this.html = const SdkOmitted(), this.text = const SdkOmitted(), this.template = const SdkOmitted(), this.headers = const SdkOmitted(), this.scheduledAt = const SdkOmitted(), this.attachments = const SdkOmitted(), this.tags = const SdkOmitted(), this.topicId = const SdkOmitted()});
 
-  SendEmailRequest Function(
-      {String from,
-      dynamic to,
-      String subject,
-      SdkOptional<dynamic> bcc,
-      SdkOptional<dynamic> cc,
-      SdkOptional<dynamic> replyTo,
-      SdkOptional<String> html,
-      SdkOptional<String> text,
-      SdkOptional<EmailTemplateInput> template,
-      SdkOptional<Map<String, dynamic>> headers,
-      SdkOptional<String> scheduledAt,
-      SdkOptional<List<Attachment>> attachments,
-      SdkOptional<List<Tag>> tags,
-      SdkOptional<String> topicId}) get copyWith => _copyWith;
+  SendEmailRequest Function({String from, dynamic to, String subject, SdkOptional<dynamic> bcc, SdkOptional<dynamic> cc, SdkOptional<dynamic> replyTo, SdkOptional<String> html, SdkOptional<String> text, SdkOptional<EmailTemplateInput> template, SdkOptional<Map<String, dynamic>> headers, SdkOptional<String> scheduledAt, SdkOptional<List<Attachment>> attachments, SdkOptional<List<Tag>> tags, SdkOptional<String> topicId}) get copyWith => _copyWith;
 
-  SendEmailRequest _copyWith(
-          {Object? from = sdkOmittedValue,
-          Object? to = sdkOmittedValue,
-          Object? subject = sdkOmittedValue,
-          Object? bcc = sdkOmittedValue,
-          Object? cc = sdkOmittedValue,
-          Object? replyTo = sdkOmittedValue,
-          Object? html = sdkOmittedValue,
-          Object? text = sdkOmittedValue,
-          Object? template = sdkOmittedValue,
-          Object? headers = sdkOmittedValue,
-          Object? scheduledAt = sdkOmittedValue,
-          Object? attachments = sdkOmittedValue,
-          Object? tags = sdkOmittedValue,
-          Object? topicId = sdkOmittedValue}) =>
-      SendEmailRequest(
-        from: identical(from, sdkOmittedValue) ? this.from : from as String,
-        to: identical(to, sdkOmittedValue) ? this.to : to as dynamic,
-        subject: identical(subject, sdkOmittedValue)
-            ? this.subject
-            : subject as String,
-        bcc: identical(bcc, sdkOmittedValue)
-            ? this.bcc
-            : bcc as SdkOptional<dynamic>,
-        cc: identical(cc, sdkOmittedValue)
-            ? this.cc
-            : cc as SdkOptional<dynamic>,
-        replyTo: identical(replyTo, sdkOmittedValue)
-            ? this.replyTo
-            : replyTo as SdkOptional<dynamic>,
-        html: identical(html, sdkOmittedValue)
-            ? this.html
-            : html as SdkOptional<String>,
-        text: identical(text, sdkOmittedValue)
-            ? this.text
-            : text as SdkOptional<String>,
-        template: identical(template, sdkOmittedValue)
-            ? this.template
-            : template as SdkOptional<EmailTemplateInput>,
-        headers: identical(headers, sdkOmittedValue)
-            ? this.headers
-            : headers as SdkOptional<Map<String, dynamic>>,
-        scheduledAt: identical(scheduledAt, sdkOmittedValue)
-            ? this.scheduledAt
-            : scheduledAt as SdkOptional<String>,
-        attachments: identical(attachments, sdkOmittedValue)
-            ? this.attachments
-            : attachments as SdkOptional<List<Attachment>>,
-        tags: identical(tags, sdkOmittedValue)
-            ? this.tags
-            : tags as SdkOptional<List<Tag>>,
-        topicId: identical(topicId, sdkOmittedValue)
-            ? this.topicId
-            : topicId as SdkOptional<String>,
-      );
+  SendEmailRequest _copyWith({Object? from = sdkOmittedValue, Object? to = sdkOmittedValue, Object? subject = sdkOmittedValue, Object? bcc = sdkOmittedValue, Object? cc = sdkOmittedValue, Object? replyTo = sdkOmittedValue, Object? html = sdkOmittedValue, Object? text = sdkOmittedValue, Object? template = sdkOmittedValue, Object? headers = sdkOmittedValue, Object? scheduledAt = sdkOmittedValue, Object? attachments = sdkOmittedValue, Object? tags = sdkOmittedValue, Object? topicId = sdkOmittedValue}) => SendEmailRequest(
+    from: identical(from, sdkOmittedValue) ? this.from : from as String,
+    to: identical(to, sdkOmittedValue) ? this.to : to as dynamic,
+    subject: identical(subject, sdkOmittedValue) ? this.subject : subject as String,
+    bcc: identical(bcc, sdkOmittedValue) ? this.bcc : bcc as SdkOptional<dynamic>,
+    cc: identical(cc, sdkOmittedValue) ? this.cc : cc as SdkOptional<dynamic>,
+    replyTo: identical(replyTo, sdkOmittedValue) ? this.replyTo : replyTo as SdkOptional<dynamic>,
+    html: identical(html, sdkOmittedValue) ? this.html : html as SdkOptional<String>,
+    text: identical(text, sdkOmittedValue) ? this.text : text as SdkOptional<String>,
+    template: identical(template, sdkOmittedValue) ? this.template : template as SdkOptional<EmailTemplateInput>,
+    headers: identical(headers, sdkOmittedValue) ? this.headers : headers as SdkOptional<Map<String, dynamic>>,
+    scheduledAt: identical(scheduledAt, sdkOmittedValue) ? this.scheduledAt : scheduledAt as SdkOptional<String>,
+    attachments: identical(attachments, sdkOmittedValue) ? this.attachments : attachments as SdkOptional<List<Attachment>>,
+    tags: identical(tags, sdkOmittedValue) ? this.tags : tags as SdkOptional<List<Tag>>,
+    topicId: identical(topicId, sdkOmittedValue) ? this.topicId : topicId as SdkOptional<String>,
+  );
 
-  factory SendEmailRequest.fromJson(Map<String, dynamic> json) =>
-      SendEmailRequest(
-        from: (json['from'] as String?)!,
-        to: (json['to'])!,
-        subject: (json['subject'] as String?)!,
-        bcc: json['bcc'] != null
-            ? SdkPresent((json['bcc'])!)
-            : const SdkOmitted(),
-        cc: json['cc'] != null ? SdkPresent((json['cc'])!) : const SdkOmitted(),
-        replyTo: json['reply_to'] != null
-            ? SdkPresent((json['reply_to'])!)
-            : const SdkOmitted(),
-        html: json['html'] != null
-            ? SdkPresent((json['html'] as String?)!)
-            : const SdkOmitted(),
-        text: json['text'] != null
-            ? SdkPresent((json['text'] as String?)!)
-            : const SdkOmitted(),
-        template: json['template'] != null
-            ? SdkPresent((json['template'] != null
-                ? EmailTemplateInput.fromJson(
-                    json['template'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        headers: json['headers'] != null
-            ? SdkPresent((json['headers'] == null
-                ? null
-                : json['headers'] as Map<String, dynamic>)!)
-            : const SdkOmitted(),
-        scheduledAt: json['scheduled_at'] != null
-            ? SdkPresent((json['scheduled_at'] as String?)!)
-            : const SdkOmitted(),
-        attachments: json['attachments'] != null
-            ? SdkPresent(((json['attachments'] as List?)
-                ?.map((e) => Attachment.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        tags: json['tags'] != null
-            ? SdkPresent(((json['tags'] as List?)
-                ?.map((e) => Tag.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        topicId: json['topic_id'] != null
-            ? SdkPresent((json['topic_id'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory SendEmailRequest.fromJson(Map<String, dynamic> json) => SendEmailRequest(
+    from: (json['from'] as String?)!,
+    to: (json['to'])!,
+    subject: (json['subject'] as String?)!,
+    bcc: json['bcc'] != null ? SdkPresent((json['bcc'])!) : const SdkOmitted(),
+    cc: json['cc'] != null ? SdkPresent((json['cc'])!) : const SdkOmitted(),
+    replyTo: json['reply_to'] != null ? SdkPresent((json['reply_to'])!) : const SdkOmitted(),
+    html: json['html'] != null ? SdkPresent((json['html'] as String?)!) : const SdkOmitted(),
+    text: json['text'] != null ? SdkPresent((json['text'] as String?)!) : const SdkOmitted(),
+    template: json['template'] != null ? SdkPresent((json['template'] != null ? EmailTemplateInput.fromJson(json['template'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    headers: json['headers'] != null ? SdkPresent((json['headers'] == null ? null : json['headers'] as Map<String, dynamic>)!) : const SdkOmitted(),
+    scheduledAt: json['scheduled_at'] != null ? SdkPresent((json['scheduled_at'] as String?)!) : const SdkOmitted(),
+    attachments: json['attachments'] != null ? SdkPresent(((json['attachments'] as List?)?.map((e) => Attachment.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    tags: json['tags'] != null ? SdkPresent(((json['tags'] as List?)?.map((e) => Tag.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    topicId: json['topic_id'] != null ? SdkPresent((json['topic_id'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'from': from,
-        'to': to,
-        'subject': subject,
-        ...switch (bcc) {
-          SdkPresent<dynamic>(value: final value) => {
-              'bcc': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (cc) {
-          SdkPresent<dynamic>(value: final value) => {
-              'cc': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (replyTo) {
-          SdkPresent<dynamic>(value: final value) => {
-              'reply_to': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (html) {
-          SdkPresent<String>(value: final value) => {
-              'html': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (text) {
-          SdkPresent<String>(value: final value) => {
-              'text': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (template) {
-          SdkPresent<EmailTemplateInput>(value: final value) => {
-              'template': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (headers) {
-          SdkPresent<Map<String, dynamic>>(value: final value) => {
-              'headers': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (scheduledAt) {
-          SdkPresent<String>(value: final value) => {
-              'scheduled_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (attachments) {
-          SdkPresent<List<Attachment>>(value: final value) => {
-              'attachments': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (tags) {
-          SdkPresent<List<Tag>>(value: final value) => {
-              'tags': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (topicId) {
-          SdkPresent<String>(value: final value) => {
-              'topic_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'from': from,
+    'to': to,
+    'subject': subject,
+    ...switch (bcc) {
+      SdkPresent<dynamic>(value: final value) => {'bcc': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (cc) {
+      SdkPresent<dynamic>(value: final value) => {'cc': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (replyTo) {
+      SdkPresent<dynamic>(value: final value) => {'reply_to': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (html) {
+      SdkPresent<String>(value: final value) => {'html': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (text) {
+      SdkPresent<String>(value: final value) => {'text': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (template) {
+      SdkPresent<EmailTemplateInput>(value: final value) => {'template': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (headers) {
+      SdkPresent<Map<String, dynamic>>(value: final value) => {'headers': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (scheduledAt) {
+      SdkPresent<String>(value: final value) => {'scheduled_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (attachments) {
+      SdkPresent<List<Attachment>>(value: final value) => {'attachments': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (tags) {
+      SdkPresent<List<Tag>>(value: final value) => {'tags': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (topicId) {
+      SdkPresent<String>(value: final value) => {'topic_id': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `SendEmailResponse` API schema.
 class SendEmailResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The ID of the sent email.
   final SdkOptional<String> id;
 
   const SendEmailResponse({this.id = const SdkOmitted()});
 
-  SendEmailResponse Function({SdkOptional<String> id}) get copyWith =>
-      _copyWith;
+  SendEmailResponse Function({SdkOptional<String> id}) get copyWith => _copyWith;
 
-  SendEmailResponse _copyWith({Object? id = sdkOmittedValue}) =>
-      SendEmailResponse(
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-      );
+  SendEmailResponse _copyWith({Object? id = sdkOmittedValue}) => SendEmailResponse(
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+  );
 
-  factory SendEmailResponse.fromJson(Map<String, dynamic> json) =>
-      SendEmailResponse(
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory SendEmailResponse.fromJson(Map<String, dynamic> json) => SendEmailResponse(
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `ShareEmailOptions` API schema.
 class ShareEmailOptions {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// How long the link stays valid for, as a duration like `10m`, `2 hours`, or `1 day`. Defaults to `48h` and cannot exceed 48 hours.
   final SdkOptional<String> expiresIn;
 
   const ShareEmailOptions({this.expiresIn = const SdkOmitted()});
 
-  ShareEmailOptions Function({SdkOptional<String> expiresIn}) get copyWith =>
-      _copyWith;
+  ShareEmailOptions Function({SdkOptional<String> expiresIn}) get copyWith => _copyWith;
 
-  ShareEmailOptions _copyWith({Object? expiresIn = sdkOmittedValue}) =>
-      ShareEmailOptions(
-        expiresIn: identical(expiresIn, sdkOmittedValue)
-            ? this.expiresIn
-            : expiresIn as SdkOptional<String>,
-      );
+  ShareEmailOptions _copyWith({Object? expiresIn = sdkOmittedValue}) => ShareEmailOptions(
+    expiresIn: identical(expiresIn, sdkOmittedValue) ? this.expiresIn : expiresIn as SdkOptional<String>,
+  );
 
-  factory ShareEmailOptions.fromJson(Map<String, dynamic> json) =>
-      ShareEmailOptions(
-        expiresIn: json['expires_in'] != null
-            ? SdkPresent((json['expires_in'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory ShareEmailOptions.fromJson(Map<String, dynamic> json) => ShareEmailOptions(
+    expiresIn: json['expires_in'] != null ? SdkPresent((json['expires_in'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (expiresIn) {
-          SdkPresent<String>(value: final value) => {
-              'expires_in': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (expiresIn) {
+      SdkPresent<String>(value: final value) => {'expires_in': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `ShareEmailResponse` API schema.
 class ShareEmailResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of object.
   final SdkOptional<String> object;
-
   /// The ID of the email.
   final SdkOptional<String> id;
-
   /// The shareable link, valid until it expires.
   final SdkOptional<String> url;
 
-  const ShareEmailResponse(
-      {this.object = const SdkOmitted(),
-      this.id = const SdkOmitted(),
-      this.url = const SdkOmitted()});
+  const ShareEmailResponse({this.object = const SdkOmitted(), this.id = const SdkOmitted(), this.url = const SdkOmitted()});
 
-  ShareEmailResponse Function(
-      {SdkOptional<String> object,
-      SdkOptional<String> id,
-      SdkOptional<String> url}) get copyWith => _copyWith;
+  ShareEmailResponse Function({SdkOptional<String> object, SdkOptional<String> id, SdkOptional<String> url}) get copyWith => _copyWith;
 
-  ShareEmailResponse _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? url = sdkOmittedValue}) =>
-      ShareEmailResponse(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as SdkOptional<String>,
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-        url: identical(url, sdkOmittedValue)
-            ? this.url
-            : url as SdkOptional<String>,
-      );
+  ShareEmailResponse _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? url = sdkOmittedValue}) => ShareEmailResponse(
+    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<String>,
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+    url: identical(url, sdkOmittedValue) ? this.url : url as SdkOptional<String>,
+  );
 
-  factory ShareEmailResponse.fromJson(Map<String, dynamic> json) =>
-      ShareEmailResponse(
-        object: json['object'] != null
-            ? SdkPresent((json['object'] as String?)!)
-            : const SdkOmitted(),
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-        url: json['url'] != null
-            ? SdkPresent((json['url'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory ShareEmailResponse.fromJson(Map<String, dynamic> json) => ShareEmailResponse(
+    object: json['object'] != null ? SdkPresent((json['object'] as String?)!) : const SdkOmitted(),
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+    url: json['url'] != null ? SdkPresent((json['url'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (object) {
-          SdkPresent<String>(value: final value) => {
-              'object': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (url) {
-          SdkPresent<String>(value: final value) => {
-              'url': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (object) {
+      SdkPresent<String>(value: final value) => {'object': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (url) {
+      SdkPresent<String>(value: final value) => {'url': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `Tag` API schema.
 class Tag {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The name of the email tag. It can only contain ASCII letters (a–z, A–Z), numbers (0–9), underscores (_), or dashes (-). It can contain no more than 256 characters.
   final SdkOptional<String> name;
-
   /// The value of the email tag.It can only contain ASCII letters (a–z, A–Z), numbers (0–9), underscores (_), or dashes (-). It can contain no more than 256 characters.
   final SdkOptional<String> value;
 
   const Tag({this.name = const SdkOmitted(), this.value = const SdkOmitted()});
 
-  Tag Function({SdkOptional<String> name, SdkOptional<String> value})
-      get copyWith => _copyWith;
+  Tag Function({SdkOptional<String> name, SdkOptional<String> value}) get copyWith => _copyWith;
 
-  Tag _copyWith(
-          {Object? name = sdkOmittedValue, Object? value = sdkOmittedValue}) =>
-      Tag(
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-        value: identical(value, sdkOmittedValue)
-            ? this.value
-            : value as SdkOptional<String>,
-      );
+  Tag _copyWith({Object? name = sdkOmittedValue, Object? value = sdkOmittedValue}) => Tag(
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+    value: identical(value, sdkOmittedValue) ? this.value : value as SdkOptional<String>,
+  );
 
   factory Tag.fromJson(Map<String, dynamic> json) => Tag(
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-        value: json['value'] != null
-            ? SdkPresent((json['value'] as String?)!)
-            : const SdkOmitted(),
-      );
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+    value: json['value'] != null ? SdkPresent((json['value'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (value) {
-          SdkPresent<String>(value: final value) => {
-              'value': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (value) {
+      SdkPresent<String>(value: final value) => {'value': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `UpdateEmailOptions` API schema.
 class UpdateEmailOptions {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Schedule email to be sent later. The date should be in ISO 8601 format.
   final SdkOptional<String> scheduledAt;
 
   const UpdateEmailOptions({this.scheduledAt = const SdkOmitted()});
 
-  UpdateEmailOptions Function({SdkOptional<String> scheduledAt}) get copyWith =>
-      _copyWith;
+  UpdateEmailOptions Function({SdkOptional<String> scheduledAt}) get copyWith => _copyWith;
 
-  UpdateEmailOptions _copyWith({Object? scheduledAt = sdkOmittedValue}) =>
-      UpdateEmailOptions(
-        scheduledAt: identical(scheduledAt, sdkOmittedValue)
-            ? this.scheduledAt
-            : scheduledAt as SdkOptional<String>,
-      );
+  UpdateEmailOptions _copyWith({Object? scheduledAt = sdkOmittedValue}) => UpdateEmailOptions(
+    scheduledAt: identical(scheduledAt, sdkOmittedValue) ? this.scheduledAt : scheduledAt as SdkOptional<String>,
+  );
 
-  factory UpdateEmailOptions.fromJson(Map<String, dynamic> json) =>
-      UpdateEmailOptions(
-        scheduledAt: json['scheduled_at'] != null
-            ? SdkPresent((json['scheduled_at'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory UpdateEmailOptions.fromJson(Map<String, dynamic> json) => UpdateEmailOptions(
+    scheduledAt: json['scheduled_at'] != null ? SdkPresent((json['scheduled_at'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (scheduledAt) {
-          SdkPresent<String>(value: final value) => {
-              'scheduled_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (scheduledAt) {
+      SdkPresent<String>(value: final value) => {'scheduled_at': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

@@ -8,502 +8,264 @@ part of 'inbox_thread.dart';
 class InboxThreadAssignedEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The event type.
   final InboxThreadAssignedEventType type_;
-
   /// Timestamp when the event was emitted.
   final String createdAt;
-
   /// The data of an `inbox.thread.assigned` event.
   final InboxThreadAssignedEventData data;
 
-  const InboxThreadAssignedEvent(
-      {required this.type_, required this.createdAt, required this.data});
+  const InboxThreadAssignedEvent({required this.type_, required this.createdAt, required this.data});
 
-  InboxThreadAssignedEvent Function(
-      {InboxThreadAssignedEventType type_,
-      String createdAt,
-      InboxThreadAssignedEventData data}) get copyWith => _copyWith;
+  InboxThreadAssignedEvent Function({InboxThreadAssignedEventType type_, String createdAt, InboxThreadAssignedEventData data}) get copyWith => _copyWith;
 
-  InboxThreadAssignedEvent _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? data = sdkOmittedValue}) =>
-      InboxThreadAssignedEvent(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as InboxThreadAssignedEventType,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as String,
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as InboxThreadAssignedEventData,
-      );
+  InboxThreadAssignedEvent _copyWith({Object? type_ = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? data = sdkOmittedValue}) => InboxThreadAssignedEvent(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as InboxThreadAssignedEventType,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as String,
+    data: identical(data, sdkOmittedValue) ? this.data : data as InboxThreadAssignedEventData,
+  );
 
-  factory InboxThreadAssignedEvent.fromJson(Map<String, dynamic> json) =>
-      InboxThreadAssignedEvent(
-        type_: (json['type'] != null
-            ? InboxThreadAssignedEventType.fromJson(json['type'] as String)
-            : null)!,
-        createdAt: (json['created_at'] as String?)!,
-        data: (json['data'] != null
-            ? InboxThreadAssignedEventData.fromJson(
-                json['data'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory InboxThreadAssignedEvent.fromJson(Map<String, dynamic> json) => InboxThreadAssignedEvent(
+    type_: (json['type'] != null ? InboxThreadAssignedEventType.fromJson(json['type'] as String) : null)!,
+    createdAt: (json['created_at'] as String?)!,
+    data: (json['data'] != null ? InboxThreadAssignedEventData.fromJson(json['data'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'created_at': createdAt,
-        'data': data.toJson(),
-      };
+    'type': type_.toJson(),
+    'created_at': createdAt,
+    'data': data.toJson(),
+  };
 }
 
 /// The data of an `inbox.thread.assigned` event.
 class InboxThreadAssignedEventData {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The email of the member the thread is now assigned to.
   final String? assigneeEmail;
-
   /// The email of the member who made the assignment. Null when no member made it.
   final String? assignedByEmail;
-
   /// The email of the member the thread was assigned to before. Null when it was unassigned.
   final String? previousAssigneeEmail;
-
   /// What made the change.
   final InboxEventSource source;
-
   /// The ID of the inbox.
   final String inboxId;
-
   /// The ID of the thread.
   final String threadId;
-
   /// The thread as it is when the webhook is sent. Absent when the thread no longer exists.
   final SdkOptional<InboxThreadSummary> thread;
 
-  const InboxThreadAssignedEventData(
-      {required this.assigneeEmail,
-      required this.assignedByEmail,
-      required this.previousAssigneeEmail,
-      required this.source,
-      required this.inboxId,
-      required this.threadId,
-      this.thread = const SdkOmitted()});
+  const InboxThreadAssignedEventData({required this.assigneeEmail, required this.assignedByEmail, required this.previousAssigneeEmail, required this.source, required this.inboxId, required this.threadId, this.thread = const SdkOmitted()});
 
-  InboxThreadAssignedEventData Function(
-      {String? assigneeEmail,
-      String? assignedByEmail,
-      String? previousAssigneeEmail,
-      InboxEventSource source,
-      String inboxId,
-      String threadId,
-      SdkOptional<InboxThreadSummary> thread}) get copyWith => _copyWith;
+  InboxThreadAssignedEventData Function({String? assigneeEmail, String? assignedByEmail, String? previousAssigneeEmail, InboxEventSource source, String inboxId, String threadId, SdkOptional<InboxThreadSummary> thread}) get copyWith => _copyWith;
 
-  InboxThreadAssignedEventData _copyWith(
-          {Object? assigneeEmail = sdkOmittedValue,
-          Object? assignedByEmail = sdkOmittedValue,
-          Object? previousAssigneeEmail = sdkOmittedValue,
-          Object? source = sdkOmittedValue,
-          Object? inboxId = sdkOmittedValue,
-          Object? threadId = sdkOmittedValue,
-          Object? thread = sdkOmittedValue}) =>
-      InboxThreadAssignedEventData(
-        assigneeEmail: identical(assigneeEmail, sdkOmittedValue)
-            ? this.assigneeEmail
-            : assigneeEmail as String?,
-        assignedByEmail: identical(assignedByEmail, sdkOmittedValue)
-            ? this.assignedByEmail
-            : assignedByEmail as String?,
-        previousAssigneeEmail: identical(previousAssigneeEmail, sdkOmittedValue)
-            ? this.previousAssigneeEmail
-            : previousAssigneeEmail as String?,
-        source: identical(source, sdkOmittedValue)
-            ? this.source
-            : source as InboxEventSource,
-        inboxId: identical(inboxId, sdkOmittedValue)
-            ? this.inboxId
-            : inboxId as String,
-        threadId: identical(threadId, sdkOmittedValue)
-            ? this.threadId
-            : threadId as String,
-        thread: identical(thread, sdkOmittedValue)
-            ? this.thread
-            : thread as SdkOptional<InboxThreadSummary>,
-      );
+  InboxThreadAssignedEventData _copyWith({Object? assigneeEmail = sdkOmittedValue, Object? assignedByEmail = sdkOmittedValue, Object? previousAssigneeEmail = sdkOmittedValue, Object? source = sdkOmittedValue, Object? inboxId = sdkOmittedValue, Object? threadId = sdkOmittedValue, Object? thread = sdkOmittedValue}) => InboxThreadAssignedEventData(
+    assigneeEmail: identical(assigneeEmail, sdkOmittedValue) ? this.assigneeEmail : assigneeEmail as String?,
+    assignedByEmail: identical(assignedByEmail, sdkOmittedValue) ? this.assignedByEmail : assignedByEmail as String?,
+    previousAssigneeEmail: identical(previousAssigneeEmail, sdkOmittedValue) ? this.previousAssigneeEmail : previousAssigneeEmail as String?,
+    source: identical(source, sdkOmittedValue) ? this.source : source as InboxEventSource,
+    inboxId: identical(inboxId, sdkOmittedValue) ? this.inboxId : inboxId as String,
+    threadId: identical(threadId, sdkOmittedValue) ? this.threadId : threadId as String,
+    thread: identical(thread, sdkOmittedValue) ? this.thread : thread as SdkOptional<InboxThreadSummary>,
+  );
 
-  factory InboxThreadAssignedEventData.fromJson(Map<String, dynamic> json) =>
-      InboxThreadAssignedEventData(
-        assigneeEmail: json.containsKey('assignee_email')
-            ? json['assignee_email'] as String?
-            : throw ArgumentError.value(
-                null, 'assignee_email', 'Required property is missing'),
-        assignedByEmail: json.containsKey('assigned_by_email')
-            ? json['assigned_by_email'] as String?
-            : throw ArgumentError.value(
-                null, 'assigned_by_email', 'Required property is missing'),
-        previousAssigneeEmail: json.containsKey('previous_assignee_email')
-            ? json['previous_assignee_email'] as String?
-            : throw ArgumentError.value(null, 'previous_assignee_email',
-                'Required property is missing'),
-        source: (json['source'] != null
-            ? InboxEventSource.fromJson(json['source'] as String)
-            : null)!,
-        inboxId: (json['inbox_id'] as String?)!,
-        threadId: (json['thread_id'] as String?)!,
-        thread: json['thread'] != null
-            ? SdkPresent((json['thread'] != null
-                ? InboxThreadSummary.fromJson(
-                    json['thread'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory InboxThreadAssignedEventData.fromJson(Map<String, dynamic> json) => InboxThreadAssignedEventData(
+    assigneeEmail: json.containsKey('assignee_email') ? json['assignee_email'] as String? : throw ArgumentError.value(null, 'assignee_email', 'Required property is missing'),
+    assignedByEmail: json.containsKey('assigned_by_email') ? json['assigned_by_email'] as String? : throw ArgumentError.value(null, 'assigned_by_email', 'Required property is missing'),
+    previousAssigneeEmail: json.containsKey('previous_assignee_email') ? json['previous_assignee_email'] as String? : throw ArgumentError.value(null, 'previous_assignee_email', 'Required property is missing'),
+    source: (json['source'] != null ? InboxEventSource.fromJson(json['source'] as String) : null)!,
+    inboxId: (json['inbox_id'] as String?)!,
+    threadId: (json['thread_id'] as String?)!,
+    thread: json['thread'] != null ? SdkPresent((json['thread'] != null ? InboxThreadSummary.fromJson(json['thread'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'assignee_email': assigneeEmail,
-        'assigned_by_email': assignedByEmail,
-        'previous_assignee_email': previousAssigneeEmail,
-        'source': source.toJson(),
-        'inbox_id': inboxId,
-        'thread_id': threadId,
-        ...switch (thread) {
-          SdkPresent<InboxThreadSummary>(value: final value) => {
-              'thread': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'assignee_email': assigneeEmail,
+    'assigned_by_email': assignedByEmail,
+    'previous_assignee_email': previousAssigneeEmail,
+    'source': source.toJson(),
+    'inbox_id': inboxId,
+    'thread_id': threadId,
+    ...switch (thread) {
+      SdkPresent<InboxThreadSummary>(value: final value) => {'thread': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `InboxThreadCreatedEvent` API schema.
 class InboxThreadCreatedEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The event type.
   final InboxThreadCreatedEventType type_;
-
   /// Timestamp when the event was emitted.
   final String createdAt;
-
   /// The data of an `inbox.thread.created`, `inbox.email.received` or `inbox.email.sent` event.
   final InboxThreadEmailEventData data;
 
-  const InboxThreadCreatedEvent(
-      {required this.type_, required this.createdAt, required this.data});
+  const InboxThreadCreatedEvent({required this.type_, required this.createdAt, required this.data});
 
-  InboxThreadCreatedEvent Function(
-      {InboxThreadCreatedEventType type_,
-      String createdAt,
-      InboxThreadEmailEventData data}) get copyWith => _copyWith;
+  InboxThreadCreatedEvent Function({InboxThreadCreatedEventType type_, String createdAt, InboxThreadEmailEventData data}) get copyWith => _copyWith;
 
-  InboxThreadCreatedEvent _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? data = sdkOmittedValue}) =>
-      InboxThreadCreatedEvent(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as InboxThreadCreatedEventType,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as String,
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as InboxThreadEmailEventData,
-      );
+  InboxThreadCreatedEvent _copyWith({Object? type_ = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? data = sdkOmittedValue}) => InboxThreadCreatedEvent(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as InboxThreadCreatedEventType,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as String,
+    data: identical(data, sdkOmittedValue) ? this.data : data as InboxThreadEmailEventData,
+  );
 
-  factory InboxThreadCreatedEvent.fromJson(Map<String, dynamic> json) =>
-      InboxThreadCreatedEvent(
-        type_: (json['type'] != null
-            ? InboxThreadCreatedEventType.fromJson(json['type'] as String)
-            : null)!,
-        createdAt: (json['created_at'] as String?)!,
-        data: (json['data'] != null
-            ? InboxThreadEmailEventData.fromJson(
-                json['data'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory InboxThreadCreatedEvent.fromJson(Map<String, dynamic> json) => InboxThreadCreatedEvent(
+    type_: (json['type'] != null ? InboxThreadCreatedEventType.fromJson(json['type'] as String) : null)!,
+    createdAt: (json['created_at'] as String?)!,
+    data: (json['data'] != null ? InboxThreadEmailEventData.fromJson(json['data'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'created_at': createdAt,
-        'data': data.toJson(),
-      };
+    'type': type_.toJson(),
+    'created_at': createdAt,
+    'data': data.toJson(),
+  };
 }
 
 /// The data of an `inbox.thread.created`, `inbox.email.received` or `inbox.email.sent` event.
 class InboxThreadEmailEventData {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// What made the change.
   final InboxEventSource source;
-
   /// The ID of the inbox.
   final String inboxId;
-
   /// The ID of the thread.
   final String threadId;
-
   /// The ID of the email.
   final String emailId;
-
   /// The thread as it is when the webhook is sent. Absent when the thread no longer exists.
   final SdkOptional<InboxThreadSummary> thread;
-
   /// The email as it is when the webhook is sent, without `html` or `text`. Fetch the body with Retrieve Thread Email. Absent when the email no longer exists.
   final SdkOptional<InboxEventEmail> email;
 
-  const InboxThreadEmailEventData(
-      {required this.source,
-      required this.inboxId,
-      required this.threadId,
-      required this.emailId,
-      this.thread = const SdkOmitted(),
-      this.email = const SdkOmitted()});
+  const InboxThreadEmailEventData({required this.source, required this.inboxId, required this.threadId, required this.emailId, this.thread = const SdkOmitted(), this.email = const SdkOmitted()});
 
-  InboxThreadEmailEventData Function(
-      {InboxEventSource source,
-      String inboxId,
-      String threadId,
-      String emailId,
-      SdkOptional<InboxThreadSummary> thread,
-      SdkOptional<InboxEventEmail> email}) get copyWith => _copyWith;
+  InboxThreadEmailEventData Function({InboxEventSource source, String inboxId, String threadId, String emailId, SdkOptional<InboxThreadSummary> thread, SdkOptional<InboxEventEmail> email}) get copyWith => _copyWith;
 
-  InboxThreadEmailEventData _copyWith(
-          {Object? source = sdkOmittedValue,
-          Object? inboxId = sdkOmittedValue,
-          Object? threadId = sdkOmittedValue,
-          Object? emailId = sdkOmittedValue,
-          Object? thread = sdkOmittedValue,
-          Object? email = sdkOmittedValue}) =>
-      InboxThreadEmailEventData(
-        source: identical(source, sdkOmittedValue)
-            ? this.source
-            : source as InboxEventSource,
-        inboxId: identical(inboxId, sdkOmittedValue)
-            ? this.inboxId
-            : inboxId as String,
-        threadId: identical(threadId, sdkOmittedValue)
-            ? this.threadId
-            : threadId as String,
-        emailId: identical(emailId, sdkOmittedValue)
-            ? this.emailId
-            : emailId as String,
-        thread: identical(thread, sdkOmittedValue)
-            ? this.thread
-            : thread as SdkOptional<InboxThreadSummary>,
-        email: identical(email, sdkOmittedValue)
-            ? this.email
-            : email as SdkOptional<InboxEventEmail>,
-      );
+  InboxThreadEmailEventData _copyWith({Object? source = sdkOmittedValue, Object? inboxId = sdkOmittedValue, Object? threadId = sdkOmittedValue, Object? emailId = sdkOmittedValue, Object? thread = sdkOmittedValue, Object? email = sdkOmittedValue}) => InboxThreadEmailEventData(
+    source: identical(source, sdkOmittedValue) ? this.source : source as InboxEventSource,
+    inboxId: identical(inboxId, sdkOmittedValue) ? this.inboxId : inboxId as String,
+    threadId: identical(threadId, sdkOmittedValue) ? this.threadId : threadId as String,
+    emailId: identical(emailId, sdkOmittedValue) ? this.emailId : emailId as String,
+    thread: identical(thread, sdkOmittedValue) ? this.thread : thread as SdkOptional<InboxThreadSummary>,
+    email: identical(email, sdkOmittedValue) ? this.email : email as SdkOptional<InboxEventEmail>,
+  );
 
-  factory InboxThreadEmailEventData.fromJson(Map<String, dynamic> json) =>
-      InboxThreadEmailEventData(
-        source: (json['source'] != null
-            ? InboxEventSource.fromJson(json['source'] as String)
-            : null)!,
-        inboxId: (json['inbox_id'] as String?)!,
-        threadId: (json['thread_id'] as String?)!,
-        emailId: (json['email_id'] as String?)!,
-        thread: json['thread'] != null
-            ? SdkPresent((json['thread'] != null
-                ? InboxThreadSummary.fromJson(
-                    json['thread'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        email: json['email'] != null
-            ? SdkPresent((json['email'] != null
-                ? InboxEventEmail.fromJson(
-                    json['email'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory InboxThreadEmailEventData.fromJson(Map<String, dynamic> json) => InboxThreadEmailEventData(
+    source: (json['source'] != null ? InboxEventSource.fromJson(json['source'] as String) : null)!,
+    inboxId: (json['inbox_id'] as String?)!,
+    threadId: (json['thread_id'] as String?)!,
+    emailId: (json['email_id'] as String?)!,
+    thread: json['thread'] != null ? SdkPresent((json['thread'] != null ? InboxThreadSummary.fromJson(json['thread'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    email: json['email'] != null ? SdkPresent((json['email'] != null ? InboxEventEmail.fromJson(json['email'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'source': source.toJson(),
-        'inbox_id': inboxId,
-        'thread_id': threadId,
-        'email_id': emailId,
-        ...switch (thread) {
-          SdkPresent<InboxThreadSummary>(value: final value) => {
-              'thread': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (email) {
-          SdkPresent<InboxEventEmail>(value: final value) => {
-              'email': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'source': source.toJson(),
+    'inbox_id': inboxId,
+    'thread_id': threadId,
+    'email_id': emailId,
+    ...switch (thread) {
+      SdkPresent<InboxThreadSummary>(value: final value) => {'thread': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (email) {
+      SdkPresent<InboxEventEmail>(value: final value) => {'email': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `InboxThreadFolderUpdatedEvent` API schema.
 class InboxThreadFolderUpdatedEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The event type.
   final InboxThreadFolderUpdatedEventType type_;
-
   /// Timestamp when the event was emitted.
   final String createdAt;
-
   /// The data of an `inbox.thread.folder.updated` event.
   final InboxThreadFolderUpdatedEventData data;
 
-  const InboxThreadFolderUpdatedEvent(
-      {required this.type_, required this.createdAt, required this.data});
+  const InboxThreadFolderUpdatedEvent({required this.type_, required this.createdAt, required this.data});
 
-  InboxThreadFolderUpdatedEvent Function(
-      {InboxThreadFolderUpdatedEventType type_,
-      String createdAt,
-      InboxThreadFolderUpdatedEventData data}) get copyWith => _copyWith;
+  InboxThreadFolderUpdatedEvent Function({InboxThreadFolderUpdatedEventType type_, String createdAt, InboxThreadFolderUpdatedEventData data}) get copyWith => _copyWith;
 
-  InboxThreadFolderUpdatedEvent _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? data = sdkOmittedValue}) =>
-      InboxThreadFolderUpdatedEvent(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as InboxThreadFolderUpdatedEventType,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as String,
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as InboxThreadFolderUpdatedEventData,
-      );
+  InboxThreadFolderUpdatedEvent _copyWith({Object? type_ = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? data = sdkOmittedValue}) => InboxThreadFolderUpdatedEvent(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as InboxThreadFolderUpdatedEventType,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as String,
+    data: identical(data, sdkOmittedValue) ? this.data : data as InboxThreadFolderUpdatedEventData,
+  );
 
-  factory InboxThreadFolderUpdatedEvent.fromJson(Map<String, dynamic> json) =>
-      InboxThreadFolderUpdatedEvent(
-        type_: (json['type'] != null
-            ? InboxThreadFolderUpdatedEventType.fromJson(json['type'] as String)
-            : null)!,
-        createdAt: (json['created_at'] as String?)!,
-        data: (json['data'] != null
-            ? InboxThreadFolderUpdatedEventData.fromJson(
-                json['data'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory InboxThreadFolderUpdatedEvent.fromJson(Map<String, dynamic> json) => InboxThreadFolderUpdatedEvent(
+    type_: (json['type'] != null ? InboxThreadFolderUpdatedEventType.fromJson(json['type'] as String) : null)!,
+    createdAt: (json['created_at'] as String?)!,
+    data: (json['data'] != null ? InboxThreadFolderUpdatedEventData.fromJson(json['data'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'created_at': createdAt,
-        'data': data.toJson(),
-      };
+    'type': type_.toJson(),
+    'created_at': createdAt,
+    'data': data.toJson(),
+  };
 }
 
 /// The data of an `inbox.thread.folder.updated` event.
 class InboxThreadFolderUpdatedEventData {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The folder the thread was in.
   final InboxThreadFolderUpdatedEventDataFrom from;
-
   /// The folder the thread moved to.
   final InboxThreadFolderUpdatedEventDataTo to;
-
   /// What made the change.
   final InboxEventSource source;
-
   /// The ID of the inbox.
   final String inboxId;
-
   /// The ID of the thread.
   final String threadId;
-
   /// The thread as it is when the webhook is sent. Absent when the thread no longer exists.
   final SdkOptional<InboxThreadSummary> thread;
 
-  const InboxThreadFolderUpdatedEventData(
-      {required this.from,
-      required this.to,
-      required this.source,
-      required this.inboxId,
-      required this.threadId,
-      this.thread = const SdkOmitted()});
+  const InboxThreadFolderUpdatedEventData({required this.from, required this.to, required this.source, required this.inboxId, required this.threadId, this.thread = const SdkOmitted()});
 
-  InboxThreadFolderUpdatedEventData Function(
-      {InboxThreadFolderUpdatedEventDataFrom from,
-      InboxThreadFolderUpdatedEventDataTo to,
-      InboxEventSource source,
-      String inboxId,
-      String threadId,
-      SdkOptional<InboxThreadSummary> thread}) get copyWith => _copyWith;
+  InboxThreadFolderUpdatedEventData Function({InboxThreadFolderUpdatedEventDataFrom from, InboxThreadFolderUpdatedEventDataTo to, InboxEventSource source, String inboxId, String threadId, SdkOptional<InboxThreadSummary> thread}) get copyWith => _copyWith;
 
-  InboxThreadFolderUpdatedEventData _copyWith(
-          {Object? from = sdkOmittedValue,
-          Object? to = sdkOmittedValue,
-          Object? source = sdkOmittedValue,
-          Object? inboxId = sdkOmittedValue,
-          Object? threadId = sdkOmittedValue,
-          Object? thread = sdkOmittedValue}) =>
-      InboxThreadFolderUpdatedEventData(
-        from: identical(from, sdkOmittedValue)
-            ? this.from
-            : from as InboxThreadFolderUpdatedEventDataFrom,
-        to: identical(to, sdkOmittedValue)
-            ? this.to
-            : to as InboxThreadFolderUpdatedEventDataTo,
-        source: identical(source, sdkOmittedValue)
-            ? this.source
-            : source as InboxEventSource,
-        inboxId: identical(inboxId, sdkOmittedValue)
-            ? this.inboxId
-            : inboxId as String,
-        threadId: identical(threadId, sdkOmittedValue)
-            ? this.threadId
-            : threadId as String,
-        thread: identical(thread, sdkOmittedValue)
-            ? this.thread
-            : thread as SdkOptional<InboxThreadSummary>,
-      );
+  InboxThreadFolderUpdatedEventData _copyWith({Object? from = sdkOmittedValue, Object? to = sdkOmittedValue, Object? source = sdkOmittedValue, Object? inboxId = sdkOmittedValue, Object? threadId = sdkOmittedValue, Object? thread = sdkOmittedValue}) => InboxThreadFolderUpdatedEventData(
+    from: identical(from, sdkOmittedValue) ? this.from : from as InboxThreadFolderUpdatedEventDataFrom,
+    to: identical(to, sdkOmittedValue) ? this.to : to as InboxThreadFolderUpdatedEventDataTo,
+    source: identical(source, sdkOmittedValue) ? this.source : source as InboxEventSource,
+    inboxId: identical(inboxId, sdkOmittedValue) ? this.inboxId : inboxId as String,
+    threadId: identical(threadId, sdkOmittedValue) ? this.threadId : threadId as String,
+    thread: identical(thread, sdkOmittedValue) ? this.thread : thread as SdkOptional<InboxThreadSummary>,
+  );
 
-  factory InboxThreadFolderUpdatedEventData.fromJson(
-          Map<String, dynamic> json) =>
-      InboxThreadFolderUpdatedEventData(
-        from: (json['from'] != null
-            ? InboxThreadFolderUpdatedEventDataFrom.fromJson(
-                json['from'] as String)
-            : null)!,
-        to: (json['to'] != null
-            ? InboxThreadFolderUpdatedEventDataTo.fromJson(json['to'] as String)
-            : null)!,
-        source: (json['source'] != null
-            ? InboxEventSource.fromJson(json['source'] as String)
-            : null)!,
-        inboxId: (json['inbox_id'] as String?)!,
-        threadId: (json['thread_id'] as String?)!,
-        thread: json['thread'] != null
-            ? SdkPresent((json['thread'] != null
-                ? InboxThreadSummary.fromJson(
-                    json['thread'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory InboxThreadFolderUpdatedEventData.fromJson(Map<String, dynamic> json) => InboxThreadFolderUpdatedEventData(
+    from: (json['from'] != null ? InboxThreadFolderUpdatedEventDataFrom.fromJson(json['from'] as String) : null)!,
+    to: (json['to'] != null ? InboxThreadFolderUpdatedEventDataTo.fromJson(json['to'] as String) : null)!,
+    source: (json['source'] != null ? InboxEventSource.fromJson(json['source'] as String) : null)!,
+    inboxId: (json['inbox_id'] as String?)!,
+    threadId: (json['thread_id'] as String?)!,
+    thread: json['thread'] != null ? SdkPresent((json['thread'] != null ? InboxThreadSummary.fromJson(json['thread'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'from': from.toJson(),
-        'to': to.toJson(),
-        'source': source.toJson(),
-        'inbox_id': inboxId,
-        'thread_id': threadId,
-        ...switch (thread) {
-          SdkPresent<InboxThreadSummary>(value: final value) => {
-              'thread': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'from': from.toJson(),
+    'to': to.toJson(),
+    'source': source.toJson(),
+    'inbox_id': inboxId,
+    'thread_id': threadId,
+    ...switch (thread) {
+      SdkPresent<InboxThreadSummary>(value: final value) => {'thread': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

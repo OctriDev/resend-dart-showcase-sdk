@@ -8,448 +8,239 @@ part of 'inbox_event.dart';
 class InboxEventData {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// What made the change.
   final InboxEventSource source;
-
   /// The ID of the inbox.
   final String inboxId;
-
   /// The inbox as it is when the webhook is sent. Absent when the inbox no longer exists.
   final SdkOptional<Inbox> inbox;
 
-  const InboxEventData(
-      {required this.source,
-      required this.inboxId,
-      this.inbox = const SdkOmitted()});
+  const InboxEventData({required this.source, required this.inboxId, this.inbox = const SdkOmitted()});
 
-  InboxEventData Function(
-      {InboxEventSource source,
-      String inboxId,
-      SdkOptional<Inbox> inbox}) get copyWith => _copyWith;
+  InboxEventData Function({InboxEventSource source, String inboxId, SdkOptional<Inbox> inbox}) get copyWith => _copyWith;
 
-  InboxEventData _copyWith(
-          {Object? source = sdkOmittedValue,
-          Object? inboxId = sdkOmittedValue,
-          Object? inbox = sdkOmittedValue}) =>
-      InboxEventData(
-        source: identical(source, sdkOmittedValue)
-            ? this.source
-            : source as InboxEventSource,
-        inboxId: identical(inboxId, sdkOmittedValue)
-            ? this.inboxId
-            : inboxId as String,
-        inbox: identical(inbox, sdkOmittedValue)
-            ? this.inbox
-            : inbox as SdkOptional<Inbox>,
-      );
+  InboxEventData _copyWith({Object? source = sdkOmittedValue, Object? inboxId = sdkOmittedValue, Object? inbox = sdkOmittedValue}) => InboxEventData(
+    source: identical(source, sdkOmittedValue) ? this.source : source as InboxEventSource,
+    inboxId: identical(inboxId, sdkOmittedValue) ? this.inboxId : inboxId as String,
+    inbox: identical(inbox, sdkOmittedValue) ? this.inbox : inbox as SdkOptional<Inbox>,
+  );
 
   factory InboxEventData.fromJson(Map<String, dynamic> json) => InboxEventData(
-        source: (json['source'] != null
-            ? InboxEventSource.fromJson(json['source'] as String)
-            : null)!,
-        inboxId: (json['inbox_id'] as String?)!,
-        inbox: json['inbox'] != null
-            ? SdkPresent((json['inbox'] != null
-                ? Inbox.fromJson(json['inbox'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+    source: (json['source'] != null ? InboxEventSource.fromJson(json['source'] as String) : null)!,
+    inboxId: (json['inbox_id'] as String?)!,
+    inbox: json['inbox'] != null ? SdkPresent((json['inbox'] != null ? Inbox.fromJson(json['inbox'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'source': source.toJson(),
-        'inbox_id': inboxId,
-        ...switch (inbox) {
-          SdkPresent<Inbox>(value: final value) => {
-              'inbox': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'source': source.toJson(),
+    'inbox_id': inboxId,
+    ...switch (inbox) {
+      SdkPresent<Inbox>(value: final value) => {'inbox': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// The draft carried by an inbox webhook event. It has no `html` or `text`.
 class InboxEventDraft {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The object type. Always `inbox_draft`.
   final String object;
-
   /// The ID of the draft.
   final String id;
-
   /// `standalone` for a new conversation, or `reply`.
   final InboxEventDraftType type_;
-
   /// The recipients.
   final List<String>? to;
-
   /// The CC recipients.
   final List<String> cc;
-
   /// The BCC recipients.
   final List<String> bcc;
-
   /// The subject.
   final String? subject;
-
   /// The ID of the thread when this draft is a reply. Null otherwise.
   final String? threadId;
-
   /// The ID of the email this draft replies to. Null otherwise.
   final String? replyToEmailId;
-
   /// The ID of the queued outbound email after send. Null until then.
   final String? emailId;
-
   /// Timestamp when the draft was created.
   final String createdAt;
-
   /// Timestamp when the draft was last saved.
   final String updatedAt;
-
   /// The files stored on the draft.
   final List<InboxDraftAttachment> attachments;
 
-  const InboxEventDraft(
-      {required this.object,
-      required this.id,
-      required this.type_,
-      required this.to,
-      required this.cc,
-      required this.bcc,
-      required this.subject,
-      required this.threadId,
-      required this.replyToEmailId,
-      required this.emailId,
-      required this.createdAt,
-      required this.updatedAt,
-      required this.attachments});
+  const InboxEventDraft({required this.object, required this.id, required this.type_, required this.to, required this.cc, required this.bcc, required this.subject, required this.threadId, required this.replyToEmailId, required this.emailId, required this.createdAt, required this.updatedAt, required this.attachments});
 
-  InboxEventDraft Function(
-      {String object,
-      String id,
-      InboxEventDraftType type_,
-      List<String>? to,
-      List<String> cc,
-      List<String> bcc,
-      String? subject,
-      String? threadId,
-      String? replyToEmailId,
-      String? emailId,
-      String createdAt,
-      String updatedAt,
-      List<InboxDraftAttachment> attachments}) get copyWith => _copyWith;
+  InboxEventDraft Function({String object, String id, InboxEventDraftType type_, List<String>? to, List<String> cc, List<String> bcc, String? subject, String? threadId, String? replyToEmailId, String? emailId, String createdAt, String updatedAt, List<InboxDraftAttachment> attachments}) get copyWith => _copyWith;
 
-  InboxEventDraft _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? to = sdkOmittedValue,
-          Object? cc = sdkOmittedValue,
-          Object? bcc = sdkOmittedValue,
-          Object? subject = sdkOmittedValue,
-          Object? threadId = sdkOmittedValue,
-          Object? replyToEmailId = sdkOmittedValue,
-          Object? emailId = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? updatedAt = sdkOmittedValue,
-          Object? attachments = sdkOmittedValue}) =>
-      InboxEventDraft(
-        object:
-            identical(object, sdkOmittedValue) ? this.object : object as String,
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as InboxEventDraftType,
-        to: identical(to, sdkOmittedValue) ? this.to : to as List<String>?,
-        cc: identical(cc, sdkOmittedValue) ? this.cc : cc as List<String>,
-        bcc: identical(bcc, sdkOmittedValue) ? this.bcc : bcc as List<String>,
-        subject: identical(subject, sdkOmittedValue)
-            ? this.subject
-            : subject as String?,
-        threadId: identical(threadId, sdkOmittedValue)
-            ? this.threadId
-            : threadId as String?,
-        replyToEmailId: identical(replyToEmailId, sdkOmittedValue)
-            ? this.replyToEmailId
-            : replyToEmailId as String?,
-        emailId: identical(emailId, sdkOmittedValue)
-            ? this.emailId
-            : emailId as String?,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as String,
-        updatedAt: identical(updatedAt, sdkOmittedValue)
-            ? this.updatedAt
-            : updatedAt as String,
-        attachments: identical(attachments, sdkOmittedValue)
-            ? this.attachments
-            : attachments as List<InboxDraftAttachment>,
-      );
+  InboxEventDraft _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? to = sdkOmittedValue, Object? cc = sdkOmittedValue, Object? bcc = sdkOmittedValue, Object? subject = sdkOmittedValue, Object? threadId = sdkOmittedValue, Object? replyToEmailId = sdkOmittedValue, Object? emailId = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue, Object? attachments = sdkOmittedValue}) => InboxEventDraft(
+    object: identical(object, sdkOmittedValue) ? this.object : object as String,
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as InboxEventDraftType,
+    to: identical(to, sdkOmittedValue) ? this.to : to as List<String>?,
+    cc: identical(cc, sdkOmittedValue) ? this.cc : cc as List<String>,
+    bcc: identical(bcc, sdkOmittedValue) ? this.bcc : bcc as List<String>,
+    subject: identical(subject, sdkOmittedValue) ? this.subject : subject as String?,
+    threadId: identical(threadId, sdkOmittedValue) ? this.threadId : threadId as String?,
+    replyToEmailId: identical(replyToEmailId, sdkOmittedValue) ? this.replyToEmailId : replyToEmailId as String?,
+    emailId: identical(emailId, sdkOmittedValue) ? this.emailId : emailId as String?,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as String,
+    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as String,
+    attachments: identical(attachments, sdkOmittedValue) ? this.attachments : attachments as List<InboxDraftAttachment>,
+  );
 
-  factory InboxEventDraft.fromJson(Map<String, dynamic> json) =>
-      InboxEventDraft(
-        object: (json['object'] as String?)!,
-        id: (json['id'] as String?)!,
-        type_: (json['type'] != null
-            ? InboxEventDraftType.fromJson(json['type'] as String)
-            : null)!,
-        to: json.containsKey('to')
-            ? (json['to'] as List?)?.map((e) => e as String).toList()
-            : throw ArgumentError.value(
-                null, 'to', 'Required property is missing'),
-        cc: ((json['cc'] as List?)?.map((e) => e as String).toList())!,
-        bcc: ((json['bcc'] as List?)?.map((e) => e as String).toList())!,
-        subject: json.containsKey('subject')
-            ? json['subject'] as String?
-            : throw ArgumentError.value(
-                null, 'subject', 'Required property is missing'),
-        threadId: json.containsKey('thread_id')
-            ? json['thread_id'] as String?
-            : throw ArgumentError.value(
-                null, 'thread_id', 'Required property is missing'),
-        replyToEmailId: json.containsKey('reply_to_email_id')
-            ? json['reply_to_email_id'] as String?
-            : throw ArgumentError.value(
-                null, 'reply_to_email_id', 'Required property is missing'),
-        emailId: json.containsKey('email_id')
-            ? json['email_id'] as String?
-            : throw ArgumentError.value(
-                null, 'email_id', 'Required property is missing'),
-        createdAt: (json['created_at'] as String?)!,
-        updatedAt: (json['updated_at'] as String?)!,
-        attachments: ((json['attachments'] as List?)
-            ?.map(
-                (e) => InboxDraftAttachment.fromJson(e as Map<String, dynamic>))
-            .toList())!,
-      );
+  factory InboxEventDraft.fromJson(Map<String, dynamic> json) => InboxEventDraft(
+    object: (json['object'] as String?)!,
+    id: (json['id'] as String?)!,
+    type_: (json['type'] != null ? InboxEventDraftType.fromJson(json['type'] as String) : null)!,
+    to: json.containsKey('to') ? (json['to'] as List?)?.map((e) => e as String).toList() : throw ArgumentError.value(null, 'to', 'Required property is missing'),
+    cc: ((json['cc'] as List?)?.map((e) => e as String).toList())!,
+    bcc: ((json['bcc'] as List?)?.map((e) => e as String).toList())!,
+    subject: json.containsKey('subject') ? json['subject'] as String? : throw ArgumentError.value(null, 'subject', 'Required property is missing'),
+    threadId: json.containsKey('thread_id') ? json['thread_id'] as String? : throw ArgumentError.value(null, 'thread_id', 'Required property is missing'),
+    replyToEmailId: json.containsKey('reply_to_email_id') ? json['reply_to_email_id'] as String? : throw ArgumentError.value(null, 'reply_to_email_id', 'Required property is missing'),
+    emailId: json.containsKey('email_id') ? json['email_id'] as String? : throw ArgumentError.value(null, 'email_id', 'Required property is missing'),
+    createdAt: (json['created_at'] as String?)!,
+    updatedAt: (json['updated_at'] as String?)!,
+    attachments: ((json['attachments'] as List?)?.map((e) => InboxDraftAttachment.fromJson(e as Map<String, dynamic>)).toList())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'object': object,
-        'id': id,
-        'type': type_.toJson(),
-        'to': to,
-        'cc': cc,
-        'bcc': bcc,
-        'subject': subject,
-        'thread_id': threadId,
-        'reply_to_email_id': replyToEmailId,
-        'email_id': emailId,
-        'created_at': createdAt,
-        'updated_at': updatedAt,
-        'attachments': attachments.map((item) => item.toJson()).toList(),
-      };
+    'object': object,
+    'id': id,
+    'type': type_.toJson(),
+    'to': to,
+    'cc': cc,
+    'bcc': bcc,
+    'subject': subject,
+    'thread_id': threadId,
+    'reply_to_email_id': replyToEmailId,
+    'email_id': emailId,
+    'created_at': createdAt,
+    'updated_at': updatedAt,
+    'attachments': attachments.map((item) => item.toJson()).toList(),
+  };
 }
 
 /// The email carried by an inbox webhook event. It has no `html` or `text`.
 class InboxEventEmail {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The ID of the email.
   final String id;
-
   /// Whether the email was received by the inbox or sent from it.
   final InboxEventEmailDirection direction;
-
   /// The sender, as an address or as `Name &lt;address&gt;`.
   final String from;
-
   /// The recipients of the email.
   final List<String> to;
-
   /// The CC recipients of the email.
   final List<String> cc;
-
   /// The BCC recipients of the email.
   final List<String> bcc;
-
   /// The Reply-To addresses.
   final List<String> replyTo;
-
   /// The subject of the email.
   final String? subject;
-
   /// The Message-ID header of the email.
   final String? messageId;
-
   /// The attachments on the email.
   final List<InboxEventEmailAttachment> attachments;
-
   /// Whether the email has been read.
   final bool read;
-
   /// Timestamp when the email arrived or was sent.
   final String receivedAt;
 
-  const InboxEventEmail(
-      {required this.id,
-      required this.direction,
-      required this.from,
-      required this.to,
-      required this.cc,
-      required this.bcc,
-      required this.replyTo,
-      required this.subject,
-      required this.messageId,
-      required this.attachments,
-      required this.read,
-      required this.receivedAt});
+  const InboxEventEmail({required this.id, required this.direction, required this.from, required this.to, required this.cc, required this.bcc, required this.replyTo, required this.subject, required this.messageId, required this.attachments, required this.read, required this.receivedAt});
 
-  InboxEventEmail Function(
-      {String id,
-      InboxEventEmailDirection direction,
-      String from,
-      List<String> to,
-      List<String> cc,
-      List<String> bcc,
-      List<String> replyTo,
-      String? subject,
-      String? messageId,
-      List<InboxEventEmailAttachment> attachments,
-      bool read,
-      String receivedAt}) get copyWith => _copyWith;
+  InboxEventEmail Function({String id, InboxEventEmailDirection direction, String from, List<String> to, List<String> cc, List<String> bcc, List<String> replyTo, String? subject, String? messageId, List<InboxEventEmailAttachment> attachments, bool read, String receivedAt}) get copyWith => _copyWith;
 
-  InboxEventEmail _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? direction = sdkOmittedValue,
-          Object? from = sdkOmittedValue,
-          Object? to = sdkOmittedValue,
-          Object? cc = sdkOmittedValue,
-          Object? bcc = sdkOmittedValue,
-          Object? replyTo = sdkOmittedValue,
-          Object? subject = sdkOmittedValue,
-          Object? messageId = sdkOmittedValue,
-          Object? attachments = sdkOmittedValue,
-          Object? read = sdkOmittedValue,
-          Object? receivedAt = sdkOmittedValue}) =>
-      InboxEventEmail(
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        direction: identical(direction, sdkOmittedValue)
-            ? this.direction
-            : direction as InboxEventEmailDirection,
-        from: identical(from, sdkOmittedValue) ? this.from : from as String,
-        to: identical(to, sdkOmittedValue) ? this.to : to as List<String>,
-        cc: identical(cc, sdkOmittedValue) ? this.cc : cc as List<String>,
-        bcc: identical(bcc, sdkOmittedValue) ? this.bcc : bcc as List<String>,
-        replyTo: identical(replyTo, sdkOmittedValue)
-            ? this.replyTo
-            : replyTo as List<String>,
-        subject: identical(subject, sdkOmittedValue)
-            ? this.subject
-            : subject as String?,
-        messageId: identical(messageId, sdkOmittedValue)
-            ? this.messageId
-            : messageId as String?,
-        attachments: identical(attachments, sdkOmittedValue)
-            ? this.attachments
-            : attachments as List<InboxEventEmailAttachment>,
-        read: identical(read, sdkOmittedValue) ? this.read : read as bool,
-        receivedAt: identical(receivedAt, sdkOmittedValue)
-            ? this.receivedAt
-            : receivedAt as String,
-      );
+  InboxEventEmail _copyWith({Object? id = sdkOmittedValue, Object? direction = sdkOmittedValue, Object? from = sdkOmittedValue, Object? to = sdkOmittedValue, Object? cc = sdkOmittedValue, Object? bcc = sdkOmittedValue, Object? replyTo = sdkOmittedValue, Object? subject = sdkOmittedValue, Object? messageId = sdkOmittedValue, Object? attachments = sdkOmittedValue, Object? read = sdkOmittedValue, Object? receivedAt = sdkOmittedValue}) => InboxEventEmail(
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    direction: identical(direction, sdkOmittedValue) ? this.direction : direction as InboxEventEmailDirection,
+    from: identical(from, sdkOmittedValue) ? this.from : from as String,
+    to: identical(to, sdkOmittedValue) ? this.to : to as List<String>,
+    cc: identical(cc, sdkOmittedValue) ? this.cc : cc as List<String>,
+    bcc: identical(bcc, sdkOmittedValue) ? this.bcc : bcc as List<String>,
+    replyTo: identical(replyTo, sdkOmittedValue) ? this.replyTo : replyTo as List<String>,
+    subject: identical(subject, sdkOmittedValue) ? this.subject : subject as String?,
+    messageId: identical(messageId, sdkOmittedValue) ? this.messageId : messageId as String?,
+    attachments: identical(attachments, sdkOmittedValue) ? this.attachments : attachments as List<InboxEventEmailAttachment>,
+    read: identical(read, sdkOmittedValue) ? this.read : read as bool,
+    receivedAt: identical(receivedAt, sdkOmittedValue) ? this.receivedAt : receivedAt as String,
+  );
 
-  factory InboxEventEmail.fromJson(Map<String, dynamic> json) =>
-      InboxEventEmail(
-        id: (json['id'] as String?)!,
-        direction: (json['direction'] != null
-            ? InboxEventEmailDirection.fromJson(json['direction'] as String)
-            : null)!,
-        from: (json['from'] as String?)!,
-        to: ((json['to'] as List?)?.map((e) => e as String).toList())!,
-        cc: ((json['cc'] as List?)?.map((e) => e as String).toList())!,
-        bcc: ((json['bcc'] as List?)?.map((e) => e as String).toList())!,
-        replyTo:
-            ((json['reply_to'] as List?)?.map((e) => e as String).toList())!,
-        subject: json.containsKey('subject')
-            ? json['subject'] as String?
-            : throw ArgumentError.value(
-                null, 'subject', 'Required property is missing'),
-        messageId: json.containsKey('message_id')
-            ? json['message_id'] as String?
-            : throw ArgumentError.value(
-                null, 'message_id', 'Required property is missing'),
-        attachments: ((json['attachments'] as List?)
-            ?.map((e) =>
-                InboxEventEmailAttachment.fromJson(e as Map<String, dynamic>))
-            .toList())!,
-        read: (json['read'] as bool?)!,
-        receivedAt: (json['received_at'] as String?)!,
-      );
+  factory InboxEventEmail.fromJson(Map<String, dynamic> json) => InboxEventEmail(
+    id: (json['id'] as String?)!,
+    direction: (json['direction'] != null ? InboxEventEmailDirection.fromJson(json['direction'] as String) : null)!,
+    from: (json['from'] as String?)!,
+    to: ((json['to'] as List?)?.map((e) => e as String).toList())!,
+    cc: ((json['cc'] as List?)?.map((e) => e as String).toList())!,
+    bcc: ((json['bcc'] as List?)?.map((e) => e as String).toList())!,
+    replyTo: ((json['reply_to'] as List?)?.map((e) => e as String).toList())!,
+    subject: json.containsKey('subject') ? json['subject'] as String? : throw ArgumentError.value(null, 'subject', 'Required property is missing'),
+    messageId: json.containsKey('message_id') ? json['message_id'] as String? : throw ArgumentError.value(null, 'message_id', 'Required property is missing'),
+    attachments: ((json['attachments'] as List?)?.map((e) => InboxEventEmailAttachment.fromJson(e as Map<String, dynamic>)).toList())!,
+    read: (json['read'] as bool?)!,
+    receivedAt: (json['received_at'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-        'direction': direction.toJson(),
-        'from': from,
-        'to': to,
-        'cc': cc,
-        'bcc': bcc,
-        'reply_to': replyTo,
-        'subject': subject,
-        'message_id': messageId,
-        'attachments': attachments.map((item) => item.toJson()).toList(),
-        'read': read,
-        'received_at': receivedAt,
-      };
+    'id': id,
+    'direction': direction.toJson(),
+    'from': from,
+    'to': to,
+    'cc': cc,
+    'bcc': bcc,
+    'reply_to': replyTo,
+    'subject': subject,
+    'message_id': messageId,
+    'attachments': attachments.map((item) => item.toJson()).toList(),
+    'read': read,
+    'received_at': receivedAt,
+  };
 }
 
 /// An attachment on an email in an inbox webhook event.
 class InboxEventEmailAttachment {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The ID of the attachment.
   final String id;
-
   /// The filename of the attachment.
   final String? filename;
-
   /// The size of the attachment in bytes.
   final int? size;
 
-  const InboxEventEmailAttachment(
-      {required this.id, required this.filename, required this.size});
+  const InboxEventEmailAttachment({required this.id, required this.filename, required this.size});
 
-  InboxEventEmailAttachment Function({String id, String? filename, int? size})
-      get copyWith => _copyWith;
+  InboxEventEmailAttachment Function({String id, String? filename, int? size}) get copyWith => _copyWith;
 
-  InboxEventEmailAttachment _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? filename = sdkOmittedValue,
-          Object? size = sdkOmittedValue}) =>
-      InboxEventEmailAttachment(
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        filename: identical(filename, sdkOmittedValue)
-            ? this.filename
-            : filename as String?,
-        size: identical(size, sdkOmittedValue) ? this.size : size as int?,
-      );
+  InboxEventEmailAttachment _copyWith({Object? id = sdkOmittedValue, Object? filename = sdkOmittedValue, Object? size = sdkOmittedValue}) => InboxEventEmailAttachment(
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    filename: identical(filename, sdkOmittedValue) ? this.filename : filename as String?,
+    size: identical(size, sdkOmittedValue) ? this.size : size as int?,
+  );
 
-  factory InboxEventEmailAttachment.fromJson(Map<String, dynamic> json) =>
-      InboxEventEmailAttachment(
-        id: (json['id'] as String?)!,
-        filename: json.containsKey('filename')
-            ? json['filename'] as String?
-            : throw ArgumentError.value(
-                null, 'filename', 'Required property is missing'),
-        size: json.containsKey('size')
-            ? (json['size'] as num?)?.toInt()
-            : throw ArgumentError.value(
-                null, 'size', 'Required property is missing'),
-      );
+  factory InboxEventEmailAttachment.fromJson(Map<String, dynamic> json) => InboxEventEmailAttachment(
+    id: (json['id'] as String?)!,
+    filename: json.containsKey('filename') ? json['filename'] as String? : throw ArgumentError.value(null, 'filename', 'Required property is missing'),
+    size: json.containsKey('size') ? (json['size'] as num?)?.toInt() : throw ArgumentError.value(null, 'size', 'Required property is missing'),
+  );
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-        'filename': filename,
-        'size': size,
-      };
+    'id': id,
+    'filename': filename,
+    'size': size,
+  };
 }
 
 /// What made the change.
 final class InboxEventSource {
+
   final String value;
 
   const InboxEventSource._(this.value);
@@ -463,13 +254,10 @@ final class InboxEventSource {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is InboxEventSource && other.value == value;
+  @override bool operator ==(Object other) => other is InboxEventSource && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

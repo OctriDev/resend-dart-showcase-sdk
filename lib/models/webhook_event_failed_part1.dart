@@ -8,7 +8,6 @@ part of 'webhook_event_failed.dart';
 class WebhookEventFailed {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Reason for the email failure (e.g., `reached_daily_quota`).
   final String reason;
 
@@ -16,18 +15,15 @@ class WebhookEventFailed {
 
   WebhookEventFailed Function({String reason}) get copyWith => _copyWith;
 
-  WebhookEventFailed _copyWith({Object? reason = sdkOmittedValue}) =>
-      WebhookEventFailed(
-        reason:
-            identical(reason, sdkOmittedValue) ? this.reason : reason as String,
-      );
+  WebhookEventFailed _copyWith({Object? reason = sdkOmittedValue}) => WebhookEventFailed(
+    reason: identical(reason, sdkOmittedValue) ? this.reason : reason as String,
+  );
 
-  factory WebhookEventFailed.fromJson(Map<String, dynamic> json) =>
-      WebhookEventFailed(
-        reason: (json['reason'] as String?)!,
-      );
+  factory WebhookEventFailed.fromJson(Map<String, dynamic> json) => WebhookEventFailed(
+    reason: (json['reason'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'reason': reason,
-      };
+    'reason': reason,
+  };
 }

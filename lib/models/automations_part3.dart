@@ -8,516 +8,291 @@ part of 'automations.dart';
 class DeleteAutomationResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Type of the response object.
   final SdkOptional<String> object;
-
   /// The ID of the deleted automation.
   final SdkOptional<String> id;
-
   /// Indicates whether the automation was successfully deleted.
   final SdkOptional<bool> deleted;
 
-  const DeleteAutomationResponse(
-      {this.object = const SdkOmitted(),
-      this.id = const SdkOmitted(),
-      this.deleted = const SdkOmitted()});
+  const DeleteAutomationResponse({this.object = const SdkOmitted(), this.id = const SdkOmitted(), this.deleted = const SdkOmitted()});
 
-  DeleteAutomationResponse Function(
-      {SdkOptional<String> object,
-      SdkOptional<String> id,
-      SdkOptional<bool> deleted}) get copyWith => _copyWith;
+  DeleteAutomationResponse Function({SdkOptional<String> object, SdkOptional<String> id, SdkOptional<bool> deleted}) get copyWith => _copyWith;
 
-  DeleteAutomationResponse _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? deleted = sdkOmittedValue}) =>
-      DeleteAutomationResponse(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as SdkOptional<String>,
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-        deleted: identical(deleted, sdkOmittedValue)
-            ? this.deleted
-            : deleted as SdkOptional<bool>,
-      );
+  DeleteAutomationResponse _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? deleted = sdkOmittedValue}) => DeleteAutomationResponse(
+    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<String>,
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+    deleted: identical(deleted, sdkOmittedValue) ? this.deleted : deleted as SdkOptional<bool>,
+  );
 
-  factory DeleteAutomationResponse.fromJson(Map<String, dynamic> json) =>
-      DeleteAutomationResponse(
-        object: json['object'] != null
-            ? SdkPresent((json['object'] as String?)!)
-            : const SdkOmitted(),
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-        deleted: json['deleted'] != null
-            ? SdkPresent((json['deleted'] as bool?)!)
-            : const SdkOmitted(),
-      );
+  factory DeleteAutomationResponse.fromJson(Map<String, dynamic> json) => DeleteAutomationResponse(
+    object: json['object'] != null ? SdkPresent((json['object'] as String?)!) : const SdkOmitted(),
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+    deleted: json['deleted'] != null ? SdkPresent((json['deleted'] as bool?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (object) {
-          SdkPresent<String>(value: final value) => {
-              'object': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (deleted) {
-          SdkPresent<bool>(value: final value) => {
-              'deleted': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (object) {
+      SdkPresent<String>(value: final value) => {'object': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (deleted) {
+      SdkPresent<bool>(value: final value) => {'deleted': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `DuplicateAutomationResponse` API schema.
 class DuplicateAutomationResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Type of the response object.
   final SdkOptional<String> object;
-
   /// The ID of the duplicated automation.
   final SdkOptional<String> id;
 
-  const DuplicateAutomationResponse(
-      {this.object = const SdkOmitted(), this.id = const SdkOmitted()});
+  const DuplicateAutomationResponse({this.object = const SdkOmitted(), this.id = const SdkOmitted()});
 
-  DuplicateAutomationResponse Function(
-      {SdkOptional<String> object,
-      SdkOptional<String> id}) get copyWith => _copyWith;
+  DuplicateAutomationResponse Function({SdkOptional<String> object, SdkOptional<String> id}) get copyWith => _copyWith;
 
-  DuplicateAutomationResponse _copyWith(
-          {Object? object = sdkOmittedValue, Object? id = sdkOmittedValue}) =>
-      DuplicateAutomationResponse(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as SdkOptional<String>,
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-      );
+  DuplicateAutomationResponse _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue}) => DuplicateAutomationResponse(
+    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<String>,
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+  );
 
-  factory DuplicateAutomationResponse.fromJson(Map<String, dynamic> json) =>
-      DuplicateAutomationResponse(
-        object: json['object'] != null
-            ? SdkPresent((json['object'] as String?)!)
-            : const SdkOmitted(),
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory DuplicateAutomationResponse.fromJson(Map<String, dynamic> json) => DuplicateAutomationResponse(
+    object: json['object'] != null ? SdkPresent((json['object'] as String?)!) : const SdkOmitted(),
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (object) {
-          SdkPresent<String>(value: final value) => {
-              'object': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (object) {
+      SdkPresent<String>(value: final value) => {'object': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `ListAutomationRunsResponse` API schema.
 class ListAutomationRunsResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Type of the response object.
   final SdkOptional<String> object;
-
   /// Indicates if there are more results available.
   final SdkOptional<bool> hasMore;
-
   /// Array of automation runs.
   final SdkOptional<List<AutomationRunListItem>> data;
 
-  const ListAutomationRunsResponse(
-      {this.object = const SdkOmitted(),
-      this.hasMore = const SdkOmitted(),
-      this.data = const SdkOmitted()});
+  const ListAutomationRunsResponse({this.object = const SdkOmitted(), this.hasMore = const SdkOmitted(), this.data = const SdkOmitted()});
 
-  ListAutomationRunsResponse Function(
-      {SdkOptional<String> object,
-      SdkOptional<bool> hasMore,
-      SdkOptional<List<AutomationRunListItem>> data}) get copyWith => _copyWith;
+  ListAutomationRunsResponse Function({SdkOptional<String> object, SdkOptional<bool> hasMore, SdkOptional<List<AutomationRunListItem>> data}) get copyWith => _copyWith;
 
-  ListAutomationRunsResponse _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? hasMore = sdkOmittedValue,
-          Object? data = sdkOmittedValue}) =>
-      ListAutomationRunsResponse(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as SdkOptional<String>,
-        hasMore: identical(hasMore, sdkOmittedValue)
-            ? this.hasMore
-            : hasMore as SdkOptional<bool>,
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as SdkOptional<List<AutomationRunListItem>>,
-      );
+  ListAutomationRunsResponse _copyWith({Object? object = sdkOmittedValue, Object? hasMore = sdkOmittedValue, Object? data = sdkOmittedValue}) => ListAutomationRunsResponse(
+    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<String>,
+    hasMore: identical(hasMore, sdkOmittedValue) ? this.hasMore : hasMore as SdkOptional<bool>,
+    data: identical(data, sdkOmittedValue) ? this.data : data as SdkOptional<List<AutomationRunListItem>>,
+  );
 
-  factory ListAutomationRunsResponse.fromJson(Map<String, dynamic> json) =>
-      ListAutomationRunsResponse(
-        object: json['object'] != null
-            ? SdkPresent((json['object'] as String?)!)
-            : const SdkOmitted(),
-        hasMore: json['has_more'] != null
-            ? SdkPresent((json['has_more'] as bool?)!)
-            : const SdkOmitted(),
-        data: json['data'] != null
-            ? SdkPresent(((json['data'] as List?)
-                ?.map((e) =>
-                    AutomationRunListItem.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory ListAutomationRunsResponse.fromJson(Map<String, dynamic> json) => ListAutomationRunsResponse(
+    object: json['object'] != null ? SdkPresent((json['object'] as String?)!) : const SdkOmitted(),
+    hasMore: json['has_more'] != null ? SdkPresent((json['has_more'] as bool?)!) : const SdkOmitted(),
+    data: json['data'] != null ? SdkPresent(((json['data'] as List?)?.map((e) => AutomationRunListItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (object) {
-          SdkPresent<String>(value: final value) => {
-              'object': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (hasMore) {
-          SdkPresent<bool>(value: final value) => {
-              'has_more': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (data) {
-          SdkPresent<List<AutomationRunListItem>>(value: final value) => {
-              'data': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (object) {
+      SdkPresent<String>(value: final value) => {'object': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (hasMore) {
+      SdkPresent<bool>(value: final value) => {'has_more': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (data) {
+      SdkPresent<List<AutomationRunListItem>>(value: final value) => {'data': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `ListAutomationsResponse` API schema.
 class ListAutomationsResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Type of the response object.
   final SdkOptional<String> object;
-
   /// Indicates if there are more results available.
   final SdkOptional<bool> hasMore;
-
   /// Array of automations.
   final SdkOptional<List<AutomationListItem>> data;
 
-  const ListAutomationsResponse(
-      {this.object = const SdkOmitted(),
-      this.hasMore = const SdkOmitted(),
-      this.data = const SdkOmitted()});
+  const ListAutomationsResponse({this.object = const SdkOmitted(), this.hasMore = const SdkOmitted(), this.data = const SdkOmitted()});
 
-  ListAutomationsResponse Function(
-      {SdkOptional<String> object,
-      SdkOptional<bool> hasMore,
-      SdkOptional<List<AutomationListItem>> data}) get copyWith => _copyWith;
+  ListAutomationsResponse Function({SdkOptional<String> object, SdkOptional<bool> hasMore, SdkOptional<List<AutomationListItem>> data}) get copyWith => _copyWith;
 
-  ListAutomationsResponse _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? hasMore = sdkOmittedValue,
-          Object? data = sdkOmittedValue}) =>
-      ListAutomationsResponse(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as SdkOptional<String>,
-        hasMore: identical(hasMore, sdkOmittedValue)
-            ? this.hasMore
-            : hasMore as SdkOptional<bool>,
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as SdkOptional<List<AutomationListItem>>,
-      );
+  ListAutomationsResponse _copyWith({Object? object = sdkOmittedValue, Object? hasMore = sdkOmittedValue, Object? data = sdkOmittedValue}) => ListAutomationsResponse(
+    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<String>,
+    hasMore: identical(hasMore, sdkOmittedValue) ? this.hasMore : hasMore as SdkOptional<bool>,
+    data: identical(data, sdkOmittedValue) ? this.data : data as SdkOptional<List<AutomationListItem>>,
+  );
 
-  factory ListAutomationsResponse.fromJson(Map<String, dynamic> json) =>
-      ListAutomationsResponse(
-        object: json['object'] != null
-            ? SdkPresent((json['object'] as String?)!)
-            : const SdkOmitted(),
-        hasMore: json['has_more'] != null
-            ? SdkPresent((json['has_more'] as bool?)!)
-            : const SdkOmitted(),
-        data: json['data'] != null
-            ? SdkPresent(((json['data'] as List?)
-                ?.map((e) =>
-                    AutomationListItem.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory ListAutomationsResponse.fromJson(Map<String, dynamic> json) => ListAutomationsResponse(
+    object: json['object'] != null ? SdkPresent((json['object'] as String?)!) : const SdkOmitted(),
+    hasMore: json['has_more'] != null ? SdkPresent((json['has_more'] as bool?)!) : const SdkOmitted(),
+    data: json['data'] != null ? SdkPresent(((json['data'] as List?)?.map((e) => AutomationListItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (object) {
-          SdkPresent<String>(value: final value) => {
-              'object': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (hasMore) {
-          SdkPresent<bool>(value: final value) => {
-              'has_more': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (data) {
-          SdkPresent<List<AutomationListItem>>(value: final value) => {
-              'data': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (object) {
+      SdkPresent<String>(value: final value) => {'object': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (hasMore) {
+      SdkPresent<bool>(value: final value) => {'has_more': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (data) {
+      SdkPresent<List<AutomationListItem>>(value: final value) => {'data': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// At least one of `name`, `status`, or `steps` and `connections` must be provided. When updating the workflow graph, both `steps` and `connections` must be provided together.
 class PatchAutomationRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The name of the automation.
   final SdkOptional<String> name;
-
   /// The status of the automation.
   final SdkOptional<PatchAutomationRequestStatus> status;
-
   /// The steps that compose the automation workflow. Must be provided together with `connections`.
   final SdkOptional<List<AutomationStep>> steps;
-
   /// The connections between steps in the automation graph. Must be provided together with `steps`.
   final SdkOptional<List<AutomationConnection>> connections;
 
-  const PatchAutomationRequest(
-      {this.name = const SdkOmitted(),
-      this.status = const SdkOmitted(),
-      this.steps = const SdkOmitted(),
-      this.connections = const SdkOmitted()});
+  const PatchAutomationRequest({this.name = const SdkOmitted(), this.status = const SdkOmitted(), this.steps = const SdkOmitted(), this.connections = const SdkOmitted()});
 
-  PatchAutomationRequest Function(
-          {SdkOptional<String> name,
-          SdkOptional<PatchAutomationRequestStatus> status,
-          SdkOptional<List<AutomationStep>> steps,
-          SdkOptional<List<AutomationConnection>> connections})
-      get copyWith => _copyWith;
+  PatchAutomationRequest Function({SdkOptional<String> name, SdkOptional<PatchAutomationRequestStatus> status, SdkOptional<List<AutomationStep>> steps, SdkOptional<List<AutomationConnection>> connections}) get copyWith => _copyWith;
 
-  PatchAutomationRequest _copyWith(
-          {Object? name = sdkOmittedValue,
-          Object? status = sdkOmittedValue,
-          Object? steps = sdkOmittedValue,
-          Object? connections = sdkOmittedValue}) =>
-      PatchAutomationRequest(
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as SdkOptional<PatchAutomationRequestStatus>,
-        steps: identical(steps, sdkOmittedValue)
-            ? this.steps
-            : steps as SdkOptional<List<AutomationStep>>,
-        connections: identical(connections, sdkOmittedValue)
-            ? this.connections
-            : connections as SdkOptional<List<AutomationConnection>>,
-      );
+  PatchAutomationRequest _copyWith({Object? name = sdkOmittedValue, Object? status = sdkOmittedValue, Object? steps = sdkOmittedValue, Object? connections = sdkOmittedValue}) => PatchAutomationRequest(
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<PatchAutomationRequestStatus>,
+    steps: identical(steps, sdkOmittedValue) ? this.steps : steps as SdkOptional<List<AutomationStep>>,
+    connections: identical(connections, sdkOmittedValue) ? this.connections : connections as SdkOptional<List<AutomationConnection>>,
+  );
 
-  factory PatchAutomationRequest.fromJson(Map<String, dynamic> json) =>
-      PatchAutomationRequest(
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-        status: json['status'] != null
-            ? SdkPresent((json['status'] != null
-                ? PatchAutomationRequestStatus.fromJson(
-                    json['status'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        steps: json['steps'] != null
-            ? SdkPresent(((json['steps'] as List?)
-                ?.map((e) => AutomationStep.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        connections: json['connections'] != null
-            ? SdkPresent(((json['connections'] as List?)
-                ?.map((e) =>
-                    AutomationConnection.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory PatchAutomationRequest.fromJson(Map<String, dynamic> json) => PatchAutomationRequest(
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+    status: json['status'] != null ? SdkPresent((json['status'] != null ? PatchAutomationRequestStatus.fromJson(json['status'] as String) : null)!) : const SdkOmitted(),
+    steps: json['steps'] != null ? SdkPresent(((json['steps'] as List?)?.map((e) => AutomationStep.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    connections: json['connections'] != null ? SdkPresent(((json['connections'] as List?)?.map((e) => AutomationConnection.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (status) {
-          SdkPresent<PatchAutomationRequestStatus>(value: final value) => {
-              'status': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (steps) {
-          SdkPresent<List<AutomationStep>>(value: final value) => {
-              'steps': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (connections) {
-          SdkPresent<List<AutomationConnection>>(value: final value) => {
-              'connections': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (status) {
+      SdkPresent<PatchAutomationRequestStatus>(value: final value) => {'status': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (steps) {
+      SdkPresent<List<AutomationStep>>(value: final value) => {'steps': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (connections) {
+      SdkPresent<List<AutomationConnection>>(value: final value) => {'connections': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `PatchAutomationResponse` API schema.
 class PatchAutomationResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Type of the response object.
   final SdkOptional<String> object;
-
   /// The ID of the updated automation.
   final SdkOptional<String> id;
 
-  const PatchAutomationResponse(
-      {this.object = const SdkOmitted(), this.id = const SdkOmitted()});
+  const PatchAutomationResponse({this.object = const SdkOmitted(), this.id = const SdkOmitted()});
 
-  PatchAutomationResponse Function(
-      {SdkOptional<String> object,
-      SdkOptional<String> id}) get copyWith => _copyWith;
+  PatchAutomationResponse Function({SdkOptional<String> object, SdkOptional<String> id}) get copyWith => _copyWith;
 
-  PatchAutomationResponse _copyWith(
-          {Object? object = sdkOmittedValue, Object? id = sdkOmittedValue}) =>
-      PatchAutomationResponse(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as SdkOptional<String>,
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-      );
+  PatchAutomationResponse _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue}) => PatchAutomationResponse(
+    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<String>,
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+  );
 
-  factory PatchAutomationResponse.fromJson(Map<String, dynamic> json) =>
-      PatchAutomationResponse(
-        object: json['object'] != null
-            ? SdkPresent((json['object'] as String?)!)
-            : const SdkOmitted(),
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory PatchAutomationResponse.fromJson(Map<String, dynamic> json) => PatchAutomationResponse(
+    object: json['object'] != null ? SdkPresent((json['object'] as String?)!) : const SdkOmitted(),
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (object) {
-          SdkPresent<String>(value: final value) => {
-              'object': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (object) {
+      SdkPresent<String>(value: final value) => {'object': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `StopAutomationResponse` API schema.
 class StopAutomationResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Type of the response object.
   final SdkOptional<String> object;
-
   /// The ID of the stopped automation.
   final SdkOptional<String> id;
-
   /// The status of the automation after stopping.
   final SdkOptional<String> status;
 
-  const StopAutomationResponse(
-      {this.object = const SdkOmitted(),
-      this.id = const SdkOmitted(),
-      this.status = const SdkOmitted()});
+  const StopAutomationResponse({this.object = const SdkOmitted(), this.id = const SdkOmitted(), this.status = const SdkOmitted()});
 
-  StopAutomationResponse Function(
-      {SdkOptional<String> object,
-      SdkOptional<String> id,
-      SdkOptional<String> status}) get copyWith => _copyWith;
+  StopAutomationResponse Function({SdkOptional<String> object, SdkOptional<String> id, SdkOptional<String> status}) get copyWith => _copyWith;
 
-  StopAutomationResponse _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? status = sdkOmittedValue}) =>
-      StopAutomationResponse(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as SdkOptional<String>,
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as SdkOptional<String>,
-      );
+  StopAutomationResponse _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? status = sdkOmittedValue}) => StopAutomationResponse(
+    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<String>,
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<String>,
+  );
 
-  factory StopAutomationResponse.fromJson(Map<String, dynamic> json) =>
-      StopAutomationResponse(
-        object: json['object'] != null
-            ? SdkPresent((json['object'] as String?)!)
-            : const SdkOmitted(),
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-        status: json['status'] != null
-            ? SdkPresent((json['status'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory StopAutomationResponse.fromJson(Map<String, dynamic> json) => StopAutomationResponse(
+    object: json['object'] != null ? SdkPresent((json['object'] as String?)!) : const SdkOmitted(),
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+    status: json['status'] != null ? SdkPresent((json['status'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (object) {
-          SdkPresent<String>(value: final value) => {
-              'object': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (status) {
-          SdkPresent<String>(value: final value) => {
-              'status': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (object) {
+      SdkPresent<String>(value: final value) => {'object': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (status) {
+      SdkPresent<String>(value: final value) => {'status': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

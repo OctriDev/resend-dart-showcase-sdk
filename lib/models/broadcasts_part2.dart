@@ -8,527 +8,266 @@ part of 'broadcasts.dart';
 class GetBroadcastResponseSuccess {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Unique identifier for the broadcast.
   final SdkOptional<String> id;
-
   /// Name of the broadcast.
   final SdkOptional<String> name;
-
   /// Deprecated: use `segment_id` instead. Unique identifier of the segment this broadcast will be sent to.
   final SdkOptional<String?> audienceId;
-
   /// Unique identifier of the segment this broadcast will be sent to.
   final SdkOptional<String?> segmentId;
-
   /// The email address of the sender.
   final SdkOptional<String> from;
-
   /// The subject line of the email.
   final SdkOptional<String> subject;
-
   /// The email addresses to which replies should be sent.
   final SdkOptional<List<String>> replyTo;
-
   /// The preview text of the email.
   final SdkOptional<String> previewText;
-
   /// The status of the broadcast.
   final SdkOptional<String> status;
-
   /// Timestamp indicating when the broadcast was created.
   final SdkOptional<String> createdAt;
-
   /// Timestamp indicating when the broadcast is scheduled to be sent.
   final SdkOptional<String> scheduledAt;
-
   /// Timestamp indicating when the broadcast was sent.
   final SdkOptional<String> sentAt;
-
   /// The plain text version of the broadcast content.
   final SdkOptional<String?> text;
-
   /// The HTML version of the broadcast content.
   final SdkOptional<String?> html;
-
   /// The topic ID that the broadcast is scoped to.
   final SdkOptional<String?> topicId;
 
-  const GetBroadcastResponseSuccess(
-      {this.id = const SdkOmitted(),
-      this.name = const SdkOmitted(),
-      this.audienceId = const SdkOmitted(),
-      this.segmentId = const SdkOmitted(),
-      this.from = const SdkOmitted(),
-      this.subject = const SdkOmitted(),
-      this.replyTo = const SdkOmitted(),
-      this.previewText = const SdkOmitted(),
-      this.status = const SdkOmitted(),
-      this.createdAt = const SdkOmitted(),
-      this.scheduledAt = const SdkOmitted(),
-      this.sentAt = const SdkOmitted(),
-      this.text = const SdkOmitted(),
-      this.html = const SdkOmitted(),
-      this.topicId = const SdkOmitted()});
+  const GetBroadcastResponseSuccess({this.id = const SdkOmitted(), this.name = const SdkOmitted(), this.audienceId = const SdkOmitted(), this.segmentId = const SdkOmitted(), this.from = const SdkOmitted(), this.subject = const SdkOmitted(), this.replyTo = const SdkOmitted(), this.previewText = const SdkOmitted(), this.status = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.scheduledAt = const SdkOmitted(), this.sentAt = const SdkOmitted(), this.text = const SdkOmitted(), this.html = const SdkOmitted(), this.topicId = const SdkOmitted()});
 
-  GetBroadcastResponseSuccess Function(
-      {SdkOptional<String> id,
-      SdkOptional<String> name,
-      SdkOptional<String?> audienceId,
-      SdkOptional<String?> segmentId,
-      SdkOptional<String> from,
-      SdkOptional<String> subject,
-      SdkOptional<List<String>> replyTo,
-      SdkOptional<String> previewText,
-      SdkOptional<String> status,
-      SdkOptional<String> createdAt,
-      SdkOptional<String> scheduledAt,
-      SdkOptional<String> sentAt,
-      SdkOptional<String?> text,
-      SdkOptional<String?> html,
-      SdkOptional<String?> topicId}) get copyWith => _copyWith;
+  GetBroadcastResponseSuccess Function({SdkOptional<String> id, SdkOptional<String> name, SdkOptional<String?> audienceId, SdkOptional<String?> segmentId, SdkOptional<String> from, SdkOptional<String> subject, SdkOptional<List<String>> replyTo, SdkOptional<String> previewText, SdkOptional<String> status, SdkOptional<String> createdAt, SdkOptional<String> scheduledAt, SdkOptional<String> sentAt, SdkOptional<String?> text, SdkOptional<String?> html, SdkOptional<String?> topicId}) get copyWith => _copyWith;
 
-  GetBroadcastResponseSuccess _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? audienceId = sdkOmittedValue,
-          Object? segmentId = sdkOmittedValue,
-          Object? from = sdkOmittedValue,
-          Object? subject = sdkOmittedValue,
-          Object? replyTo = sdkOmittedValue,
-          Object? previewText = sdkOmittedValue,
-          Object? status = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? scheduledAt = sdkOmittedValue,
-          Object? sentAt = sdkOmittedValue,
-          Object? text = sdkOmittedValue,
-          Object? html = sdkOmittedValue,
-          Object? topicId = sdkOmittedValue}) =>
-      GetBroadcastResponseSuccess(
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-        audienceId: identical(audienceId, sdkOmittedValue)
-            ? this.audienceId
-            : audienceId as SdkOptional<String?>,
-        segmentId: identical(segmentId, sdkOmittedValue)
-            ? this.segmentId
-            : segmentId as SdkOptional<String?>,
-        from: identical(from, sdkOmittedValue)
-            ? this.from
-            : from as SdkOptional<String>,
-        subject: identical(subject, sdkOmittedValue)
-            ? this.subject
-            : subject as SdkOptional<String>,
-        replyTo: identical(replyTo, sdkOmittedValue)
-            ? this.replyTo
-            : replyTo as SdkOptional<List<String>>,
-        previewText: identical(previewText, sdkOmittedValue)
-            ? this.previewText
-            : previewText as SdkOptional<String>,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as SdkOptional<String>,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as SdkOptional<String>,
-        scheduledAt: identical(scheduledAt, sdkOmittedValue)
-            ? this.scheduledAt
-            : scheduledAt as SdkOptional<String>,
-        sentAt: identical(sentAt, sdkOmittedValue)
-            ? this.sentAt
-            : sentAt as SdkOptional<String>,
-        text: identical(text, sdkOmittedValue)
-            ? this.text
-            : text as SdkOptional<String?>,
-        html: identical(html, sdkOmittedValue)
-            ? this.html
-            : html as SdkOptional<String?>,
-        topicId: identical(topicId, sdkOmittedValue)
-            ? this.topicId
-            : topicId as SdkOptional<String?>,
-      );
+  GetBroadcastResponseSuccess _copyWith({Object? id = sdkOmittedValue, Object? name = sdkOmittedValue, Object? audienceId = sdkOmittedValue, Object? segmentId = sdkOmittedValue, Object? from = sdkOmittedValue, Object? subject = sdkOmittedValue, Object? replyTo = sdkOmittedValue, Object? previewText = sdkOmittedValue, Object? status = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? scheduledAt = sdkOmittedValue, Object? sentAt = sdkOmittedValue, Object? text = sdkOmittedValue, Object? html = sdkOmittedValue, Object? topicId = sdkOmittedValue}) => GetBroadcastResponseSuccess(
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+    audienceId: identical(audienceId, sdkOmittedValue) ? this.audienceId : audienceId as SdkOptional<String?>,
+    segmentId: identical(segmentId, sdkOmittedValue) ? this.segmentId : segmentId as SdkOptional<String?>,
+    from: identical(from, sdkOmittedValue) ? this.from : from as SdkOptional<String>,
+    subject: identical(subject, sdkOmittedValue) ? this.subject : subject as SdkOptional<String>,
+    replyTo: identical(replyTo, sdkOmittedValue) ? this.replyTo : replyTo as SdkOptional<List<String>>,
+    previewText: identical(previewText, sdkOmittedValue) ? this.previewText : previewText as SdkOptional<String>,
+    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<String>,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
+    scheduledAt: identical(scheduledAt, sdkOmittedValue) ? this.scheduledAt : scheduledAt as SdkOptional<String>,
+    sentAt: identical(sentAt, sdkOmittedValue) ? this.sentAt : sentAt as SdkOptional<String>,
+    text: identical(text, sdkOmittedValue) ? this.text : text as SdkOptional<String?>,
+    html: identical(html, sdkOmittedValue) ? this.html : html as SdkOptional<String?>,
+    topicId: identical(topicId, sdkOmittedValue) ? this.topicId : topicId as SdkOptional<String?>,
+  );
 
-  factory GetBroadcastResponseSuccess.fromJson(Map<String, dynamic> json) =>
-      GetBroadcastResponseSuccess(
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-        audienceId: json.containsKey('audience_id')
-            ? SdkPresent(json['audience_id'] as String?)
-            : const SdkOmitted(),
-        segmentId: json.containsKey('segment_id')
-            ? SdkPresent(json['segment_id'] as String?)
-            : const SdkOmitted(),
-        from: json['from'] != null
-            ? SdkPresent((json['from'] as String?)!)
-            : const SdkOmitted(),
-        subject: json['subject'] != null
-            ? SdkPresent((json['subject'] as String?)!)
-            : const SdkOmitted(),
-        replyTo: json['reply_to'] != null
-            ? SdkPresent(((json['reply_to'] as List?)
-                ?.map((e) => e as String)
-                .toList())!)
-            : const SdkOmitted(),
-        previewText: json['preview_text'] != null
-            ? SdkPresent((json['preview_text'] as String?)!)
-            : const SdkOmitted(),
-        status: json['status'] != null
-            ? SdkPresent((json['status'] as String?)!)
-            : const SdkOmitted(),
-        createdAt: json['created_at'] != null
-            ? SdkPresent((json['created_at'] as String?)!)
-            : const SdkOmitted(),
-        scheduledAt: json['scheduled_at'] != null
-            ? SdkPresent((json['scheduled_at'] as String?)!)
-            : const SdkOmitted(),
-        sentAt: json['sent_at'] != null
-            ? SdkPresent((json['sent_at'] as String?)!)
-            : const SdkOmitted(),
-        text: json.containsKey('text')
-            ? SdkPresent(json['text'] as String?)
-            : const SdkOmitted(),
-        html: json.containsKey('html')
-            ? SdkPresent(json['html'] as String?)
-            : const SdkOmitted(),
-        topicId: json.containsKey('topic_id')
-            ? SdkPresent(json['topic_id'] as String?)
-            : const SdkOmitted(),
-      );
+  factory GetBroadcastResponseSuccess.fromJson(Map<String, dynamic> json) => GetBroadcastResponseSuccess(
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+    audienceId: json.containsKey('audience_id') ? SdkPresent(json['audience_id'] as String?) : const SdkOmitted(),
+    segmentId: json.containsKey('segment_id') ? SdkPresent(json['segment_id'] as String?) : const SdkOmitted(),
+    from: json['from'] != null ? SdkPresent((json['from'] as String?)!) : const SdkOmitted(),
+    subject: json['subject'] != null ? SdkPresent((json['subject'] as String?)!) : const SdkOmitted(),
+    replyTo: json['reply_to'] != null ? SdkPresent(((json['reply_to'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    previewText: json['preview_text'] != null ? SdkPresent((json['preview_text'] as String?)!) : const SdkOmitted(),
+    status: json['status'] != null ? SdkPresent((json['status'] as String?)!) : const SdkOmitted(),
+    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
+    scheduledAt: json['scheduled_at'] != null ? SdkPresent((json['scheduled_at'] as String?)!) : const SdkOmitted(),
+    sentAt: json['sent_at'] != null ? SdkPresent((json['sent_at'] as String?)!) : const SdkOmitted(),
+    text: json.containsKey('text') ? SdkPresent(json['text'] as String?) : const SdkOmitted(),
+    html: json.containsKey('html') ? SdkPresent(json['html'] as String?) : const SdkOmitted(),
+    topicId: json.containsKey('topic_id') ? SdkPresent(json['topic_id'] as String?) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (audienceId) {
-          SdkPresent<String?>(value: final value) => {
-              'audience_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (segmentId) {
-          SdkPresent<String?>(value: final value) => {
-              'segment_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (from) {
-          SdkPresent<String>(value: final value) => {
-              'from': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (subject) {
-          SdkPresent<String>(value: final value) => {
-              'subject': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (replyTo) {
-          SdkPresent<List<String>>(value: final value) => {
-              'reply_to': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (previewText) {
-          SdkPresent<String>(value: final value) => {
-              'preview_text': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (status) {
-          SdkPresent<String>(value: final value) => {
-              'status': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (createdAt) {
-          SdkPresent<String>(value: final value) => {
-              'created_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (scheduledAt) {
-          SdkPresent<String>(value: final value) => {
-              'scheduled_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (sentAt) {
-          SdkPresent<String>(value: final value) => {
-              'sent_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (text) {
-          SdkPresent<String?>(value: final value) => {
-              'text': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (html) {
-          SdkPresent<String?>(value: final value) => {
-              'html': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (topicId) {
-          SdkPresent<String?>(value: final value) => {
-              'topic_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (audienceId) {
+      SdkPresent<String?>(value: final value) => {'audience_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (segmentId) {
+      SdkPresent<String?>(value: final value) => {'segment_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (from) {
+      SdkPresent<String>(value: final value) => {'from': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (subject) {
+      SdkPresent<String>(value: final value) => {'subject': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (replyTo) {
+      SdkPresent<List<String>>(value: final value) => {'reply_to': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (previewText) {
+      SdkPresent<String>(value: final value) => {'preview_text': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (status) {
+      SdkPresent<String>(value: final value) => {'status': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (createdAt) {
+      SdkPresent<String>(value: final value) => {'created_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (scheduledAt) {
+      SdkPresent<String>(value: final value) => {'scheduled_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (sentAt) {
+      SdkPresent<String>(value: final value) => {'sent_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (text) {
+      SdkPresent<String?>(value: final value) => {'text': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (html) {
+      SdkPresent<String?>(value: final value) => {'html': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (topicId) {
+      SdkPresent<String?>(value: final value) => {'topic_id': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Required object value serialized in the `data[]` wire field.
 class ListBroadcastClickedLinksResponseSuccessDataItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// An opaque cursor for this row, used only for pagination. It does not identify any entity in Resend.
   final SdkOptional<String> id;
-
   /// The URL that was clicked.
   final SdkOptional<String> url;
-
   /// Total number of clicks on this URL.
   final SdkOptional<int> clicks;
-
   /// Number of unique clicks on this URL.
   final SdkOptional<int> uniqueClicks;
 
-  const ListBroadcastClickedLinksResponseSuccessDataItem(
-      {this.id = const SdkOmitted(),
-      this.url = const SdkOmitted(),
-      this.clicks = const SdkOmitted(),
-      this.uniqueClicks = const SdkOmitted()});
+  const ListBroadcastClickedLinksResponseSuccessDataItem({this.id = const SdkOmitted(), this.url = const SdkOmitted(), this.clicks = const SdkOmitted(), this.uniqueClicks = const SdkOmitted()});
 
-  ListBroadcastClickedLinksResponseSuccessDataItem Function(
-      {SdkOptional<String> id,
-      SdkOptional<String> url,
-      SdkOptional<int> clicks,
-      SdkOptional<int> uniqueClicks}) get copyWith => _copyWith;
+  ListBroadcastClickedLinksResponseSuccessDataItem Function({SdkOptional<String> id, SdkOptional<String> url, SdkOptional<int> clicks, SdkOptional<int> uniqueClicks}) get copyWith => _copyWith;
 
-  ListBroadcastClickedLinksResponseSuccessDataItem _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? url = sdkOmittedValue,
-          Object? clicks = sdkOmittedValue,
-          Object? uniqueClicks = sdkOmittedValue}) =>
-      ListBroadcastClickedLinksResponseSuccessDataItem(
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-        url: identical(url, sdkOmittedValue)
-            ? this.url
-            : url as SdkOptional<String>,
-        clicks: identical(clicks, sdkOmittedValue)
-            ? this.clicks
-            : clicks as SdkOptional<int>,
-        uniqueClicks: identical(uniqueClicks, sdkOmittedValue)
-            ? this.uniqueClicks
-            : uniqueClicks as SdkOptional<int>,
-      );
+  ListBroadcastClickedLinksResponseSuccessDataItem _copyWith({Object? id = sdkOmittedValue, Object? url = sdkOmittedValue, Object? clicks = sdkOmittedValue, Object? uniqueClicks = sdkOmittedValue}) => ListBroadcastClickedLinksResponseSuccessDataItem(
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+    url: identical(url, sdkOmittedValue) ? this.url : url as SdkOptional<String>,
+    clicks: identical(clicks, sdkOmittedValue) ? this.clicks : clicks as SdkOptional<int>,
+    uniqueClicks: identical(uniqueClicks, sdkOmittedValue) ? this.uniqueClicks : uniqueClicks as SdkOptional<int>,
+  );
 
-  factory ListBroadcastClickedLinksResponseSuccessDataItem.fromJson(
-          Map<String, dynamic> json) =>
-      ListBroadcastClickedLinksResponseSuccessDataItem(
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-        url: json['url'] != null
-            ? SdkPresent((json['url'] as String?)!)
-            : const SdkOmitted(),
-        clicks: json['clicks'] != null
-            ? SdkPresent(((json['clicks'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        uniqueClicks: json['unique_clicks'] != null
-            ? SdkPresent(((json['unique_clicks'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-      );
+  factory ListBroadcastClickedLinksResponseSuccessDataItem.fromJson(Map<String, dynamic> json) => ListBroadcastClickedLinksResponseSuccessDataItem(
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+    url: json['url'] != null ? SdkPresent((json['url'] as String?)!) : const SdkOmitted(),
+    clicks: json['clicks'] != null ? SdkPresent(((json['clicks'] as num?)?.toInt())!) : const SdkOmitted(),
+    uniqueClicks: json['unique_clicks'] != null ? SdkPresent(((json['unique_clicks'] as num?)?.toInt())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (url) {
-          SdkPresent<String>(value: final value) => {
-              'url': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (clicks) {
-          SdkPresent<int>(value: final value) => {
-              'clicks': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (uniqueClicks) {
-          SdkPresent<int>(value: final value) => {
-              'unique_clicks': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (url) {
+      SdkPresent<String>(value: final value) => {'url': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (clicks) {
+      SdkPresent<int>(value: final value) => {'clicks': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (uniqueClicks) {
+      SdkPresent<int>(value: final value) => {'unique_clicks': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `ListBroadcastClickedLinksResponseSuccess` API schema.
 class ListBroadcastClickedLinksResponseSuccess {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Type of the response object.
   final SdkOptional<String> object;
-
   /// Indicates if there are more results available.
   final SdkOptional<bool> hasMore;
-
   /// Array containing the broadcast's clicked links.
-  final SdkOptional<List<ListBroadcastClickedLinksResponseSuccessDataItem>>
-      data;
+  final SdkOptional<List<ListBroadcastClickedLinksResponseSuccessDataItem>> data;
 
-  const ListBroadcastClickedLinksResponseSuccess(
-      {this.object = const SdkOmitted(),
-      this.hasMore = const SdkOmitted(),
-      this.data = const SdkOmitted()});
+  const ListBroadcastClickedLinksResponseSuccess({this.object = const SdkOmitted(), this.hasMore = const SdkOmitted(), this.data = const SdkOmitted()});
 
-  ListBroadcastClickedLinksResponseSuccess Function(
-      {SdkOptional<String> object,
-      SdkOptional<bool> hasMore,
-      SdkOptional<List<ListBroadcastClickedLinksResponseSuccessDataItem>>
-          data}) get copyWith => _copyWith;
+  ListBroadcastClickedLinksResponseSuccess Function({SdkOptional<String> object, SdkOptional<bool> hasMore, SdkOptional<List<ListBroadcastClickedLinksResponseSuccessDataItem>> data}) get copyWith => _copyWith;
 
-  ListBroadcastClickedLinksResponseSuccess _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? hasMore = sdkOmittedValue,
-          Object? data = sdkOmittedValue}) =>
-      ListBroadcastClickedLinksResponseSuccess(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as SdkOptional<String>,
-        hasMore: identical(hasMore, sdkOmittedValue)
-            ? this.hasMore
-            : hasMore as SdkOptional<bool>,
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as SdkOptional<
-                List<ListBroadcastClickedLinksResponseSuccessDataItem>>,
-      );
+  ListBroadcastClickedLinksResponseSuccess _copyWith({Object? object = sdkOmittedValue, Object? hasMore = sdkOmittedValue, Object? data = sdkOmittedValue}) => ListBroadcastClickedLinksResponseSuccess(
+    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<String>,
+    hasMore: identical(hasMore, sdkOmittedValue) ? this.hasMore : hasMore as SdkOptional<bool>,
+    data: identical(data, sdkOmittedValue) ? this.data : data as SdkOptional<List<ListBroadcastClickedLinksResponseSuccessDataItem>>,
+  );
 
-  factory ListBroadcastClickedLinksResponseSuccess.fromJson(
-          Map<String, dynamic> json) =>
-      ListBroadcastClickedLinksResponseSuccess(
-        object: json['object'] != null
-            ? SdkPresent((json['object'] as String?)!)
-            : const SdkOmitted(),
-        hasMore: json['has_more'] != null
-            ? SdkPresent((json['has_more'] as bool?)!)
-            : const SdkOmitted(),
-        data: json['data'] != null
-            ? SdkPresent(((json['data'] as List?)
-                ?.map((e) =>
-                    ListBroadcastClickedLinksResponseSuccessDataItem.fromJson(
-                        e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory ListBroadcastClickedLinksResponseSuccess.fromJson(Map<String, dynamic> json) => ListBroadcastClickedLinksResponseSuccess(
+    object: json['object'] != null ? SdkPresent((json['object'] as String?)!) : const SdkOmitted(),
+    hasMore: json['has_more'] != null ? SdkPresent((json['has_more'] as bool?)!) : const SdkOmitted(),
+    data: json['data'] != null ? SdkPresent(((json['data'] as List?)?.map((e) => ListBroadcastClickedLinksResponseSuccessDataItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (object) {
-          SdkPresent<String>(value: final value) => {
-              'object': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (hasMore) {
-          SdkPresent<bool>(value: final value) => {
-              'has_more': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (data) {
-          SdkPresent<List<ListBroadcastClickedLinksResponseSuccessDataItem>>(
-            value: final value
-          ) =>
-            {
-              'data': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (object) {
+      SdkPresent<String>(value: final value) => {'object': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (hasMore) {
+      SdkPresent<bool>(value: final value) => {'has_more': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (data) {
+      SdkPresent<List<ListBroadcastClickedLinksResponseSuccessDataItem>>(value: final value) => {'data': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Required object value serialized in the `clicked_links[]` wire field.
 class ListBroadcastRecipientsResponseSuccessDataItemClickedLinksItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The clicked URL.
   final SdkOptional<String> url;
-
   /// The number of times this recipient clicked this URL.
   final SdkOptional<int> clicks;
 
-  const ListBroadcastRecipientsResponseSuccessDataItemClickedLinksItem(
-      {this.url = const SdkOmitted(), this.clicks = const SdkOmitted()});
+  const ListBroadcastRecipientsResponseSuccessDataItemClickedLinksItem({this.url = const SdkOmitted(), this.clicks = const SdkOmitted()});
 
-  ListBroadcastRecipientsResponseSuccessDataItemClickedLinksItem Function(
-      {SdkOptional<String> url,
-      SdkOptional<int> clicks}) get copyWith => _copyWith;
+  ListBroadcastRecipientsResponseSuccessDataItemClickedLinksItem Function({SdkOptional<String> url, SdkOptional<int> clicks}) get copyWith => _copyWith;
 
-  ListBroadcastRecipientsResponseSuccessDataItemClickedLinksItem _copyWith(
-          {Object? url = sdkOmittedValue, Object? clicks = sdkOmittedValue}) =>
-      ListBroadcastRecipientsResponseSuccessDataItemClickedLinksItem(
-        url: identical(url, sdkOmittedValue)
-            ? this.url
-            : url as SdkOptional<String>,
-        clicks: identical(clicks, sdkOmittedValue)
-            ? this.clicks
-            : clicks as SdkOptional<int>,
-      );
+  ListBroadcastRecipientsResponseSuccessDataItemClickedLinksItem _copyWith({Object? url = sdkOmittedValue, Object? clicks = sdkOmittedValue}) => ListBroadcastRecipientsResponseSuccessDataItemClickedLinksItem(
+    url: identical(url, sdkOmittedValue) ? this.url : url as SdkOptional<String>,
+    clicks: identical(clicks, sdkOmittedValue) ? this.clicks : clicks as SdkOptional<int>,
+  );
 
-  factory ListBroadcastRecipientsResponseSuccessDataItemClickedLinksItem.fromJson(
-          Map<String, dynamic> json) =>
-      ListBroadcastRecipientsResponseSuccessDataItemClickedLinksItem(
-        url: json['url'] != null
-            ? SdkPresent((json['url'] as String?)!)
-            : const SdkOmitted(),
-        clicks: json['clicks'] != null
-            ? SdkPresent(((json['clicks'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-      );
+  factory ListBroadcastRecipientsResponseSuccessDataItemClickedLinksItem.fromJson(Map<String, dynamic> json) => ListBroadcastRecipientsResponseSuccessDataItemClickedLinksItem(
+    url: json['url'] != null ? SdkPresent((json['url'] as String?)!) : const SdkOmitted(),
+    clicks: json['clicks'] != null ? SdkPresent(((json['clicks'] as num?)?.toInt())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (url) {
-          SdkPresent<String>(value: final value) => {
-              'url': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (clicks) {
-          SdkPresent<int>(value: final value) => {
-              'clicks': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (url) {
+      SdkPresent<String>(value: final value) => {'url': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (clicks) {
+      SdkPresent<int>(value: final value) => {'clicks': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

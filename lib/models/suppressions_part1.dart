@@ -8,323 +8,197 @@ part of 'suppressions.dart';
 class BatchAddSuppressionsOptions {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Email addresses to suppress.
   final List<String> emails;
 
   const BatchAddSuppressionsOptions({required this.emails});
 
-  BatchAddSuppressionsOptions Function({List<String> emails}) get copyWith =>
-      _copyWith;
+  BatchAddSuppressionsOptions Function({List<String> emails}) get copyWith => _copyWith;
 
-  BatchAddSuppressionsOptions _copyWith({Object? emails = sdkOmittedValue}) =>
-      BatchAddSuppressionsOptions(
-        emails: identical(emails, sdkOmittedValue)
-            ? this.emails
-            : emails as List<String>,
-      );
+  BatchAddSuppressionsOptions _copyWith({Object? emails = sdkOmittedValue}) => BatchAddSuppressionsOptions(
+    emails: identical(emails, sdkOmittedValue) ? this.emails : emails as List<String>,
+  );
 
-  factory BatchAddSuppressionsOptions.fromJson(Map<String, dynamic> json) =>
-      BatchAddSuppressionsOptions(
-        emails: ((json['emails'] as List?)?.map((e) => e as String).toList())!,
-      );
+  factory BatchAddSuppressionsOptions.fromJson(Map<String, dynamic> json) => BatchAddSuppressionsOptions(
+    emails: ((json['emails'] as List?)?.map((e) => e as String).toList())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'emails': emails,
-      };
+    'emails': emails,
+  };
 }
 
 /// Required object value serialized in the `data[]` wire field.
 class BatchAddSuppressionsResponseSuccessDataItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Type of the object.
   final SdkOptional<String> object;
-
   /// Unique identifier for the suppression.
   final SdkOptional<String> id;
 
-  const BatchAddSuppressionsResponseSuccessDataItem(
-      {this.object = const SdkOmitted(), this.id = const SdkOmitted()});
+  const BatchAddSuppressionsResponseSuccessDataItem({this.object = const SdkOmitted(), this.id = const SdkOmitted()});
 
-  BatchAddSuppressionsResponseSuccessDataItem Function(
-      {SdkOptional<String> object,
-      SdkOptional<String> id}) get copyWith => _copyWith;
+  BatchAddSuppressionsResponseSuccessDataItem Function({SdkOptional<String> object, SdkOptional<String> id}) get copyWith => _copyWith;
 
-  BatchAddSuppressionsResponseSuccessDataItem _copyWith(
-          {Object? object = sdkOmittedValue, Object? id = sdkOmittedValue}) =>
-      BatchAddSuppressionsResponseSuccessDataItem(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as SdkOptional<String>,
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-      );
+  BatchAddSuppressionsResponseSuccessDataItem _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue}) => BatchAddSuppressionsResponseSuccessDataItem(
+    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<String>,
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+  );
 
-  factory BatchAddSuppressionsResponseSuccessDataItem.fromJson(
-          Map<String, dynamic> json) =>
-      BatchAddSuppressionsResponseSuccessDataItem(
-        object: json['object'] != null
-            ? SdkPresent((json['object'] as String?)!)
-            : const SdkOmitted(),
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory BatchAddSuppressionsResponseSuccessDataItem.fromJson(Map<String, dynamic> json) => BatchAddSuppressionsResponseSuccessDataItem(
+    object: json['object'] != null ? SdkPresent((json['object'] as String?)!) : const SdkOmitted(),
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (object) {
-          SdkPresent<String>(value: final value) => {
-              'object': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (object) {
+      SdkPresent<String>(value: final value) => {'object': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `BatchAddSuppressionsResponseSuccess` API schema.
 class BatchAddSuppressionsResponseSuccess {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Array containing the created suppressions.
   final SdkOptional<List<BatchAddSuppressionsResponseSuccessDataItem>> data;
 
   const BatchAddSuppressionsResponseSuccess({this.data = const SdkOmitted()});
 
-  BatchAddSuppressionsResponseSuccess Function(
-          {SdkOptional<List<BatchAddSuppressionsResponseSuccessDataItem>> data})
-      get copyWith => _copyWith;
+  BatchAddSuppressionsResponseSuccess Function({SdkOptional<List<BatchAddSuppressionsResponseSuccessDataItem>> data}) get copyWith => _copyWith;
 
-  BatchAddSuppressionsResponseSuccess _copyWith(
-          {Object? data = sdkOmittedValue}) =>
-      BatchAddSuppressionsResponseSuccess(
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as SdkOptional<
-                List<BatchAddSuppressionsResponseSuccessDataItem>>,
-      );
+  BatchAddSuppressionsResponseSuccess _copyWith({Object? data = sdkOmittedValue}) => BatchAddSuppressionsResponseSuccess(
+    data: identical(data, sdkOmittedValue) ? this.data : data as SdkOptional<List<BatchAddSuppressionsResponseSuccessDataItem>>,
+  );
 
-  factory BatchAddSuppressionsResponseSuccess.fromJson(
-          Map<String, dynamic> json) =>
-      BatchAddSuppressionsResponseSuccess(
-        data: json['data'] != null
-            ? SdkPresent(((json['data'] as List?)
-                ?.map((e) =>
-                    BatchAddSuppressionsResponseSuccessDataItem.fromJson(
-                        e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory BatchAddSuppressionsResponseSuccess.fromJson(Map<String, dynamic> json) => BatchAddSuppressionsResponseSuccess(
+    data: json['data'] != null ? SdkPresent(((json['data'] as List?)?.map((e) => BatchAddSuppressionsResponseSuccessDataItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (data) {
-          SdkPresent<List<BatchAddSuppressionsResponseSuccessDataItem>>(
-            value: final value
-          ) =>
-            {
-              'data': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (data) {
+      SdkPresent<List<BatchAddSuppressionsResponseSuccessDataItem>>(value: final value) => {'data': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Provide either `emails` or `ids`, but not both.
 class BatchRemoveSuppressionsOptions {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Email addresses to remove from the suppression list.
   final SdkOptional<List<String>> emails;
-
   /// Suppression IDs to remove from the suppression list.
   final SdkOptional<List<String>> ids;
 
-  const BatchRemoveSuppressionsOptions(
-      {this.emails = const SdkOmitted(), this.ids = const SdkOmitted()});
+  const BatchRemoveSuppressionsOptions({this.emails = const SdkOmitted(), this.ids = const SdkOmitted()});
 
-  BatchRemoveSuppressionsOptions Function(
-      {SdkOptional<List<String>> emails,
-      SdkOptional<List<String>> ids}) get copyWith => _copyWith;
+  BatchRemoveSuppressionsOptions Function({SdkOptional<List<String>> emails, SdkOptional<List<String>> ids}) get copyWith => _copyWith;
 
-  BatchRemoveSuppressionsOptions _copyWith(
-          {Object? emails = sdkOmittedValue, Object? ids = sdkOmittedValue}) =>
-      BatchRemoveSuppressionsOptions(
-        emails: identical(emails, sdkOmittedValue)
-            ? this.emails
-            : emails as SdkOptional<List<String>>,
-        ids: identical(ids, sdkOmittedValue)
-            ? this.ids
-            : ids as SdkOptional<List<String>>,
-      );
+  BatchRemoveSuppressionsOptions _copyWith({Object? emails = sdkOmittedValue, Object? ids = sdkOmittedValue}) => BatchRemoveSuppressionsOptions(
+    emails: identical(emails, sdkOmittedValue) ? this.emails : emails as SdkOptional<List<String>>,
+    ids: identical(ids, sdkOmittedValue) ? this.ids : ids as SdkOptional<List<String>>,
+  );
 
-  factory BatchRemoveSuppressionsOptions.fromJson(Map<String, dynamic> json) =>
-      BatchRemoveSuppressionsOptions(
-        emails: json['emails'] != null
-            ? SdkPresent(
-                ((json['emails'] as List?)?.map((e) => e as String).toList())!)
-            : const SdkOmitted(),
-        ids: json['ids'] != null
-            ? SdkPresent(
-                ((json['ids'] as List?)?.map((e) => e as String).toList())!)
-            : const SdkOmitted(),
-      );
+  factory BatchRemoveSuppressionsOptions.fromJson(Map<String, dynamic> json) => BatchRemoveSuppressionsOptions(
+    emails: json['emails'] != null ? SdkPresent(((json['emails'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    ids: json['ids'] != null ? SdkPresent(((json['ids'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (emails) {
-          SdkPresent<List<String>>(value: final value) => {
-              'emails': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (ids) {
-          SdkPresent<List<String>>(value: final value) => {
-              'ids': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (emails) {
+      SdkPresent<List<String>>(value: final value) => {'emails': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (ids) {
+      SdkPresent<List<String>>(value: final value) => {'ids': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Required object value serialized in the `data[]` wire field.
 class BatchRemoveSuppressionsResponseSuccessDataItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Type of the object.
   final SdkOptional<String> object;
-
   /// Unique identifier for the suppression.
   final SdkOptional<String> id;
-
   /// Indicates whether the suppression was successfully deleted.
   final SdkOptional<bool> deleted;
 
-  const BatchRemoveSuppressionsResponseSuccessDataItem(
-      {this.object = const SdkOmitted(),
-      this.id = const SdkOmitted(),
-      this.deleted = const SdkOmitted()});
+  const BatchRemoveSuppressionsResponseSuccessDataItem({this.object = const SdkOmitted(), this.id = const SdkOmitted(), this.deleted = const SdkOmitted()});
 
-  BatchRemoveSuppressionsResponseSuccessDataItem Function(
-      {SdkOptional<String> object,
-      SdkOptional<String> id,
-      SdkOptional<bool> deleted}) get copyWith => _copyWith;
+  BatchRemoveSuppressionsResponseSuccessDataItem Function({SdkOptional<String> object, SdkOptional<String> id, SdkOptional<bool> deleted}) get copyWith => _copyWith;
 
-  BatchRemoveSuppressionsResponseSuccessDataItem _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? deleted = sdkOmittedValue}) =>
-      BatchRemoveSuppressionsResponseSuccessDataItem(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as SdkOptional<String>,
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-        deleted: identical(deleted, sdkOmittedValue)
-            ? this.deleted
-            : deleted as SdkOptional<bool>,
-      );
+  BatchRemoveSuppressionsResponseSuccessDataItem _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? deleted = sdkOmittedValue}) => BatchRemoveSuppressionsResponseSuccessDataItem(
+    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<String>,
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+    deleted: identical(deleted, sdkOmittedValue) ? this.deleted : deleted as SdkOptional<bool>,
+  );
 
-  factory BatchRemoveSuppressionsResponseSuccessDataItem.fromJson(
-          Map<String, dynamic> json) =>
-      BatchRemoveSuppressionsResponseSuccessDataItem(
-        object: json['object'] != null
-            ? SdkPresent((json['object'] as String?)!)
-            : const SdkOmitted(),
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-        deleted: json['deleted'] != null
-            ? SdkPresent((json['deleted'] as bool?)!)
-            : const SdkOmitted(),
-      );
+  factory BatchRemoveSuppressionsResponseSuccessDataItem.fromJson(Map<String, dynamic> json) => BatchRemoveSuppressionsResponseSuccessDataItem(
+    object: json['object'] != null ? SdkPresent((json['object'] as String?)!) : const SdkOmitted(),
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+    deleted: json['deleted'] != null ? SdkPresent((json['deleted'] as bool?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (object) {
-          SdkPresent<String>(value: final value) => {
-              'object': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (deleted) {
-          SdkPresent<bool>(value: final value) => {
-              'deleted': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (object) {
+      SdkPresent<String>(value: final value) => {'object': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (deleted) {
+      SdkPresent<bool>(value: final value) => {'deleted': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `BatchRemoveSuppressionsResponseSuccess` API schema.
 class BatchRemoveSuppressionsResponseSuccess {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Array containing the removed suppressions.
   final SdkOptional<List<BatchRemoveSuppressionsResponseSuccessDataItem>> data;
 
-  const BatchRemoveSuppressionsResponseSuccess(
-      {this.data = const SdkOmitted()});
+  const BatchRemoveSuppressionsResponseSuccess({this.data = const SdkOmitted()});
 
-  BatchRemoveSuppressionsResponseSuccess Function(
-      {SdkOptional<List<BatchRemoveSuppressionsResponseSuccessDataItem>>
-          data}) get copyWith => _copyWith;
+  BatchRemoveSuppressionsResponseSuccess Function({SdkOptional<List<BatchRemoveSuppressionsResponseSuccessDataItem>> data}) get copyWith => _copyWith;
 
-  BatchRemoveSuppressionsResponseSuccess _copyWith(
-          {Object? data = sdkOmittedValue}) =>
-      BatchRemoveSuppressionsResponseSuccess(
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as SdkOptional<
-                List<BatchRemoveSuppressionsResponseSuccessDataItem>>,
-      );
+  BatchRemoveSuppressionsResponseSuccess _copyWith({Object? data = sdkOmittedValue}) => BatchRemoveSuppressionsResponseSuccess(
+    data: identical(data, sdkOmittedValue) ? this.data : data as SdkOptional<List<BatchRemoveSuppressionsResponseSuccessDataItem>>,
+  );
 
-  factory BatchRemoveSuppressionsResponseSuccess.fromJson(
-          Map<String, dynamic> json) =>
-      BatchRemoveSuppressionsResponseSuccess(
-        data: json['data'] != null
-            ? SdkPresent(((json['data'] as List?)
-                ?.map((e) =>
-                    BatchRemoveSuppressionsResponseSuccessDataItem.fromJson(
-                        e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory BatchRemoveSuppressionsResponseSuccess.fromJson(Map<String, dynamic> json) => BatchRemoveSuppressionsResponseSuccess(
+    data: json['data'] != null ? SdkPresent(((json['data'] as List?)?.map((e) => BatchRemoveSuppressionsResponseSuccessDataItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (data) {
-          SdkPresent<List<BatchRemoveSuppressionsResponseSuccessDataItem>>(
-            value: final value
-          ) =>
-            {
-              'data': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (data) {
+      SdkPresent<List<BatchRemoveSuppressionsResponseSuccessDataItem>>(value: final value) => {'data': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `CreateSuppressionOptions` API schema.
 class CreateSuppressionOptions {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Email address to suppress.
   final String email;
 
@@ -332,73 +206,50 @@ class CreateSuppressionOptions {
 
   CreateSuppressionOptions Function({String email}) get copyWith => _copyWith;
 
-  CreateSuppressionOptions _copyWith({Object? email = sdkOmittedValue}) =>
-      CreateSuppressionOptions(
-        email: identical(email, sdkOmittedValue) ? this.email : email as String,
-      );
+  CreateSuppressionOptions _copyWith({Object? email = sdkOmittedValue}) => CreateSuppressionOptions(
+    email: identical(email, sdkOmittedValue) ? this.email : email as String,
+  );
 
-  factory CreateSuppressionOptions.fromJson(Map<String, dynamic> json) =>
-      CreateSuppressionOptions(
-        email: (json['email'] as String?)!,
-      );
+  factory CreateSuppressionOptions.fromJson(Map<String, dynamic> json) => CreateSuppressionOptions(
+    email: (json['email'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'email': email,
-      };
+    'email': email,
+  };
 }
 
 /// Typed representation of the `CreateSuppressionResponseSuccess` API schema.
 class CreateSuppressionResponseSuccess {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Type of the response object.
   final SdkOptional<String> object;
-
   /// Unique identifier for the created suppression.
   final SdkOptional<String> id;
 
-  const CreateSuppressionResponseSuccess(
-      {this.object = const SdkOmitted(), this.id = const SdkOmitted()});
+  const CreateSuppressionResponseSuccess({this.object = const SdkOmitted(), this.id = const SdkOmitted()});
 
-  CreateSuppressionResponseSuccess Function(
-      {SdkOptional<String> object,
-      SdkOptional<String> id}) get copyWith => _copyWith;
+  CreateSuppressionResponseSuccess Function({SdkOptional<String> object, SdkOptional<String> id}) get copyWith => _copyWith;
 
-  CreateSuppressionResponseSuccess _copyWith(
-          {Object? object = sdkOmittedValue, Object? id = sdkOmittedValue}) =>
-      CreateSuppressionResponseSuccess(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as SdkOptional<String>,
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-      );
+  CreateSuppressionResponseSuccess _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue}) => CreateSuppressionResponseSuccess(
+    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<String>,
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+  );
 
-  factory CreateSuppressionResponseSuccess.fromJson(
-          Map<String, dynamic> json) =>
-      CreateSuppressionResponseSuccess(
-        object: json['object'] != null
-            ? SdkPresent((json['object'] as String?)!)
-            : const SdkOmitted(),
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory CreateSuppressionResponseSuccess.fromJson(Map<String, dynamic> json) => CreateSuppressionResponseSuccess(
+    object: json['object'] != null ? SdkPresent((json['object'] as String?)!) : const SdkOmitted(),
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (object) {
-          SdkPresent<String>(value: final value) => {
-              'object': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (object) {
+      SdkPresent<String>(value: final value) => {'object': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
