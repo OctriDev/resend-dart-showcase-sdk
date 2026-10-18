@@ -24,7 +24,7 @@ class SendEmailRequest {
   final SdkOptional<String> html;
   /// The plain text version of the message.
   final SdkOptional<String> text;
-  /// Optional API value serialized in the `template` wire field.
+  /// Use a published template to send the email. If provided, do not include html or text.
   final SdkOptional<EmailTemplateInput> template;
   /// Custom headers to add to the email.
   final SdkOptional<Map<String, dynamic>> headers;
