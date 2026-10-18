@@ -489,51 +489,35 @@ class EmailMetricsDataRow {
       };
 }
 
-/// Typed representation of the `EmailTemplateInput` API schema.
-class EmailTemplateInput {
+sealed class EmailTemplateInputVariablesValue {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+  const EmailTemplateInputVariablesValue();
+  factory EmailTemplateInputVariablesValue.fromJson(Object? json) {
+    if (json is String) {
+      return EmailTemplateInputVariablesValueString(json);
+    }
+    if (json is num) {
+      return EmailTemplateInputVariablesValueDouble(json.toDouble());
+    }
+    throw FormatException(
+        "No variant matched for EmailTemplateInputVariablesValue");
+  }
+  Object? toJson();
+}
 
-  /// The id of the published email template.
-  final String id;
+final class EmailTemplateInputVariablesValueString
+    extends EmailTemplateInputVariablesValue {
+  final String value;
+  const EmailTemplateInputVariablesValueString(this.value);
+  @override
+  Object? toJson() => value;
+}
 
-  /// Template variables object with key/value pairs.
-  final SdkOptional<Map<String, dynamic>> variables;
-
-  const EmailTemplateInput(
-      {required this.id, this.variables = const SdkOmitted()});
-
-  EmailTemplateInput Function(
-      {String id,
-      SdkOptional<Map<String, dynamic>> variables}) get copyWith => _copyWith;
-
-  EmailTemplateInput _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? variables = sdkOmittedValue}) =>
-      EmailTemplateInput(
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        variables: identical(variables, sdkOmittedValue)
-            ? this.variables
-            : variables as SdkOptional<Map<String, dynamic>>,
-      );
-
-  factory EmailTemplateInput.fromJson(Map<String, dynamic> json) =>
-      EmailTemplateInput(
-        id: (json['id'] as String?)!,
-        variables: json['variables'] != null
-            ? SdkPresent((json['variables'] == null
-                ? null
-                : json['variables'] as Map<String, dynamic>)!)
-            : const SdkOmitted(),
-      );
-
-  Map<String, dynamic> toJson() => {
-        'id': id,
-        ...switch (variables) {
-          SdkPresent<Map<String, dynamic>>(value: final value) => {
-              'variables': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+final class EmailTemplateInputVariablesValueDouble
+    extends EmailTemplateInputVariablesValue {
+  final double value;
+  const EmailTemplateInputVariablesValueDouble(this.value);
+  @override
+  Object? toJson() => value;
 }
