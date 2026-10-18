@@ -9,23 +9,33 @@ sealed class ForwardInboxThreadEmailOptionsTo {
   static const String constructionSurface = 'named';
   const ForwardInboxThreadEmailOptionsTo();
   factory ForwardInboxThreadEmailOptionsTo.fromJson(Object? json) {
-    if (json is String) { return ForwardInboxThreadEmailOptionsToString(json); }
-    if (json is List) { return ForwardInboxThreadEmailOptionsToListString(json.map((e) => e as String).toList().cast<String>()); }
-    throw FormatException("No variant matched for ForwardInboxThreadEmailOptionsTo");
+    if (json is String) {
+      return ForwardInboxThreadEmailOptionsToString(json);
+    }
+    if (json is List) {
+      return ForwardInboxThreadEmailOptionsToListString(
+          json.map((e) => e as String).toList().cast<String>());
+    }
+    throw FormatException(
+        "No variant matched for ForwardInboxThreadEmailOptionsTo");
   }
   Object? toJson();
 }
 
-final class ForwardInboxThreadEmailOptionsToString extends ForwardInboxThreadEmailOptionsTo {
+final class ForwardInboxThreadEmailOptionsToString
+    extends ForwardInboxThreadEmailOptionsTo {
   final String value;
   const ForwardInboxThreadEmailOptionsToString(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
-final class ForwardInboxThreadEmailOptionsToListString extends ForwardInboxThreadEmailOptionsTo {
+final class ForwardInboxThreadEmailOptionsToListString
+    extends ForwardInboxThreadEmailOptionsTo {
   final List<String> value;
   const ForwardInboxThreadEmailOptionsToListString(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
 sealed class ForwardInboxThreadEmailOptionsCc {
@@ -33,23 +43,33 @@ sealed class ForwardInboxThreadEmailOptionsCc {
   static const String constructionSurface = 'named';
   const ForwardInboxThreadEmailOptionsCc();
   factory ForwardInboxThreadEmailOptionsCc.fromJson(Object? json) {
-    if (json is String) { return ForwardInboxThreadEmailOptionsCcString(json); }
-    if (json is List) { return ForwardInboxThreadEmailOptionsCcListString(json.map((e) => e as String).toList().cast<String>()); }
-    throw FormatException("No variant matched for ForwardInboxThreadEmailOptionsCc");
+    if (json is String) {
+      return ForwardInboxThreadEmailOptionsCcString(json);
+    }
+    if (json is List) {
+      return ForwardInboxThreadEmailOptionsCcListString(
+          json.map((e) => e as String).toList().cast<String>());
+    }
+    throw FormatException(
+        "No variant matched for ForwardInboxThreadEmailOptionsCc");
   }
   Object? toJson();
 }
 
-final class ForwardInboxThreadEmailOptionsCcString extends ForwardInboxThreadEmailOptionsCc {
+final class ForwardInboxThreadEmailOptionsCcString
+    extends ForwardInboxThreadEmailOptionsCc {
   final String value;
   const ForwardInboxThreadEmailOptionsCcString(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
-final class ForwardInboxThreadEmailOptionsCcListString extends ForwardInboxThreadEmailOptionsCc {
+final class ForwardInboxThreadEmailOptionsCcListString
+    extends ForwardInboxThreadEmailOptionsCc {
   final List<String> value;
   const ForwardInboxThreadEmailOptionsCcListString(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
 sealed class ForwardInboxThreadEmailOptionsBcc {
@@ -57,125 +77,222 @@ sealed class ForwardInboxThreadEmailOptionsBcc {
   static const String constructionSurface = 'named';
   const ForwardInboxThreadEmailOptionsBcc();
   factory ForwardInboxThreadEmailOptionsBcc.fromJson(Object? json) {
-    if (json is String) { return ForwardInboxThreadEmailOptionsBccString(json); }
-    if (json is List) { return ForwardInboxThreadEmailOptionsBccListString(json.map((e) => e as String).toList().cast<String>()); }
-    throw FormatException("No variant matched for ForwardInboxThreadEmailOptionsBcc");
+    if (json is String) {
+      return ForwardInboxThreadEmailOptionsBccString(json);
+    }
+    if (json is List) {
+      return ForwardInboxThreadEmailOptionsBccListString(
+          json.map((e) => e as String).toList().cast<String>());
+    }
+    throw FormatException(
+        "No variant matched for ForwardInboxThreadEmailOptionsBcc");
   }
   Object? toJson();
 }
 
-final class ForwardInboxThreadEmailOptionsBccString extends ForwardInboxThreadEmailOptionsBcc {
+final class ForwardInboxThreadEmailOptionsBccString
+    extends ForwardInboxThreadEmailOptionsBcc {
   final String value;
   const ForwardInboxThreadEmailOptionsBccString(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
-final class ForwardInboxThreadEmailOptionsBccListString extends ForwardInboxThreadEmailOptionsBcc {
+final class ForwardInboxThreadEmailOptionsBccListString
+    extends ForwardInboxThreadEmailOptionsBcc {
   final List<String> value;
   const ForwardInboxThreadEmailOptionsBccListString(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
 /// Typed representation of the `ForwardInboxThreadEmailOptions` API schema.
 class ForwardInboxThreadEmailOptions {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Recipient email address. For multiple addresses, send as an array of strings. Must name at least one address. `to`, `cc` and `bcc` combined cannot exceed 50 recipients. Each address is `email@example.com` or `Name &lt;email@example.com&gt;`. An address that is not valid returns a 422.
   final dynamic to;
+
   /// CC recipient email address. For multiple addresses, send as an array of strings. Counts toward the 50-recipient limit. Each address is `email@example.com` or `Name &lt;email@example.com&gt;`. An address that is not valid returns a 422.
   final SdkOptional<dynamic> cc;
+
   /// BCC recipient email address. For multiple addresses, send as an array of strings. Counts toward the 50-recipient limit. Each address is `email@example.com` or `Name &lt;email@example.com&gt;`. An address that is not valid returns a 422.
   final SdkOptional<dynamic> bcc;
+
   /// An HTML note sent above the quoted original.
   final SdkOptional<String> html;
+
   /// A plain-text note sent above the quoted original.
   final SdkOptional<String> text;
+
   /// The subject of the forward. Cannot be only whitespace or contain a line break. When omitted, the thread subject is used, prefixed with `Fwd:` if it does not already start with it.
   final SdkOptional<String> subject;
+
   /// Files to attach, as on `POST /emails`. Each one needs `content` or `path`. They share one limit with the attachments of the original message, which the forward also sends. Together they can have up to 10 files and at most 25 MB of `content`. A `path` file counts toward the 10 files only, because it is fetched when the email is sent. An empty file, a blocked file type, a `path` that is not an `http` or `https` URL or that points to `localhost`, `127.0.0.1` or `0.0.0.0`, or a `content_type` that is not a valid MIME type returns a 422.
   final SdkOptional<List<Attachment>?> attachments;
+
   /// Custom headers to add to the email. The `In-Reply-To`, `References` and `Reply-To` headers are set by Resend and cannot be set here. Sending one of them, in any letter case, returns a 422. Header names cannot be empty, and names and values cannot contain line breaks or null characters, or the request returns a 422. `null` means no custom headers.
   final SdkOptional<Map<String, String>?> headers;
 
-  const ForwardInboxThreadEmailOptions({required this.to, this.cc = const SdkOmitted(), this.bcc = const SdkOmitted(), this.html = const SdkOmitted(), this.text = const SdkOmitted(), this.subject = const SdkOmitted(), this.attachments = const SdkOmitted(), this.headers = const SdkOmitted()});
+  const ForwardInboxThreadEmailOptions(
+      {required this.to,
+      this.cc = const SdkOmitted(),
+      this.bcc = const SdkOmitted(),
+      this.html = const SdkOmitted(),
+      this.text = const SdkOmitted(),
+      this.subject = const SdkOmitted(),
+      this.attachments = const SdkOmitted(),
+      this.headers = const SdkOmitted()});
 
-  ForwardInboxThreadEmailOptions Function({dynamic to, SdkOptional<dynamic> cc, SdkOptional<dynamic> bcc, SdkOptional<String> html, SdkOptional<String> text, SdkOptional<String> subject, SdkOptional<List<Attachment>?> attachments, SdkOptional<Map<String, String>?> headers}) get copyWith => _copyWith;
+  ForwardInboxThreadEmailOptions Function(
+      {dynamic to,
+      SdkOptional<dynamic> cc,
+      SdkOptional<dynamic> bcc,
+      SdkOptional<String> html,
+      SdkOptional<String> text,
+      SdkOptional<String> subject,
+      SdkOptional<List<Attachment>?> attachments,
+      SdkOptional<Map<String, String>?> headers}) get copyWith => _copyWith;
 
-  ForwardInboxThreadEmailOptions _copyWith({Object? to = sdkOmittedValue, Object? cc = sdkOmittedValue, Object? bcc = sdkOmittedValue, Object? html = sdkOmittedValue, Object? text = sdkOmittedValue, Object? subject = sdkOmittedValue, Object? attachments = sdkOmittedValue, Object? headers = sdkOmittedValue}) => ForwardInboxThreadEmailOptions(
-    to: identical(to, sdkOmittedValue) ? this.to : to as dynamic,
-    cc: identical(cc, sdkOmittedValue) ? this.cc : cc as SdkOptional<dynamic>,
-    bcc: identical(bcc, sdkOmittedValue) ? this.bcc : bcc as SdkOptional<dynamic>,
-    html: identical(html, sdkOmittedValue) ? this.html : html as SdkOptional<String>,
-    text: identical(text, sdkOmittedValue) ? this.text : text as SdkOptional<String>,
-    subject: identical(subject, sdkOmittedValue) ? this.subject : subject as SdkOptional<String>,
-    attachments: identical(attachments, sdkOmittedValue) ? this.attachments : attachments as SdkOptional<List<Attachment>?>,
-    headers: identical(headers, sdkOmittedValue) ? this.headers : headers as SdkOptional<Map<String, String>?>,
-  );
+  ForwardInboxThreadEmailOptions _copyWith(
+          {Object? to = sdkOmittedValue,
+          Object? cc = sdkOmittedValue,
+          Object? bcc = sdkOmittedValue,
+          Object? html = sdkOmittedValue,
+          Object? text = sdkOmittedValue,
+          Object? subject = sdkOmittedValue,
+          Object? attachments = sdkOmittedValue,
+          Object? headers = sdkOmittedValue}) =>
+      ForwardInboxThreadEmailOptions(
+        to: identical(to, sdkOmittedValue) ? this.to : to as dynamic,
+        cc: identical(cc, sdkOmittedValue)
+            ? this.cc
+            : cc as SdkOptional<dynamic>,
+        bcc: identical(bcc, sdkOmittedValue)
+            ? this.bcc
+            : bcc as SdkOptional<dynamic>,
+        html: identical(html, sdkOmittedValue)
+            ? this.html
+            : html as SdkOptional<String>,
+        text: identical(text, sdkOmittedValue)
+            ? this.text
+            : text as SdkOptional<String>,
+        subject: identical(subject, sdkOmittedValue)
+            ? this.subject
+            : subject as SdkOptional<String>,
+        attachments: identical(attachments, sdkOmittedValue)
+            ? this.attachments
+            : attachments as SdkOptional<List<Attachment>?>,
+        headers: identical(headers, sdkOmittedValue)
+            ? this.headers
+            : headers as SdkOptional<Map<String, String>?>,
+      );
 
-  factory ForwardInboxThreadEmailOptions.fromJson(Map<String, dynamic> json) => ForwardInboxThreadEmailOptions(
-    to: (json['to'])!,
-    cc: json.containsKey('cc') ? SdkPresent(json['cc']) : const SdkOmitted(),
-    bcc: json.containsKey('bcc') ? SdkPresent(json['bcc']) : const SdkOmitted(),
-    html: json['html'] != null ? SdkPresent((json['html'] as String?)!) : const SdkOmitted(),
-    text: json['text'] != null ? SdkPresent((json['text'] as String?)!) : const SdkOmitted(),
-    subject: json['subject'] != null ? SdkPresent((json['subject'] as String?)!) : const SdkOmitted(),
-    attachments: json.containsKey('attachments') ? SdkPresent((json['attachments'] as List?)?.map((e) => Attachment.fromJson(e as Map<String, dynamic>)).toList()) : const SdkOmitted(),
-    headers: json.containsKey('headers') ? SdkPresent(json['headers'] == null ? null : Map<String, dynamic>.from(json['headers'] as Map).map((key, value) => MapEntry(key, value as String))) : const SdkOmitted(),
-  );
+  factory ForwardInboxThreadEmailOptions.fromJson(Map<String, dynamic> json) =>
+      ForwardInboxThreadEmailOptions(
+        to: (json['to'])!,
+        cc: json.containsKey('cc')
+            ? SdkPresent(json['cc'])
+            : const SdkOmitted(),
+        bcc: json.containsKey('bcc')
+            ? SdkPresent(json['bcc'])
+            : const SdkOmitted(),
+        html: json['html'] != null
+            ? SdkPresent((json['html'] as String?)!)
+            : const SdkOmitted(),
+        text: json['text'] != null
+            ? SdkPresent((json['text'] as String?)!)
+            : const SdkOmitted(),
+        subject: json['subject'] != null
+            ? SdkPresent((json['subject'] as String?)!)
+            : const SdkOmitted(),
+        attachments: json.containsKey('attachments')
+            ? SdkPresent((json['attachments'] as List?)
+                ?.map((e) => Attachment.fromJson(e as Map<String, dynamic>))
+                .toList())
+            : const SdkOmitted(),
+        headers: json.containsKey('headers')
+            ? SdkPresent(json['headers'] == null
+                ? null
+                : Map<String, dynamic>.from(json['headers'] as Map)
+                    .map((key, value) => MapEntry(key, value as String)))
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'to': to,
-    ...switch (cc) {
-      SdkPresent<dynamic>(value: final value) => {'cc': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (bcc) {
-      SdkPresent<dynamic>(value: final value) => {'bcc': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (html) {
-      SdkPresent<String>(value: final value) => {'html': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (text) {
-      SdkPresent<String>(value: final value) => {'text': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (subject) {
-      SdkPresent<String>(value: final value) => {'subject': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (attachments) {
-      SdkPresent<List<Attachment>?>(value: final value) => {'attachments': value?.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (headers) {
-      SdkPresent<Map<String, String>?>(value: final value) => {'headers': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'to': to,
+        ...switch (cc) {
+          SdkPresent<dynamic>(value: final value) => {
+              'cc': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (bcc) {
+          SdkPresent<dynamic>(value: final value) => {
+              'bcc': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (html) {
+          SdkPresent<String>(value: final value) => {
+              'html': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (text) {
+          SdkPresent<String>(value: final value) => {
+              'text': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (subject) {
+          SdkPresent<String>(value: final value) => {
+              'subject': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (attachments) {
+          SdkPresent<List<Attachment>?>(value: final value) => {
+              'attachments': value?.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (headers) {
+          SdkPresent<Map<String, String>?>(value: final value) => {
+              'headers': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `ForwardInboxThreadEmailResponseSuccess` API schema.
 class ForwardInboxThreadEmailResponseSuccess {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The ID of the sent email. Use it with the emails endpoints.
   final String id;
 
   const ForwardInboxThreadEmailResponseSuccess({required this.id});
 
-  ForwardInboxThreadEmailResponseSuccess Function({String id}) get copyWith => _copyWith;
+  ForwardInboxThreadEmailResponseSuccess Function({String id}) get copyWith =>
+      _copyWith;
 
-  ForwardInboxThreadEmailResponseSuccess _copyWith({Object? id = sdkOmittedValue}) => ForwardInboxThreadEmailResponseSuccess(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-  );
+  ForwardInboxThreadEmailResponseSuccess _copyWith(
+          {Object? id = sdkOmittedValue}) =>
+      ForwardInboxThreadEmailResponseSuccess(
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+      );
 
-  factory ForwardInboxThreadEmailResponseSuccess.fromJson(Map<String, dynamic> json) => ForwardInboxThreadEmailResponseSuccess(
-    id: (json['id'] as String?)!,
-  );
+  factory ForwardInboxThreadEmailResponseSuccess.fromJson(
+          Map<String, dynamic> json) =>
+      ForwardInboxThreadEmailResponseSuccess(
+        id: (json['id'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-  };
+        'id': id,
+      };
 }

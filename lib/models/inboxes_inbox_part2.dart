@@ -8,284 +8,545 @@ part of 'inboxes_inbox.dart';
 class InboxDraftListItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The ID of the draft.
   final String id;
+
   /// `reply` when the draft replies to an email in an existing thread. `standalone` when the draft starts a new thread.
   final InboxDraftListItemType type_;
+
   /// The recipients. `null` or empty when no recipients are set.
   final List<String>? to;
+
   /// The CC recipients.
   final List<String> cc;
+
   /// The BCC recipients.
   final List<String> bcc;
+
   /// The subject.
   final String? subject;
+
   /// A short preview of the body.
   final String? snippet;
+
   /// The Thread ID when the draft is a reply. `null` otherwise.
   final String? threadId;
+
   /// The Email ID the draft replies to. `null` otherwise.
   final String? replyToEmailId;
+
   /// Timestamp when the draft was last saved.
   final String updatedAt;
+
   /// The files stored on the draft.
   final List<InboxDraftAttachment> attachments;
 
-  const InboxDraftListItem({required this.id, required this.type_, required this.to, required this.cc, required this.bcc, required this.subject, required this.snippet, required this.threadId, required this.replyToEmailId, required this.updatedAt, required this.attachments});
+  const InboxDraftListItem(
+      {required this.id,
+      required this.type_,
+      required this.to,
+      required this.cc,
+      required this.bcc,
+      required this.subject,
+      required this.snippet,
+      required this.threadId,
+      required this.replyToEmailId,
+      required this.updatedAt,
+      required this.attachments});
 
-  InboxDraftListItem Function({String id, InboxDraftListItemType type_, List<String>? to, List<String> cc, List<String> bcc, String? subject, String? snippet, String? threadId, String? replyToEmailId, String updatedAt, List<InboxDraftAttachment> attachments}) get copyWith => _copyWith;
+  InboxDraftListItem Function(
+      {String id,
+      InboxDraftListItemType type_,
+      List<String>? to,
+      List<String> cc,
+      List<String> bcc,
+      String? subject,
+      String? snippet,
+      String? threadId,
+      String? replyToEmailId,
+      String updatedAt,
+      List<InboxDraftAttachment> attachments}) get copyWith => _copyWith;
 
-  InboxDraftListItem _copyWith({Object? id = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? to = sdkOmittedValue, Object? cc = sdkOmittedValue, Object? bcc = sdkOmittedValue, Object? subject = sdkOmittedValue, Object? snippet = sdkOmittedValue, Object? threadId = sdkOmittedValue, Object? replyToEmailId = sdkOmittedValue, Object? updatedAt = sdkOmittedValue, Object? attachments = sdkOmittedValue}) => InboxDraftListItem(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as InboxDraftListItemType,
-    to: identical(to, sdkOmittedValue) ? this.to : to as List<String>?,
-    cc: identical(cc, sdkOmittedValue) ? this.cc : cc as List<String>,
-    bcc: identical(bcc, sdkOmittedValue) ? this.bcc : bcc as List<String>,
-    subject: identical(subject, sdkOmittedValue) ? this.subject : subject as String?,
-    snippet: identical(snippet, sdkOmittedValue) ? this.snippet : snippet as String?,
-    threadId: identical(threadId, sdkOmittedValue) ? this.threadId : threadId as String?,
-    replyToEmailId: identical(replyToEmailId, sdkOmittedValue) ? this.replyToEmailId : replyToEmailId as String?,
-    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as String,
-    attachments: identical(attachments, sdkOmittedValue) ? this.attachments : attachments as List<InboxDraftAttachment>,
-  );
+  InboxDraftListItem _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? to = sdkOmittedValue,
+          Object? cc = sdkOmittedValue,
+          Object? bcc = sdkOmittedValue,
+          Object? subject = sdkOmittedValue,
+          Object? snippet = sdkOmittedValue,
+          Object? threadId = sdkOmittedValue,
+          Object? replyToEmailId = sdkOmittedValue,
+          Object? updatedAt = sdkOmittedValue,
+          Object? attachments = sdkOmittedValue}) =>
+      InboxDraftListItem(
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as InboxDraftListItemType,
+        to: identical(to, sdkOmittedValue) ? this.to : to as List<String>?,
+        cc: identical(cc, sdkOmittedValue) ? this.cc : cc as List<String>,
+        bcc: identical(bcc, sdkOmittedValue) ? this.bcc : bcc as List<String>,
+        subject: identical(subject, sdkOmittedValue)
+            ? this.subject
+            : subject as String?,
+        snippet: identical(snippet, sdkOmittedValue)
+            ? this.snippet
+            : snippet as String?,
+        threadId: identical(threadId, sdkOmittedValue)
+            ? this.threadId
+            : threadId as String?,
+        replyToEmailId: identical(replyToEmailId, sdkOmittedValue)
+            ? this.replyToEmailId
+            : replyToEmailId as String?,
+        updatedAt: identical(updatedAt, sdkOmittedValue)
+            ? this.updatedAt
+            : updatedAt as String,
+        attachments: identical(attachments, sdkOmittedValue)
+            ? this.attachments
+            : attachments as List<InboxDraftAttachment>,
+      );
 
-  factory InboxDraftListItem.fromJson(Map<String, dynamic> json) => InboxDraftListItem(
-    id: (json['id'] as String?)!,
-    type_: (json['type'] != null ? InboxDraftListItemType.fromJson(json['type'] as String) : null)!,
-    to: json.containsKey('to') ? (json['to'] as List?)?.map((e) => e as String).toList() : throw ArgumentError.value(null, 'to', 'Required property is missing'),
-    cc: ((json['cc'] as List?)?.map((e) => e as String).toList())!,
-    bcc: ((json['bcc'] as List?)?.map((e) => e as String).toList())!,
-    subject: json.containsKey('subject') ? json['subject'] as String? : throw ArgumentError.value(null, 'subject', 'Required property is missing'),
-    snippet: json.containsKey('snippet') ? json['snippet'] as String? : throw ArgumentError.value(null, 'snippet', 'Required property is missing'),
-    threadId: json.containsKey('thread_id') ? json['thread_id'] as String? : throw ArgumentError.value(null, 'thread_id', 'Required property is missing'),
-    replyToEmailId: json.containsKey('reply_to_email_id') ? json['reply_to_email_id'] as String? : throw ArgumentError.value(null, 'reply_to_email_id', 'Required property is missing'),
-    updatedAt: (json['updated_at'] as String?)!,
-    attachments: ((json['attachments'] as List?)?.map((e) => InboxDraftAttachment.fromJson(e as Map<String, dynamic>)).toList())!,
-  );
+  factory InboxDraftListItem.fromJson(Map<String, dynamic> json) =>
+      InboxDraftListItem(
+        id: (json['id'] as String?)!,
+        type_: (json['type'] != null
+            ? InboxDraftListItemType.fromJson(json['type'] as String)
+            : null)!,
+        to: json.containsKey('to')
+            ? (json['to'] as List?)?.map((e) => e as String).toList()
+            : throw ArgumentError.value(
+                null, 'to', 'Required property is missing'),
+        cc: ((json['cc'] as List?)?.map((e) => e as String).toList())!,
+        bcc: ((json['bcc'] as List?)?.map((e) => e as String).toList())!,
+        subject: json.containsKey('subject')
+            ? json['subject'] as String?
+            : throw ArgumentError.value(
+                null, 'subject', 'Required property is missing'),
+        snippet: json.containsKey('snippet')
+            ? json['snippet'] as String?
+            : throw ArgumentError.value(
+                null, 'snippet', 'Required property is missing'),
+        threadId: json.containsKey('thread_id')
+            ? json['thread_id'] as String?
+            : throw ArgumentError.value(
+                null, 'thread_id', 'Required property is missing'),
+        replyToEmailId: json.containsKey('reply_to_email_id')
+            ? json['reply_to_email_id'] as String?
+            : throw ArgumentError.value(
+                null, 'reply_to_email_id', 'Required property is missing'),
+        updatedAt: (json['updated_at'] as String?)!,
+        attachments: ((json['attachments'] as List?)
+            ?.map(
+                (e) => InboxDraftAttachment.fromJson(e as Map<String, dynamic>))
+            .toList())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-    'type': type_.toJson(),
-    'to': to,
-    'cc': cc,
-    'bcc': bcc,
-    'subject': subject,
-    'snippet': snippet,
-    'thread_id': threadId,
-    'reply_to_email_id': replyToEmailId,
-    'updated_at': updatedAt,
-    'attachments': attachments.map((item) => item.toJson()).toList(),
-  };
+        'id': id,
+        'type': type_.toJson(),
+        'to': to,
+        'cc': cc,
+        'bcc': bcc,
+        'subject': subject,
+        'snippet': snippet,
+        'thread_id': threadId,
+        'reply_to_email_id': replyToEmailId,
+        'updated_at': updatedAt,
+        'attachments': attachments.map((item) => item.toJson()).toList(),
+      };
 }
 
 /// Typed representation of the `InboxLabel` API schema.
 class InboxLabel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The ID of the label.
   final String id;
+
   /// The name of the label.
   final String name;
+
   /// The color of the label, as a `#RRGGBB` hex color in uppercase.
   final String color;
+
   /// Timestamp when the label was created.
   final String createdAt;
 
-  const InboxLabel({required this.id, required this.name, required this.color, required this.createdAt});
+  const InboxLabel(
+      {required this.id,
+      required this.name,
+      required this.color,
+      required this.createdAt});
 
-  InboxLabel Function({String id, String name, String color, String createdAt}) get copyWith => _copyWith;
+  InboxLabel Function({String id, String name, String color, String createdAt})
+      get copyWith => _copyWith;
 
-  InboxLabel _copyWith({Object? id = sdkOmittedValue, Object? name = sdkOmittedValue, Object? color = sdkOmittedValue, Object? createdAt = sdkOmittedValue}) => InboxLabel(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    color: identical(color, sdkOmittedValue) ? this.color : color as String,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as String,
-  );
+  InboxLabel _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? color = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue}) =>
+      InboxLabel(
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        color: identical(color, sdkOmittedValue) ? this.color : color as String,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as String,
+      );
 
   factory InboxLabel.fromJson(Map<String, dynamic> json) => InboxLabel(
-    id: (json['id'] as String?)!,
-    name: (json['name'] as String?)!,
-    color: (json['color'] as String?)!,
-    createdAt: (json['created_at'] as String?)!,
-  );
+        id: (json['id'] as String?)!,
+        name: (json['name'] as String?)!,
+        color: (json['color'] as String?)!,
+        createdAt: (json['created_at'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-    'name': name,
-    'color': color,
-    'created_at': createdAt,
-  };
+        'id': id,
+        'name': name,
+        'color': color,
+        'created_at': createdAt,
+      };
 }
 
 /// A thread as it appears in the list of an inbox's threads.
 class InboxThread {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The ID of the thread.
   final String id;
+
   /// The subject of the thread.
   final String? subject;
+
   /// The sender email address. Can include the display name.
   final String? from;
+
   /// The recipients of the most recent email. For a received email, these are the addresses it was delivered to, not the full `To` header.
   final List<String> to;
+
   /// The CC recipients of the most recent email.
   final List<String> cc;
+
   /// The BCC recipients of the most recent email. Always empty for a received email.
   final List<String> bcc;
+
   /// The labels attached to the thread.
   final List<InboxThreadLabel> labels;
+
   /// The number of emails in the thread.
   final int emailCount;
+
   /// Whether the most recent email in the thread has an attachment.
   final bool hasAttachment;
+
   /// Whether the thread has an unsent draft.
   final bool hasDraft;
+
   /// True only when every email in the thread is read.
   final bool read;
+
   /// Timestamp when the thread was last active.
   final String receivedAt;
+
   /// The folder the thread is in. Every thread is in exactly one folder. `inbox` holds threads with at least one received email. `archive` and `spam` hold threads moved there. `trash` holds threads scheduled for deletion in 30 days. `sent` holds threads whose emails are all outbound, and is assigned automatically.
   final InboxThreadFolder folder;
 
-  const InboxThread({required this.id, required this.subject, required this.from, required this.to, required this.cc, required this.bcc, required this.labels, required this.emailCount, required this.hasAttachment, required this.hasDraft, required this.read, required this.receivedAt, required this.folder});
+  const InboxThread(
+      {required this.id,
+      required this.subject,
+      required this.from,
+      required this.to,
+      required this.cc,
+      required this.bcc,
+      required this.labels,
+      required this.emailCount,
+      required this.hasAttachment,
+      required this.hasDraft,
+      required this.read,
+      required this.receivedAt,
+      required this.folder});
 
-  InboxThread Function({String id, String? subject, String? from, List<String> to, List<String> cc, List<String> bcc, List<InboxThreadLabel> labels, int emailCount, bool hasAttachment, bool hasDraft, bool read, String receivedAt, InboxThreadFolder folder}) get copyWith => _copyWith;
+  InboxThread Function(
+      {String id,
+      String? subject,
+      String? from,
+      List<String> to,
+      List<String> cc,
+      List<String> bcc,
+      List<InboxThreadLabel> labels,
+      int emailCount,
+      bool hasAttachment,
+      bool hasDraft,
+      bool read,
+      String receivedAt,
+      InboxThreadFolder folder}) get copyWith => _copyWith;
 
-  InboxThread _copyWith({Object? id = sdkOmittedValue, Object? subject = sdkOmittedValue, Object? from = sdkOmittedValue, Object? to = sdkOmittedValue, Object? cc = sdkOmittedValue, Object? bcc = sdkOmittedValue, Object? labels = sdkOmittedValue, Object? emailCount = sdkOmittedValue, Object? hasAttachment = sdkOmittedValue, Object? hasDraft = sdkOmittedValue, Object? read = sdkOmittedValue, Object? receivedAt = sdkOmittedValue, Object? folder = sdkOmittedValue}) => InboxThread(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    subject: identical(subject, sdkOmittedValue) ? this.subject : subject as String?,
-    from: identical(from, sdkOmittedValue) ? this.from : from as String?,
-    to: identical(to, sdkOmittedValue) ? this.to : to as List<String>,
-    cc: identical(cc, sdkOmittedValue) ? this.cc : cc as List<String>,
-    bcc: identical(bcc, sdkOmittedValue) ? this.bcc : bcc as List<String>,
-    labels: identical(labels, sdkOmittedValue) ? this.labels : labels as List<InboxThreadLabel>,
-    emailCount: identical(emailCount, sdkOmittedValue) ? this.emailCount : emailCount as int,
-    hasAttachment: identical(hasAttachment, sdkOmittedValue) ? this.hasAttachment : hasAttachment as bool,
-    hasDraft: identical(hasDraft, sdkOmittedValue) ? this.hasDraft : hasDraft as bool,
-    read: identical(read, sdkOmittedValue) ? this.read : read as bool,
-    receivedAt: identical(receivedAt, sdkOmittedValue) ? this.receivedAt : receivedAt as String,
-    folder: identical(folder, sdkOmittedValue) ? this.folder : folder as InboxThreadFolder,
-  );
+  InboxThread _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? subject = sdkOmittedValue,
+          Object? from = sdkOmittedValue,
+          Object? to = sdkOmittedValue,
+          Object? cc = sdkOmittedValue,
+          Object? bcc = sdkOmittedValue,
+          Object? labels = sdkOmittedValue,
+          Object? emailCount = sdkOmittedValue,
+          Object? hasAttachment = sdkOmittedValue,
+          Object? hasDraft = sdkOmittedValue,
+          Object? read = sdkOmittedValue,
+          Object? receivedAt = sdkOmittedValue,
+          Object? folder = sdkOmittedValue}) =>
+      InboxThread(
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        subject: identical(subject, sdkOmittedValue)
+            ? this.subject
+            : subject as String?,
+        from: identical(from, sdkOmittedValue) ? this.from : from as String?,
+        to: identical(to, sdkOmittedValue) ? this.to : to as List<String>,
+        cc: identical(cc, sdkOmittedValue) ? this.cc : cc as List<String>,
+        bcc: identical(bcc, sdkOmittedValue) ? this.bcc : bcc as List<String>,
+        labels: identical(labels, sdkOmittedValue)
+            ? this.labels
+            : labels as List<InboxThreadLabel>,
+        emailCount: identical(emailCount, sdkOmittedValue)
+            ? this.emailCount
+            : emailCount as int,
+        hasAttachment: identical(hasAttachment, sdkOmittedValue)
+            ? this.hasAttachment
+            : hasAttachment as bool,
+        hasDraft: identical(hasDraft, sdkOmittedValue)
+            ? this.hasDraft
+            : hasDraft as bool,
+        read: identical(read, sdkOmittedValue) ? this.read : read as bool,
+        receivedAt: identical(receivedAt, sdkOmittedValue)
+            ? this.receivedAt
+            : receivedAt as String,
+        folder: identical(folder, sdkOmittedValue)
+            ? this.folder
+            : folder as InboxThreadFolder,
+      );
 
   factory InboxThread.fromJson(Map<String, dynamic> json) => InboxThread(
-    id: (json['id'] as String?)!,
-    subject: json.containsKey('subject') ? json['subject'] as String? : throw ArgumentError.value(null, 'subject', 'Required property is missing'),
-    from: json.containsKey('from') ? json['from'] as String? : throw ArgumentError.value(null, 'from', 'Required property is missing'),
-    to: ((json['to'] as List?)?.map((e) => e as String).toList())!,
-    cc: ((json['cc'] as List?)?.map((e) => e as String).toList())!,
-    bcc: ((json['bcc'] as List?)?.map((e) => e as String).toList())!,
-    labels: ((json['labels'] as List?)?.map((e) => InboxThreadLabel.fromJson(e as Map<String, dynamic>)).toList())!,
-    emailCount: ((json['email_count'] as num?)?.toInt())!,
-    hasAttachment: (json['has_attachment'] as bool?)!,
-    hasDraft: (json['has_draft'] as bool?)!,
-    read: (json['read'] as bool?)!,
-    receivedAt: (json['received_at'] as String?)!,
-    folder: (json['folder'] != null ? InboxThreadFolder.fromJson(json['folder'] as String) : null)!,
-  );
+        id: (json['id'] as String?)!,
+        subject: json.containsKey('subject')
+            ? json['subject'] as String?
+            : throw ArgumentError.value(
+                null, 'subject', 'Required property is missing'),
+        from: json.containsKey('from')
+            ? json['from'] as String?
+            : throw ArgumentError.value(
+                null, 'from', 'Required property is missing'),
+        to: ((json['to'] as List?)?.map((e) => e as String).toList())!,
+        cc: ((json['cc'] as List?)?.map((e) => e as String).toList())!,
+        bcc: ((json['bcc'] as List?)?.map((e) => e as String).toList())!,
+        labels: ((json['labels'] as List?)
+            ?.map((e) => InboxThreadLabel.fromJson(e as Map<String, dynamic>))
+            .toList())!,
+        emailCount: ((json['email_count'] as num?)?.toInt())!,
+        hasAttachment: (json['has_attachment'] as bool?)!,
+        hasDraft: (json['has_draft'] as bool?)!,
+        read: (json['read'] as bool?)!,
+        receivedAt: (json['received_at'] as String?)!,
+        folder: (json['folder'] != null
+            ? InboxThreadFolder.fromJson(json['folder'] as String)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-    'subject': subject,
-    'from': from,
-    'to': to,
-    'cc': cc,
-    'bcc': bcc,
-    'labels': labels.map((item) => item.toJson()).toList(),
-    'email_count': emailCount,
-    'has_attachment': hasAttachment,
-    'has_draft': hasDraft,
-    'read': read,
-    'received_at': receivedAt,
-    'folder': folder.toJson(),
-  };
+        'id': id,
+        'subject': subject,
+        'from': from,
+        'to': to,
+        'cc': cc,
+        'bcc': bcc,
+        'labels': labels.map((item) => item.toJson()).toList(),
+        'email_count': emailCount,
+        'has_attachment': hasAttachment,
+        'has_draft': hasDraft,
+        'read': read,
+        'received_at': receivedAt,
+        'folder': folder.toJson(),
+      };
 }
 
 /// Typed representation of the `InboxThreadEmail` API schema.
 class InboxThreadEmail {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The ID of the message.
   final String id;
+
   /// Whether the inbox received the message (`inbound`) or sent it (`outbound`). A message the inbox sent to itself is `inbound`, so a reply to it goes to its sender.
   final InboxThreadEmailDirection direction;
+
   /// Sender email address. Includes the display name when the sender has one, in the format "Name &lt;sender@domain.com&gt;".
   final String from;
+
   /// The recipients of the message. For a received message, these are the addresses it was delivered to, not the full `To` header.
   final List<String> to;
+
   /// The CC recipients of the message.
   final List<String> cc;
+
   /// The BCC recipients of the message. Always empty for a received message.
   final List<String> bcc;
+
   /// The Reply-To addresses of the message.
   final List<String> replyTo;
+
   /// The subject of the message.
   final String? subject;
+
   /// The Message-ID header of the message.
   final String? messageId;
+
   /// The HTML body.
   final String? html;
+
   /// The plain-text body.
   final String? text;
+
   /// The attachments of the message.
   final List<InboxThreadEmailAttachment> attachments;
+
   /// Whether the message has been read.
   final bool read;
+
   /// Timestamp when the inbox received the message, or when the inbox sent it.
   final String receivedAt;
 
-  const InboxThreadEmail({required this.id, required this.direction, required this.from, required this.to, required this.cc, required this.bcc, required this.replyTo, required this.subject, required this.messageId, required this.html, required this.text, required this.attachments, required this.read, required this.receivedAt});
+  const InboxThreadEmail(
+      {required this.id,
+      required this.direction,
+      required this.from,
+      required this.to,
+      required this.cc,
+      required this.bcc,
+      required this.replyTo,
+      required this.subject,
+      required this.messageId,
+      required this.html,
+      required this.text,
+      required this.attachments,
+      required this.read,
+      required this.receivedAt});
 
-  InboxThreadEmail Function({String id, InboxThreadEmailDirection direction, String from, List<String> to, List<String> cc, List<String> bcc, List<String> replyTo, String? subject, String? messageId, String? html, String? text, List<InboxThreadEmailAttachment> attachments, bool read, String receivedAt}) get copyWith => _copyWith;
+  InboxThreadEmail Function(
+      {String id,
+      InboxThreadEmailDirection direction,
+      String from,
+      List<String> to,
+      List<String> cc,
+      List<String> bcc,
+      List<String> replyTo,
+      String? subject,
+      String? messageId,
+      String? html,
+      String? text,
+      List<InboxThreadEmailAttachment> attachments,
+      bool read,
+      String receivedAt}) get copyWith => _copyWith;
 
-  InboxThreadEmail _copyWith({Object? id = sdkOmittedValue, Object? direction = sdkOmittedValue, Object? from = sdkOmittedValue, Object? to = sdkOmittedValue, Object? cc = sdkOmittedValue, Object? bcc = sdkOmittedValue, Object? replyTo = sdkOmittedValue, Object? subject = sdkOmittedValue, Object? messageId = sdkOmittedValue, Object? html = sdkOmittedValue, Object? text = sdkOmittedValue, Object? attachments = sdkOmittedValue, Object? read = sdkOmittedValue, Object? receivedAt = sdkOmittedValue}) => InboxThreadEmail(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    direction: identical(direction, sdkOmittedValue) ? this.direction : direction as InboxThreadEmailDirection,
-    from: identical(from, sdkOmittedValue) ? this.from : from as String,
-    to: identical(to, sdkOmittedValue) ? this.to : to as List<String>,
-    cc: identical(cc, sdkOmittedValue) ? this.cc : cc as List<String>,
-    bcc: identical(bcc, sdkOmittedValue) ? this.bcc : bcc as List<String>,
-    replyTo: identical(replyTo, sdkOmittedValue) ? this.replyTo : replyTo as List<String>,
-    subject: identical(subject, sdkOmittedValue) ? this.subject : subject as String?,
-    messageId: identical(messageId, sdkOmittedValue) ? this.messageId : messageId as String?,
-    html: identical(html, sdkOmittedValue) ? this.html : html as String?,
-    text: identical(text, sdkOmittedValue) ? this.text : text as String?,
-    attachments: identical(attachments, sdkOmittedValue) ? this.attachments : attachments as List<InboxThreadEmailAttachment>,
-    read: identical(read, sdkOmittedValue) ? this.read : read as bool,
-    receivedAt: identical(receivedAt, sdkOmittedValue) ? this.receivedAt : receivedAt as String,
-  );
+  InboxThreadEmail _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? direction = sdkOmittedValue,
+          Object? from = sdkOmittedValue,
+          Object? to = sdkOmittedValue,
+          Object? cc = sdkOmittedValue,
+          Object? bcc = sdkOmittedValue,
+          Object? replyTo = sdkOmittedValue,
+          Object? subject = sdkOmittedValue,
+          Object? messageId = sdkOmittedValue,
+          Object? html = sdkOmittedValue,
+          Object? text = sdkOmittedValue,
+          Object? attachments = sdkOmittedValue,
+          Object? read = sdkOmittedValue,
+          Object? receivedAt = sdkOmittedValue}) =>
+      InboxThreadEmail(
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        direction: identical(direction, sdkOmittedValue)
+            ? this.direction
+            : direction as InboxThreadEmailDirection,
+        from: identical(from, sdkOmittedValue) ? this.from : from as String,
+        to: identical(to, sdkOmittedValue) ? this.to : to as List<String>,
+        cc: identical(cc, sdkOmittedValue) ? this.cc : cc as List<String>,
+        bcc: identical(bcc, sdkOmittedValue) ? this.bcc : bcc as List<String>,
+        replyTo: identical(replyTo, sdkOmittedValue)
+            ? this.replyTo
+            : replyTo as List<String>,
+        subject: identical(subject, sdkOmittedValue)
+            ? this.subject
+            : subject as String?,
+        messageId: identical(messageId, sdkOmittedValue)
+            ? this.messageId
+            : messageId as String?,
+        html: identical(html, sdkOmittedValue) ? this.html : html as String?,
+        text: identical(text, sdkOmittedValue) ? this.text : text as String?,
+        attachments: identical(attachments, sdkOmittedValue)
+            ? this.attachments
+            : attachments as List<InboxThreadEmailAttachment>,
+        read: identical(read, sdkOmittedValue) ? this.read : read as bool,
+        receivedAt: identical(receivedAt, sdkOmittedValue)
+            ? this.receivedAt
+            : receivedAt as String,
+      );
 
-  factory InboxThreadEmail.fromJson(Map<String, dynamic> json) => InboxThreadEmail(
-    id: (json['id'] as String?)!,
-    direction: (json['direction'] != null ? InboxThreadEmailDirection.fromJson(json['direction'] as String) : null)!,
-    from: (json['from'] as String?)!,
-    to: ((json['to'] as List?)?.map((e) => e as String).toList())!,
-    cc: ((json['cc'] as List?)?.map((e) => e as String).toList())!,
-    bcc: ((json['bcc'] as List?)?.map((e) => e as String).toList())!,
-    replyTo: ((json['reply_to'] as List?)?.map((e) => e as String).toList())!,
-    subject: json.containsKey('subject') ? json['subject'] as String? : throw ArgumentError.value(null, 'subject', 'Required property is missing'),
-    messageId: json.containsKey('message_id') ? json['message_id'] as String? : throw ArgumentError.value(null, 'message_id', 'Required property is missing'),
-    html: json.containsKey('html') ? json['html'] as String? : throw ArgumentError.value(null, 'html', 'Required property is missing'),
-    text: json.containsKey('text') ? json['text'] as String? : throw ArgumentError.value(null, 'text', 'Required property is missing'),
-    attachments: ((json['attachments'] as List?)?.map((e) => InboxThreadEmailAttachment.fromJson(e as Map<String, dynamic>)).toList())!,
-    read: (json['read'] as bool?)!,
-    receivedAt: (json['received_at'] as String?)!,
-  );
+  factory InboxThreadEmail.fromJson(Map<String, dynamic> json) =>
+      InboxThreadEmail(
+        id: (json['id'] as String?)!,
+        direction: (json['direction'] != null
+            ? InboxThreadEmailDirection.fromJson(json['direction'] as String)
+            : null)!,
+        from: (json['from'] as String?)!,
+        to: ((json['to'] as List?)?.map((e) => e as String).toList())!,
+        cc: ((json['cc'] as List?)?.map((e) => e as String).toList())!,
+        bcc: ((json['bcc'] as List?)?.map((e) => e as String).toList())!,
+        replyTo:
+            ((json['reply_to'] as List?)?.map((e) => e as String).toList())!,
+        subject: json.containsKey('subject')
+            ? json['subject'] as String?
+            : throw ArgumentError.value(
+                null, 'subject', 'Required property is missing'),
+        messageId: json.containsKey('message_id')
+            ? json['message_id'] as String?
+            : throw ArgumentError.value(
+                null, 'message_id', 'Required property is missing'),
+        html: json.containsKey('html')
+            ? json['html'] as String?
+            : throw ArgumentError.value(
+                null, 'html', 'Required property is missing'),
+        text: json.containsKey('text')
+            ? json['text'] as String?
+            : throw ArgumentError.value(
+                null, 'text', 'Required property is missing'),
+        attachments: ((json['attachments'] as List?)
+            ?.map((e) =>
+                InboxThreadEmailAttachment.fromJson(e as Map<String, dynamic>))
+            .toList())!,
+        read: (json['read'] as bool?)!,
+        receivedAt: (json['received_at'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-    'direction': direction.toJson(),
-    'from': from,
-    'to': to,
-    'cc': cc,
-    'bcc': bcc,
-    'reply_to': replyTo,
-    'subject': subject,
-    'message_id': messageId,
-    'html': html,
-    'text': text,
-    'attachments': attachments.map((item) => item.toJson()).toList(),
-    'read': read,
-    'received_at': receivedAt,
-  };
+        'id': id,
+        'direction': direction.toJson(),
+        'from': from,
+        'to': to,
+        'cc': cc,
+        'bcc': bcc,
+        'reply_to': replyTo,
+        'subject': subject,
+        'message_id': messageId,
+        'html': html,
+        'text': text,
+        'attachments': attachments.map((item) => item.toJson()).toList(),
+        'read': read,
+        'received_at': receivedAt,
+      };
 }
