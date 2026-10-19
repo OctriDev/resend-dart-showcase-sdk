@@ -8,49 +8,98 @@ part of 'inboxes_update.dart';
 class UpdateInboxThreadOptions {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Marks every email in the thread read or unread.
   final SdkOptional<bool> read;
+
   /// Moves the thread to this folder. `sent` is assigned automatically and cannot be set.
   final SdkOptional<UpdateInboxThreadOptionsFolder> folder;
+
   /// Label IDs to apply to the thread. Between 1 and 10 IDs. A label ID that does not exist in the inbox returns a 404.
   final SdkOptional<List<String>> addLabelIds;
+
   /// Label IDs to remove from the thread. Between 1 and 10 IDs. The labels themselves are kept. A label ID that does not exist in the inbox returns a 404.
   final SdkOptional<List<String>> removeLabelIds;
 
-  const UpdateInboxThreadOptions({this.read = const SdkOmitted(), this.folder = const SdkOmitted(), this.addLabelIds = const SdkOmitted(), this.removeLabelIds = const SdkOmitted()});
+  const UpdateInboxThreadOptions(
+      {this.read = const SdkOmitted(),
+      this.folder = const SdkOmitted(),
+      this.addLabelIds = const SdkOmitted(),
+      this.removeLabelIds = const SdkOmitted()});
 
-  UpdateInboxThreadOptions Function({SdkOptional<bool> read, SdkOptional<UpdateInboxThreadOptionsFolder> folder, SdkOptional<List<String>> addLabelIds, SdkOptional<List<String>> removeLabelIds}) get copyWith => _copyWith;
+  UpdateInboxThreadOptions Function(
+      {SdkOptional<bool> read,
+      SdkOptional<UpdateInboxThreadOptionsFolder> folder,
+      SdkOptional<List<String>> addLabelIds,
+      SdkOptional<List<String>> removeLabelIds}) get copyWith => _copyWith;
 
-  UpdateInboxThreadOptions _copyWith({Object? read = sdkOmittedValue, Object? folder = sdkOmittedValue, Object? addLabelIds = sdkOmittedValue, Object? removeLabelIds = sdkOmittedValue}) => UpdateInboxThreadOptions(
-    read: identical(read, sdkOmittedValue) ? this.read : read as SdkOptional<bool>,
-    folder: identical(folder, sdkOmittedValue) ? this.folder : folder as SdkOptional<UpdateInboxThreadOptionsFolder>,
-    addLabelIds: identical(addLabelIds, sdkOmittedValue) ? this.addLabelIds : addLabelIds as SdkOptional<List<String>>,
-    removeLabelIds: identical(removeLabelIds, sdkOmittedValue) ? this.removeLabelIds : removeLabelIds as SdkOptional<List<String>>,
-  );
+  UpdateInboxThreadOptions _copyWith(
+          {Object? read = sdkOmittedValue,
+          Object? folder = sdkOmittedValue,
+          Object? addLabelIds = sdkOmittedValue,
+          Object? removeLabelIds = sdkOmittedValue}) =>
+      UpdateInboxThreadOptions(
+        read: identical(read, sdkOmittedValue)
+            ? this.read
+            : read as SdkOptional<bool>,
+        folder: identical(folder, sdkOmittedValue)
+            ? this.folder
+            : folder as SdkOptional<UpdateInboxThreadOptionsFolder>,
+        addLabelIds: identical(addLabelIds, sdkOmittedValue)
+            ? this.addLabelIds
+            : addLabelIds as SdkOptional<List<String>>,
+        removeLabelIds: identical(removeLabelIds, sdkOmittedValue)
+            ? this.removeLabelIds
+            : removeLabelIds as SdkOptional<List<String>>,
+      );
 
-  factory UpdateInboxThreadOptions.fromJson(Map<String, dynamic> json) => UpdateInboxThreadOptions(
-    read: json['read'] != null ? SdkPresent((json['read'] as bool?)!) : const SdkOmitted(),
-    folder: json['folder'] != null ? SdkPresent((json['folder'] != null ? UpdateInboxThreadOptionsFolder.fromJson(json['folder'] as String) : null)!) : const SdkOmitted(),
-    addLabelIds: json['add_label_ids'] != null ? SdkPresent(((json['add_label_ids'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    removeLabelIds: json['remove_label_ids'] != null ? SdkPresent(((json['remove_label_ids'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-  );
+  factory UpdateInboxThreadOptions.fromJson(Map<String, dynamic> json) =>
+      UpdateInboxThreadOptions(
+        read: json['read'] != null
+            ? SdkPresent((json['read'] as bool?)!)
+            : const SdkOmitted(),
+        folder: json['folder'] != null
+            ? SdkPresent((json['folder'] != null
+                ? UpdateInboxThreadOptionsFolder.fromJson(
+                    json['folder'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        addLabelIds: json['add_label_ids'] != null
+            ? SdkPresent(((json['add_label_ids'] as List?)
+                ?.map((e) => e as String)
+                .toList())!)
+            : const SdkOmitted(),
+        removeLabelIds: json['remove_label_ids'] != null
+            ? SdkPresent(((json['remove_label_ids'] as List?)
+                ?.map((e) => e as String)
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (read) {
-      SdkPresent<bool>(value: final value) => {'read': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (folder) {
-      SdkPresent<UpdateInboxThreadOptionsFolder>(value: final value) => {'folder': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (addLabelIds) {
-      SdkPresent<List<String>>(value: final value) => {'add_label_ids': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (removeLabelIds) {
-      SdkPresent<List<String>>(value: final value) => {'remove_label_ids': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (read) {
+          SdkPresent<bool>(value: final value) => {
+              'read': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (folder) {
+          SdkPresent<UpdateInboxThreadOptionsFolder>(value: final value) => {
+              'folder': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (addLabelIds) {
+          SdkPresent<List<String>>(value: final value) => {
+              'add_label_ids': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (removeLabelIds) {
+          SdkPresent<List<String>>(value: final value) => {
+              'remove_label_ids': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

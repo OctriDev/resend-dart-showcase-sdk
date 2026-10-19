@@ -8,273 +8,459 @@ part of 'inboxes_update.dart';
 class UpdateInboxAgentOptions {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Instructions the agent follows when it handles the threads of the inbox. Max 4000 characters. Leading and trailing whitespace is trimmed, and the trimmed value must not be empty. Send null to clear the instructions.
   final SdkOptional<String?> instructions;
+
   /// The tone the agent writes in. Send null to clear the tone.
   final SdkOptional<UpdateInboxAgentOptionsTone?> tone;
+
   /// The actions the agent can take. Replaces the whole set. Duplicates are removed. Send an empty array to disable all actions.
-  final SdkOptional<List<UpdateInboxAgentOptionsEnabledActionsItem>> enabledActions;
+  final SdkOptional<List<UpdateInboxAgentOptionsEnabledActionsItem>>
+      enabledActions;
 
-  const UpdateInboxAgentOptions({this.instructions = const SdkOmitted(), this.tone = const SdkOmitted(), this.enabledActions = const SdkOmitted()});
+  const UpdateInboxAgentOptions(
+      {this.instructions = const SdkOmitted(),
+      this.tone = const SdkOmitted(),
+      this.enabledActions = const SdkOmitted()});
 
-  UpdateInboxAgentOptions Function({SdkOptional<String?> instructions, SdkOptional<UpdateInboxAgentOptionsTone?> tone, SdkOptional<List<UpdateInboxAgentOptionsEnabledActionsItem>> enabledActions}) get copyWith => _copyWith;
+  UpdateInboxAgentOptions Function(
+      {SdkOptional<String?> instructions,
+      SdkOptional<UpdateInboxAgentOptionsTone?> tone,
+      SdkOptional<List<UpdateInboxAgentOptionsEnabledActionsItem>>
+          enabledActions}) get copyWith => _copyWith;
 
-  UpdateInboxAgentOptions _copyWith({Object? instructions = sdkOmittedValue, Object? tone = sdkOmittedValue, Object? enabledActions = sdkOmittedValue}) => UpdateInboxAgentOptions(
-    instructions: identical(instructions, sdkOmittedValue) ? this.instructions : instructions as SdkOptional<String?>,
-    tone: identical(tone, sdkOmittedValue) ? this.tone : tone as SdkOptional<UpdateInboxAgentOptionsTone?>,
-    enabledActions: identical(enabledActions, sdkOmittedValue) ? this.enabledActions : enabledActions as SdkOptional<List<UpdateInboxAgentOptionsEnabledActionsItem>>,
-  );
+  UpdateInboxAgentOptions _copyWith(
+          {Object? instructions = sdkOmittedValue,
+          Object? tone = sdkOmittedValue,
+          Object? enabledActions = sdkOmittedValue}) =>
+      UpdateInboxAgentOptions(
+        instructions: identical(instructions, sdkOmittedValue)
+            ? this.instructions
+            : instructions as SdkOptional<String?>,
+        tone: identical(tone, sdkOmittedValue)
+            ? this.tone
+            : tone as SdkOptional<UpdateInboxAgentOptionsTone?>,
+        enabledActions: identical(enabledActions, sdkOmittedValue)
+            ? this.enabledActions
+            : enabledActions
+                as SdkOptional<List<UpdateInboxAgentOptionsEnabledActionsItem>>,
+      );
 
-  factory UpdateInboxAgentOptions.fromJson(Map<String, dynamic> json) => UpdateInboxAgentOptions(
-    instructions: json.containsKey('instructions') ? SdkPresent(json['instructions'] as String?) : const SdkOmitted(),
-    tone: json.containsKey('tone') ? SdkPresent(json['tone'] != null ? UpdateInboxAgentOptionsTone.fromJson(json['tone'] as String) : null) : const SdkOmitted(),
-    enabledActions: json['enabled_actions'] != null ? SdkPresent(((json['enabled_actions'] as List?)?.map((e) => UpdateInboxAgentOptionsEnabledActionsItem.fromJson(e as String)).toList())!) : const SdkOmitted(),
-  );
+  factory UpdateInboxAgentOptions.fromJson(Map<String, dynamic> json) =>
+      UpdateInboxAgentOptions(
+        instructions: json.containsKey('instructions')
+            ? SdkPresent(json['instructions'] as String?)
+            : const SdkOmitted(),
+        tone: json.containsKey('tone')
+            ? SdkPresent(json['tone'] != null
+                ? UpdateInboxAgentOptionsTone.fromJson(json['tone'] as String)
+                : null)
+            : const SdkOmitted(),
+        enabledActions: json['enabled_actions'] != null
+            ? SdkPresent(((json['enabled_actions'] as List?)
+                ?.map((e) => UpdateInboxAgentOptionsEnabledActionsItem.fromJson(
+                    e as String))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (instructions) {
-      SdkPresent<String?>(value: final value) => {'instructions': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (tone) {
-      SdkPresent<UpdateInboxAgentOptionsTone?>(value: final value) => {'tone': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (enabledActions) {
-      SdkPresent<List<UpdateInboxAgentOptionsEnabledActionsItem>>(value: final value) => {'enabled_actions': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (instructions) {
+          SdkPresent<String?>(value: final value) => {
+              'instructions': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (tone) {
+          SdkPresent<UpdateInboxAgentOptionsTone?>(value: final value) => {
+              'tone': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (enabledActions) {
+          SdkPresent<List<UpdateInboxAgentOptionsEnabledActionsItem>>(
+            value: final value
+          ) =>
+            {
+              'enabled_actions': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `UpdateInboxAgentResponseSuccess` API schema.
 class UpdateInboxAgentResponseSuccess {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The object type. Always `inbox_agent`.
   final String object;
+
   /// The ID of the inbox agent.
   final String id;
 
-  const UpdateInboxAgentResponseSuccess({required this.object, required this.id});
+  const UpdateInboxAgentResponseSuccess(
+      {required this.object, required this.id});
 
-  UpdateInboxAgentResponseSuccess Function({String object, String id}) get copyWith => _copyWith;
+  UpdateInboxAgentResponseSuccess Function({String object, String id})
+      get copyWith => _copyWith;
 
-  UpdateInboxAgentResponseSuccess _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue}) => UpdateInboxAgentResponseSuccess(
-    object: identical(object, sdkOmittedValue) ? this.object : object as String,
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-  );
+  UpdateInboxAgentResponseSuccess _copyWith(
+          {Object? object = sdkOmittedValue, Object? id = sdkOmittedValue}) =>
+      UpdateInboxAgentResponseSuccess(
+        object:
+            identical(object, sdkOmittedValue) ? this.object : object as String,
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+      );
 
-  factory UpdateInboxAgentResponseSuccess.fromJson(Map<String, dynamic> json) => UpdateInboxAgentResponseSuccess(
-    object: (json['object'] as String?)!,
-    id: (json['id'] as String?)!,
-  );
+  factory UpdateInboxAgentResponseSuccess.fromJson(Map<String, dynamic> json) =>
+      UpdateInboxAgentResponseSuccess(
+        object: (json['object'] as String?)!,
+        id: (json['id'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'object': object,
-    'id': id,
-  };
+        'object': object,
+        'id': id,
+      };
 }
 
 /// Send at least one of `to`, `cc`, `bcc`, `subject`, `text`, `html` or `attachments`. Omitted fields are left unchanged. Setting `text` or `html` replaces the whole body, so the body part you omit becomes `null`. The merged draft must contain at least one non-empty field, and its combined recipients cannot exceed 50.
 class UpdateInboxDraftOptions {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The recipients. For multiple addresses, send an array of strings. Each value can include a friendly name. Pass `null` to clear. Each address is `email@example.com` or `Name &lt;email@example.com&gt;`. An address that is not valid returns a 422.
   final SdkOptional<List<String>?> to;
+
   /// The CC recipients. Pass `null` or `[]` to clear. Each address is `email@example.com` or `Name &lt;email@example.com&gt;`. An address that is not valid returns a 422.
   final SdkOptional<List<String>?> cc;
+
   /// The BCC recipients. Pass `null` or `[]` to clear. Each address is `email@example.com` or `Name &lt;email@example.com&gt;`. An address that is not valid returns a 422.
   final SdkOptional<List<String>?> bcc;
+
   /// The subject. Max 2000 characters. Cannot be only whitespace or contain a line break. Pass `null` to clear.
   final SdkOptional<String?> subject;
+
   /// The HTML body. Pass `null` to clear.
   final SdkOptional<String?> html;
+
   /// The plain text body. Pass `null` to clear.
   final SdkOptional<String?> text;
+
   /// Files to store on the draft. Each one needs `content`, `filename` and `content_type`. A `path` without `content` returns a 422, and when both are sent, `path` is ignored. A `content_id` returns a 422. The files on a draft can total at most 25 MB. An empty file or a blocked file type returns a 422. Sending the field replaces every attachment on the draft. Send `[]` to remove them all. `null` also removes them all.
   final SdkOptional<List<InboxDraftAttachmentInput>?> attachments;
 
-  const UpdateInboxDraftOptions({this.to = const SdkOmitted(), this.cc = const SdkOmitted(), this.bcc = const SdkOmitted(), this.subject = const SdkOmitted(), this.html = const SdkOmitted(), this.text = const SdkOmitted(), this.attachments = const SdkOmitted()});
+  const UpdateInboxDraftOptions(
+      {this.to = const SdkOmitted(),
+      this.cc = const SdkOmitted(),
+      this.bcc = const SdkOmitted(),
+      this.subject = const SdkOmitted(),
+      this.html = const SdkOmitted(),
+      this.text = const SdkOmitted(),
+      this.attachments = const SdkOmitted()});
 
-  UpdateInboxDraftOptions Function({SdkOptional<List<String>?> to, SdkOptional<List<String>?> cc, SdkOptional<List<String>?> bcc, SdkOptional<String?> subject, SdkOptional<String?> html, SdkOptional<String?> text, SdkOptional<List<InboxDraftAttachmentInput>?> attachments}) get copyWith => _copyWith;
+  UpdateInboxDraftOptions Function(
+          {SdkOptional<List<String>?> to,
+          SdkOptional<List<String>?> cc,
+          SdkOptional<List<String>?> bcc,
+          SdkOptional<String?> subject,
+          SdkOptional<String?> html,
+          SdkOptional<String?> text,
+          SdkOptional<List<InboxDraftAttachmentInput>?> attachments})
+      get copyWith => _copyWith;
 
-  UpdateInboxDraftOptions _copyWith({Object? to = sdkOmittedValue, Object? cc = sdkOmittedValue, Object? bcc = sdkOmittedValue, Object? subject = sdkOmittedValue, Object? html = sdkOmittedValue, Object? text = sdkOmittedValue, Object? attachments = sdkOmittedValue}) => UpdateInboxDraftOptions(
-    to: identical(to, sdkOmittedValue) ? this.to : to as SdkOptional<List<String>?>,
-    cc: identical(cc, sdkOmittedValue) ? this.cc : cc as SdkOptional<List<String>?>,
-    bcc: identical(bcc, sdkOmittedValue) ? this.bcc : bcc as SdkOptional<List<String>?>,
-    subject: identical(subject, sdkOmittedValue) ? this.subject : subject as SdkOptional<String?>,
-    html: identical(html, sdkOmittedValue) ? this.html : html as SdkOptional<String?>,
-    text: identical(text, sdkOmittedValue) ? this.text : text as SdkOptional<String?>,
-    attachments: identical(attachments, sdkOmittedValue) ? this.attachments : attachments as SdkOptional<List<InboxDraftAttachmentInput>?>,
-  );
+  UpdateInboxDraftOptions _copyWith(
+          {Object? to = sdkOmittedValue,
+          Object? cc = sdkOmittedValue,
+          Object? bcc = sdkOmittedValue,
+          Object? subject = sdkOmittedValue,
+          Object? html = sdkOmittedValue,
+          Object? text = sdkOmittedValue,
+          Object? attachments = sdkOmittedValue}) =>
+      UpdateInboxDraftOptions(
+        to: identical(to, sdkOmittedValue)
+            ? this.to
+            : to as SdkOptional<List<String>?>,
+        cc: identical(cc, sdkOmittedValue)
+            ? this.cc
+            : cc as SdkOptional<List<String>?>,
+        bcc: identical(bcc, sdkOmittedValue)
+            ? this.bcc
+            : bcc as SdkOptional<List<String>?>,
+        subject: identical(subject, sdkOmittedValue)
+            ? this.subject
+            : subject as SdkOptional<String?>,
+        html: identical(html, sdkOmittedValue)
+            ? this.html
+            : html as SdkOptional<String?>,
+        text: identical(text, sdkOmittedValue)
+            ? this.text
+            : text as SdkOptional<String?>,
+        attachments: identical(attachments, sdkOmittedValue)
+            ? this.attachments
+            : attachments as SdkOptional<List<InboxDraftAttachmentInput>?>,
+      );
 
-  factory UpdateInboxDraftOptions.fromJson(Map<String, dynamic> json) => UpdateInboxDraftOptions(
-    to: json.containsKey('to') ? SdkPresent((json['to'] as List?)?.map((e) => e as String).toList()) : const SdkOmitted(),
-    cc: json.containsKey('cc') ? SdkPresent((json['cc'] as List?)?.map((e) => e as String).toList()) : const SdkOmitted(),
-    bcc: json.containsKey('bcc') ? SdkPresent((json['bcc'] as List?)?.map((e) => e as String).toList()) : const SdkOmitted(),
-    subject: json.containsKey('subject') ? SdkPresent(json['subject'] as String?) : const SdkOmitted(),
-    html: json.containsKey('html') ? SdkPresent(json['html'] as String?) : const SdkOmitted(),
-    text: json.containsKey('text') ? SdkPresent(json['text'] as String?) : const SdkOmitted(),
-    attachments: json.containsKey('attachments') ? SdkPresent((json['attachments'] as List?)?.map((e) => InboxDraftAttachmentInput.fromJson(e as Map<String, dynamic>)).toList()) : const SdkOmitted(),
-  );
+  factory UpdateInboxDraftOptions.fromJson(Map<String, dynamic> json) =>
+      UpdateInboxDraftOptions(
+        to: json.containsKey('to')
+            ? SdkPresent(
+                (json['to'] as List?)?.map((e) => e as String).toList())
+            : const SdkOmitted(),
+        cc: json.containsKey('cc')
+            ? SdkPresent(
+                (json['cc'] as List?)?.map((e) => e as String).toList())
+            : const SdkOmitted(),
+        bcc: json.containsKey('bcc')
+            ? SdkPresent(
+                (json['bcc'] as List?)?.map((e) => e as String).toList())
+            : const SdkOmitted(),
+        subject: json.containsKey('subject')
+            ? SdkPresent(json['subject'] as String?)
+            : const SdkOmitted(),
+        html: json.containsKey('html')
+            ? SdkPresent(json['html'] as String?)
+            : const SdkOmitted(),
+        text: json.containsKey('text')
+            ? SdkPresent(json['text'] as String?)
+            : const SdkOmitted(),
+        attachments: json.containsKey('attachments')
+            ? SdkPresent((json['attachments'] as List?)
+                ?.map((e) => InboxDraftAttachmentInput.fromJson(
+                    e as Map<String, dynamic>))
+                .toList())
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (to) {
-      SdkPresent<List<String>?>(value: final value) => {'to': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (cc) {
-      SdkPresent<List<String>?>(value: final value) => {'cc': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (bcc) {
-      SdkPresent<List<String>?>(value: final value) => {'bcc': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (subject) {
-      SdkPresent<String?>(value: final value) => {'subject': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (html) {
-      SdkPresent<String?>(value: final value) => {'html': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (text) {
-      SdkPresent<String?>(value: final value) => {'text': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (attachments) {
-      SdkPresent<List<InboxDraftAttachmentInput>?>(value: final value) => {'attachments': value?.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (to) {
+          SdkPresent<List<String>?>(value: final value) => {
+              'to': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (cc) {
+          SdkPresent<List<String>?>(value: final value) => {
+              'cc': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (bcc) {
+          SdkPresent<List<String>?>(value: final value) => {
+              'bcc': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (subject) {
+          SdkPresent<String?>(value: final value) => {
+              'subject': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (html) {
+          SdkPresent<String?>(value: final value) => {
+              'html': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (text) {
+          SdkPresent<String?>(value: final value) => {
+              'text': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (attachments) {
+          SdkPresent<List<InboxDraftAttachmentInput>?>(value: final value) => {
+              'attachments': value?.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `UpdateInboxLabelOptions` API schema.
 class UpdateInboxLabelOptions {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A new name for the label. Max 64 characters. Leading and trailing whitespace is trimmed. Must not match another label on the inbox, compared without case.
   final SdkOptional<String> name;
+
   /// A new color for the label, as a `#RRGGBB` hex color. It is stored in uppercase.
   final SdkOptional<String> color;
 
-  const UpdateInboxLabelOptions({this.name = const SdkOmitted(), this.color = const SdkOmitted()});
+  const UpdateInboxLabelOptions(
+      {this.name = const SdkOmitted(), this.color = const SdkOmitted()});
 
-  UpdateInboxLabelOptions Function({SdkOptional<String> name, SdkOptional<String> color}) get copyWith => _copyWith;
+  UpdateInboxLabelOptions Function(
+      {SdkOptional<String> name,
+      SdkOptional<String> color}) get copyWith => _copyWith;
 
-  UpdateInboxLabelOptions _copyWith({Object? name = sdkOmittedValue, Object? color = sdkOmittedValue}) => UpdateInboxLabelOptions(
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    color: identical(color, sdkOmittedValue) ? this.color : color as SdkOptional<String>,
-  );
+  UpdateInboxLabelOptions _copyWith(
+          {Object? name = sdkOmittedValue, Object? color = sdkOmittedValue}) =>
+      UpdateInboxLabelOptions(
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        color: identical(color, sdkOmittedValue)
+            ? this.color
+            : color as SdkOptional<String>,
+      );
 
-  factory UpdateInboxLabelOptions.fromJson(Map<String, dynamic> json) => UpdateInboxLabelOptions(
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    color: json['color'] != null ? SdkPresent((json['color'] as String?)!) : const SdkOmitted(),
-  );
+  factory UpdateInboxLabelOptions.fromJson(Map<String, dynamic> json) =>
+      UpdateInboxLabelOptions(
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        color: json['color'] != null
+            ? SdkPresent((json['color'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (color) {
-      SdkPresent<String>(value: final value) => {'color': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (color) {
+          SdkPresent<String>(value: final value) => {
+              'color': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `UpdateInboxLabelResponseSuccess` API schema.
 class UpdateInboxLabelResponseSuccess {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Type of the response object.
   final String object;
+
   /// The ID of the updated label.
   final String id;
 
-  const UpdateInboxLabelResponseSuccess({required this.object, required this.id});
+  const UpdateInboxLabelResponseSuccess(
+      {required this.object, required this.id});
 
-  UpdateInboxLabelResponseSuccess Function({String object, String id}) get copyWith => _copyWith;
+  UpdateInboxLabelResponseSuccess Function({String object, String id})
+      get copyWith => _copyWith;
 
-  UpdateInboxLabelResponseSuccess _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue}) => UpdateInboxLabelResponseSuccess(
-    object: identical(object, sdkOmittedValue) ? this.object : object as String,
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-  );
+  UpdateInboxLabelResponseSuccess _copyWith(
+          {Object? object = sdkOmittedValue, Object? id = sdkOmittedValue}) =>
+      UpdateInboxLabelResponseSuccess(
+        object:
+            identical(object, sdkOmittedValue) ? this.object : object as String,
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+      );
 
-  factory UpdateInboxLabelResponseSuccess.fromJson(Map<String, dynamic> json) => UpdateInboxLabelResponseSuccess(
-    object: (json['object'] as String?)!,
-    id: (json['id'] as String?)!,
-  );
+  factory UpdateInboxLabelResponseSuccess.fromJson(Map<String, dynamic> json) =>
+      UpdateInboxLabelResponseSuccess(
+        object: (json['object'] as String?)!,
+        id: (json['id'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'object': object,
-    'id': id,
-  };
+        'object': object,
+        'id': id,
+      };
 }
 
 /// Provide at least one of `name` or `from_name`.
 class UpdateInboxOptions {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// New internal name for the inbox. Recipients do not see it. Between 1 and 64 characters after trimming.
   final SdkOptional<String> name;
+
   /// The name recipients see when mail is sent from this inbox. A plain name, not a `Name &lt;email&gt;` address. Max 78 characters. It cannot contain a colon, `&lt;`, `&gt;`, line breaks, or other control characters. An email address inside the name must be on a domain the team has verified for sending. An empty string removes it.
   final SdkOptional<String> fromName;
 
-  const UpdateInboxOptions({this.name = const SdkOmitted(), this.fromName = const SdkOmitted()});
+  const UpdateInboxOptions(
+      {this.name = const SdkOmitted(), this.fromName = const SdkOmitted()});
 
-  UpdateInboxOptions Function({SdkOptional<String> name, SdkOptional<String> fromName}) get copyWith => _copyWith;
+  UpdateInboxOptions Function(
+      {SdkOptional<String> name,
+      SdkOptional<String> fromName}) get copyWith => _copyWith;
 
-  UpdateInboxOptions _copyWith({Object? name = sdkOmittedValue, Object? fromName = sdkOmittedValue}) => UpdateInboxOptions(
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    fromName: identical(fromName, sdkOmittedValue) ? this.fromName : fromName as SdkOptional<String>,
-  );
+  UpdateInboxOptions _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? fromName = sdkOmittedValue}) =>
+      UpdateInboxOptions(
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        fromName: identical(fromName, sdkOmittedValue)
+            ? this.fromName
+            : fromName as SdkOptional<String>,
+      );
 
-  factory UpdateInboxOptions.fromJson(Map<String, dynamic> json) => UpdateInboxOptions(
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    fromName: json['from_name'] != null ? SdkPresent((json['from_name'] as String?)!) : const SdkOmitted(),
-  );
+  factory UpdateInboxOptions.fromJson(Map<String, dynamic> json) =>
+      UpdateInboxOptions(
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        fromName: json['from_name'] != null
+            ? SdkPresent((json['from_name'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (fromName) {
-      SdkPresent<String>(value: final value) => {'from_name': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (fromName) {
+          SdkPresent<String>(value: final value) => {
+              'from_name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `UpdateInboxResponseSuccess` API schema.
 class UpdateInboxResponseSuccess {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The object type.
   final String object;
+
   /// The ID of the inbox.
   final String id;
 
   const UpdateInboxResponseSuccess({required this.object, required this.id});
 
-  UpdateInboxResponseSuccess Function({String object, String id}) get copyWith => _copyWith;
+  UpdateInboxResponseSuccess Function({String object, String id})
+      get copyWith => _copyWith;
 
-  UpdateInboxResponseSuccess _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue}) => UpdateInboxResponseSuccess(
-    object: identical(object, sdkOmittedValue) ? this.object : object as String,
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-  );
+  UpdateInboxResponseSuccess _copyWith(
+          {Object? object = sdkOmittedValue, Object? id = sdkOmittedValue}) =>
+      UpdateInboxResponseSuccess(
+        object:
+            identical(object, sdkOmittedValue) ? this.object : object as String,
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+      );
 
-  factory UpdateInboxResponseSuccess.fromJson(Map<String, dynamic> json) => UpdateInboxResponseSuccess(
-    object: (json['object'] as String?)!,
-    id: (json['id'] as String?)!,
-  );
+  factory UpdateInboxResponseSuccess.fromJson(Map<String, dynamic> json) =>
+      UpdateInboxResponseSuccess(
+        object: (json['object'] as String?)!,
+        id: (json['id'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'object': object,
-    'id': id,
-  };
+        'object': object,
+        'id': id,
+      };
 }
