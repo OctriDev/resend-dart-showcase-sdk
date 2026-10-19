@@ -24,17 +24,20 @@ Future<ListLogsResponse> logsList(ClientConfig config,
   return (await sdkRequest<ListLogsResponse>('GET', '/logs',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true),
-            'before': SdkQueryValue(SdkUtils.unwrapOptional(before), style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
+                style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
+                style: 'form', explode: true),
+            'before': SdkQueryValue(SdkUtils.unwrapOptional(before),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'logsList',
-          fromJsonRaw: (value) => ListLogsResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ListLogsResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
-
 
 /// Retrieves a single log record by its identifier. Use the log details to inspect the API endpoint, method, response status, and request or response bodies recorded for the request.
 ///

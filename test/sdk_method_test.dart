@@ -10,7 +10,8 @@ import 'package:octridev_resend/methods/api_keys.dart' as sdk_methods_0;
 import 'package:octridev_resend/methods/audiences.dart' as sdk_methods_1;
 import 'package:octridev_resend/methods/automations.dart' as sdk_methods_2;
 import 'package:octridev_resend/methods/broadcasts.dart' as sdk_methods_3;
-import 'package:octridev_resend/methods/contact_properties.dart' as sdk_methods_4;
+import 'package:octridev_resend/methods/contact_properties.dart'
+    as sdk_methods_4;
 import 'package:octridev_resend/methods/contacts.dart' as sdk_methods_5;
 import 'package:octridev_resend/methods/domains.dart' as sdk_methods_6;
 import 'package:octridev_resend/methods/emails.dart' as sdk_methods_7;
@@ -104,7 +105,9 @@ void main() {
       final actual = await sdk_methods_0.apiKeysCreate(
         config,
         name: (jsonDecode("\"Example Name\"") as String),
-        permission: SdkPresent<CreateApiKeyRequestPermission>(CreateApiKeyRequestPermission.fromJson(jsonDecode("\"full_access\"") as String)),
+        permission: SdkPresent<CreateApiKeyRequestPermission>(
+            CreateApiKeyRequestPermission.fromJson(
+                jsonDecode("\"full_access\"") as String)),
         domainId: SdkPresent<String>((jsonDecode("\"domain-1\"") as String)),
       );
       expect(
@@ -126,7 +129,8 @@ void main() {
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"list\",\"has_more\":false,\"data\":[{\"id\":\"id-1\",\"name\":\"Example Name\",\"created_at\":\"2023-10-06 23:47:56.678+00\",\"last_used_at\":\"2023-10-06 23:47:56.678+00\"}]}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"list\",\"has_more\":false,\"data\":[{\"id\":\"id-1\",\"name\":\"Example Name\",\"created_at\":\"2023-10-06 23:47:56.678+00\",\"last_used_at\":\"2023-10-06 23:47:56.678+00\"}]}"),
         ),
         isNull,
       );
@@ -140,7 +144,8 @@ void main() {
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"api_key\",\"id\":\"id-1\",\"deleted\":true}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"api_key\",\"id\":\"id-1\",\"deleted\":true}"),
         ),
         isNull,
       );
@@ -169,7 +174,8 @@ void main() {
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"id\":\"78261eea-8f8b-4381-83c6-79fa7120f1cf\",\"object\":\"audience\",\"name\":\"Example Name\"}"),
+          SdkUtils.decodeJson(
+              "{\"id\":\"78261eea-8f8b-4381-83c6-79fa7120f1cf\",\"object\":\"audience\",\"name\":\"Example Name\"}"),
         ),
         isNull,
       );
@@ -183,7 +189,8 @@ void main() {
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"id\":\"id-1\",\"object\":\"audience\",\"name\":\"Registered Users\",\"created_at\":\"2023-10-06 22:59:55.977+00\"}"),
+          SdkUtils.decodeJson(
+              "{\"id\":\"id-1\",\"object\":\"audience\",\"name\":\"Registered Users\",\"created_at\":\"2023-10-06 22:59:55.977+00\"}"),
         ),
         isNull,
       );
@@ -196,7 +203,8 @@ void main() {
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"list\",\"data\":[{\"id\":\"78261eea-8f8b-4381-83c6-79fa7120f1cf\",\"name\":\"Registered Users\",\"created_at\":\"2023-10-06 22:59:55.977+00\"}]}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"list\",\"data\":[{\"id\":\"78261eea-8f8b-4381-83c6-79fa7120f1cf\",\"name\":\"Registered Users\",\"created_at\":\"2023-10-06 22:59:55.977+00\"}]}"),
         ),
         isNull,
       );
@@ -210,19 +218,33 @@ void main() {
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"id\":\"id-1\",\"object\":\"audience\",\"deleted\":true}"),
+          SdkUtils.decodeJson(
+              "{\"id\":\"id-1\",\"object\":\"audience\",\"deleted\":true}"),
         ),
         isNull,
       );
     });
 
-    test("automationsCreate reaches the mock and decodes its response", () async {
+    test("automationsCreate reaches the mock and decodes its response",
+        () async {
       final actual = await sdk_methods_2.automationsCreate(
         config,
         name: (jsonDecode("\"Example Name\"") as String),
-        steps: (jsonDecode("[{\"key\":\"key\",\"type\":\"trigger\",\"config\":{}}]") as List).map((element) => AutomationStep.fromJson((element as Map).cast<String, dynamic>())).toList(),
-        connections: (jsonDecode("[{\"from\":\"from\",\"to\":\"to\",\"type\":\"default\"}]") as List).map((element) => AutomationConnection.fromJson((element as Map).cast<String, dynamic>())).toList(),
-        status: SdkPresent<CreateAutomationRequestStatus>(CreateAutomationRequestStatus.fromJson(jsonDecode("\"disabled\"") as String)),
+        steps: (jsonDecode(
+                    "[{\"key\":\"key\",\"type\":\"trigger\",\"config\":{}}]")
+                as List)
+            .map((element) => AutomationStep.fromJson(
+                (element as Map).cast<String, dynamic>()))
+            .toList(),
+        connections: (jsonDecode(
+                    "[{\"from\":\"from\",\"to\":\"to\",\"type\":\"default\"}]")
+                as List)
+            .map((element) => AutomationConnection.fromJson(
+                (element as Map).cast<String, dynamic>()))
+            .toList(),
+        status: SdkPresent<CreateAutomationRequestStatus>(
+            CreateAutomationRequestStatus.fromJson(
+                jsonDecode("\"disabled\"") as String)),
       );
       expect(
         mismatch(
@@ -233,10 +255,12 @@ void main() {
       );
     });
 
-    test("automationsDuplicate reaches the mock and decodes its response", () async {
+    test("automationsDuplicate reaches the mock and decodes its response",
+        () async {
       final actual = await sdk_methods_2.automationsDuplicate(
         config,
-        automationId: (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
+        automationId:
+            (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
       );
       expect(
         mismatch(
@@ -250,27 +274,33 @@ void main() {
     test("automationsGet reaches the mock and decodes its response", () async {
       final actual = await sdk_methods_2.automationsGet(
         config,
-        automationId: (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
+        automationId:
+            (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
       );
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"automation\",\"id\":\"id-1\",\"name\":\"Example Name\",\"status\":\"enabled\",\"created_at\":\"2023-10-06 23:47:56.678+00\",\"updated_at\":\"2023-10-06 23:47:56.678+00\",\"steps\":[{\"key\":\"key\",\"type\":\"trigger\",\"config\":{}}],\"connections\":[{\"from\":\"from\",\"to\":\"to\",\"type\":\"default\"}]}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"automation\",\"id\":\"id-1\",\"name\":\"Example Name\",\"status\":\"enabled\",\"created_at\":\"2023-10-06 23:47:56.678+00\",\"updated_at\":\"2023-10-06 23:47:56.678+00\",\"steps\":[{\"key\":\"key\",\"type\":\"trigger\",\"config\":{}}],\"connections\":[{\"from\":\"from\",\"to\":\"to\",\"type\":\"default\"}]}"),
         ),
         isNull,
       );
     });
 
-    test("automationsGetRun reaches the mock and decodes its response", () async {
+    test("automationsGetRun reaches the mock and decodes its response",
+        () async {
       final actual = await sdk_methods_2.automationsGetRun(
         config,
-        automationId: (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
-        runId: (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
+        automationId:
+            (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
+        runId:
+            (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
       );
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"automation_run\",\"id\":\"id-1\",\"status\":\"running\",\"started_at\":\"2023-10-06 23:47:56.678+00\",\"completed_at\":\"2023-10-06 23:47:56.678+00\",\"created_at\":\"2023-10-06 23:47:56.678+00\",\"steps\":[{\"key\":\"key\",\"type\":\"trigger\",\"status\":\"active\",\"started_at\":\"2023-10-06 23:47:56.678+00\",\"completed_at\":\"2023-10-06 23:47:56.678+00\",\"output\":{},\"error\":{},\"created_at\":\"2023-10-06 23:47:56.678+00\"}]}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"automation_run\",\"id\":\"id-1\",\"status\":\"running\",\"started_at\":\"2023-10-06 23:47:56.678+00\",\"completed_at\":\"2023-10-06 23:47:56.678+00\",\"created_at\":\"2023-10-06 23:47:56.678+00\",\"steps\":[{\"key\":\"key\",\"type\":\"trigger\",\"status\":\"active\",\"started_at\":\"2023-10-06 23:47:56.678+00\",\"completed_at\":\"2023-10-06 23:47:56.678+00\",\"output\":{},\"error\":{},\"created_at\":\"2023-10-06 23:47:56.678+00\"}]}"),
         ),
         isNull,
       );
@@ -279,7 +309,9 @@ void main() {
     test("automationsList reaches the mock and decodes its response", () async {
       final actual = await sdk_methods_2.automationsList(
         config,
-        status: SdkPresent<AutomationsListStatus>(AutomationsListStatus.fromJson(jsonDecode("\"enabled\"") as String)),
+        status: SdkPresent<AutomationsListStatus>(
+            AutomationsListStatus.fromJson(
+                jsonDecode("\"enabled\"") as String)),
         limit: SdkPresent<int>((jsonDecode("1") as num).toInt()),
         after: SdkPresent<String>((jsonDecode("\"after\"") as String)),
         before: SdkPresent<String>((jsonDecode("\"before\"") as String)),
@@ -287,16 +319,19 @@ void main() {
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"list\",\"has_more\":false,\"data\":[{\"id\":\"id-1\",\"name\":\"Example Name\",\"status\":\"enabled\",\"created_at\":\"2023-10-06 23:47:56.678+00\",\"updated_at\":\"2023-10-06 23:47:56.678+00\"}]}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"list\",\"has_more\":false,\"data\":[{\"id\":\"id-1\",\"name\":\"Example Name\",\"status\":\"enabled\",\"created_at\":\"2023-10-06 23:47:56.678+00\",\"updated_at\":\"2023-10-06 23:47:56.678+00\"}]}"),
         ),
         isNull,
       );
     });
 
-    test("automationsListRuns reaches the mock and decodes its response", () async {
+    test("automationsListRuns reaches the mock and decodes its response",
+        () async {
       final actual = await sdk_methods_2.automationsListRuns(
         config,
-        automationId: (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
+        automationId:
+            (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
         status: SdkPresent<String>((jsonDecode("\"active\"") as String)),
         limit: SdkPresent<int>((jsonDecode("1") as num).toInt()),
         after: SdkPresent<String>((jsonDecode("\"after\"") as String)),
@@ -305,21 +340,25 @@ void main() {
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"list\",\"has_more\":false,\"data\":[{\"id\":\"id-1\",\"status\":\"running\",\"started_at\":\"2023-10-06 23:47:56.678+00\",\"completed_at\":\"2023-10-06 23:47:56.678+00\",\"created_at\":\"2023-10-06 23:47:56.678+00\"}]}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"list\",\"has_more\":false,\"data\":[{\"id\":\"id-1\",\"status\":\"running\",\"started_at\":\"2023-10-06 23:47:56.678+00\",\"completed_at\":\"2023-10-06 23:47:56.678+00\",\"created_at\":\"2023-10-06 23:47:56.678+00\"}]}"),
         ),
         isNull,
       );
     });
 
-    test("automationsRemove reaches the mock and decodes its response", () async {
+    test("automationsRemove reaches the mock and decodes its response",
+        () async {
       final actual = await sdk_methods_2.automationsRemove(
         config,
-        automationId: (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
+        automationId:
+            (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
       );
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"automation\",\"id\":\"id-1\",\"deleted\":true}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"automation\",\"id\":\"id-1\",\"deleted\":true}"),
         ),
         isNull,
       );
@@ -328,25 +367,41 @@ void main() {
     test("automationsStop reaches the mock and decodes its response", () async {
       final actual = await sdk_methods_2.automationsStop(
         config,
-        automationId: (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
+        automationId:
+            (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
       );
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"automation\",\"id\":\"id-1\",\"status\":\"disabled\"}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"automation\",\"id\":\"id-1\",\"status\":\"disabled\"}"),
         ),
         isNull,
       );
     });
 
-    test("automationsUpdate reaches the mock and decodes its response", () async {
+    test("automationsUpdate reaches the mock and decodes its response",
+        () async {
       final actual = await sdk_methods_2.automationsUpdate(
         config,
-        automationId: (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
+        automationId:
+            (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
         name: SdkPresent<String>((jsonDecode("\"Example Name\"") as String)),
-        status: SdkPresent<PatchAutomationRequestStatus>(PatchAutomationRequestStatus.fromJson(jsonDecode("\"enabled\"") as String)),
-        steps: SdkPresent<List<AutomationStep>>((jsonDecode("[{\"key\":\"key\",\"type\":\"trigger\",\"config\":{}}]") as List).map((element) => AutomationStep.fromJson((element as Map).cast<String, dynamic>())).toList()),
-        connections: SdkPresent<List<AutomationConnection>>((jsonDecode("[{\"from\":\"from\",\"to\":\"to\",\"type\":\"default\"}]") as List).map((element) => AutomationConnection.fromJson((element as Map).cast<String, dynamic>())).toList()),
+        status: SdkPresent<PatchAutomationRequestStatus>(
+            PatchAutomationRequestStatus.fromJson(
+                jsonDecode("\"enabled\"") as String)),
+        steps: SdkPresent<List<AutomationStep>>((jsonDecode(
+                    "[{\"key\":\"key\",\"type\":\"trigger\",\"config\":{}}]")
+                as List)
+            .map((element) => AutomationStep.fromJson(
+                (element as Map).cast<String, dynamic>()))
+            .toList()),
+        connections: SdkPresent<List<AutomationConnection>>((jsonDecode(
+                    "[{\"from\":\"from\",\"to\":\"to\",\"type\":\"default\"}]")
+                as List)
+            .map((element) => AutomationConnection.fromJson(
+                (element as Map).cast<String, dynamic>()))
+            .toList()),
       );
       expect(
         mismatch(
@@ -357,7 +412,8 @@ void main() {
       );
     });
 
-    test("broadcastsCancel reaches the mock and decodes its response", () async {
+    test("broadcastsCancel reaches the mock and decodes its response",
+        () async {
       final actual = await sdk_methods_3.broadcastsCancel(
         config,
         id: (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
@@ -365,38 +421,47 @@ void main() {
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"id\":\"00000000-0000-4000-8000-000000000000\",\"object\":\"broadcast\"}"),
+          SdkUtils.decodeJson(
+              "{\"id\":\"00000000-0000-4000-8000-000000000000\",\"object\":\"broadcast\"}"),
         ),
         isNull,
       );
     });
 
-    test("broadcastsCreate reaches the mock and decodes its response", () async {
+    test("broadcastsCreate reaches the mock and decodes its response",
+        () async {
       final actual = await sdk_methods_3.broadcastsCreate(
         config,
         segmentId: (jsonDecode("\"segment-1\"") as String),
         from: (jsonDecode("\"user@example.com\"") as String),
         subject: (jsonDecode("\"subject\"") as String),
         name: SdkPresent<String>((jsonDecode("\"Example Name\"") as String)),
-        audienceId: SdkPresent<String>((jsonDecode("\"audience-1\"") as String)),
-        replyTo: SdkPresent<List<String>>((jsonDecode("[\"reply_to\"]") as List).map((element) => (element as String)).toList()),
-        previewText: SdkPresent<String>((jsonDecode("\"Here are our announcements\"") as String)),
+        audienceId:
+            SdkPresent<String>((jsonDecode("\"audience-1\"") as String)),
+        replyTo: SdkPresent<List<String>>((jsonDecode("[\"reply_to\"]") as List)
+            .map((element) => (element as String))
+            .toList()),
+        previewText: SdkPresent<String>(
+            (jsonDecode("\"Here are our announcements\"") as String)),
         html: SdkPresent<String>((jsonDecode("\"html\"") as String)),
         text: SdkPresent<String>((jsonDecode("\"text\"") as String)),
         topicId: SdkPresent<String>((jsonDecode("\"topic-1\"") as String)),
         send: SdkPresent<bool>((jsonDecode("false") as bool)),
-        scheduledAt: SdkPresent<String>((jsonDecode("\"2024-01-01T00:00:00Z\"") as String)),
+        scheduledAt: SdkPresent<String>(
+            (jsonDecode("\"2024-01-01T00:00:00Z\"") as String)),
       );
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"id\":\"78261eea-8f8b-4381-83c6-79fa7120f1cf\",\"object\":\"broadcast\"}"),
+          SdkUtils.decodeJson(
+              "{\"id\":\"78261eea-8f8b-4381-83c6-79fa7120f1cf\",\"object\":\"broadcast\"}"),
         ),
         isNull,
       );
     });
 
-    test("broadcastsDuplicate reaches the mock and decodes its response", () async {
+    test("broadcastsDuplicate reaches the mock and decodes its response",
+        () async {
       final actual = await sdk_methods_3.broadcastsDuplicate(
         config,
         id: (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
@@ -404,7 +469,8 @@ void main() {
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"id\":\"00000000-0000-4000-8000-000000000000\",\"object\":\"broadcast\"}"),
+          SdkUtils.decodeJson(
+              "{\"id\":\"00000000-0000-4000-8000-000000000000\",\"object\":\"broadcast\"}"),
         ),
         isNull,
       );
@@ -418,7 +484,8 @@ void main() {
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"id\":\"id-1\",\"name\":\"November announcements\",\"audience_id\":\"audience-1\",\"segment_id\":\"segment-1\",\"from\":\"Acme <onboarding@resend.dev>\",\"subject\":\"Hello World\",\"reply_to\":[\"reply_to\"],\"preview_text\":\"Here are our announcements\",\"status\":\"draft\",\"created_at\":\"2023-10-06 22:59:55.977+00\",\"scheduled_at\":\"2023-10-06 22:59:55.977+00\",\"sent_at\":\"2023-10-06 22:59:55.977+00\",\"text\":\"Hello {{{FIRST_NAME|there}}}!\",\"html\":\"<p>Hello {{{FIRST_NAME|there}}}!</p>\",\"topic_id\":\"b6d24b8e-af0b-4c3c-be0c-359bbd97381e\"}"),
+          SdkUtils.decodeJson(
+              "{\"id\":\"id-1\",\"name\":\"November announcements\",\"audience_id\":\"audience-1\",\"segment_id\":\"segment-1\",\"from\":\"Acme <onboarding@resend.dev>\",\"subject\":\"Hello World\",\"reply_to\":[\"reply_to\"],\"preview_text\":\"Here are our announcements\",\"status\":\"draft\",\"created_at\":\"2023-10-06 22:59:55.977+00\",\"scheduled_at\":\"2023-10-06 22:59:55.977+00\",\"sent_at\":\"2023-10-06 22:59:55.977+00\",\"text\":\"Hello {{{FIRST_NAME|there}}}!\",\"html\":\"<p>Hello {{{FIRST_NAME|there}}}!</p>\",\"topic_id\":\"b6d24b8e-af0b-4c3c-be0c-359bbd97381e\"}"),
         ),
         isNull,
       );
@@ -434,13 +501,15 @@ void main() {
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"list\",\"has_more\":false,\"data\":[{\"id\":\"e169aa45-1ecf-4183-9955-b1499d5701d3\",\"name\":\"November announcements\",\"audience_id\":\"78261eea-8f8b-4381-83c6-79fa7120f1cf\",\"segment_id\":\"78261eea-8f8b-4381-83c6-79fa7120f1cf\",\"status\":\"draft\",\"created_at\":\"2023-10-06 22:59:55.977+00\",\"scheduled_at\":\"2023-10-06 22:59:55.977+00\",\"sent_at\":\"2023-10-06 22:59:55.977+00\",\"topic_id\":\"b6d24b8e-af0b-4c3c-be0c-359bbd97381e\"}]}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"list\",\"has_more\":false,\"data\":[{\"id\":\"e169aa45-1ecf-4183-9955-b1499d5701d3\",\"name\":\"November announcements\",\"audience_id\":\"78261eea-8f8b-4381-83c6-79fa7120f1cf\",\"segment_id\":\"78261eea-8f8b-4381-83c6-79fa7120f1cf\",\"status\":\"draft\",\"created_at\":\"2023-10-06 22:59:55.977+00\",\"scheduled_at\":\"2023-10-06 22:59:55.977+00\",\"sent_at\":\"2023-10-06 22:59:55.977+00\",\"topic_id\":\"b6d24b8e-af0b-4c3c-be0c-359bbd97381e\"}]}"),
         ),
         isNull,
       );
     });
 
-    test("broadcastsListClickedLinks reaches the mock and decodes its response", () async {
+    test("broadcastsListClickedLinks reaches the mock and decodes its response",
+        () async {
       final actual = await sdk_methods_3.broadcastsListClickedLinks(
         config,
         id: (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
@@ -451,13 +520,15 @@ void main() {
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"list\",\"has_more\":false,\"data\":[{\"id\":\"b2Zmc2V0OjA\",\"url\":\"https://resend.com/pricing\",\"clicks\":42,\"unique_clicks\":30}]}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"list\",\"has_more\":false,\"data\":[{\"id\":\"b2Zmc2V0OjA\",\"url\":\"https://resend.com/pricing\",\"clicks\":42,\"unique_clicks\":30}]}"),
         ),
         isNull,
       );
     });
 
-    test("broadcastsRemove reaches the mock and decodes its response", () async {
+    test("broadcastsRemove reaches the mock and decodes its response",
+        () async {
       final actual = await sdk_methods_3.broadcastsRemove(
         config,
         id: (jsonDecode("\"id-1\"") as String),
@@ -465,7 +536,8 @@ void main() {
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"id\":\"id-1\",\"object\":\"broadcast\",\"deleted\":true}"),
+          SdkUtils.decodeJson(
+              "{\"id\":\"id-1\",\"object\":\"broadcast\",\"deleted\":true}"),
         ),
         isNull,
       );
@@ -475,7 +547,8 @@ void main() {
       final actual = await sdk_methods_3.broadcastsSend(
         config,
         id: (jsonDecode("\"id-1\"") as String),
-        scheduledAt: SdkPresent<String>((jsonDecode("\"2024-01-01T00:00:00Z\"") as String)),
+        scheduledAt: SdkPresent<String>(
+            (jsonDecode("\"2024-01-01T00:00:00Z\"") as String)),
       );
       expect(
         mismatch(
@@ -486,17 +559,23 @@ void main() {
       );
     });
 
-    test("broadcastsUpdate reaches the mock and decodes its response", () async {
+    test("broadcastsUpdate reaches the mock and decodes its response",
+        () async {
       final actual = await sdk_methods_3.broadcastsUpdate(
         config,
         id: (jsonDecode("\"id-1\"") as String),
         name: SdkPresent<String>((jsonDecode("\"Example Name\"") as String)),
-        audienceId: SdkPresent<String>((jsonDecode("\"audience-1\"") as String)),
+        audienceId:
+            SdkPresent<String>((jsonDecode("\"audience-1\"") as String)),
         segmentId: SdkPresent<String>((jsonDecode("\"segment-1\"") as String)),
-        from: SdkPresent<String>((jsonDecode("\"user@example.com\"") as String)),
+        from:
+            SdkPresent<String>((jsonDecode("\"user@example.com\"") as String)),
         subject: SdkPresent<String>((jsonDecode("\"subject\"") as String)),
-        replyTo: SdkPresent<List<String>>((jsonDecode("[\"reply_to\"]") as List).map((element) => (element as String)).toList()),
-        previewText: SdkPresent<String>((jsonDecode("\"preview_text\"") as String)),
+        replyTo: SdkPresent<List<String>>((jsonDecode("[\"reply_to\"]") as List)
+            .map((element) => (element as String))
+            .toList()),
+        previewText:
+            SdkPresent<String>((jsonDecode("\"preview_text\"") as String)),
         html: SdkPresent<String>((jsonDecode("\"html\"") as String)),
         text: SdkPresent<String>((jsonDecode("\"text\"") as String)),
         topicId: SdkPresent<String>((jsonDecode("\"topic-1\"") as String)),
@@ -510,23 +589,27 @@ void main() {
       );
     });
 
-    test("contactPropertiesCreate reaches the mock and decodes its response", () async {
+    test("contactPropertiesCreate reaches the mock and decodes its response",
+        () async {
       final actual = await sdk_methods_4.contactPropertiesCreate(
         config,
         key: (jsonDecode("\"key\"") as String),
-        type_: CreateContactPropertyOptionsType.fromJson(jsonDecode("\"string\"") as String),
+        type_: CreateContactPropertyOptionsType.fromJson(
+            jsonDecode("\"string\"") as String),
         fallbackValue: SdkPresent<dynamic>(jsonDecode("\"fallback_value\"")),
       );
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"id\":\"78261eea-8f8b-4381-83c6-79fa7120f1cf\",\"object\":\"contact_property\"}"),
+          SdkUtils.decodeJson(
+              "{\"id\":\"78261eea-8f8b-4381-83c6-79fa7120f1cf\",\"object\":\"contact_property\"}"),
         ),
         isNull,
       );
     });
 
-    test("contactPropertiesGet reaches the mock and decodes its response", () async {
+    test("contactPropertiesGet reaches the mock and decodes its response",
+        () async {
       final actual = await sdk_methods_4.contactPropertiesGet(
         config,
         id: (jsonDecode("\"id-1\"") as String),
@@ -534,13 +617,15 @@ void main() {
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"contact_property\",\"id\":\"id-1\",\"key\":\"company_name\",\"type\":\"string\",\"fallback_value\":\"Acme Corp\",\"created_at\":\"2023-10-06 23:47:56.678+00\"}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"contact_property\",\"id\":\"id-1\",\"key\":\"company_name\",\"type\":\"string\",\"fallback_value\":\"Acme Corp\",\"created_at\":\"2023-10-06 23:47:56.678+00\"}"),
         ),
         isNull,
       );
     });
 
-    test("contactPropertiesList reaches the mock and decodes its response", () async {
+    test("contactPropertiesList reaches the mock and decodes its response",
+        () async {
       final actual = await sdk_methods_4.contactPropertiesList(
         config,
         limit: SdkPresent<int>((jsonDecode("1") as num).toInt()),
@@ -550,13 +635,15 @@ void main() {
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"list\",\"has_more\":false,\"data\":[{\"id\":\"id-1\",\"key\":\"key\",\"type\":\"type\",\"fallback_value\":\"fallback_value\",\"created_at\":\"2023-10-06 23:47:56.678+00\"}]}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"list\",\"has_more\":false,\"data\":[{\"id\":\"id-1\",\"key\":\"key\",\"type\":\"type\",\"fallback_value\":\"fallback_value\",\"created_at\":\"2023-10-06 23:47:56.678+00\"}]}"),
         ),
         isNull,
       );
     });
 
-    test("contactPropertiesRemove reaches the mock and decodes its response", () async {
+    test("contactPropertiesRemove reaches the mock and decodes its response",
+        () async {
       final actual = await sdk_methods_4.contactPropertiesRemove(
         config,
         id: (jsonDecode("\"id-1\"") as String),
@@ -564,13 +651,15 @@ void main() {
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"id\":\"id-1\",\"object\":\"contact_property\",\"deleted\":true}"),
+          SdkUtils.decodeJson(
+              "{\"id\":\"id-1\",\"object\":\"contact_property\",\"deleted\":true}"),
         ),
         isNull,
       );
     });
 
-    test("contactPropertiesUpdate reaches the mock and decodes its response", () async {
+    test("contactPropertiesUpdate reaches the mock and decodes its response",
+        () async {
       final actual = await sdk_methods_4.contactPropertiesUpdate(
         config,
         id: (jsonDecode("\"id-1\"") as String),
@@ -579,13 +668,15 @@ void main() {
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"id\":\"id-1\",\"object\":\"contact_property\"}"),
+          SdkUtils.decodeJson(
+              "{\"id\":\"id-1\",\"object\":\"contact_property\"}"),
         ),
         isNull,
       );
     });
 
-    test("contactsAddSegment reaches the mock and decodes its response", () async {
+    test("contactsAddSegment reaches the mock and decodes its response",
+        () async {
       final actual = await sdk_methods_5.contactsAddSegment(
         config,
         contactId: (jsonDecode("\"contact-1\"") as String),
@@ -594,7 +685,8 @@ void main() {
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"contact_segment\",\"contact_id\":\"contact-1\",\"segment_id\":\"segment-1\"}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"contact_segment\",\"contact_id\":\"contact-1\",\"segment_id\":\"segment-1\"}"),
         ),
         isNull,
       );
@@ -607,33 +699,58 @@ void main() {
         firstName: SdkPresent<String>((jsonDecode("\"Steve\"") as String)),
         lastName: SdkPresent<String>((jsonDecode("\"Wozniak\"") as String)),
         unsubscribed: SdkPresent<bool>((jsonDecode("false") as bool)),
-        properties: SdkPresent<Map<String, dynamic>>((jsonDecode("{\"key\":\"key\"}") as Map).map((key, value) => MapEntry((key as String), value))),
-        segments: SdkPresent<List<CreateContactOptionsSegmentsItem>>((jsonDecode("[{\"id\":\"id-1\"}]") as List).map((element) => CreateContactOptionsSegmentsItem.fromJson((element as Map).cast<String, dynamic>())).toList()),
-        topics: SdkPresent<List<CreateContactOptionsTopicsItem>>((jsonDecode("[{\"id\":\"id-1\",\"subscription\":\"opt_in\"}]") as List).map((element) => CreateContactOptionsTopicsItem.fromJson((element as Map).cast<String, dynamic>())).toList()),
-        audienceId: SdkPresent<String>((jsonDecode("\"78261eea-8f8b-4381-83c6-79fa7120f1cf\"") as String)),
+        properties: SdkPresent<Map<String, dynamic>>(
+            (jsonDecode("{\"key\":\"key\"}") as Map)
+                .map((key, value) => MapEntry((key as String), value))),
+        segments: SdkPresent<List<CreateContactOptionsSegmentsItem>>(
+            (jsonDecode("[{\"id\":\"id-1\"}]") as List)
+                .map((element) => CreateContactOptionsSegmentsItem.fromJson(
+                    (element as Map).cast<String, dynamic>()))
+                .toList()),
+        topics: SdkPresent<List<CreateContactOptionsTopicsItem>>(
+            (jsonDecode("[{\"id\":\"id-1\",\"subscription\":\"opt_in\"}]")
+                    as List)
+                .map((element) => CreateContactOptionsTopicsItem.fromJson(
+                    (element as Map).cast<String, dynamic>()))
+                .toList()),
+        audienceId: SdkPresent<String>(
+            (jsonDecode("\"78261eea-8f8b-4381-83c6-79fa7120f1cf\"") as String)),
       );
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"contact\",\"id\":\"479e3145-dd38-476b-932c-529ceb705947\"}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"contact\",\"id\":\"479e3145-dd38-476b-932c-529ceb705947\"}"),
         ),
         isNull,
       );
     });
 
-    test("contactsCreateImport reaches the mock and decodes its response", () async {
+    test("contactsCreateImport reaches the mock and decodes its response",
+        () async {
       final actual = await sdk_methods_5.contactsCreateImport(
         config,
-        file: SdkUploadFile(utf8.encode(jsonDecode("\"ZXhhbXBsZQ==\"") as String), filename: 'mock.bin'),
-        columnMap: SdkPresent<String>((jsonDecode("\"{\\\"email\\\":\\\"Email\\\",\\\"first_name\\\":\\\"First Name\\\",\\\"last_name\\\":\\\"Last Name\\\",\\\"unsubscribed\\\":\\\"Unsubscribed\\\",\\\"properties\\\":{\\\"plan\\\":{\\\"column\\\":\\\"Plan\\\",\\\"type\\\":\\\"string\\\"}}}\"") as String)),
-        onConflict: SdkPresent<CreateContactImportOptionsOnConflict>(CreateContactImportOptionsOnConflict.fromJson(jsonDecode("\"skip\"") as String)),
-        segments: SdkPresent<String>((jsonDecode("\"[{\\\"id\\\":\\\"78261eea-8f8b-4381-83c6-79fa7120f1cf\\\"}]\"") as String)),
-        topics: SdkPresent<String>((jsonDecode("\"[{\\\"id\\\":\\\"b6d24b8e-af0b-4c3c-be0c-359bbd97381e\\\",\\\"subscription\\\":\\\"opt_in\\\"}]\"") as String)),
+        file: SdkUploadFile(
+            utf8.encode(jsonDecode("\"ZXhhbXBsZQ==\"") as String),
+            filename: 'mock.bin'),
+        columnMap: SdkPresent<String>((jsonDecode(
+                "\"{\\\"email\\\":\\\"Email\\\",\\\"first_name\\\":\\\"First Name\\\",\\\"last_name\\\":\\\"Last Name\\\",\\\"unsubscribed\\\":\\\"Unsubscribed\\\",\\\"properties\\\":{\\\"plan\\\":{\\\"column\\\":\\\"Plan\\\",\\\"type\\\":\\\"string\\\"}}}\"")
+            as String)),
+        onConflict: SdkPresent<CreateContactImportOptionsOnConflict>(
+            CreateContactImportOptionsOnConflict.fromJson(
+                jsonDecode("\"skip\"") as String)),
+        segments: SdkPresent<String>((jsonDecode(
+                "\"[{\\\"id\\\":\\\"78261eea-8f8b-4381-83c6-79fa7120f1cf\\\"}]\"")
+            as String)),
+        topics: SdkPresent<String>((jsonDecode(
+                "\"[{\\\"id\\\":\\\"b6d24b8e-af0b-4c3c-be0c-359bbd97381e\\\",\\\"subscription\\\":\\\"opt_in\\\"}]\"")
+            as String)),
       );
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"contact_import\",\"id\":\"479e3145-dd38-476b-932c-529ceb705947\"}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"contact_import\",\"id\":\"479e3145-dd38-476b-932c-529ceb705947\"}"),
         ),
         isNull,
       );
@@ -647,13 +764,15 @@ void main() {
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"contact\",\"id\":\"id-1\",\"email\":\"steve.wozniak@gmail.com\",\"first_name\":\"Steve\",\"last_name\":\"Wozniak\",\"created_at\":\"2023-10-06 23:47:56.678+00\",\"unsubscribed\":false,\"properties\":{}}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"contact\",\"id\":\"id-1\",\"email\":\"steve.wozniak@gmail.com\",\"first_name\":\"Steve\",\"last_name\":\"Wozniak\",\"created_at\":\"2023-10-06 23:47:56.678+00\",\"unsubscribed\":false,\"properties\":{}}"),
         ),
         isNull,
       );
     });
 
-    test("contactsGetImport reaches the mock and decodes its response", () async {
+    test("contactsGetImport reaches the mock and decodes its response",
+        () async {
       final actual = await sdk_methods_5.contactsGetImport(
         config,
         id: (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
@@ -661,7 +780,8 @@ void main() {
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"contact_import\",\"id\":\"00000000-0000-4000-8000-000000000000\",\"status\":\"completed\",\"created_at\":\"2023-10-06 23:47:56.678+00\",\"completed_at\":\"2023-10-06 23:50:56.678+00\",\"counts\":{\"total\":100,\"created\":80,\"updated\":10,\"skipped\":5,\"failed\":5}}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"contact_import\",\"id\":\"00000000-0000-4000-8000-000000000000\",\"status\":\"completed\",\"created_at\":\"2023-10-06 23:47:56.678+00\",\"completed_at\":\"2023-10-06 23:50:56.678+00\",\"counts\":{\"total\":100,\"created\":80,\"updated\":10,\"skipped\":5,\"failed\":5}}"),
         ),
         isNull,
       );
@@ -677,16 +797,20 @@ void main() {
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"list\",\"has_more\":false,\"data\":[{\"id\":\"e169aa45-1ecf-4183-9955-b1499d5701d3\",\"email\":\"steve.wozniak@gmail.com\",\"first_name\":\"Steve\",\"last_name\":\"Wozniak\",\"created_at\":\"2023-10-06 23:47:56.678+00\",\"unsubscribed\":false}]}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"list\",\"has_more\":false,\"data\":[{\"id\":\"e169aa45-1ecf-4183-9955-b1499d5701d3\",\"email\":\"steve.wozniak@gmail.com\",\"first_name\":\"Steve\",\"last_name\":\"Wozniak\",\"created_at\":\"2023-10-06 23:47:56.678+00\",\"unsubscribed\":false}]}"),
         ),
         isNull,
       );
     });
 
-    test("contactsListImports reaches the mock and decodes its response", () async {
+    test("contactsListImports reaches the mock and decodes its response",
+        () async {
       final actual = await sdk_methods_5.contactsListImports(
         config,
-        status: SdkPresent<ContactsListImportsStatus>(ContactsListImportsStatus.fromJson(jsonDecode("\"queued\"") as String)),
+        status: SdkPresent<ContactsListImportsStatus>(
+            ContactsListImportsStatus.fromJson(
+                jsonDecode("\"queued\"") as String)),
         limit: SdkPresent<int>((jsonDecode("1") as num).toInt()),
         after: SdkPresent<String>((jsonDecode("\"after\"") as String)),
         before: SdkPresent<String>((jsonDecode("\"before\"") as String)),
@@ -694,13 +818,15 @@ void main() {
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"list\",\"has_more\":false,\"data\":[{\"object\":\"contact_import\",\"id\":\"479e3145-dd38-476b-932c-529ceb705947\",\"status\":\"completed\",\"created_at\":\"2023-10-06 23:47:56.678+00\",\"completed_at\":\"2023-10-06 23:50:56.678+00\",\"counts\":{\"total\":100,\"created\":80,\"updated\":10,\"skipped\":5,\"failed\":5}}]}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"list\",\"has_more\":false,\"data\":[{\"object\":\"contact_import\",\"id\":\"479e3145-dd38-476b-932c-529ceb705947\",\"status\":\"completed\",\"created_at\":\"2023-10-06 23:47:56.678+00\",\"completed_at\":\"2023-10-06 23:50:56.678+00\",\"counts\":{\"total\":100,\"created\":80,\"updated\":10,\"skipped\":5,\"failed\":5}}]}"),
         ),
         isNull,
       );
     });
 
-    test("contactsListSegments reaches the mock and decodes its response", () async {
+    test("contactsListSegments reaches the mock and decodes its response",
+        () async {
       final actual = await sdk_methods_5.contactsListSegments(
         config,
         contactId: (jsonDecode("\"contact-1\"") as String),
@@ -711,13 +837,15 @@ void main() {
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"list\",\"has_more\":false,\"data\":[{\"id\":\"id-1\",\"name\":\"Example Name\",\"created_at\":\"2023-10-06 23:47:56.678+00\"}]}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"list\",\"has_more\":false,\"data\":[{\"id\":\"id-1\",\"name\":\"Example Name\",\"created_at\":\"2023-10-06 23:47:56.678+00\"}]}"),
         ),
         isNull,
       );
     });
 
-    test("contactsListTopics reaches the mock and decodes its response", () async {
+    test("contactsListTopics reaches the mock and decodes its response",
+        () async {
       final actual = await sdk_methods_5.contactsListTopics(
         config,
         contactId: (jsonDecode("\"contact-1\"") as String),
@@ -728,7 +856,8 @@ void main() {
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"list\",\"has_more\":false,\"data\":[{\"id\":\"id-1\",\"name\":\"Example Name\",\"description\":\"example text\",\"subscription\":\"opt_in\"}]}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"list\",\"has_more\":false,\"data\":[{\"id\":\"id-1\",\"name\":\"Example Name\",\"description\":\"example text\",\"subscription\":\"opt_in\"}]}"),
         ),
         isNull,
       );
@@ -742,13 +871,15 @@ void main() {
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"contact\",\"id\":\"id-1\",\"deleted\":true}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"contact\",\"id\":\"id-1\",\"deleted\":true}"),
         ),
         isNull,
       );
     });
 
-    test("contactsRemoveSegment reaches the mock and decodes its response", () async {
+    test("contactsRemoveSegment reaches the mock and decodes its response",
+        () async {
       final actual = await sdk_methods_5.contactsRemoveSegment(
         config,
         contactId: (jsonDecode("\"contact-1\"") as String),
@@ -757,7 +888,8 @@ void main() {
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"contact_segment\",\"contact_id\":\"contact-1\",\"segment_id\":\"segment-1\",\"deleted\":true}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"contact_segment\",\"contact_id\":\"contact-1\",\"segment_id\":\"segment-1\",\"deleted\":true}"),
         ),
         isNull,
       );
@@ -767,11 +899,14 @@ void main() {
       final actual = await sdk_methods_5.contactsUpdate(
         config,
         id: (jsonDecode("\"id-1\"") as String),
-        email: SdkPresent<String>((jsonDecode("\"steve.wozniak@gmail.com\"") as String)),
+        email: SdkPresent<String>(
+            (jsonDecode("\"steve.wozniak@gmail.com\"") as String)),
         firstName: SdkPresent<String>((jsonDecode("\"Steve\"") as String)),
         lastName: SdkPresent<String>((jsonDecode("\"Wozniak\"") as String)),
         unsubscribed: SdkPresent<bool>((jsonDecode("false") as bool)),
-        properties: SdkPresent<Map<String, dynamic>>((jsonDecode("{\"key\":\"key\"}") as Map).map((key, value) => MapEntry((key as String), value))),
+        properties: SdkPresent<Map<String, dynamic>>(
+            (jsonDecode("{\"key\":\"key\"}") as Map)
+                .map((key, value) => MapEntry((key as String), value))),
       );
       expect(
         mismatch(
@@ -782,16 +917,22 @@ void main() {
       );
     });
 
-    test("contactsUpdateTopics reaches the mock and decodes its response", () async {
+    test("contactsUpdateTopics reaches the mock and decodes its response",
+        () async {
       final actual = await sdk_methods_5.contactsUpdateTopics(
         config,
         contactId: (jsonDecode("\"contact-1\"") as String),
-        topics: (jsonDecode("[{\"id\":\"id-1\",\"subscription\":\"opt_in\"}]") as List).map((element) => UpdateContactTopicsOptionsTopicsItem.fromJson((element as Map).cast<String, dynamic>())).toList(),
+        topics: (jsonDecode("[{\"id\":\"id-1\",\"subscription\":\"opt_in\"}]")
+                as List)
+            .map((element) => UpdateContactTopicsOptionsTopicsItem.fromJson(
+                (element as Map).cast<String, dynamic>()))
+            .toList(),
       );
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"contact_topics\",\"contact_id\":\"contact-1\",\"topics\":[{\"id\":\"id-1\",\"subscription\":\"opt_in\"}]}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"contact_topics\",\"contact_id\":\"contact-1\",\"topics\":[{\"id\":\"id-1\",\"subscription\":\"opt_in\"}]}"),
         ),
         isNull,
       );
@@ -801,37 +942,53 @@ void main() {
       final actual = await sdk_methods_6.domainsCreate(
         config,
         name: (jsonDecode("\"Example Name\"") as String),
-        region: SdkPresent<CreateDomainRequestRegion>(CreateDomainRequestRegion.fromJson(jsonDecode("\"us-east-1\"") as String)),
-        customReturnPath: SdkPresent<String>((jsonDecode("\"custom_return_path\"") as String)),
+        region: SdkPresent<CreateDomainRequestRegion>(
+            CreateDomainRequestRegion.fromJson(
+                jsonDecode("\"us-east-1\"") as String)),
+        customReturnPath: SdkPresent<String>(
+            (jsonDecode("\"custom_return_path\"") as String)),
         openTracking: SdkPresent<bool>((jsonDecode("false") as bool)),
         clickTracking: SdkPresent<bool>((jsonDecode("false") as bool)),
-        tls: SdkPresent<CreateDomainRequestTls>(CreateDomainRequestTls.fromJson(jsonDecode("\"opportunistic\"") as String)),
-        capabilities: SdkPresent<DomainCapabilities>(DomainCapabilities.fromJson((jsonDecode("{\"sending\":\"enabled\",\"receiving\":\"enabled\"}") as Map).cast<String, dynamic>())),
-        trackingSubdomain: SdkPresent<String>((jsonDecode("\"tracking_subdomain\"") as String)),
+        tls: SdkPresent<CreateDomainRequestTls>(CreateDomainRequestTls.fromJson(
+            jsonDecode("\"opportunistic\"") as String)),
+        capabilities: SdkPresent<DomainCapabilities>(
+            DomainCapabilities.fromJson((jsonDecode(
+                        "{\"sending\":\"enabled\",\"receiving\":\"enabled\"}")
+                    as Map)
+                .cast<String, dynamic>())),
+        trackingSubdomain: SdkPresent<String>(
+            (jsonDecode("\"tracking_subdomain\"") as String)),
       );
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"id\":\"id-1\",\"name\":\"Example Name\",\"created_at\":\"2023-10-06 23:47:56.678+00\",\"status\":\"pending\",\"capabilities\":{\"sending\":\"enabled\",\"receiving\":\"enabled\"},\"records\":[{\"record\":\"SPF\",\"name\":\"Example Name\",\"type\":\"MX\",\"ttl\":\"ttl\",\"status\":\"pending\",\"value\":\"value\",\"priority\":1}],\"region\":\"us-east-1\",\"open_tracking\":false,\"click_tracking\":false,\"tracking_subdomain\":\"tracking_subdomain\"}"),
+          SdkUtils.decodeJson(
+              "{\"id\":\"id-1\",\"name\":\"Example Name\",\"created_at\":\"2023-10-06 23:47:56.678+00\",\"status\":\"pending\",\"capabilities\":{\"sending\":\"enabled\",\"receiving\":\"enabled\"},\"records\":[{\"record\":\"SPF\",\"name\":\"Example Name\",\"type\":\"MX\",\"ttl\":\"ttl\",\"status\":\"pending\",\"value\":\"value\",\"priority\":1}],\"region\":\"us-east-1\",\"open_tracking\":false,\"click_tracking\":false,\"tracking_subdomain\":\"tracking_subdomain\"}"),
         ),
         isNull,
       );
     });
 
-    test("domainsCreateClaim reaches the mock and decodes its response", () async {
+    test("domainsCreateClaim reaches the mock and decodes its response",
+        () async {
       final actual = await sdk_methods_6.domainsCreateClaim(
         config,
         name: (jsonDecode("\"Example Name\"") as String),
-        region: SdkPresent<CreateDomainClaimRequestRegion>(CreateDomainClaimRequestRegion.fromJson(jsonDecode("\"us-east-1\"") as String)),
-        customReturnPath: SdkPresent<String>((jsonDecode("\"send\"") as String)),
+        region: SdkPresent<CreateDomainClaimRequestRegion>(
+            CreateDomainClaimRequestRegion.fromJson(
+                jsonDecode("\"us-east-1\"") as String)),
+        customReturnPath:
+            SdkPresent<String>((jsonDecode("\"send\"") as String)),
         openTracking: SdkPresent<bool>((jsonDecode("false") as bool)),
         clickTracking: SdkPresent<bool>((jsonDecode("false") as bool)),
-        trackingSubdomain: SdkPresent<String>((jsonDecode("\"tracking_subdomain\"") as String)),
+        trackingSubdomain: SdkPresent<String>(
+            (jsonDecode("\"tracking_subdomain\"") as String)),
       );
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"domain_claim\",\"id\":\"d91cd9bd-1176-453e-8fc1-35364d380206\",\"name\":\"Example Name\",\"status\":\"pending\",\"domain_id\":\"a1b2c3d4-1176-453e-8fc1-35364d380206\",\"region\":\"us-east-1\",\"record\":{\"type\":\"TXT\",\"name\":\"example.com\",\"value\":\"resend-domain-verification=abc123\",\"ttl\":\"Auto\"},\"blocked_reason\":null,\"failure_reason\":null,\"created_at\":\"2023-04-26 20:21:26.347412+00\",\"expires_at\":\"2023-05-03 20:21:26.347412+00\"}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"domain_claim\",\"id\":\"d91cd9bd-1176-453e-8fc1-35364d380206\",\"name\":\"Example Name\",\"status\":\"pending\",\"domain_id\":\"a1b2c3d4-1176-453e-8fc1-35364d380206\",\"region\":\"us-east-1\",\"record\":{\"type\":\"TXT\",\"name\":\"example.com\",\"value\":\"resend-domain-verification=abc123\",\"ttl\":\"Auto\"},\"blocked_reason\":null,\"failure_reason\":null,\"created_at\":\"2023-04-26 20:21:26.347412+00\",\"expires_at\":\"2023-05-03 20:21:26.347412+00\"}"),
         ),
         isNull,
       );
@@ -845,7 +1002,8 @@ void main() {
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"domain\",\"id\":\"d91cd9bd-1176-453e-8fc1-35364d380206\",\"name\":\"example.com\",\"status\":\"not_started\",\"created_at\":\"2023-04-26 20:21:26.347412+00\",\"region\":\"us-east-1\",\"open_tracking\":false,\"click_tracking\":false,\"tracking_subdomain\":\"tracking_subdomain\",\"capabilities\":{\"sending\":\"enabled\",\"receiving\":\"enabled\"},\"records\":[{\"record\":\"SPF\",\"name\":\"Example Name\",\"type\":\"MX\",\"ttl\":\"ttl\",\"status\":\"pending\",\"value\":\"value\",\"priority\":1}]}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"domain\",\"id\":\"d91cd9bd-1176-453e-8fc1-35364d380206\",\"name\":\"example.com\",\"status\":\"not_started\",\"created_at\":\"2023-04-26 20:21:26.347412+00\",\"region\":\"us-east-1\",\"open_tracking\":false,\"click_tracking\":false,\"tracking_subdomain\":\"tracking_subdomain\",\"capabilities\":{\"sending\":\"enabled\",\"receiving\":\"enabled\"},\"records\":[{\"record\":\"SPF\",\"name\":\"Example Name\",\"type\":\"MX\",\"ttl\":\"ttl\",\"status\":\"pending\",\"value\":\"value\",\"priority\":1}]}"),
         ),
         isNull,
       );
@@ -859,7 +1017,8 @@ void main() {
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"domain_claim\",\"id\":\"d91cd9bd-1176-453e-8fc1-35364d380206\",\"name\":\"example.com\",\"status\":\"pending\",\"domain_id\":\"domain-1\",\"region\":\"us-east-1\",\"record\":{\"type\":\"TXT\",\"name\":\"example.com\",\"value\":\"resend-domain-verification=abc123\",\"ttl\":\"Auto\"},\"blocked_reason\":null,\"failure_reason\":null,\"created_at\":\"2023-04-26 20:21:26.347412+00\",\"expires_at\":\"2023-05-03 20:21:26.347412+00\"}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"domain_claim\",\"id\":\"d91cd9bd-1176-453e-8fc1-35364d380206\",\"name\":\"example.com\",\"status\":\"pending\",\"domain_id\":\"domain-1\",\"region\":\"us-east-1\",\"record\":{\"type\":\"TXT\",\"name\":\"example.com\",\"value\":\"resend-domain-verification=abc123\",\"ttl\":\"Auto\"},\"blocked_reason\":null,\"failure_reason\":null,\"created_at\":\"2023-04-26 20:21:26.347412+00\",\"expires_at\":\"2023-05-03 20:21:26.347412+00\"}"),
         ),
         isNull,
       );
@@ -875,7 +1034,8 @@ void main() {
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"list\",\"has_more\":false,\"data\":[{\"id\":\"d91cd9bd-1176-453e-8fc1-35364d380206\",\"name\":\"example.com\",\"status\":\"not_started\",\"created_at\":\"2023-04-26 20:21:26.347412+00\",\"region\":\"us-east-1\",\"open_tracking\":false,\"click_tracking\":false,\"capabilities\":{\"sending\":\"enabled\",\"receiving\":\"enabled\"}}]}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"list\",\"has_more\":false,\"data\":[{\"id\":\"d91cd9bd-1176-453e-8fc1-35364d380206\",\"name\":\"example.com\",\"status\":\"not_started\",\"created_at\":\"2023-04-26 20:21:26.347412+00\",\"region\":\"us-east-1\",\"open_tracking\":false,\"click_tracking\":false,\"capabilities\":{\"sending\":\"enabled\",\"receiving\":\"enabled\"}}]}"),
         ),
         isNull,
       );
@@ -889,7 +1049,8 @@ void main() {
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"domain\",\"id\":\"d91cd9bd-1176-453e-8fc1-35364d380206\",\"deleted\":true}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"domain\",\"id\":\"d91cd9bd-1176-453e-8fc1-35364d380206\",\"deleted\":true}"),
         ),
         isNull,
       );
@@ -901,14 +1062,21 @@ void main() {
         domainId: (jsonDecode("\"domain-1\"") as String),
         openTracking: SdkPresent<bool>((jsonDecode("false") as bool)),
         clickTracking: SdkPresent<bool>((jsonDecode("false") as bool)),
-        tls: SdkPresent<UpdateDomainOptionsTls>(UpdateDomainOptionsTls.fromJson(jsonDecode("\"opportunistic\"") as String)),
-        capabilities: SdkPresent<DomainCapabilities>(DomainCapabilities.fromJson((jsonDecode("{\"sending\":\"enabled\",\"receiving\":\"enabled\"}") as Map).cast<String, dynamic>())),
-        trackingSubdomain: SdkPresent<String>((jsonDecode("\"tracking_subdomain\"") as String)),
+        tls: SdkPresent<UpdateDomainOptionsTls>(UpdateDomainOptionsTls.fromJson(
+            jsonDecode("\"opportunistic\"") as String)),
+        capabilities: SdkPresent<DomainCapabilities>(
+            DomainCapabilities.fromJson((jsonDecode(
+                        "{\"sending\":\"enabled\",\"receiving\":\"enabled\"}")
+                    as Map)
+                .cast<String, dynamic>())),
+        trackingSubdomain: SdkPresent<String>(
+            (jsonDecode("\"tracking_subdomain\"") as String)),
       );
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"id\":\"d91cd9bd-1176-453e-8fc1-35364d380206\",\"object\":\"domain\"}"),
+          SdkUtils.decodeJson(
+              "{\"id\":\"d91cd9bd-1176-453e-8fc1-35364d380206\",\"object\":\"domain\"}"),
         ),
         isNull,
       );
@@ -922,13 +1090,15 @@ void main() {
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"domain\",\"id\":\"d91cd9bd-1176-453e-8fc1-35364d380206\"}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"domain\",\"id\":\"d91cd9bd-1176-453e-8fc1-35364d380206\"}"),
         ),
         isNull,
       );
     });
 
-    test("domainsVerifyClaim reaches the mock and decodes its response", () async {
+    test("domainsVerifyClaim reaches the mock and decodes its response",
+        () async {
       final actual = await sdk_methods_6.domainsVerifyClaim(
         config,
         domainId: (jsonDecode("\"domain-1\"") as String),
@@ -936,7 +1106,8 @@ void main() {
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"domain_claim\",\"id\":\"d91cd9bd-1176-453e-8fc1-35364d380206\",\"name\":\"example.com\",\"status\":\"pending\",\"domain_id\":\"domain-1\",\"region\":\"us-east-1\",\"record\":{\"type\":\"TXT\",\"name\":\"example.com\",\"value\":\"resend-domain-verification=abc123\",\"ttl\":\"Auto\"},\"blocked_reason\":null,\"failure_reason\":null,\"created_at\":\"2023-04-26 20:21:26.347412+00\",\"expires_at\":\"2023-05-03 20:21:26.347412+00\"}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"domain_claim\",\"id\":\"d91cd9bd-1176-453e-8fc1-35364d380206\",\"name\":\"example.com\",\"status\":\"pending\",\"domain_id\":\"domain-1\",\"region\":\"us-east-1\",\"record\":{\"type\":\"TXT\",\"name\":\"example.com\",\"value\":\"resend-domain-verification=abc123\",\"ttl\":\"Auto\"},\"blocked_reason\":null,\"failure_reason\":null,\"created_at\":\"2023-04-26 20:21:26.347412+00\",\"expires_at\":\"2023-05-03 20:21:26.347412+00\"}"),
         ),
         isNull,
       );
@@ -950,7 +1121,8 @@ void main() {
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"email\",\"id\":\"4ef9a417-02e9-4d39-ad75-9611e0fcc33c\",\"message_id\":\"<202301010000.4ef9a417@email.example.com>\",\"to\":[\"delivered@resend.dev\"],\"from\":\"Acme <onboarding@resend.dev>\",\"created_at\":\"2023-04-03 22:13:42.674981+00\",\"subject\":\"Hello World\",\"html\":\"Congrats on sending your <strong>first email</strong>!\",\"text\":\"text\",\"bcc\":[\"bcc\"],\"cc\":[\"cc\"],\"reply_to\":[\"reply_to\"],\"last_event\":\"delivered\"}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"email\",\"id\":\"4ef9a417-02e9-4d39-ad75-9611e0fcc33c\",\"message_id\":\"<202301010000.4ef9a417@email.example.com>\",\"to\":[\"delivered@resend.dev\"],\"from\":\"Acme <onboarding@resend.dev>\",\"created_at\":\"2023-04-03 22:13:42.674981+00\",\"subject\":\"Hello World\",\"html\":\"Congrats on sending your <strong>first email</strong>!\",\"text\":\"text\",\"bcc\":[\"bcc\"],\"cc\":[\"cc\"],\"reply_to\":[\"reply_to\"],\"last_event\":\"delivered\"}"),
         ),
         isNull,
       );
@@ -964,22 +1136,27 @@ void main() {
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"email\",\"id\":\"4ef9a417-02e9-4d39-ad75-9611e0fcc33c\",\"message_id\":\"<202301010000.4ef9a417@email.example.com>\",\"to\":[\"delivered@resend.dev\"],\"from\":\"Acme <onboarding@resend.dev>\",\"created_at\":\"2023-04-03 22:13:42.674981+00\",\"subject\":\"Hello World\",\"html\":\"Congrats on sending your <strong>first email</strong>!\",\"text\":\"text\",\"bcc\":[\"bcc\"],\"cc\":[\"cc\"],\"reply_to\":[\"reply_to\"],\"last_event\":\"delivered\"}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"email\",\"id\":\"4ef9a417-02e9-4d39-ad75-9611e0fcc33c\",\"message_id\":\"<202301010000.4ef9a417@email.example.com>\",\"to\":[\"delivered@resend.dev\"],\"from\":\"Acme <onboarding@resend.dev>\",\"created_at\":\"2023-04-03 22:13:42.674981+00\",\"subject\":\"Hello World\",\"html\":\"Congrats on sending your <strong>first email</strong>!\",\"text\":\"text\",\"bcc\":[\"bcc\"],\"cc\":[\"cc\"],\"reply_to\":[\"reply_to\"],\"last_event\":\"delivered\"}"),
         ),
         isNull,
       );
     });
 
-    test("emailsGetAttachment reaches the mock and decodes its response", () async {
+    test("emailsGetAttachment reaches the mock and decodes its response",
+        () async {
       final actual = await sdk_methods_7.emailsGetAttachment(
         config,
-        emailId: (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
-        attachmentId: (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
+        emailId:
+            (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
+        attachmentId:
+            (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
       );
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"attachment\",\"id\":\"660e8400-e29b-41d4-a716-446655440000\",\"filename\":\"document.pdf\",\"content_type\":\"application/pdf\",\"content_id\":\"img001\",\"content_disposition\":\"attachment\",\"download_url\":\"https://cloudfront.example.com/path?Signature=...\",\"expires_at\":\"2024-10-27T18:30:00.000Z\",\"size\":2048}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"attachment\",\"id\":\"660e8400-e29b-41d4-a716-446655440000\",\"filename\":\"document.pdf\",\"content_type\":\"application/pdf\",\"content_id\":\"img001\",\"content_disposition\":\"attachment\",\"download_url\":\"https://cloudfront.example.com/path?Signature=...\",\"expires_at\":\"2024-10-27T18:30:00.000Z\",\"size\":2048}"),
         ),
         isNull,
       );
@@ -995,24 +1172,30 @@ void main() {
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"list\",\"has_more\":false,\"data\":[{\"object\":\"email\",\"id\":\"4ef9a417-02e9-4d39-ad75-9611e0fcc33c\",\"message_id\":\"<202301010000.4ef9a417@email.example.com>\",\"to\":[\"delivered@resend.dev\"],\"from\":\"Acme <onboarding@resend.dev>\",\"created_at\":\"2023-04-03 22:13:42.674981+00\",\"subject\":\"Hello World\",\"html\":\"Congrats on sending your <strong>first email</strong>!\",\"text\":\"text\",\"bcc\":[\"bcc\"],\"cc\":[\"cc\"],\"reply_to\":[\"reply_to\"],\"last_event\":\"delivered\"}]}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"list\",\"has_more\":false,\"data\":[{\"object\":\"email\",\"id\":\"4ef9a417-02e9-4d39-ad75-9611e0fcc33c\",\"message_id\":\"<202301010000.4ef9a417@email.example.com>\",\"to\":[\"delivered@resend.dev\"],\"from\":\"Acme <onboarding@resend.dev>\",\"created_at\":\"2023-04-03 22:13:42.674981+00\",\"subject\":\"Hello World\",\"html\":\"Congrats on sending your <strong>first email</strong>!\",\"text\":\"text\",\"bcc\":[\"bcc\"],\"cc\":[\"cc\"],\"reply_to\":[\"reply_to\"],\"last_event\":\"delivered\"}]}"),
         ),
         isNull,
       );
     });
 
-    test("emailsListAttachments reaches the mock and decodes its response", () async {
+    test("emailsListAttachments reaches the mock and decodes its response",
+        () async {
       final actual = await sdk_methods_7.emailsListAttachments(
         config,
-        emailId: (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
+        emailId:
+            (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
         limit: SdkPresent<int>((jsonDecode("1") as num).toInt()),
-        after: SdkPresent<String>((jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String)),
-        before: SdkPresent<String>((jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String)),
+        after: SdkPresent<String>(
+            (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String)),
+        before: SdkPresent<String>(
+            (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String)),
       );
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"list\",\"has_more\":false,\"data\":[{\"id\":\"660e8400-e29b-41d4-a716-446655440000\",\"filename\":\"document.pdf\",\"content_type\":\"application/pdf\",\"content_id\":\"img001\",\"content_disposition\":\"attachment\",\"download_url\":\"https://cloudfront.example.com/path?Signature=...\",\"expires_at\":\"2024-10-27T18:30:00.000Z\",\"size\":2048}]}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"list\",\"has_more\":false,\"data\":[{\"id\":\"660e8400-e29b-41d4-a716-446655440000\",\"filename\":\"document.pdf\",\"content_type\":\"application/pdf\",\"content_id\":\"img001\",\"content_disposition\":\"attachment\",\"download_url\":\"https://cloudfront.example.com/path?Signature=...\",\"expires_at\":\"2024-10-27T18:30:00.000Z\",\"size\":2048}]}"),
         ),
         isNull,
       );
@@ -1022,19 +1205,43 @@ void main() {
       final actual = await sdk_methods_7.emailsSend(
         config,
         from: (jsonDecode("\"user@example.com\"") as String),
-        to: (jsonDecode("[\"to\"]") as List).map((element) => (element as String)).toList(),
+        to: (jsonDecode("[\"to\"]") as List)
+            .map((element) => (element as String))
+            .toList(),
         subject: (jsonDecode("\"subject\"") as String),
-        idempotencyKey: SdkPresent<String>((jsonDecode("\"Idempotency-Key\"") as String)),
-        bcc: SdkPresent<List<String>>((jsonDecode("[\"bcc\"]") as List).map((element) => (element as String)).toList()),
-        cc: SdkPresent<List<String>>((jsonDecode("[\"cc\"]") as List).map((element) => (element as String)).toList()),
-        replyTo: SdkPresent<List<String>>((jsonDecode("[\"reply_to\"]") as List).map((element) => (element as String)).toList()),
+        idempotencyKey:
+            SdkPresent<String>((jsonDecode("\"Idempotency-Key\"") as String)),
+        bcc: SdkPresent<List<String>>((jsonDecode("[\"bcc\"]") as List)
+            .map((element) => (element as String))
+            .toList()),
+        cc: SdkPresent<List<String>>((jsonDecode("[\"cc\"]") as List)
+            .map((element) => (element as String))
+            .toList()),
+        replyTo: SdkPresent<List<String>>((jsonDecode("[\"reply_to\"]") as List)
+            .map((element) => (element as String))
+            .toList()),
         html: SdkPresent<String>((jsonDecode("\"html\"") as String)),
         text: SdkPresent<String>((jsonDecode("\"text\"") as String)),
-        template: SdkPresent<EmailTemplateInput>(EmailTemplateInput.fromJson((jsonDecode("{\"id\":\"id-1\",\"variables\":{\"variableName\":\"Sign up now\",\"variableName2\":123}}") as Map).cast<String, dynamic>())),
+        template: SdkPresent<
+            EmailTemplateInput>(EmailTemplateInput.fromJson((jsonDecode(
+                    "{\"id\":\"id-1\",\"variables\":{\"variableName\":\"Sign up now\",\"variableName2\":123}}")
+                as Map)
+            .cast<String, dynamic>())),
         headers: SdkPresent<Map<String, dynamic>>(<String, dynamic>{}),
-        scheduledAt: SdkPresent<String>((jsonDecode("\"2024-01-01T00:00:00Z\"") as String)),
-        attachments: SdkPresent<List<Attachment>>((jsonDecode("[{\"content\":\"ZXhhbXBsZQ==\",\"filename\":\"Example Name\",\"path\":\"path\",\"content_type\":\"content_type\",\"content_id\":\"content-1\"}]") as List).map((element) => Attachment.fromJson((element as Map).cast<String, dynamic>())).toList()),
-        tags: SdkPresent<List<Tag>>((jsonDecode("[{\"name\":\"Example Name\",\"value\":\"value\"}]") as List).map((element) => Tag.fromJson((element as Map).cast<String, dynamic>())).toList()),
+        scheduledAt: SdkPresent<String>(
+            (jsonDecode("\"2024-01-01T00:00:00Z\"") as String)),
+        attachments: SdkPresent<List<Attachment>>((jsonDecode(
+                    "[{\"content\":\"ZXhhbXBsZQ==\",\"filename\":\"Example Name\",\"path\":\"path\",\"content_type\":\"content_type\",\"content_id\":\"content-1\"}]")
+                as List)
+            .map((element) =>
+                Attachment.fromJson((element as Map).cast<String, dynamic>()))
+            .toList()),
+        tags: SdkPresent<List<Tag>>(
+            (jsonDecode("[{\"name\":\"Example Name\",\"value\":\"value\"}]")
+                    as List)
+                .map((element) =>
+                    Tag.fromJson((element as Map).cast<String, dynamic>()))
+                .toList()),
         topicId: SdkPresent<String>((jsonDecode("\"topic-1\"") as String)),
       );
       expect(
@@ -1049,8 +1256,14 @@ void main() {
     test("emailsSendBatch reaches the mock and decodes its response", () async {
       final actual = await sdk_methods_7.emailsSendBatch(
         config,
-        idempotencyKey: SdkPresent<String>((jsonDecode("\"Idempotency-Key\"") as String)),
-        body: SdkPresent<List<SendEmailRequest>>((jsonDecode("[{\"from\":\"user@example.com\",\"to\":[\"to\"],\"subject\":\"subject\",\"bcc\":[\"bcc\"],\"cc\":[\"cc\"],\"reply_to\":[\"reply_to\"],\"html\":\"html\",\"text\":\"text\",\"template\":{\"id\":\"id-1\",\"variables\":{\"variableName\":\"Sign up now\",\"variableName2\":123}},\"headers\":{},\"scheduled_at\":\"2024-01-01T00:00:00Z\",\"attachments\":[{\"content\":\"ZXhhbXBsZQ==\",\"filename\":\"Example Name\",\"path\":\"path\",\"content_type\":\"content_type\",\"content_id\":\"content-1\"}],\"tags\":[{\"name\":\"Example Name\",\"value\":\"value\"}],\"topic_id\":\"topic-1\"}]") as List).map((element) => SendEmailRequest.fromJson((element as Map).cast<String, dynamic>())).toList()),
+        idempotencyKey:
+            SdkPresent<String>((jsonDecode("\"Idempotency-Key\"") as String)),
+        body: SdkPresent<List<SendEmailRequest>>((jsonDecode(
+                    "[{\"from\":\"user@example.com\",\"to\":[\"to\"],\"subject\":\"subject\",\"bcc\":[\"bcc\"],\"cc\":[\"cc\"],\"reply_to\":[\"reply_to\"],\"html\":\"html\",\"text\":\"text\",\"template\":{\"id\":\"id-1\",\"variables\":{\"variableName\":\"Sign up now\",\"variableName2\":123}},\"headers\":{},\"scheduled_at\":\"2024-01-01T00:00:00Z\",\"attachments\":[{\"content\":\"ZXhhbXBsZQ==\",\"filename\":\"Example Name\",\"path\":\"path\",\"content_type\":\"content_type\",\"content_id\":\"content-1\"}],\"tags\":[{\"name\":\"Example Name\",\"value\":\"value\"}],\"topic_id\":\"topic-1\"}]")
+                as List)
+            .map((element) => SendEmailRequest.fromJson(
+                (element as Map).cast<String, dynamic>()))
+            .toList()),
       );
       expect(
         mismatch(
@@ -1070,7 +1283,8 @@ void main() {
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"email\",\"id\":\"4ef9a417-02e9-4d39-ad75-9611e0fcc33c\",\"url\":\"https://resend.com/shared?token=eyJhbGciOiJIUzI1NiJ9...\"}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"email\",\"id\":\"4ef9a417-02e9-4d39-ad75-9611e0fcc33c\",\"url\":\"https://resend.com/shared?token=eyJhbGciOiJIUzI1NiJ9...\"}"),
         ),
         isNull,
       );
@@ -1099,7 +1313,8 @@ void main() {
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"event\",\"id\":\"00000000-0000-4000-8000-000000000000\"}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"event\",\"id\":\"00000000-0000-4000-8000-000000000000\"}"),
         ),
         isNull,
       );
@@ -1113,7 +1328,8 @@ void main() {
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"event\",\"id\":\"00000000-0000-4000-8000-000000000000\",\"name\":\"Example Name\",\"schema\":{},\"created_at\":\"2023-10-06 23:47:56.678+00\",\"updated_at\":\"2023-10-06 23:47:56.678+00\"}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"event\",\"id\":\"00000000-0000-4000-8000-000000000000\",\"name\":\"Example Name\",\"schema\":{},\"created_at\":\"2023-10-06 23:47:56.678+00\",\"updated_at\":\"2023-10-06 23:47:56.678+00\"}"),
         ),
         isNull,
       );
@@ -1129,7 +1345,8 @@ void main() {
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"list\",\"has_more\":false,\"data\":[{\"id\":\"00000000-0000-4000-8000-000000000000\",\"name\":\"Example Name\",\"schema\":{},\"created_at\":\"2023-10-06 23:47:56.678+00\",\"updated_at\":\"2023-10-06 23:47:56.678+00\"}]}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"list\",\"has_more\":false,\"data\":[{\"id\":\"00000000-0000-4000-8000-000000000000\",\"name\":\"Example Name\",\"schema\":{},\"created_at\":\"2023-10-06 23:47:56.678+00\",\"updated_at\":\"2023-10-06 23:47:56.678+00\"}]}"),
         ),
         isNull,
       );
@@ -1143,7 +1360,8 @@ void main() {
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"event\",\"id\":\"00000000-0000-4000-8000-000000000000\",\"deleted\":true}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"event\",\"id\":\"00000000-0000-4000-8000-000000000000\",\"deleted\":true}"),
         ),
         isNull,
       );
@@ -1153,8 +1371,10 @@ void main() {
       final actual = await sdk_methods_8.eventsSend(
         config,
         event: (jsonDecode("\"event\"") as String),
-        contactId: SdkPresent<String>((jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String)),
-        email: SdkPresent<String>((jsonDecode("\"user@example.com\"") as String)),
+        contactId: SdkPresent<String>(
+            (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String)),
+        email:
+            SdkPresent<String>((jsonDecode("\"user@example.com\"") as String)),
         payload: SdkPresent<Map<String, Object?>>(<String, Object?>{}),
       );
       expect(
@@ -1175,7 +1395,8 @@ void main() {
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"event\",\"id\":\"00000000-0000-4000-8000-000000000000\"}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"event\",\"id\":\"00000000-0000-4000-8000-000000000000\"}"),
         ),
         isNull,
       );
@@ -1184,13 +1405,16 @@ void main() {
     test("getAttachment reaches the mock and decodes its response", () async {
       final actual = await sdk_methods_9.getAttachment(
         config,
-        emailId: (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
-        attachmentId: (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
+        emailId:
+            (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
+        attachmentId:
+            (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
       );
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"attachment\",\"id\":\"660e8400-e29b-41d4-a716-446655440000\",\"filename\":\"document.pdf\",\"content_type\":\"application/pdf\",\"content_id\":\"img001\",\"content_disposition\":\"attachment\",\"download_url\":\"https://cloudfront.example.com/path?Signature=...\",\"expires_at\":\"2024-10-27T18:30:00.000Z\",\"size\":2048}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"attachment\",\"id\":\"660e8400-e29b-41d4-a716-446655440000\",\"filename\":\"document.pdf\",\"content_type\":\"application/pdf\",\"content_id\":\"img001\",\"content_disposition\":\"attachment\",\"download_url\":\"https://cloudfront.example.com/path?Signature=...\",\"expires_at\":\"2024-10-27T18:30:00.000Z\",\"size\":2048}"),
         ),
         isNull,
       );
@@ -1199,20 +1423,40 @@ void main() {
     test("getMetrics reaches the mock and decodes its response", () async {
       final actual = await sdk_methods_7.getMetrics(
         config,
-        startDate: SdkPresent<String>((jsonDecode("\"2024-01-01T00:00:00Z\"") as String)),
-        endDate: SdkPresent<String>((jsonDecode("\"2024-01-01T00:00:00Z\"") as String)),
+        startDate: SdkPresent<String>(
+            (jsonDecode("\"2024-01-01T00:00:00Z\"") as String)),
+        endDate: SdkPresent<String>(
+            (jsonDecode("\"2024-01-01T00:00:00Z\"") as String)),
         timezone: SdkPresent<String>((jsonDecode("\"UTC\"") as String)),
-        granularity: SdkPresent<GetMetricsGranularity>(GetMetricsGranularity.fromJson(jsonDecode("\"daily\"") as String)),
-        metrics: SdkPresent<List<GetMetricsMetricsItem>>((jsonDecode("[\"received\"]") as List).map((element) => GetMetricsMetricsItem.fromJson(element as String)).toList()),
-        dimensions: SdkPresent<List<GetMetricsDimensionsItem>>((jsonDecode("[\"period\"]") as List).map((element) => GetMetricsDimensionsItem.fromJson(element as String)).toList()),
-        domainId: SdkPresent<List<String>>((jsonDecode("[\"00000000-0000-4000-8000-000000000000\"]") as List).map((element) => (element as String)).toList()),
-        emailId: SdkPresent<List<String>>((jsonDecode("[\"00000000-0000-4000-8000-000000000000\"]") as List).map((element) => (element as String)).toList()),
-        broadcastId: SdkPresent<List<String>>((jsonDecode("[\"00000000-0000-4000-8000-000000000000\"]") as List).map((element) => (element as String)).toList()),
+        granularity: SdkPresent<GetMetricsGranularity>(
+            GetMetricsGranularity.fromJson(jsonDecode("\"daily\"") as String)),
+        metrics: SdkPresent<List<GetMetricsMetricsItem>>((jsonDecode(
+                "[\"received\"]") as List)
+            .map((element) => GetMetricsMetricsItem.fromJson(element as String))
+            .toList()),
+        dimensions: SdkPresent<List<GetMetricsDimensionsItem>>(
+            (jsonDecode("[\"period\"]") as List)
+                .map((element) =>
+                    GetMetricsDimensionsItem.fromJson(element as String))
+                .toList()),
+        domainId: SdkPresent<List<String>>(
+            (jsonDecode("[\"00000000-0000-4000-8000-000000000000\"]") as List)
+                .map((element) => (element as String))
+                .toList()),
+        emailId: SdkPresent<List<String>>(
+            (jsonDecode("[\"00000000-0000-4000-8000-000000000000\"]") as List)
+                .map((element) => (element as String))
+                .toList()),
+        broadcastId: SdkPresent<List<String>>(
+            (jsonDecode("[\"00000000-0000-4000-8000-000000000000\"]") as List)
+                .map((element) => (element as String))
+                .toList()),
       );
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"metrics\",\"start_date\":\"2026-07-01T00:00:00.000Z\",\"end_date\":\"2026-07-08T00:00:00.000Z\",\"metrics\":[\"metrics\"],\"dimensions\":[\"period\"],\"granularity\":\"hourly\",\"totals\":{\"key\":1},\"data\":[{\"period\":\"period\",\"domain_id\":\"00000000-0000-4000-8000-000000000000\",\"domain_name\":\"Example Name\",\"email_id\":\"00000000-0000-4000-8000-000000000000\",\"broadcast_id\":\"00000000-0000-4000-8000-000000000000\",\"broadcast_name\":\"Example Name\"}]}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"metrics\",\"start_date\":\"2026-07-01T00:00:00.000Z\",\"end_date\":\"2026-07-08T00:00:00.000Z\",\"metrics\":[\"metrics\"],\"dimensions\":[\"period\"],\"granularity\":\"hourly\",\"totals\":{\"key\":1},\"data\":[{\"period\":\"period\",\"domain_id\":\"00000000-0000-4000-8000-000000000000\",\"domain_name\":\"Example Name\",\"email_id\":\"00000000-0000-4000-8000-000000000000\",\"broadcast_id\":\"00000000-0000-4000-8000-000000000000\",\"broadcast_name\":\"Example Name\"}]}"),
         ),
         isNull,
       );
@@ -1222,79 +1466,130 @@ void main() {
       final actual = await sdk_methods_10.inboxesCreate(
         config,
         emailAddress: (jsonDecode("\"support@acme.com\"") as String),
-        name: SdkPresent<String>((jsonDecode("\"Customer Support\"") as String)),
-        fromName: SdkPresent<String>((jsonDecode("\"Ada from Support\"") as String)),
+        name:
+            SdkPresent<String>((jsonDecode("\"Customer Support\"") as String)),
+        fromName:
+            SdkPresent<String>((jsonDecode("\"Ada from Support\"") as String)),
         forwarding: SdkPresent<bool>((jsonDecode("false") as bool)),
       );
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"inbox\",\"id\":\"b3e2b2b6-3f0e-4c8e-9ad3-2f43a1e2c7f1\"}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"inbox\",\"id\":\"b3e2b2b6-3f0e-4c8e-9ad3-2f43a1e2c7f1\"}"),
         ),
         isNull,
       );
     });
 
-    test("inboxesCreateDraft reaches the mock and decodes its response", () async {
+    test("inboxesCreateDraft reaches the mock and decodes its response",
+        () async {
       final actual = await sdk_methods_10.inboxesCreateDraft(
         config,
-        inboxId: (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
+        inboxId:
+            (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
         idempotencyKey: SdkPresent<String>((jsonDecode("\"x\"") as String)),
-        to: SdkPresent<List<String>?>((jsonDecode("[\"ada@example.org\"]") as List).map((element) => (element as String)).toList()),
-        cc: SdkPresent<List<String>?>((jsonDecode("[\"cc\"]") as List).map((element) => (element as String)).toList()),
-        bcc: SdkPresent<List<String>?>((jsonDecode("[\"bcc\"]") as List).map((element) => (element as String)).toList()),
-        subject: SdkPresent<String?>((jsonDecode("\"Refund for order 1041\"") as String)),
-        html: SdkPresent<String?>((jsonDecode("\"<p>Refund issued for order 1041.</p>\"") as String)),
-        text: SdkPresent<String?>((jsonDecode("\"Refund issued for order 1041.\"") as String)),
-        attachments: SdkPresent<List<InboxDraftAttachmentInput>?>((jsonDecode("[{\"content\":\"aGVsbG8gZTJl\",\"filename\":\"receipt.pdf\",\"content_type\":\"application/pdf\"}]") as List).map((element) => InboxDraftAttachmentInput.fromJson((element as Map).cast<String, dynamic>())).toList()),
-        threadId: SdkPresent<String>((jsonDecode("\"4d8e2a1c-9b3f-4c6d-8a21-3e5f7c9c0d12\"") as String)),
-        replyToEmailId: SdkPresent<String>((jsonDecode("\"5b1a9f47-2c8d-4e6f-9a03-1d2e3f4a5b60\"") as String)),
+        to: SdkPresent<List<String>?>(
+            (jsonDecode("[\"ada@example.org\"]") as List)
+                .map((element) => (element as String))
+                .toList()),
+        cc: SdkPresent<List<String>?>((jsonDecode("[\"cc\"]") as List)
+            .map((element) => (element as String))
+            .toList()),
+        bcc: SdkPresent<List<String>?>((jsonDecode("[\"bcc\"]") as List)
+            .map((element) => (element as String))
+            .toList()),
+        subject: SdkPresent<String?>(
+            (jsonDecode("\"Refund for order 1041\"") as String)),
+        html: SdkPresent<String?>(
+            (jsonDecode("\"<p>Refund issued for order 1041.</p>\"") as String)),
+        text: SdkPresent<String?>(
+            (jsonDecode("\"Refund issued for order 1041.\"") as String)),
+        attachments: SdkPresent<List<InboxDraftAttachmentInput>?>((jsonDecode(
+                    "[{\"content\":\"aGVsbG8gZTJl\",\"filename\":\"receipt.pdf\",\"content_type\":\"application/pdf\"}]")
+                as List)
+            .map((element) => InboxDraftAttachmentInput.fromJson(
+                (element as Map).cast<String, dynamic>()))
+            .toList()),
+        threadId: SdkPresent<String>(
+            (jsonDecode("\"4d8e2a1c-9b3f-4c6d-8a21-3e5f7c9c0d12\"") as String)),
+        replyToEmailId: SdkPresent<String>(
+            (jsonDecode("\"5b1a9f47-2c8d-4e6f-9a03-1d2e3f4a5b60\"") as String)),
       );
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"inbox_draft\",\"id\":\"c3a1e8b4-2d5f-4a7c-9e10-6b8d7f5a4c32\"}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"inbox_draft\",\"id\":\"c3a1e8b4-2d5f-4a7c-9e10-6b8d7f5a4c32\"}"),
         ),
         isNull,
       );
     });
 
-    test("inboxesCreateLabel reaches the mock and decodes its response", () async {
+    test("inboxesCreateLabel reaches the mock and decodes its response",
+        () async {
       final actual = await sdk_methods_10.inboxesCreateLabel(
         config,
-        inboxId: (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
+        inboxId:
+            (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
         name: (jsonDecode("\"Urgent\"") as String),
         color: SdkPresent<String>((jsonDecode("\"#E93D82\"") as String)),
       );
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"inbox_label\",\"id\":\"7f9c1d2e-4a6b-4c3d-8e15-9b0a7c6d5e34\"}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"inbox_label\",\"id\":\"7f9c1d2e-4a6b-4c3d-8e15-9b0a7c6d5e34\"}"),
         ),
         isNull,
       );
     });
 
-    test("inboxesForwardThreadEmail reaches the mock and decodes its response", () async {
+    test("inboxesForwardThreadEmail reaches the mock and decodes its response",
+        () async {
       final actual = await sdk_methods_10.inboxesForwardThreadEmail(
         config,
-        inboxId: (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
-        threadId: (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
-        emailId: (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
-        to: (jsonDecode("[\"colleague@example.org\"]") as List).map((element) => (element as String)).toList(),
+        inboxId:
+            (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
+        threadId:
+            (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
+        emailId:
+            (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
+        to: (jsonDecode("[\"colleague@example.org\"]") as List)
+            .map((element) => (element as String))
+            .toList(),
         idempotencyKey: SdkPresent<String>((jsonDecode("\"x\"") as String)),
-        cc: SdkPresent<List<String>?>((jsonDecode("[\"billing@acme.com\"]") as List).map((element) => (element as String)).toList()),
-        bcc: SdkPresent<List<String>?>((jsonDecode("[\"records@acme.com\"]") as List).map((element) => (element as String)).toList()),
-        html: SdkPresent<String>((jsonDecode("\"<p>Flagging this refund request for you.</p>\"") as String)),
-        text: SdkPresent<String>((jsonDecode("\"Flagging this refund request for you.\"") as String)),
-        subject: SdkPresent<String>((jsonDecode("\"Fwd: Refund for order 1041\"") as String)),
-        attachments: SdkPresent<List<Attachment>?>((jsonDecode("[{\"content\":\"ZXhhbXBsZQ==\",\"filename\":\"Example Name\",\"path\":\"path\",\"content_type\":\"content_type\",\"content_id\":\"content-1\"}]") as List).map((element) => Attachment.fromJson((element as Map).cast<String, dynamic>())).toList()),
-        headers: SdkPresent<Map<String, String>?>((jsonDecode("{\"X-Ticket-Id\":\"4821\"}") as Map).map((key, value) => MapEntry((key as String), (value as String)))),
+        cc: SdkPresent<List<String>?>(
+            (jsonDecode("[\"billing@acme.com\"]") as List)
+                .map((element) => (element as String))
+                .toList()),
+        bcc: SdkPresent<List<String>?>(
+            (jsonDecode("[\"records@acme.com\"]") as List)
+                .map((element) => (element as String))
+                .toList()),
+        html: SdkPresent<String>(
+            (jsonDecode("\"<p>Flagging this refund request for you.</p>\"")
+                as String)),
+        text: SdkPresent<String>(
+            (jsonDecode("\"Flagging this refund request for you.\"")
+                as String)),
+        subject: SdkPresent<String>(
+            (jsonDecode("\"Fwd: Refund for order 1041\"") as String)),
+        attachments: SdkPresent<List<Attachment>?>((jsonDecode(
+                    "[{\"content\":\"ZXhhbXBsZQ==\",\"filename\":\"Example Name\",\"path\":\"path\",\"content_type\":\"content_type\",\"content_id\":\"content-1\"}]")
+                as List)
+            .map((element) =>
+                Attachment.fromJson((element as Map).cast<String, dynamic>()))
+            .toList()),
+        headers: SdkPresent<Map<String, String>?>(
+            (jsonDecode("{\"X-Ticket-Id\":\"4821\"}") as Map).map(
+                (key, value) => MapEntry((key as String), (value as String)))),
       );
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"id\":\"6a0c8e58-3d9e-4f7a-8b14-2e3f4a5b6c71\"}"),
+          SdkUtils.decodeJson(
+              "{\"id\":\"6a0c8e58-3d9e-4f7a-8b14-2e3f4a5b6c71\"}"),
         ),
         isNull,
       );
@@ -1303,12 +1598,14 @@ void main() {
     test("inboxesGet reaches the mock and decodes its response", () async {
       final actual = await sdk_methods_10.inboxesGet(
         config,
-        inboxId: (jsonDecode("\"b3e2b2b6-3f0e-4c8e-9ad3-2f43a1e2c7f1\"") as String),
+        inboxId:
+            (jsonDecode("\"b3e2b2b6-3f0e-4c8e-9ad3-2f43a1e2c7f1\"") as String),
       );
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"inbox\",\"id\":\"b3e2b2b6-3f0e-4c8e-9ad3-2f43a1e2c7f1\",\"name\":\"Customer Support\",\"email_address\":\"support@acme.com\",\"domain_id\":\"d91cd9bd-1176-453e-8fc1-35364d380206\",\"receiving_address\":null,\"from_name\":\"Ada from Support\",\"unread\":3,\"drafts\":2,\"last_received\":\"2026-08-05T14:03:11.229Z\",\"created_at\":\"2026-08-01T09:12:44.512Z\"}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"inbox\",\"id\":\"b3e2b2b6-3f0e-4c8e-9ad3-2f43a1e2c7f1\",\"name\":\"Customer Support\",\"email_address\":\"support@acme.com\",\"domain_id\":\"d91cd9bd-1176-453e-8fc1-35364d380206\",\"receiving_address\":null,\"from_name\":\"Ada from Support\",\"unread\":3,\"drafts\":2,\"last_received\":\"2026-08-05T14:03:11.229Z\",\"created_at\":\"2026-08-01T09:12:44.512Z\"}"),
         ),
         isNull,
       );
@@ -1317,12 +1614,14 @@ void main() {
     test("inboxesGetAgent reaches the mock and decodes its response", () async {
       final actual = await sdk_methods_10.inboxesGetAgent(
         config,
-        inboxId: (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
+        inboxId:
+            (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
       );
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"inbox_agent\",\"instructions\":\"Answer refund questions yourself. Escalate legal threats.\",\"tone\":\"concise_professional\",\"enabled_actions\":[\"draft_reply\",\"add_labels\"]}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"inbox_agent\",\"instructions\":\"Answer refund questions yourself. Escalate legal threats.\",\"tone\":\"concise_professional\",\"enabled_actions\":[\"draft_reply\",\"add_labels\"]}"),
         ),
         isNull,
       );
@@ -1331,44 +1630,56 @@ void main() {
     test("inboxesGetDraft reaches the mock and decodes its response", () async {
       final actual = await sdk_methods_10.inboxesGetDraft(
         config,
-        inboxId: (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
-        draftId: (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
+        inboxId:
+            (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
+        draftId:
+            (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
       );
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"inbox_draft\",\"id\":\"c3a1e8b4-2d5f-4a7c-9e10-6b8d7f5a4c32\",\"type\":\"standalone\",\"to\":[\"ada@example.org\"],\"cc\":[],\"bcc\":[],\"subject\":\"Refund for order 1041\",\"html\":\"<p>Refund issued for order 1041.</p>\",\"text\":\"Refund issued for order 1041.\",\"thread_id\":null,\"reply_to_email_id\":null,\"email_id\":null,\"created_at\":\"2026-08-05T14:12:04.110Z\",\"updated_at\":\"2026-08-05T14:12:04.110Z\",\"attachments\":[{\"id\":\"5c1e9d2a-7b3f-4e8a-9c6d-2f0a1b3c4d5e\",\"filename\":\"receipt.pdf\",\"content_type\":\"application/pdf\",\"size\":20841}]}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"inbox_draft\",\"id\":\"c3a1e8b4-2d5f-4a7c-9e10-6b8d7f5a4c32\",\"type\":\"standalone\",\"to\":[\"ada@example.org\"],\"cc\":[],\"bcc\":[],\"subject\":\"Refund for order 1041\",\"html\":\"<p>Refund issued for order 1041.</p>\",\"text\":\"Refund issued for order 1041.\",\"thread_id\":null,\"reply_to_email_id\":null,\"email_id\":null,\"created_at\":\"2026-08-05T14:12:04.110Z\",\"updated_at\":\"2026-08-05T14:12:04.110Z\",\"attachments\":[{\"id\":\"5c1e9d2a-7b3f-4e8a-9c6d-2f0a1b3c4d5e\",\"filename\":\"receipt.pdf\",\"content_type\":\"application/pdf\",\"size\":20841}]}"),
         ),
         isNull,
       );
     });
 
-    test("inboxesGetThread reaches the mock and decodes its response", () async {
+    test("inboxesGetThread reaches the mock and decodes its response",
+        () async {
       final actual = await sdk_methods_10.inboxesGetThread(
         config,
-        inboxId: (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
-        threadId: (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
+        inboxId:
+            (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
+        threadId:
+            (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
       );
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"inbox_thread\",\"id\":\"4d8e2a1c-9b3f-4c6d-8a21-3e5f7c9c0d12\",\"subject\":\"Refund for order 1041\",\"folder\":\"inbox\",\"labels\":[{\"id\":\"7f9c1d2e-4a6b-4c3d-8e15-9b0a7c6d5e34\",\"name\":\"Urgent\",\"color\":\"#E93D82\"}],\"read\":false}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"inbox_thread\",\"id\":\"4d8e2a1c-9b3f-4c6d-8a21-3e5f7c9c0d12\",\"subject\":\"Refund for order 1041\",\"folder\":\"inbox\",\"labels\":[{\"id\":\"7f9c1d2e-4a6b-4c3d-8e15-9b0a7c6d5e34\",\"name\":\"Urgent\",\"color\":\"#E93D82\"}],\"read\":false}"),
         ),
         isNull,
       );
     });
 
-    test("inboxesGetThreadEmail reaches the mock and decodes its response", () async {
+    test("inboxesGetThreadEmail reaches the mock and decodes its response",
+        () async {
       final actual = await sdk_methods_10.inboxesGetThreadEmail(
         config,
-        inboxId: (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
-        threadId: (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
-        emailId: (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
+        inboxId:
+            (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
+        threadId:
+            (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
+        emailId:
+            (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
       );
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"id\":\"5b1a9f47-2c8d-4e6f-9a03-1d2e3f4a5b60\",\"direction\":\"inbound\",\"from\":\"Ada Lovelace <ada@example.org>\",\"to\":[\"support@acme.com\"],\"cc\":[],\"bcc\":[],\"reply_to\":[\"replies@example.org\"],\"subject\":\"Refund for order 1041\",\"message_id\":\"<1041@example.org>\",\"html\":\"<p>Could I get a refund for order 1041?</p>\",\"text\":\"Could I get a refund for order 1041?\",\"attachments\":[{\"id\":\"9d4f2b81-6c3a-4e7d-8b12-0a5c6d7e8f90\",\"filename\":\"receipt.pdf\",\"size\":20841}],\"read\":false,\"received_at\":\"2026-08-05T14:03:11.229Z\"}"),
+          SdkUtils.decodeJson(
+              "{\"id\":\"5b1a9f47-2c8d-4e6f-9a03-1d2e3f4a5b60\",\"direction\":\"inbound\",\"from\":\"Ada Lovelace <ada@example.org>\",\"to\":[\"support@acme.com\"],\"cc\":[],\"bcc\":[],\"reply_to\":[\"replies@example.org\"],\"subject\":\"Refund for order 1041\",\"message_id\":\"<1041@example.org>\",\"html\":\"<p>Could I get a refund for order 1041?</p>\",\"text\":\"Could I get a refund for order 1041?\",\"attachments\":[{\"id\":\"9d4f2b81-6c3a-4e7d-8b12-0a5c6d7e8f90\",\"filename\":\"receipt.pdf\",\"size\":20841}],\"read\":false,\"received_at\":\"2026-08-05T14:03:11.229Z\"}"),
         ),
         isNull,
       );
@@ -1384,16 +1695,19 @@ void main() {
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"list\",\"has_more\":false,\"data\":[{\"id\":\"b3e2b2b6-3f0e-4c8e-9ad3-2f43a1e2c7f1\",\"name\":\"Customer Support\",\"email_address\":\"support@acme.com\",\"from_name\":\"Ada from Support\",\"unread\":3,\"last_received\":\"2026-08-05T14:03:11.229Z\"}]}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"list\",\"has_more\":false,\"data\":[{\"id\":\"b3e2b2b6-3f0e-4c8e-9ad3-2f43a1e2c7f1\",\"name\":\"Customer Support\",\"email_address\":\"support@acme.com\",\"from_name\":\"Ada from Support\",\"unread\":3,\"last_received\":\"2026-08-05T14:03:11.229Z\"}]}"),
         ),
         isNull,
       );
     });
 
-    test("inboxesListDrafts reaches the mock and decodes its response", () async {
+    test("inboxesListDrafts reaches the mock and decodes its response",
+        () async {
       final actual = await sdk_methods_10.inboxesListDrafts(
         config,
-        inboxId: (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
+        inboxId:
+            (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
         limit: SdkPresent<int>((jsonDecode("1") as num).toInt()),
         after: SdkPresent<String>((jsonDecode("\"after\"") as String)),
         before: SdkPresent<String>((jsonDecode("\"before\"") as String)),
@@ -1401,31 +1715,38 @@ void main() {
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"list\",\"has_more\":false,\"data\":[{\"id\":\"c3a1e8b4-2d5f-4a7c-9e10-6b8d7f5a4c32\",\"type\":\"standalone\",\"to\":[\"ada@example.org\"],\"cc\":[],\"bcc\":[],\"subject\":\"Refund for order 1041\",\"snippet\":\"Refund issued for order 1041.\",\"thread_id\":null,\"reply_to_email_id\":null,\"updated_at\":\"2026-08-05T14:12:04.110Z\",\"attachments\":[{\"id\":\"5c1e9d2a-7b3f-4e8a-9c6d-2f0a1b3c4d5e\",\"filename\":\"receipt.pdf\",\"content_type\":\"application/pdf\",\"size\":20841}]}]}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"list\",\"has_more\":false,\"data\":[{\"id\":\"c3a1e8b4-2d5f-4a7c-9e10-6b8d7f5a4c32\",\"type\":\"standalone\",\"to\":[\"ada@example.org\"],\"cc\":[],\"bcc\":[],\"subject\":\"Refund for order 1041\",\"snippet\":\"Refund issued for order 1041.\",\"thread_id\":null,\"reply_to_email_id\":null,\"updated_at\":\"2026-08-05T14:12:04.110Z\",\"attachments\":[{\"id\":\"5c1e9d2a-7b3f-4e8a-9c6d-2f0a1b3c4d5e\",\"filename\":\"receipt.pdf\",\"content_type\":\"application/pdf\",\"size\":20841}]}]}"),
         ),
         isNull,
       );
     });
 
-    test("inboxesListLabels reaches the mock and decodes its response", () async {
+    test("inboxesListLabels reaches the mock and decodes its response",
+        () async {
       final actual = await sdk_methods_10.inboxesListLabels(
         config,
-        inboxId: (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
+        inboxId:
+            (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
       );
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"list\",\"data\":[{\"id\":\"7f9c1d2e-4a6b-4c3d-8e15-9b0a7c6d5e34\",\"name\":\"Urgent\",\"color\":\"#E93D82\",\"created_at\":\"2026-08-05T14:07:42.881Z\"}]}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"list\",\"data\":[{\"id\":\"7f9c1d2e-4a6b-4c3d-8e15-9b0a7c6d5e34\",\"name\":\"Urgent\",\"color\":\"#E93D82\",\"created_at\":\"2026-08-05T14:07:42.881Z\"}]}"),
         ),
         isNull,
       );
     });
 
-    test("inboxesListThreadEmails reaches the mock and decodes its response", () async {
+    test("inboxesListThreadEmails reaches the mock and decodes its response",
+        () async {
       final actual = await sdk_methods_10.inboxesListThreadEmails(
         config,
-        inboxId: (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
-        threadId: (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
+        inboxId:
+            (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
+        threadId:
+            (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
         limit: SdkPresent<int>((jsonDecode("1") as num).toInt()),
         after: SdkPresent<String>((jsonDecode("\"after\"") as String)),
         before: SdkPresent<String>((jsonDecode("\"before\"") as String)),
@@ -1433,18 +1754,28 @@ void main() {
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"list\",\"has_more\":false,\"data\":[{\"id\":\"5b1a9f47-2c8d-4e6f-9a03-1d2e3f4a5b60\",\"direction\":\"inbound\",\"from\":\"Ada Lovelace <ada@example.org>\",\"to\":[\"support@acme.com\"],\"cc\":[],\"bcc\":[],\"reply_to\":[\"replies@example.org\"],\"subject\":\"Refund for order 1041\",\"message_id\":\"<1041@example.org>\",\"html\":\"<p>Could I get a refund for order 1041?</p>\",\"text\":\"Could I get a refund for order 1041?\",\"attachments\":[{\"id\":\"9d4f2b81-6c3a-4e7d-8b12-0a5c6d7e8f90\",\"filename\":\"receipt.pdf\",\"size\":20841}],\"read\":false,\"received_at\":\"2026-08-05T14:03:11.229Z\"}]}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"list\",\"has_more\":false,\"data\":[{\"id\":\"5b1a9f47-2c8d-4e6f-9a03-1d2e3f4a5b60\",\"direction\":\"inbound\",\"from\":\"Ada Lovelace <ada@example.org>\",\"to\":[\"support@acme.com\"],\"cc\":[],\"bcc\":[],\"reply_to\":[\"replies@example.org\"],\"subject\":\"Refund for order 1041\",\"message_id\":\"<1041@example.org>\",\"html\":\"<p>Could I get a refund for order 1041?</p>\",\"text\":\"Could I get a refund for order 1041?\",\"attachments\":[{\"id\":\"9d4f2b81-6c3a-4e7d-8b12-0a5c6d7e8f90\",\"filename\":\"receipt.pdf\",\"size\":20841}],\"read\":false,\"received_at\":\"2026-08-05T14:03:11.229Z\"}]}"),
         ),
         isNull,
       );
     });
 
-    test("inboxesListThreads reaches the mock and decodes its response", () async {
+    test("inboxesListThreads reaches the mock and decodes its response",
+        () async {
       final actual = await sdk_methods_10.inboxesListThreads(
         config,
-        inboxId: (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
-        folders: SdkPresent<List<InboxesListThreadsFoldersItem>>((jsonDecode("[\"inbox\",\"sent\"]") as List).map((element) => InboxesListThreadsFoldersItem.fromJson(element as String)).toList()),
-        labels: SdkPresent<List<String>>((jsonDecode("[\"7f9c1d2e-4a6b-4c3d-8e15-9b0a7c6d5e34\"]") as List).map((element) => (element as String)).toList()),
+        inboxId:
+            (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
+        folders: SdkPresent<List<InboxesListThreadsFoldersItem>>(
+            (jsonDecode("[\"inbox\",\"sent\"]") as List)
+                .map((element) =>
+                    InboxesListThreadsFoldersItem.fromJson(element as String))
+                .toList()),
+        labels: SdkPresent<List<String>>(
+            (jsonDecode("[\"7f9c1d2e-4a6b-4c3d-8e15-9b0a7c6d5e34\"]") as List)
+                .map((element) => (element as String))
+                .toList()),
         read: SdkPresent<bool>((jsonDecode("false") as bool)),
         limit: SdkPresent<int>((jsonDecode("1") as num).toInt()),
         after: SdkPresent<String>((jsonDecode("\"after\"") as String)),
@@ -1453,7 +1784,8 @@ void main() {
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"list\",\"has_more\":true,\"data\":[{\"id\":\"4d8e2a1c-9b3f-4c6d-8a21-3e5f7c9c0d12\",\"subject\":\"Refund for order 1041\",\"from\":\"ada@example.org\",\"to\":[\"support@example.com\"],\"cc\":[],\"bcc\":[],\"labels\":[{\"id\":\"7f9c1d2e-4a6b-4c3d-8e15-9b0a7c6d5e34\",\"name\":\"Urgent\",\"color\":\"#E93D82\"}],\"email_count\":2,\"has_attachment\":true,\"has_draft\":false,\"read\":false,\"received_at\":\"2026-08-05T14:03:11.229Z\",\"folder\":\"inbox\"}]}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"list\",\"has_more\":true,\"data\":[{\"id\":\"4d8e2a1c-9b3f-4c6d-8a21-3e5f7c9c0d12\",\"subject\":\"Refund for order 1041\",\"from\":\"ada@example.org\",\"to\":[\"support@example.com\"],\"cc\":[],\"bcc\":[],\"labels\":[{\"id\":\"7f9c1d2e-4a6b-4c3d-8e15-9b0a7c6d5e34\",\"name\":\"Urgent\",\"color\":\"#E93D82\"}],\"email_count\":2,\"has_attachment\":true,\"has_draft\":false,\"read\":false,\"received_at\":\"2026-08-05T14:03:11.229Z\",\"folder\":\"inbox\"}]}"),
         ),
         isNull,
       );
@@ -1462,101 +1794,155 @@ void main() {
     test("inboxesRemove reaches the mock and decodes its response", () async {
       final actual = await sdk_methods_10.inboxesRemove(
         config,
-        inboxId: (jsonDecode("\"b3e2b2b6-3f0e-4c8e-9ad3-2f43a1e2c7f1\"") as String),
+        inboxId:
+            (jsonDecode("\"b3e2b2b6-3f0e-4c8e-9ad3-2f43a1e2c7f1\"") as String),
       );
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"inbox\",\"id\":\"b3e2b2b6-3f0e-4c8e-9ad3-2f43a1e2c7f1\",\"deleted\":true}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"inbox\",\"id\":\"b3e2b2b6-3f0e-4c8e-9ad3-2f43a1e2c7f1\",\"deleted\":true}"),
         ),
         isNull,
       );
     });
 
-    test("inboxesRemoveDraft reaches the mock and decodes its response", () async {
+    test("inboxesRemoveDraft reaches the mock and decodes its response",
+        () async {
       final actual = await sdk_methods_10.inboxesRemoveDraft(
         config,
-        inboxId: (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
-        draftId: (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
+        inboxId:
+            (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
+        draftId:
+            (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
       );
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"inbox_draft\",\"id\":\"c3a1e8b4-2d5f-4a7c-9e10-6b8d7f5a4c32\",\"deleted\":true}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"inbox_draft\",\"id\":\"c3a1e8b4-2d5f-4a7c-9e10-6b8d7f5a4c32\",\"deleted\":true}"),
         ),
         isNull,
       );
     });
 
-    test("inboxesRemoveLabel reaches the mock and decodes its response", () async {
+    test("inboxesRemoveLabel reaches the mock and decodes its response",
+        () async {
       final actual = await sdk_methods_10.inboxesRemoveLabel(
         config,
-        inboxId: (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
-        labelId: (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
+        inboxId:
+            (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
+        labelId:
+            (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
       );
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"inbox_label\",\"id\":\"7f9c1d2e-4a6b-4c3d-8e15-9b0a7c6d5e34\",\"deleted\":true}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"inbox_label\",\"id\":\"7f9c1d2e-4a6b-4c3d-8e15-9b0a7c6d5e34\",\"deleted\":true}"),
         ),
         isNull,
       );
     });
 
-    test("inboxesRemoveThread reaches the mock and decodes its response", () async {
+    test("inboxesRemoveThread reaches the mock and decodes its response",
+        () async {
       final actual = await sdk_methods_10.inboxesRemoveThread(
         config,
-        inboxId: (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
-        threadId: (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
+        inboxId:
+            (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
+        threadId:
+            (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
       );
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"inbox_thread\",\"id\":\"4d8e2a1c-9b3f-4c6d-8a21-3e5f7c9c0d12\",\"deleted\":true}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"inbox_thread\",\"id\":\"4d8e2a1c-9b3f-4c6d-8a21-3e5f7c9c0d12\",\"deleted\":true}"),
         ),
         isNull,
       );
     });
 
-    test("inboxesReplyThreadEmail reaches the mock and decodes its response", () async {
+    test("inboxesReplyThreadEmail reaches the mock and decodes its response",
+        () async {
       final actual = await sdk_methods_10.inboxesReplyThreadEmail(
         config,
-        inboxId: (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
-        threadId: (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
-        emailId: (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
+        inboxId:
+            (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
+        threadId:
+            (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
+        emailId:
+            (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
         idempotencyKey: SdkPresent<String>((jsonDecode("\"x\"") as String)),
-        cc: SdkPresent<List<String>?>((jsonDecode("[\"billing@acme.com\"]") as List).map((element) => (element as String)).toList()),
-        bcc: SdkPresent<List<String>?>((jsonDecode("[\"records@acme.com\"]") as List).map((element) => (element as String)).toList()),
-        html: SdkPresent<String>((jsonDecode("\"<p>Refund issued for order 1041.</p>\"") as String)),
-        text: SdkPresent<String>((jsonDecode("\"Refund issued for order 1041.\"") as String)),
-        subject: SdkPresent<String>((jsonDecode("\"Re: Refund for order 1041\"") as String)),
+        cc: SdkPresent<List<String>?>(
+            (jsonDecode("[\"billing@acme.com\"]") as List)
+                .map((element) => (element as String))
+                .toList()),
+        bcc: SdkPresent<List<String>?>(
+            (jsonDecode("[\"records@acme.com\"]") as List)
+                .map((element) => (element as String))
+                .toList()),
+        html: SdkPresent<String>(
+            (jsonDecode("\"<p>Refund issued for order 1041.</p>\"") as String)),
+        text: SdkPresent<String>(
+            (jsonDecode("\"Refund issued for order 1041.\"") as String)),
+        subject: SdkPresent<String>(
+            (jsonDecode("\"Re: Refund for order 1041\"") as String)),
         replyAll: SdkPresent<bool>((jsonDecode("false") as bool)),
-        attachments: SdkPresent<List<Attachment>?>((jsonDecode("[{\"content\":\"ZXhhbXBsZQ==\",\"filename\":\"Example Name\",\"path\":\"path\",\"content_type\":\"content_type\",\"content_id\":\"content-1\"}]") as List).map((element) => Attachment.fromJson((element as Map).cast<String, dynamic>())).toList()),
-        headers: SdkPresent<Map<String, String>?>((jsonDecode("{\"X-Ticket-Id\":\"4821\"}") as Map).map((key, value) => MapEntry((key as String), (value as String)))),
+        attachments: SdkPresent<List<Attachment>?>((jsonDecode(
+                    "[{\"content\":\"ZXhhbXBsZQ==\",\"filename\":\"Example Name\",\"path\":\"path\",\"content_type\":\"content_type\",\"content_id\":\"content-1\"}]")
+                as List)
+            .map((element) =>
+                Attachment.fromJson((element as Map).cast<String, dynamic>()))
+            .toList()),
+        headers: SdkPresent<Map<String, String>?>(
+            (jsonDecode("{\"X-Ticket-Id\":\"4821\"}") as Map).map(
+                (key, value) => MapEntry((key as String), (value as String)))),
       );
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"id\":\"6a0c8e58-3d9e-4f7a-8b14-2e3f4a5b6c71\"}"),
+          SdkUtils.decodeJson(
+              "{\"id\":\"6a0c8e58-3d9e-4f7a-8b14-2e3f4a5b6c71\"}"),
         ),
         isNull,
       );
     });
 
-    test("inboxesSearchThreads reaches the mock and decodes its response", () async {
+    test("inboxesSearchThreads reaches the mock and decodes its response",
+        () async {
       final actual = await sdk_methods_10.inboxesSearchThreads(
         config,
-        inboxId: (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
+        inboxId:
+            (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
         query: SdkPresent<String>((jsonDecode("\"invoice -draft\"") as String)),
-        from: SdkPresent<List<String>>((jsonDecode("[\"isabella@example.com\",\"carolina@example.com\"]") as List).map((element) => (element as String)).toList()),
-        to: SdkPresent<List<String>>((jsonDecode("[\"to\"]") as List).map((element) => (element as String)).toList()),
-        cc: SdkPresent<List<String>>((jsonDecode("[\"cc\"]") as List).map((element) => (element as String)).toList()),
-        bcc: SdkPresent<List<String>>((jsonDecode("[\"bcc\"]") as List).map((element) => (element as String)).toList()),
+        from: SdkPresent<List<String>>(
+            (jsonDecode("[\"isabella@example.com\",\"carolina@example.com\"]")
+                    as List)
+                .map((element) => (element as String))
+                .toList()),
+        to: SdkPresent<List<String>>((jsonDecode("[\"to\"]") as List)
+            .map((element) => (element as String))
+            .toList()),
+        cc: SdkPresent<List<String>>((jsonDecode("[\"cc\"]") as List)
+            .map((element) => (element as String))
+            .toList()),
+        bcc: SdkPresent<List<String>>((jsonDecode("[\"bcc\"]") as List)
+            .map((element) => (element as String))
+            .toList()),
         hasAttachment: SdkPresent<bool>((jsonDecode("false") as bool)),
         startDate: SdkPresent<String>((jsonDecode("\"2026-09-01\"") as String)),
         endDate: SdkPresent<String>((jsonDecode("\"2026-09-30\"") as String)),
-        folders: SdkPresent<List<InboxesSearchThreadsFoldersItem>>((jsonDecode("[\"inbox\",\"sent\"]") as List).map((element) => InboxesSearchThreadsFoldersItem.fromJson(element as String)).toList()),
-        labels: SdkPresent<List<String>>((jsonDecode("[\"7f9c1d2e-4a6b-4c3d-8e15-9b0a7c6d5e34\"]") as List).map((element) => (element as String)).toList()),
+        folders: SdkPresent<List<InboxesSearchThreadsFoldersItem>>(
+            (jsonDecode("[\"inbox\",\"sent\"]") as List)
+                .map((element) =>
+                    InboxesSearchThreadsFoldersItem.fromJson(element as String))
+                .toList()),
+        labels: SdkPresent<List<String>>(
+            (jsonDecode("[\"7f9c1d2e-4a6b-4c3d-8e15-9b0a7c6d5e34\"]") as List)
+                .map((element) => (element as String))
+                .toList()),
         read: SdkPresent<bool>((jsonDecode("false") as bool)),
         limit: SdkPresent<int>((jsonDecode("1") as num).toInt()),
         after: SdkPresent<String>((jsonDecode("\"after\"") as String)),
@@ -1565,24 +1951,31 @@ void main() {
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"list\",\"has_more\":true,\"data\":[{\"id\":\"4d8e2a1c-9b3f-4c6d-8a21-3e5f7c9c0d12\",\"subject\":\"Refund for order 1041\",\"from\":\"ada@example.org\",\"to\":[\"support@example.com\"],\"cc\":[],\"bcc\":[],\"labels\":[{\"id\":\"7f9c1d2e-4a6b-4c3d-8e15-9b0a7c6d5e34\",\"name\":\"Urgent\",\"color\":\"#E93D82\"}],\"email_count\":2,\"has_attachment\":true,\"has_draft\":false,\"read\":false,\"received_at\":\"2026-08-05T14:03:11.229Z\",\"folder\":\"inbox\",\"matched_email_id\":\"e8a3f1c6-2b9d-4e5a-a7c4-9d1b6f3e2a80\",\"highlights\":{\"subject\":[\"September **invoice**\"],\"attachments\":[\"**invoice**-2026-09.pdf\"]}}]}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"list\",\"has_more\":true,\"data\":[{\"id\":\"4d8e2a1c-9b3f-4c6d-8a21-3e5f7c9c0d12\",\"subject\":\"Refund for order 1041\",\"from\":\"ada@example.org\",\"to\":[\"support@example.com\"],\"cc\":[],\"bcc\":[],\"labels\":[{\"id\":\"7f9c1d2e-4a6b-4c3d-8e15-9b0a7c6d5e34\",\"name\":\"Urgent\",\"color\":\"#E93D82\"}],\"email_count\":2,\"has_attachment\":true,\"has_draft\":false,\"read\":false,\"received_at\":\"2026-08-05T14:03:11.229Z\",\"folder\":\"inbox\",\"matched_email_id\":\"e8a3f1c6-2b9d-4e5a-a7c4-9d1b6f3e2a80\",\"highlights\":{\"subject\":[\"September **invoice**\"],\"attachments\":[\"**invoice**-2026-09.pdf\"]}}]}"),
         ),
         isNull,
       );
     });
 
-    test("inboxesSendDraft reaches the mock and decodes its response", () async {
+    test("inboxesSendDraft reaches the mock and decodes its response",
+        () async {
       final actual = await sdk_methods_10.inboxesSendDraft(
         config,
-        inboxId: (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
-        draftId: (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
+        inboxId:
+            (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
+        draftId:
+            (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
         idempotencyKey: SdkPresent<String>((jsonDecode("\"x\"") as String)),
-        headers: SdkPresent<Map<String, String>?>((jsonDecode("{\"X-Ticket-Id\":\"4821\"}") as Map).map((key, value) => MapEntry((key as String), (value as String)))),
+        headers: SdkPresent<Map<String, String>?>(
+            (jsonDecode("{\"X-Ticket-Id\":\"4821\"}") as Map).map(
+                (key, value) => MapEntry((key as String), (value as String)))),
       );
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"id\":\"6a0c8e58-3d9e-4f7a-8b14-2e3f4a5b6c71\"}"),
+          SdkUtils.decodeJson(
+              "{\"id\":\"6a0c8e58-3d9e-4f7a-8b14-2e3f4a5b6c71\"}"),
         ),
         isNull,
       );
@@ -1591,89 +1984,139 @@ void main() {
     test("inboxesUpdate reaches the mock and decodes its response", () async {
       final actual = await sdk_methods_10.inboxesUpdate(
         config,
-        inboxId: (jsonDecode("\"b3e2b2b6-3f0e-4c8e-9ad3-2f43a1e2c7f1\"") as String),
-        name: SdkPresent<String>((jsonDecode("\"Customer Support\"") as String)),
-        fromName: SdkPresent<String>((jsonDecode("\"Ada from Support\"") as String)),
+        inboxId:
+            (jsonDecode("\"b3e2b2b6-3f0e-4c8e-9ad3-2f43a1e2c7f1\"") as String),
+        name:
+            SdkPresent<String>((jsonDecode("\"Customer Support\"") as String)),
+        fromName:
+            SdkPresent<String>((jsonDecode("\"Ada from Support\"") as String)),
       );
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"inbox\",\"id\":\"b3e2b2b6-3f0e-4c8e-9ad3-2f43a1e2c7f1\"}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"inbox\",\"id\":\"b3e2b2b6-3f0e-4c8e-9ad3-2f43a1e2c7f1\"}"),
         ),
         isNull,
       );
     });
 
-    test("inboxesUpdateAgent reaches the mock and decodes its response", () async {
+    test("inboxesUpdateAgent reaches the mock and decodes its response",
+        () async {
       final actual = await sdk_methods_10.inboxesUpdateAgent(
         config,
-        inboxId: (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
-        instructions: SdkPresent<String?>((jsonDecode("\"Answer refund questions yourself. Escalate legal threats.\"") as String)),
-        tone: SdkPresent<UpdateInboxAgentOptionsTone?>(UpdateInboxAgentOptionsTone.fromJson(jsonDecode("\"concise_professional\"") as String)),
-        enabledActions: SdkPresent<List<UpdateInboxAgentOptionsEnabledActionsItem>>((jsonDecode("[\"draft_reply\",\"add_labels\"]") as List).map((element) => UpdateInboxAgentOptionsEnabledActionsItem.fromJson(element as String)).toList()),
+        inboxId:
+            (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
+        instructions: SdkPresent<String?>((jsonDecode(
+                "\"Answer refund questions yourself. Escalate legal threats.\"")
+            as String)),
+        tone: SdkPresent<UpdateInboxAgentOptionsTone?>(
+            UpdateInboxAgentOptionsTone.fromJson(
+                jsonDecode("\"concise_professional\"") as String)),
+        enabledActions:
+            SdkPresent<List<UpdateInboxAgentOptionsEnabledActionsItem>>(
+                (jsonDecode("[\"draft_reply\",\"add_labels\"]") as List)
+                    .map((element) =>
+                        UpdateInboxAgentOptionsEnabledActionsItem.fromJson(
+                            element as String))
+                    .toList()),
       );
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"inbox_agent\",\"id\":\"a1f84a4e-6f2b-4f0a-9c1d-8a2e5b3c7d90\"}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"inbox_agent\",\"id\":\"a1f84a4e-6f2b-4f0a-9c1d-8a2e5b3c7d90\"}"),
         ),
         isNull,
       );
     });
 
-    test("inboxesUpdateDraft reaches the mock and decodes its response", () async {
+    test("inboxesUpdateDraft reaches the mock and decodes its response",
+        () async {
       final actual = await sdk_methods_10.inboxesUpdateDraft(
         config,
-        inboxId: (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
-        draftId: (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
-        to: SdkPresent<List<String>?>((jsonDecode("[\"ada@example.org\"]") as List).map((element) => (element as String)).toList()),
-        cc: SdkPresent<List<String>?>((jsonDecode("[\"cc\"]") as List).map((element) => (element as String)).toList()),
-        bcc: SdkPresent<List<String>?>((jsonDecode("[\"bcc\"]") as List).map((element) => (element as String)).toList()),
-        subject: SdkPresent<String?>((jsonDecode("\"Refund issued for order 1041\"") as String)),
+        inboxId:
+            (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
+        draftId:
+            (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
+        to: SdkPresent<List<String>?>(
+            (jsonDecode("[\"ada@example.org\"]") as List)
+                .map((element) => (element as String))
+                .toList()),
+        cc: SdkPresent<List<String>?>((jsonDecode("[\"cc\"]") as List)
+            .map((element) => (element as String))
+            .toList()),
+        bcc: SdkPresent<List<String>?>((jsonDecode("[\"bcc\"]") as List)
+            .map((element) => (element as String))
+            .toList()),
+        subject: SdkPresent<String?>(
+            (jsonDecode("\"Refund issued for order 1041\"") as String)),
         html: SdkPresent<String?>((jsonDecode("\"html\"") as String)),
         text: SdkPresent<String?>((jsonDecode("\"text\"") as String)),
-        attachments: SdkPresent<List<InboxDraftAttachmentInput>?>((jsonDecode("[{\"content\":\"aGVsbG8gZTJl\",\"filename\":\"receipt.pdf\",\"content_type\":\"application/pdf\"}]") as List).map((element) => InboxDraftAttachmentInput.fromJson((element as Map).cast<String, dynamic>())).toList()),
+        attachments: SdkPresent<List<InboxDraftAttachmentInput>?>((jsonDecode(
+                    "[{\"content\":\"aGVsbG8gZTJl\",\"filename\":\"receipt.pdf\",\"content_type\":\"application/pdf\"}]")
+                as List)
+            .map((element) => InboxDraftAttachmentInput.fromJson(
+                (element as Map).cast<String, dynamic>()))
+            .toList()),
       );
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"inbox_draft\",\"id\":\"c3a1e8b4-2d5f-4a7c-9e10-6b8d7f5a4c32\",\"type\":\"standalone\",\"to\":[\"ada@example.org\"],\"cc\":[],\"bcc\":[],\"subject\":\"Refund issued for order 1041\",\"html\":\"html\",\"text\":\"text\",\"thread_id\":null,\"reply_to_email_id\":null,\"email_id\":null,\"created_at\":\"2026-08-05T14:12:04.110Z\",\"updated_at\":\"2026-08-05T14:12:04.110Z\",\"attachments\":[{\"id\":\"5c1e9d2a-7b3f-4e8a-9c6d-2f0a1b3c4d5e\",\"filename\":\"receipt.pdf\",\"content_type\":\"application/pdf\",\"size\":20841}]}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"inbox_draft\",\"id\":\"c3a1e8b4-2d5f-4a7c-9e10-6b8d7f5a4c32\",\"type\":\"standalone\",\"to\":[\"ada@example.org\"],\"cc\":[],\"bcc\":[],\"subject\":\"Refund issued for order 1041\",\"html\":\"html\",\"text\":\"text\",\"thread_id\":null,\"reply_to_email_id\":null,\"email_id\":null,\"created_at\":\"2026-08-05T14:12:04.110Z\",\"updated_at\":\"2026-08-05T14:12:04.110Z\",\"attachments\":[{\"id\":\"5c1e9d2a-7b3f-4e8a-9c6d-2f0a1b3c4d5e\",\"filename\":\"receipt.pdf\",\"content_type\":\"application/pdf\",\"size\":20841}]}"),
         ),
         isNull,
       );
     });
 
-    test("inboxesUpdateLabel reaches the mock and decodes its response", () async {
+    test("inboxesUpdateLabel reaches the mock and decodes its response",
+        () async {
       final actual = await sdk_methods_10.inboxesUpdateLabel(
         config,
-        inboxId: (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
-        labelId: (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
+        inboxId:
+            (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
+        labelId:
+            (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
         name: SdkPresent<String>((jsonDecode("\"Billing\"") as String)),
         color: SdkPresent<String>((jsonDecode("\"#F76B15\"") as String)),
       );
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"inbox_label\",\"id\":\"7f9c1d2e-4a6b-4c3d-8e15-9b0a7c6d5e34\"}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"inbox_label\",\"id\":\"7f9c1d2e-4a6b-4c3d-8e15-9b0a7c6d5e34\"}"),
         ),
         isNull,
       );
     });
 
-    test("inboxesUpdateThread reaches the mock and decodes its response", () async {
+    test("inboxesUpdateThread reaches the mock and decodes its response",
+        () async {
       final actual = await sdk_methods_10.inboxesUpdateThread(
         config,
-        inboxId: (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
-        threadId: (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
+        inboxId:
+            (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
+        threadId:
+            (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
         read: SdkPresent<bool>((jsonDecode("true") as bool)),
-        folder: SdkPresent<UpdateInboxThreadOptionsFolder>(UpdateInboxThreadOptionsFolder.fromJson(jsonDecode("\"archive\"") as String)),
-        addLabelIds: SdkPresent<List<String>>((jsonDecode("[\"7f9c1d2e-4a6b-4c3d-8e15-9b0a7c6d5e34\"]") as List).map((element) => (element as String)).toList()),
-        removeLabelIds: SdkPresent<List<String>>((jsonDecode("[\"2b6d0f4e-8a1c-4e3b-9d57-1c0e8a6f4b21\"]") as List).map((element) => (element as String)).toList()),
+        folder: SdkPresent<UpdateInboxThreadOptionsFolder>(
+            UpdateInboxThreadOptionsFolder.fromJson(
+                jsonDecode("\"archive\"") as String)),
+        addLabelIds: SdkPresent<List<String>>(
+            (jsonDecode("[\"7f9c1d2e-4a6b-4c3d-8e15-9b0a7c6d5e34\"]") as List)
+                .map((element) => (element as String))
+                .toList()),
+        removeLabelIds: SdkPresent<List<String>>(
+            (jsonDecode("[\"2b6d0f4e-8a1c-4e3b-9d57-1c0e8a6f4b21\"]") as List)
+                .map((element) => (element as String))
+                .toList()),
       );
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"inbox_thread\",\"id\":\"4d8e2a1c-9b3f-4c6d-8a21-3e5f7c9c0d12\",\"subject\":\"Refund for order 1041\",\"folder\":\"archive\",\"labels\":[{\"id\":\"7f9c1d2e-4a6b-4c3d-8e15-9b0a7c6d5e34\",\"name\":\"Urgent\",\"color\":\"#E93D82\"}],\"read\":true}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"inbox_thread\",\"id\":\"4d8e2a1c-9b3f-4c6d-8a21-3e5f7c9c0d12\",\"subject\":\"Refund for order 1041\",\"folder\":\"archive\",\"labels\":[{\"id\":\"7f9c1d2e-4a6b-4c3d-8e15-9b0a7c6d5e34\",\"name\":\"Urgent\",\"color\":\"#E93D82\"}],\"read\":true}"),
         ),
         isNull,
       );
@@ -1683,13 +2126,16 @@ void main() {
       final actual = await sdk_methods_9.list(
         config,
         limit: SdkPresent<int>((jsonDecode("1") as num).toInt()),
-        after: SdkPresent<String>((jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String)),
-        before: SdkPresent<String>((jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String)),
+        after: SdkPresent<String>(
+            (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String)),
+        before: SdkPresent<String>(
+            (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String)),
       );
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"list\",\"has_more\":false,\"data\":[{\"id\":\"550e8400-e29b-41d4-a716-446655440000\",\"to\":[\"delivered@resend.dev\"],\"from\":\"sender@example.com\",\"subject\":\"Hello World\",\"message_id\":\"<message-id@email.example.com>\",\"bcc\":[\"bcc\"],\"cc\":[\"cc\"],\"reply_to\":[\"reply_to\"],\"created_at\":\"2023-10-06T23:47:56.678Z\",\"attachments\":[{\"id\":\"00000000-0000-4000-8000-000000000000\",\"filename\":\"Example Name\",\"content_type\":\"content_type\",\"content_id\":\"content-1\",\"content_disposition\":\"inline\",\"size\":1}]}]}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"list\",\"has_more\":false,\"data\":[{\"id\":\"550e8400-e29b-41d4-a716-446655440000\",\"to\":[\"delivered@resend.dev\"],\"from\":\"sender@example.com\",\"subject\":\"Hello World\",\"message_id\":\"<message-id@email.example.com>\",\"bcc\":[\"bcc\"],\"cc\":[\"cc\"],\"reply_to\":[\"reply_to\"],\"created_at\":\"2023-10-06T23:47:56.678Z\",\"attachments\":[{\"id\":\"00000000-0000-4000-8000-000000000000\",\"filename\":\"Example Name\",\"content_type\":\"content_type\",\"content_id\":\"content-1\",\"content_disposition\":\"inline\",\"size\":1}]}]}"),
         ),
         isNull,
       );
@@ -1698,15 +2144,19 @@ void main() {
     test("listAttachments reaches the mock and decodes its response", () async {
       final actual = await sdk_methods_9.listAttachments(
         config,
-        emailId: (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
+        emailId:
+            (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
         limit: SdkPresent<int>((jsonDecode("1") as num).toInt()),
-        after: SdkPresent<String>((jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String)),
-        before: SdkPresent<String>((jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String)),
+        after: SdkPresent<String>(
+            (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String)),
+        before: SdkPresent<String>(
+            (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String)),
       );
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"list\",\"has_more\":false,\"data\":[{\"id\":\"660e8400-e29b-41d4-a716-446655440000\",\"filename\":\"document.pdf\",\"content_type\":\"application/pdf\",\"content_id\":\"img001\",\"content_disposition\":\"attachment\",\"download_url\":\"https://cloudfront.example.com/path?Signature=...\",\"expires_at\":\"2024-10-27T18:30:00.000Z\",\"size\":2048}]}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"list\",\"has_more\":false,\"data\":[{\"id\":\"660e8400-e29b-41d4-a716-446655440000\",\"filename\":\"document.pdf\",\"content_type\":\"application/pdf\",\"content_id\":\"img001\",\"content_disposition\":\"attachment\",\"download_url\":\"https://cloudfront.example.com/path?Signature=...\",\"expires_at\":\"2024-10-27T18:30:00.000Z\",\"size\":2048}]}"),
         ),
         isNull,
       );
@@ -1722,7 +2172,8 @@ void main() {
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"list\",\"has_more\":false,\"data\":[{\"id\":\"id-1\",\"client_id\":\"client-1\",\"scopes\":[\"scopes\"],\"created_at\":\"2023-10-06 23:47:56.678+00\",\"revoked_at\":\"2023-10-06 23:47:56.678+00\",\"revoked_reason\":\"revoked_reason\",\"client\":{\"name\":\"Example Name\",\"logo_uri\":\"https://example.com\"}}]}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"list\",\"has_more\":false,\"data\":[{\"id\":\"id-1\",\"client_id\":\"client-1\",\"scopes\":[\"scopes\"],\"created_at\":\"2023-10-06 23:47:56.678+00\",\"revoked_at\":\"2023-10-06 23:47:56.678+00\",\"revoked_reason\":\"revoked_reason\",\"client\":{\"name\":\"Example Name\",\"logo_uri\":\"https://example.com\"}}]}"),
         ),
         isNull,
       );
@@ -1733,8 +2184,11 @@ void main() {
         config,
         id: (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
         type_: ListRecipientsType.fromJson(jsonDecode("\"sent\"") as String),
-        email: SdkPresent<String>((jsonDecode("\"user@example.com\"") as String)),
-        bounceType: SdkPresent<ListRecipientsBounceType>(ListRecipientsBounceType.fromJson(jsonDecode("\"permanent\"") as String)),
+        email:
+            SdkPresent<String>((jsonDecode("\"user@example.com\"") as String)),
+        bounceType: SdkPresent<ListRecipientsBounceType>(
+            ListRecipientsBounceType.fromJson(
+                jsonDecode("\"permanent\"") as String)),
         limit: SdkPresent<int>((jsonDecode("1") as num).toInt()),
         after: SdkPresent<String>((jsonDecode("\"after\"") as String)),
         before: SdkPresent<String>((jsonDecode("\"before\"") as String)),
@@ -1742,7 +2196,8 @@ void main() {
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"list\",\"has_more\":false,\"data\":[{\"id\":\"b2Zmc2V0OjA\",\"contact_id\":\"e169aa45-1ecf-4183-9955-b1499d5701d3\",\"email\":\"steve.wozniak@gmail.com\",\"count\":3,\"bounce_type\":\"permanent\",\"clicked_links\":[{\"url\":\"https://resend.com/pricing\",\"clicks\":2}]}]}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"list\",\"has_more\":false,\"data\":[{\"id\":\"b2Zmc2V0OjA\",\"contact_id\":\"e169aa45-1ecf-4183-9955-b1499d5701d3\",\"email\":\"steve.wozniak@gmail.com\",\"count\":3,\"bounce_type\":\"permanent\",\"clicked_links\":[{\"url\":\"https://resend.com/pricing\",\"clicks\":2}]}]}"),
         ),
         isNull,
       );
@@ -1751,12 +2206,14 @@ void main() {
     test("logsGet reaches the mock and decodes its response", () async {
       final actual = await sdk_methods_12.logsGet(
         config,
-        logId: (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
+        logId:
+            (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
       );
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"log\",\"id\":\"00000000-0000-4000-8000-000000000000\",\"created_at\":\"2023-10-06 23:47:56.678+00\",\"endpoint\":\"endpoint\",\"method\":\"GET\",\"response_status\":1,\"user_agent\":\"user_agent\",\"request_body\":{},\"response_body\":{}}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"log\",\"id\":\"00000000-0000-4000-8000-000000000000\",\"created_at\":\"2023-10-06 23:47:56.678+00\",\"endpoint\":\"endpoint\",\"method\":\"GET\",\"response_status\":1,\"user_agent\":\"user_agent\",\"request_body\":{},\"response_body\":{}}"),
         ),
         isNull,
       );
@@ -1772,7 +2229,8 @@ void main() {
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"list\",\"has_more\":false,\"data\":[{\"id\":\"00000000-0000-4000-8000-000000000000\",\"created_at\":\"2023-10-06 23:47:56.678+00\",\"endpoint\":\"endpoint\",\"method\":\"GET\",\"response_status\":1,\"user_agent\":\"user_agent\"}]}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"list\",\"has_more\":false,\"data\":[{\"id\":\"00000000-0000-4000-8000-000000000000\",\"created_at\":\"2023-10-06 23:47:56.678+00\",\"endpoint\":\"endpoint\",\"method\":\"GET\",\"response_status\":1,\"user_agent\":\"user_agent\"}]}"),
         ),
         isNull,
       );
@@ -1786,7 +2244,8 @@ void main() {
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"oauth_grant\",\"id\":\"id-1\",\"revoked_at\":\"2023-10-06T23:47:56.678Z\",\"revoked_reason\":\"revoked_reason\"}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"oauth_grant\",\"id\":\"id-1\",\"revoked_at\":\"2023-10-06T23:47:56.678Z\",\"revoked_reason\":\"revoked_reason\"}"),
         ),
         isNull,
       );
@@ -1796,13 +2255,15 @@ void main() {
       final actual = await sdk_methods_13.segmentsCreate(
         config,
         name: (jsonDecode("\"Example Name\"") as String),
-        audienceId: SdkPresent<String>((jsonDecode("\"audience-1\"") as String)),
+        audienceId:
+            SdkPresent<String>((jsonDecode("\"audience-1\"") as String)),
         filter: SdkPresent<Map<String, dynamic>>(<String, dynamic>{}),
       );
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"id\":\"78261eea-8f8b-4381-83c6-79fa7120f1cf\",\"object\":\"segment\"}"),
+          SdkUtils.decodeJson(
+              "{\"id\":\"78261eea-8f8b-4381-83c6-79fa7120f1cf\",\"object\":\"segment\"}"),
         ),
         isNull,
       );
@@ -1816,7 +2277,8 @@ void main() {
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"id\":\"id-1\",\"object\":\"segment\",\"name\":\"Active Users\",\"audience_id\":\"audience-1\",\"filter\":{},\"created_at\":\"2023-10-06 23:47:56.678+00\"}"),
+          SdkUtils.decodeJson(
+              "{\"id\":\"id-1\",\"object\":\"segment\",\"name\":\"Active Users\",\"audience_id\":\"audience-1\",\"filter\":{},\"created_at\":\"2023-10-06 23:47:56.678+00\"}"),
         ),
         isNull,
       );
@@ -1832,13 +2294,15 @@ void main() {
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"list\",\"has_more\":false,\"data\":[{\"id\":\"id-1\",\"name\":\"Example Name\",\"audience_id\":\"audience-1\",\"created_at\":\"2023-10-06 23:47:56.678+00\"}]}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"list\",\"has_more\":false,\"data\":[{\"id\":\"id-1\",\"name\":\"Example Name\",\"audience_id\":\"audience-1\",\"created_at\":\"2023-10-06 23:47:56.678+00\"}]}"),
         ),
         isNull,
       );
     });
 
-    test("segmentsListContacts reaches the mock and decodes its response", () async {
+    test("segmentsListContacts reaches the mock and decodes its response",
+        () async {
       final actual = await sdk_methods_13.segmentsListContacts(
         config,
         id: (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
@@ -1849,7 +2313,8 @@ void main() {
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"list\",\"has_more\":false,\"data\":[{\"id\":\"e169aa45-1ecf-4183-9955-b1499d5701d3\",\"email\":\"steve.wozniak@gmail.com\",\"first_name\":\"Steve\",\"last_name\":\"Wozniak\",\"created_at\":\"2023-10-06 23:47:56.678+00\",\"unsubscribed\":false}]}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"list\",\"has_more\":false,\"data\":[{\"id\":\"e169aa45-1ecf-4183-9955-b1499d5701d3\",\"email\":\"steve.wozniak@gmail.com\",\"first_name\":\"Steve\",\"last_name\":\"Wozniak\",\"created_at\":\"2023-10-06 23:47:56.678+00\",\"unsubscribed\":false}]}"),
         ),
         isNull,
       );
@@ -1863,7 +2328,8 @@ void main() {
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"id\":\"id-1\",\"object\":\"segment\",\"deleted\":true}"),
+          SdkUtils.decodeJson(
+              "{\"id\":\"id-1\",\"object\":\"segment\",\"deleted\":true}"),
         ),
         isNull,
       );
@@ -1892,36 +2358,49 @@ void main() {
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"suppression\",\"id\":\"e169aa45-1ecf-4183-9955-b1499d5701d3\"}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"suppression\",\"id\":\"e169aa45-1ecf-4183-9955-b1499d5701d3\"}"),
         ),
         isNull,
       );
     });
 
-    test("suppressionsBatchAdd reaches the mock and decodes its response", () async {
+    test("suppressionsBatchAdd reaches the mock and decodes its response",
+        () async {
       final actual = await sdk_methods_14.suppressionsBatchAdd(
         config,
-        emails: (jsonDecode("[\"steve.wozniak@gmail.com\"]") as List).map((element) => (element as String)).toList(),
+        emails: (jsonDecode("[\"steve.wozniak@gmail.com\"]") as List)
+            .map((element) => (element as String))
+            .toList(),
       );
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"data\":[{\"object\":\"suppression\",\"id\":\"e169aa45-1ecf-4183-9955-b1499d5701d3\"}]}"),
+          SdkUtils.decodeJson(
+              "{\"data\":[{\"object\":\"suppression\",\"id\":\"e169aa45-1ecf-4183-9955-b1499d5701d3\"}]}"),
         ),
         isNull,
       );
     });
 
-    test("suppressionsBatchRemove reaches the mock and decodes its response", () async {
+    test("suppressionsBatchRemove reaches the mock and decodes its response",
+        () async {
       final actual = await sdk_methods_14.suppressionsBatchRemove(
         config,
-        emails: SdkPresent<List<String>>((jsonDecode("[\"steve.wozniak@gmail.com\"]") as List).map((element) => (element as String)).toList()),
-        ids: SdkPresent<List<String>>((jsonDecode("[\"e169aa45-1ecf-4183-9955-b1499d5701d3\"]") as List).map((element) => (element as String)).toList()),
+        emails: SdkPresent<List<String>>(
+            (jsonDecode("[\"steve.wozniak@gmail.com\"]") as List)
+                .map((element) => (element as String))
+                .toList()),
+        ids: SdkPresent<List<String>>(
+            (jsonDecode("[\"e169aa45-1ecf-4183-9955-b1499d5701d3\"]") as List)
+                .map((element) => (element as String))
+                .toList()),
       );
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"data\":[{\"object\":\"suppression\",\"id\":\"e169aa45-1ecf-4183-9955-b1499d5701d3\",\"deleted\":true}]}"),
+          SdkUtils.decodeJson(
+              "{\"data\":[{\"object\":\"suppression\",\"id\":\"e169aa45-1ecf-4183-9955-b1499d5701d3\",\"deleted\":true}]}"),
         ),
         isNull,
       );
@@ -1935,16 +2414,20 @@ void main() {
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"suppression\",\"id\":\"e169aa45-1ecf-4183-9955-b1499d5701d3\",\"email\":\"steve.wozniak@gmail.com\",\"origin\":\"manual\",\"source_id\":\"479e3145-dd38-476b-932c-529ceb705947\",\"created_at\":\"2023-10-06 23:47:56.678+00\"}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"suppression\",\"id\":\"e169aa45-1ecf-4183-9955-b1499d5701d3\",\"email\":\"steve.wozniak@gmail.com\",\"origin\":\"manual\",\"source_id\":\"479e3145-dd38-476b-932c-529ceb705947\",\"created_at\":\"2023-10-06 23:47:56.678+00\"}"),
         ),
         isNull,
       );
     });
 
-    test("suppressionsList reaches the mock and decodes its response", () async {
+    test("suppressionsList reaches the mock and decodes its response",
+        () async {
       final actual = await sdk_methods_14.suppressionsList(
         config,
-        origin: SdkPresent<SuppressionsListOrigin>(SuppressionsListOrigin.fromJson(jsonDecode("\"bounce\"") as String)),
+        origin: SdkPresent<SuppressionsListOrigin>(
+            SuppressionsListOrigin.fromJson(
+                jsonDecode("\"bounce\"") as String)),
         limit: SdkPresent<int>((jsonDecode("1") as num).toInt()),
         after: SdkPresent<String>((jsonDecode("\"after\"") as String)),
         before: SdkPresent<String>((jsonDecode("\"before\"") as String)),
@@ -1952,13 +2435,15 @@ void main() {
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"list\",\"has_more\":false,\"data\":[{\"id\":\"e169aa45-1ecf-4183-9955-b1499d5701d3\",\"email\":\"steve.wozniak@gmail.com\",\"origin\":\"manual\",\"source_id\":\"479e3145-dd38-476b-932c-529ceb705947\",\"created_at\":\"2023-10-06 23:47:56.678+00\"}]}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"list\",\"has_more\":false,\"data\":[{\"id\":\"e169aa45-1ecf-4183-9955-b1499d5701d3\",\"email\":\"steve.wozniak@gmail.com\",\"origin\":\"manual\",\"source_id\":\"479e3145-dd38-476b-932c-529ceb705947\",\"created_at\":\"2023-10-06 23:47:56.678+00\"}]}"),
         ),
         isNull,
       );
     });
 
-    test("suppressionsRemove reaches the mock and decodes its response", () async {
+    test("suppressionsRemove reaches the mock and decodes its response",
+        () async {
       final actual = await sdk_methods_14.suppressionsRemove(
         config,
         suppression: (jsonDecode("\"suppression\"") as String),
@@ -1966,7 +2451,8 @@ void main() {
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"suppression\",\"id\":\"e169aa45-1ecf-4183-9955-b1499d5701d3\",\"deleted\":true}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"suppression\",\"id\":\"e169aa45-1ecf-4183-9955-b1499d5701d3\",\"deleted\":true}"),
         ),
         isNull,
       );
@@ -1978,11 +2464,19 @@ void main() {
         name: (jsonDecode("\"Example Name\"") as String),
         html: (jsonDecode("\"html\"") as String),
         alias: SdkPresent<String>((jsonDecode("\"alias\"") as String)),
-        from: SdkPresent<String>((jsonDecode("\"user@example.com\"") as String)),
+        from:
+            SdkPresent<String>((jsonDecode("\"user@example.com\"") as String)),
         subject: SdkPresent<String>((jsonDecode("\"subject\"") as String)),
-        replyTo: SdkPresent<List<String>>((jsonDecode("[\"reply_to\"]") as List).map((element) => (element as String)).toList()),
+        replyTo: SdkPresent<List<String>>((jsonDecode("[\"reply_to\"]") as List)
+            .map((element) => (element as String))
+            .toList()),
         text: SdkPresent<String>((jsonDecode("\"text\"") as String)),
-        variables: SdkPresent<List<TemplateVariableInput>>((jsonDecode("[{\"key\":\"key\",\"type\":\"string\",\"fallback_value\":\"fallback_value\"}]") as List).map((element) => TemplateVariableInput.fromJson((element as Map).cast<String, dynamic>())).toList()),
+        variables: SdkPresent<List<TemplateVariableInput>>((jsonDecode(
+                    "[{\"key\":\"key\",\"type\":\"string\",\"fallback_value\":\"fallback_value\"}]")
+                as List)
+            .map((element) => TemplateVariableInput.fromJson(
+                (element as Map).cast<String, dynamic>()))
+            .toList()),
       );
       expect(
         mismatch(
@@ -1993,7 +2487,8 @@ void main() {
       );
     });
 
-    test("templatesDuplicate reaches the mock and decodes its response", () async {
+    test("templatesDuplicate reaches the mock and decodes its response",
+        () async {
       final actual = await sdk_methods_15.templatesDuplicate(
         config,
         id: (jsonDecode("\"id-1\"") as String),
@@ -2015,7 +2510,8 @@ void main() {
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"template\",\"id\":\"id-1\",\"current_version_id\":\"current_version-1\",\"name\":\"Example Name\",\"alias\":\"alias\",\"from\":\"user@example.com\",\"subject\":\"subject\",\"reply_to\":[\"reply_to\"],\"html\":\"html\",\"text\":\"text\",\"variables\":[{\"id\":\"id-1\",\"key\":\"key\",\"type\":\"string\",\"fallback_value\":\"fallback_value\",\"created_at\":\"2023-10-06 23:47:56.678+00\",\"updated_at\":\"2023-10-06 23:47:56.678+00\"}],\"created_at\":\"2023-10-06 23:47:56.678+00\",\"updated_at\":\"2023-10-06 23:47:56.678+00\",\"status\":\"draft\",\"published_at\":\"2023-10-06 23:47:56.678+00\",\"has_unpublished_versions\":false}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"template\",\"id\":\"id-1\",\"current_version_id\":\"current_version-1\",\"name\":\"Example Name\",\"alias\":\"alias\",\"from\":\"user@example.com\",\"subject\":\"subject\",\"reply_to\":[\"reply_to\"],\"html\":\"html\",\"text\":\"text\",\"variables\":[{\"id\":\"id-1\",\"key\":\"key\",\"type\":\"string\",\"fallback_value\":\"fallback_value\",\"created_at\":\"2023-10-06 23:47:56.678+00\",\"updated_at\":\"2023-10-06 23:47:56.678+00\"}],\"created_at\":\"2023-10-06 23:47:56.678+00\",\"updated_at\":\"2023-10-06 23:47:56.678+00\",\"status\":\"draft\",\"published_at\":\"2023-10-06 23:47:56.678+00\",\"has_unpublished_versions\":false}"),
         ),
         isNull,
       );
@@ -2031,13 +2527,15 @@ void main() {
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"list\",\"data\":[{\"id\":\"id-1\",\"name\":\"Example Name\",\"status\":\"draft\",\"published_at\":\"2023-10-06 23:47:56.678+00\",\"created_at\":\"2023-10-06 23:47:56.678+00\",\"updated_at\":\"2023-10-06 23:47:56.678+00\",\"alias\":\"alias\"}],\"has_more\":false}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"list\",\"data\":[{\"id\":\"id-1\",\"name\":\"Example Name\",\"status\":\"draft\",\"published_at\":\"2023-10-06 23:47:56.678+00\",\"created_at\":\"2023-10-06 23:47:56.678+00\",\"updated_at\":\"2023-10-06 23:47:56.678+00\",\"alias\":\"alias\"}],\"has_more\":false}"),
         ),
         isNull,
       );
     });
 
-    test("templatesPublish reaches the mock and decodes its response", () async {
+    test("templatesPublish reaches the mock and decodes its response",
+        () async {
       final actual = await sdk_methods_15.templatesPublish(
         config,
         id: (jsonDecode("\"id-1\"") as String),
@@ -2059,7 +2557,8 @@ void main() {
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"template\",\"id\":\"id-1\",\"deleted\":true}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"template\",\"id\":\"id-1\",\"deleted\":true}"),
         ),
         isNull,
       );
@@ -2071,12 +2570,20 @@ void main() {
         id: (jsonDecode("\"id-1\"") as String),
         name: SdkPresent<String>((jsonDecode("\"Example Name\"") as String)),
         alias: SdkPresent<String>((jsonDecode("\"alias\"") as String)),
-        from: SdkPresent<String>((jsonDecode("\"user@example.com\"") as String)),
+        from:
+            SdkPresent<String>((jsonDecode("\"user@example.com\"") as String)),
         subject: SdkPresent<String>((jsonDecode("\"subject\"") as String)),
-        replyTo: SdkPresent<List<String>>((jsonDecode("[\"reply_to\"]") as List).map((element) => (element as String)).toList()),
+        replyTo: SdkPresent<List<String>>((jsonDecode("[\"reply_to\"]") as List)
+            .map((element) => (element as String))
+            .toList()),
         html: SdkPresent<String>((jsonDecode("\"html\"") as String)),
         text: SdkPresent<String>((jsonDecode("\"text\"") as String)),
-        variables: SdkPresent<List<TemplateVariableInput>>((jsonDecode("[{\"key\":\"key\",\"type\":\"string\",\"fallback_value\":\"fallback_value\"}]") as List).map((element) => TemplateVariableInput.fromJson((element as Map).cast<String, dynamic>())).toList()),
+        variables: SdkPresent<List<TemplateVariableInput>>((jsonDecode(
+                    "[{\"key\":\"key\",\"type\":\"string\",\"fallback_value\":\"fallback_value\"}]")
+                as List)
+            .map((element) => TemplateVariableInput.fromJson(
+                (element as Map).cast<String, dynamic>()))
+            .toList()),
       );
       expect(
         mismatch(
@@ -2091,14 +2598,19 @@ void main() {
       final actual = await sdk_methods_16.topicsCreate(
         config,
         name: (jsonDecode("\"Example Name\"") as String),
-        defaultSubscription: CreateTopicOptionsDefaultSubscription.fromJson(jsonDecode("\"opt_in\"") as String),
-        description: SdkPresent<String>((jsonDecode("\"example text\"") as String)),
-        visibility: SdkPresent<CreateTopicOptionsVisibility>(CreateTopicOptionsVisibility.fromJson(jsonDecode("\"private\"") as String)),
+        defaultSubscription: CreateTopicOptionsDefaultSubscription.fromJson(
+            jsonDecode("\"opt_in\"") as String),
+        description:
+            SdkPresent<String>((jsonDecode("\"example text\"") as String)),
+        visibility: SdkPresent<CreateTopicOptionsVisibility>(
+            CreateTopicOptionsVisibility.fromJson(
+                jsonDecode("\"private\"") as String)),
       );
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"id\":\"78261eea-8f8b-4381-83c6-79fa7120f1cf\",\"object\":\"topic\"}"),
+          SdkUtils.decodeJson(
+              "{\"id\":\"78261eea-8f8b-4381-83c6-79fa7120f1cf\",\"object\":\"topic\"}"),
         ),
         isNull,
       );
@@ -2112,7 +2624,8 @@ void main() {
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"id\":\"id-1\",\"object\":\"topic\",\"name\":\"Newsletter\",\"description\":\"example text\",\"default_subscription\":\"opt_in\",\"visibility\":\"public\",\"created_at\":\"2023-10-06 23:47:56.678+00\"}"),
+          SdkUtils.decodeJson(
+              "{\"id\":\"id-1\",\"object\":\"topic\",\"name\":\"Newsletter\",\"description\":\"example text\",\"default_subscription\":\"opt_in\",\"visibility\":\"public\",\"created_at\":\"2023-10-06 23:47:56.678+00\"}"),
         ),
         isNull,
       );
@@ -2128,7 +2641,8 @@ void main() {
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"list\",\"has_more\":false,\"data\":[{\"id\":\"id-1\",\"name\":\"Example Name\",\"description\":\"example text\",\"default_subscription\":\"opt_in\",\"visibility\":\"public\",\"created_at\":\"2023-10-06 23:47:56.678+00\"}]}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"list\",\"has_more\":false,\"data\":[{\"id\":\"id-1\",\"name\":\"Example Name\",\"description\":\"example text\",\"default_subscription\":\"opt_in\",\"visibility\":\"public\",\"created_at\":\"2023-10-06 23:47:56.678+00\"}]}"),
         ),
         isNull,
       );
@@ -2142,7 +2656,8 @@ void main() {
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"id\":\"id-1\",\"object\":\"topic\",\"deleted\":true}"),
+          SdkUtils.decodeJson(
+              "{\"id\":\"id-1\",\"object\":\"topic\",\"deleted\":true}"),
         ),
         isNull,
       );
@@ -2153,8 +2668,11 @@ void main() {
         config,
         id: (jsonDecode("\"id-1\"") as String),
         name: SdkPresent<String>((jsonDecode("\"Example Name\"") as String)),
-        description: SdkPresent<String>((jsonDecode("\"example text\"") as String)),
-        visibility: SdkPresent<UpdateTopicOptionsVisibility>(UpdateTopicOptionsVisibility.fromJson(jsonDecode("\"public\"") as String)),
+        description:
+            SdkPresent<String>((jsonDecode("\"example text\"") as String)),
+        visibility: SdkPresent<UpdateTopicOptionsVisibility>(
+            UpdateTopicOptionsVisibility.fromJson(
+                jsonDecode("\"public\"") as String)),
       );
       expect(
         mismatch(
@@ -2172,7 +2690,8 @@ void main() {
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"usage\",\"emails\":{\"daily\":{\"used\":1,\"limit\":1,\"sent\":1,\"received\":1,\"resets_at\":\"2024-01-01T00:00:00Z\"},\"monthly\":{\"used\":1,\"limit\":1,\"sent\":1,\"received\":1,\"resets_at\":\"2024-01-01T00:00:00Z\"}},\"contacts\":{\"used\":1,\"limit\":1},\"segments\":{\"used\":1,\"limit\":1},\"broadcasts\":{\"used\":1,\"limit\":null},\"ai_credits\":{\"used\":1,\"limit\":1,\"next_increase_at\":\"2024-01-01T00:00:00Z\"},\"automation_runs\":{\"used\":1,\"limit\":1,\"resets_at\":\"2024-01-01T00:00:00Z\"},\"domains\":{\"used\":1,\"limit\":1},\"rate_limit\":{\"limit\":1,\"duration\":\"duration\"}}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"usage\",\"emails\":{\"daily\":{\"used\":1,\"limit\":1,\"sent\":1,\"received\":1,\"resets_at\":\"2024-01-01T00:00:00Z\"},\"monthly\":{\"used\":1,\"limit\":1,\"sent\":1,\"received\":1,\"resets_at\":\"2024-01-01T00:00:00Z\"}},\"contacts\":{\"used\":1,\"limit\":1},\"segments\":{\"used\":1,\"limit\":1},\"broadcasts\":{\"used\":1,\"limit\":null},\"ai_credits\":{\"used\":1,\"limit\":1,\"next_increase_at\":\"2024-01-01T00:00:00Z\"},\"automation_runs\":{\"used\":1,\"limit\":1,\"resets_at\":\"2024-01-01T00:00:00Z\"},\"domains\":{\"used\":1,\"limit\":1},\"rate_limit\":{\"limit\":1,\"duration\":\"duration\"}}"),
         ),
         isNull,
       );
@@ -2181,13 +2700,19 @@ void main() {
     test("webhooksCreate reaches the mock and decodes its response", () async {
       final actual = await sdk_methods_18.webhooksCreate(
         config,
-        endpoint: (jsonDecode("\"https://webhook.example.com/handler\"") as String),
-        events: (jsonDecode("[\"email.sent\",\"email.delivered\",\"email.bounced\",\"email.suppressed\"]") as List).map((element) => (element as String)).toList(),
+        endpoint:
+            (jsonDecode("\"https://webhook.example.com/handler\"") as String),
+        events: (jsonDecode(
+                    "[\"email.sent\",\"email.delivered\",\"email.bounced\",\"email.suppressed\"]")
+                as List)
+            .map((element) => (element as String))
+            .toList(),
       );
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"webhook\",\"id\":\"479e3145-dd38-476b-932c-529ceb705947\",\"signing_secret\":\"whsec_...\"}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"webhook\",\"id\":\"479e3145-dd38-476b-932c-529ceb705947\",\"signing_secret\":\"whsec_...\"}"),
         ),
         isNull,
       );
@@ -2196,27 +2721,32 @@ void main() {
     test("webhooksGet reaches the mock and decodes its response", () async {
       final actual = await sdk_methods_18.webhooksGet(
         config,
-        webhookId: (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
+        webhookId:
+            (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
       );
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"webhook\",\"id\":\"479e3145-dd38-476b-932c-529ceb705947\",\"endpoint\":\"https://webhook.example.com/handler\",\"events\":[\"email.sent\",\"email.delivered\"],\"status\":\"enabled\",\"created_at\":\"2023-10-06 23:47:56.678+00\",\"signing_secret\":\"whsec_...\"}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"webhook\",\"id\":\"479e3145-dd38-476b-932c-529ceb705947\",\"endpoint\":\"https://webhook.example.com/handler\",\"events\":[\"email.sent\",\"email.delivered\"],\"status\":\"enabled\",\"created_at\":\"2023-10-06 23:47:56.678+00\",\"signing_secret\":\"whsec_...\"}"),
         ),
         isNull,
       );
     });
 
-    test("webhooksGetEvent reaches the mock and decodes its response", () async {
+    test("webhooksGetEvent reaches the mock and decodes its response",
+        () async {
       final actual = await sdk_methods_18.webhooksGetEvent(
         config,
-        webhookId: (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
+        webhookId:
+            (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
         eventId: (jsonDecode("\"event-1\"") as String),
       );
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"webhook_event\",\"id\":\"msg_1srOrx2ZWZBpBUvZwXKQmoEYga2\",\"type\":\"email.sent\",\"created_at\":\"2026-08-22T15:28:00.000Z\",\"status\":\"attempting\",\"next_attempt_at\":\"2026-08-22T15:33:00.000Z\",\"payload\":{\"type\":\"email.sent\",\"created_at\":\"2026-08-22T15:28:00.000Z\",\"data\":{\"email_id\":\"571f1f42-1c2d-4b1f-8f8e-8b3b5b3b5b3b\",\"from\":\"onboarding@resend.dev\",\"to\":[\"delivered@resend.dev\"],\"subject\":\"Welcome\",\"created_at\":\"2026-08-22T15:27:59.000Z\"}}}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"webhook_event\",\"id\":\"msg_1srOrx2ZWZBpBUvZwXKQmoEYga2\",\"type\":\"email.sent\",\"created_at\":\"2026-08-22T15:28:00.000Z\",\"status\":\"attempting\",\"next_attempt_at\":\"2026-08-22T15:33:00.000Z\",\"payload\":{\"type\":\"email.sent\",\"created_at\":\"2026-08-22T15:28:00.000Z\",\"data\":{\"email_id\":\"571f1f42-1c2d-4b1f-8f8e-8b3b5b3b5b3b\",\"from\":\"onboarding@resend.dev\",\"to\":[\"delivered@resend.dev\"],\"subject\":\"Welcome\",\"created_at\":\"2026-08-22T15:27:59.000Z\"}}}"),
         ),
         isNull,
       );
@@ -2226,22 +2756,27 @@ void main() {
       final actual = await sdk_methods_18.webhooksList(
         config,
         limit: SdkPresent<int>((jsonDecode("1") as num).toInt()),
-        after: SdkPresent<String>((jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String)),
-        before: SdkPresent<String>((jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String)),
+        after: SdkPresent<String>(
+            (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String)),
+        before: SdkPresent<String>(
+            (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String)),
       );
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"list\",\"has_more\":false,\"data\":[{\"id\":\"479e3145-dd38-476b-932c-529ceb705947\",\"endpoint\":\"https://webhook.example.com/handler\",\"events\":[\"email.sent\"],\"status\":\"enabled\",\"created_at\":\"2023-10-06 23:47:56.678+00\"}]}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"list\",\"has_more\":false,\"data\":[{\"id\":\"479e3145-dd38-476b-932c-529ceb705947\",\"endpoint\":\"https://webhook.example.com/handler\",\"events\":[\"email.sent\"],\"status\":\"enabled\",\"created_at\":\"2023-10-06 23:47:56.678+00\"}]}"),
         ),
         isNull,
       );
     });
 
-    test("webhooksListEventAttempts reaches the mock and decodes its response", () async {
+    test("webhooksListEventAttempts reaches the mock and decodes its response",
+        () async {
       final actual = await sdk_methods_18.webhooksListEventAttempts(
         config,
-        webhookId: (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
+        webhookId:
+            (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
         eventId: (jsonDecode("\"event-1\"") as String),
         limit: SdkPresent<int>((jsonDecode("1") as num).toInt()),
         after: SdkPresent<String>((jsonDecode("\"after\"") as String)),
@@ -2249,23 +2784,27 @@ void main() {
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"list\",\"has_more\":false,\"data\":[{\"id\":\"atmpt_1srOrx2ZWZBpBUvZwXKQmoEYga2\",\"http_status_code\":200,\"response\":\"{\\\"ok\\\":true}\",\"sent_at\":\"2026-08-22T15:33:12.000Z\"}]}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"list\",\"has_more\":false,\"data\":[{\"id\":\"atmpt_1srOrx2ZWZBpBUvZwXKQmoEYga2\",\"http_status_code\":200,\"response\":\"{\\\"ok\\\":true}\",\"sent_at\":\"2026-08-22T15:33:12.000Z\"}]}"),
         ),
         isNull,
       );
     });
 
-    test("webhooksListEvents reaches the mock and decodes its response", () async {
+    test("webhooksListEvents reaches the mock and decodes its response",
+        () async {
       final actual = await sdk_methods_18.webhooksListEvents(
         config,
-        webhookId: (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
+        webhookId:
+            (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
         limit: SdkPresent<int>((jsonDecode("1") as num).toInt()),
         after: SdkPresent<String>((jsonDecode("\"after\"") as String)),
       );
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"list\",\"has_more\":false,\"data\":[{\"id\":\"msg_1srOrx2ZWZBpBUvZwXKQmoEYga2\",\"type\":\"email.sent\",\"created_at\":\"2026-08-22T15:28:00.000Z\",\"status\":\"success\"}]}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"list\",\"has_more\":false,\"data\":[{\"id\":\"msg_1srOrx2ZWZBpBUvZwXKQmoEYga2\",\"type\":\"email.sent\",\"created_at\":\"2026-08-22T15:28:00.000Z\",\"status\":\"success\"}]}"),
         ),
         isNull,
       );
@@ -2274,41 +2813,50 @@ void main() {
     test("webhooksRemove reaches the mock and decodes its response", () async {
       final actual = await sdk_methods_18.webhooksRemove(
         config,
-        webhookId: (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
+        webhookId:
+            (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
       );
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"webhook\",\"id\":\"479e3145-dd38-476b-932c-529ceb705947\",\"deleted\":true}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"webhook\",\"id\":\"479e3145-dd38-476b-932c-529ceb705947\",\"deleted\":true}"),
         ),
         isNull,
       );
     });
 
-    test("webhooksReplayEvent reaches the mock and decodes its response", () async {
+    test("webhooksReplayEvent reaches the mock and decodes its response",
+        () async {
       final actual = await sdk_methods_18.webhooksReplayEvent(
         config,
-        webhookId: (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
+        webhookId:
+            (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
         eventId: (jsonDecode("\"event-1\"") as String),
       );
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"webhook_event\",\"id\":\"msg_1srOrx2ZWZBpBUvZwXKQmoEYga2\"}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"webhook_event\",\"id\":\"msg_1srOrx2ZWZBpBUvZwXKQmoEYga2\"}"),
         ),
         isNull,
       );
     });
 
-    test("webhooksRotateSigningSecret reaches the mock and decodes its response", () async {
+    test(
+        "webhooksRotateSigningSecret reaches the mock and decodes its response",
+        () async {
       final actual = await sdk_methods_18.webhooksRotateSigningSecret(
         config,
-        webhookId: (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
+        webhookId:
+            (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
       );
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"webhook\",\"id\":\"479e3145-dd38-476b-932c-529ceb705947\",\"signing_secret\":\"whsec_...\"}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"webhook\",\"id\":\"479e3145-dd38-476b-932c-529ceb705947\",\"signing_secret\":\"whsec_...\"}"),
         ),
         isNull,
       );
@@ -2317,15 +2865,24 @@ void main() {
     test("webhooksUpdate reaches the mock and decodes its response", () async {
       final actual = await sdk_methods_18.webhooksUpdate(
         config,
-        webhookId: (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
-        endpoint: SdkPresent<String>((jsonDecode("\"https://webhook.example.com/new-handler\"") as String)),
-        events: SdkPresent<List<String>>((jsonDecode("[\"email.sent\",\"email.delivered\"]") as List).map((element) => (element as String)).toList()),
-        status: SdkPresent<UpdateWebhookRequestStatus>(UpdateWebhookRequestStatus.fromJson(jsonDecode("\"enabled\"") as String)),
+        webhookId:
+            (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
+        endpoint: SdkPresent<String>(
+            (jsonDecode("\"https://webhook.example.com/new-handler\"")
+                as String)),
+        events: SdkPresent<List<String>>(
+            (jsonDecode("[\"email.sent\",\"email.delivered\"]") as List)
+                .map((element) => (element as String))
+                .toList()),
+        status: SdkPresent<UpdateWebhookRequestStatus>(
+            UpdateWebhookRequestStatus.fromJson(
+                jsonDecode("\"enabled\"") as String)),
       );
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"webhook\",\"id\":\"479e3145-dd38-476b-932c-529ceb705947\"}"),
+          SdkUtils.decodeJson(
+              "{\"object\":\"webhook\",\"id\":\"479e3145-dd38-476b-932c-529ceb705947\"}"),
         ),
         isNull,
       );
