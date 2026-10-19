@@ -4,116 +4,19 @@
 part of 'inboxes_create.dart';
 
 // inboxes_create domain models
-sealed class CreateInboxDraftOptionsTo {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  const CreateInboxDraftOptionsTo();
-  factory CreateInboxDraftOptionsTo.fromJson(Object? json) {
-    if (json is String) {
-      return CreateInboxDraftOptionsToString(json);
-    }
-    if (json is List) {
-      return CreateInboxDraftOptionsToListString(
-          json.map((e) => e as String).toList().cast<String>());
-    }
-    throw FormatException("No variant matched for CreateInboxDraftOptionsTo");
-  }
-  Object? toJson();
-}
-
-final class CreateInboxDraftOptionsToString extends CreateInboxDraftOptionsTo {
-  final String value;
-  const CreateInboxDraftOptionsToString(this.value);
-  @override
-  Object? toJson() => value;
-}
-
-final class CreateInboxDraftOptionsToListString
-    extends CreateInboxDraftOptionsTo {
-  final List<String> value;
-  const CreateInboxDraftOptionsToListString(this.value);
-  @override
-  Object? toJson() => value;
-}
-
-sealed class CreateInboxDraftOptionsCc {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  const CreateInboxDraftOptionsCc();
-  factory CreateInboxDraftOptionsCc.fromJson(Object? json) {
-    if (json is String) {
-      return CreateInboxDraftOptionsCcString(json);
-    }
-    if (json is List) {
-      return CreateInboxDraftOptionsCcListString(
-          json.map((e) => e as String).toList().cast<String>());
-    }
-    throw FormatException("No variant matched for CreateInboxDraftOptionsCc");
-  }
-  Object? toJson();
-}
-
-final class CreateInboxDraftOptionsCcString extends CreateInboxDraftOptionsCc {
-  final String value;
-  const CreateInboxDraftOptionsCcString(this.value);
-  @override
-  Object? toJson() => value;
-}
-
-final class CreateInboxDraftOptionsCcListString
-    extends CreateInboxDraftOptionsCc {
-  final List<String> value;
-  const CreateInboxDraftOptionsCcListString(this.value);
-  @override
-  Object? toJson() => value;
-}
-
-sealed class CreateInboxDraftOptionsBcc {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  const CreateInboxDraftOptionsBcc();
-  factory CreateInboxDraftOptionsBcc.fromJson(Object? json) {
-    if (json is String) {
-      return CreateInboxDraftOptionsBccString(json);
-    }
-    if (json is List) {
-      return CreateInboxDraftOptionsBccListString(
-          json.map((e) => e as String).toList().cast<String>());
-    }
-    throw FormatException("No variant matched for CreateInboxDraftOptionsBcc");
-  }
-  Object? toJson();
-}
-
-final class CreateInboxDraftOptionsBccString
-    extends CreateInboxDraftOptionsBcc {
-  final String value;
-  const CreateInboxDraftOptionsBccString(this.value);
-  @override
-  Object? toJson() => value;
-}
-
-final class CreateInboxDraftOptionsBccListString
-    extends CreateInboxDraftOptionsBcc {
-  final List<String> value;
-  const CreateInboxDraftOptionsBccListString(this.value);
-  @override
-  Object? toJson() => value;
-}
-
 /// At least one of `to`, `cc`, `bcc`, `subject`, `text`, `html` or `attachments` must be non-empty. The combined recipients of `to`, `cc` and `bcc` cannot exceed 50. `thread_id` and `reply_to_email_id` must be sent together or not at all.
 class CreateInboxDraftOptions {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
 
   /// The recipients. For multiple addresses, send an array of strings. Each value can include a friendly name, for example `Ada Lovelace &lt;ada@example.org&gt;`. Each address is `email@example.com` or `Name &lt;email@example.com&gt;`. An address that is not valid returns a 422.
-  final SdkOptional<dynamic> to;
+  final SdkOptional<List<String>?> to;
 
   /// The CC recipients. For multiple addresses, send an array of strings. Each address is `email@example.com` or `Name &lt;email@example.com&gt;`. An address that is not valid returns a 422.
-  final SdkOptional<dynamic> cc;
+  final SdkOptional<List<String>?> cc;
 
   /// The BCC recipients. For multiple addresses, send an array of strings. Each address is `email@example.com` or `Name &lt;email@example.com&gt;`. An address that is not valid returns a 422.
-  final SdkOptional<dynamic> bcc;
+  final SdkOptional<List<String>?> bcc;
 
   /// The subject. Max 2000 characters. A string that is only whitespace, or that contains a line break, is rejected.
   final SdkOptional<String?> subject;
@@ -145,9 +48,9 @@ class CreateInboxDraftOptions {
       this.replyToEmailId = const SdkOmitted()});
 
   CreateInboxDraftOptions Function(
-      {SdkOptional<dynamic> to,
-      SdkOptional<dynamic> cc,
-      SdkOptional<dynamic> bcc,
+      {SdkOptional<List<String>?> to,
+      SdkOptional<List<String>?> cc,
+      SdkOptional<List<String>?> bcc,
       SdkOptional<String?> subject,
       SdkOptional<String?> html,
       SdkOptional<String?> text,
@@ -168,13 +71,13 @@ class CreateInboxDraftOptions {
       CreateInboxDraftOptions(
         to: identical(to, sdkOmittedValue)
             ? this.to
-            : to as SdkOptional<dynamic>,
+            : to as SdkOptional<List<String>?>,
         cc: identical(cc, sdkOmittedValue)
             ? this.cc
-            : cc as SdkOptional<dynamic>,
+            : cc as SdkOptional<List<String>?>,
         bcc: identical(bcc, sdkOmittedValue)
             ? this.bcc
-            : bcc as SdkOptional<dynamic>,
+            : bcc as SdkOptional<List<String>?>,
         subject: identical(subject, sdkOmittedValue)
             ? this.subject
             : subject as SdkOptional<String?>,
@@ -198,13 +101,16 @@ class CreateInboxDraftOptions {
   factory CreateInboxDraftOptions.fromJson(Map<String, dynamic> json) =>
       CreateInboxDraftOptions(
         to: json.containsKey('to')
-            ? SdkPresent(json['to'])
+            ? SdkPresent(
+                (json['to'] as List?)?.map((e) => e as String).toList())
             : const SdkOmitted(),
         cc: json.containsKey('cc')
-            ? SdkPresent(json['cc'])
+            ? SdkPresent(
+                (json['cc'] as List?)?.map((e) => e as String).toList())
             : const SdkOmitted(),
         bcc: json.containsKey('bcc')
-            ? SdkPresent(json['bcc'])
+            ? SdkPresent(
+                (json['bcc'] as List?)?.map((e) => e as String).toList())
             : const SdkOmitted(),
         subject: json.containsKey('subject')
             ? SdkPresent(json['subject'] as String?)
@@ -231,19 +137,19 @@ class CreateInboxDraftOptions {
 
   Map<String, dynamic> toJson() => {
         ...switch (to) {
-          SdkPresent<dynamic>(value: final value) => {
+          SdkPresent<List<String>?>(value: final value) => {
               'to': value,
             },
           _ => const <String, dynamic>{},
         },
         ...switch (cc) {
-          SdkPresent<dynamic>(value: final value) => {
+          SdkPresent<List<String>?>(value: final value) => {
               'cc': value,
             },
           _ => const <String, dynamic>{},
         },
         ...switch (bcc) {
-          SdkPresent<dynamic>(value: final value) => {
+          SdkPresent<List<String>?>(value: final value) => {
               'bcc': value,
             },
           _ => const <String, dynamic>{},
@@ -396,6 +302,128 @@ class CreateInboxLabelResponseSuccess {
 
   factory CreateInboxLabelResponseSuccess.fromJson(Map<String, dynamic> json) =>
       CreateInboxLabelResponseSuccess(
+        object: (json['object'] as String?)!,
+        id: (json['id'] as String?)!,
+      );
+
+  Map<String, dynamic> toJson() => {
+        'object': object,
+        'id': id,
+      };
+}
+
+/// Typed representation of the `CreateInboxOptions` API schema.
+class CreateInboxOptions {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+
+  /// The inbox email address on one of your domains. The API trims and lowercases it. The part before the `@` is at most 64 characters and contains only letters, numbers, and `. _ % + -`. It cannot start or end with a dot or contain two dots in a row.
+  final String emailAddress;
+
+  /// Internal name for the inbox. Recipients do not see it. Max 64 characters. Defaults to `email_address`.
+  final SdkOptional<String> name;
+
+  /// The name recipients see when mail is sent from this inbox. A plain name, not a `Name &lt;email&gt;` address. Max 78 characters. It cannot contain a colon, `&lt;`, `&gt;`, line breaks, or other control characters. An email address inside the name must be on a domain the team has verified for sending. An empty string leaves it unset.
+  final SdkOptional<String> fromName;
+
+  /// When `true`, Resend provisions a receiving address so you can receive mail without adding an MX record. The address is returned in `receiving_address`.
+  final SdkOptional<bool> forwarding;
+
+  const CreateInboxOptions(
+      {required this.emailAddress,
+      this.name = const SdkOmitted(),
+      this.fromName = const SdkOmitted(),
+      this.forwarding = const SdkOmitted()});
+
+  CreateInboxOptions Function(
+      {String emailAddress,
+      SdkOptional<String> name,
+      SdkOptional<String> fromName,
+      SdkOptional<bool> forwarding}) get copyWith => _copyWith;
+
+  CreateInboxOptions _copyWith(
+          {Object? emailAddress = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? fromName = sdkOmittedValue,
+          Object? forwarding = sdkOmittedValue}) =>
+      CreateInboxOptions(
+        emailAddress: identical(emailAddress, sdkOmittedValue)
+            ? this.emailAddress
+            : emailAddress as String,
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        fromName: identical(fromName, sdkOmittedValue)
+            ? this.fromName
+            : fromName as SdkOptional<String>,
+        forwarding: identical(forwarding, sdkOmittedValue)
+            ? this.forwarding
+            : forwarding as SdkOptional<bool>,
+      );
+
+  factory CreateInboxOptions.fromJson(Map<String, dynamic> json) =>
+      CreateInboxOptions(
+        emailAddress: (json['email_address'] as String?)!,
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        fromName: json['from_name'] != null
+            ? SdkPresent((json['from_name'] as String?)!)
+            : const SdkOmitted(),
+        forwarding: json['forwarding'] != null
+            ? SdkPresent((json['forwarding'] as bool?)!)
+            : const SdkOmitted(),
+      );
+
+  Map<String, dynamic> toJson() => {
+        'email_address': emailAddress,
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (fromName) {
+          SdkPresent<String>(value: final value) => {
+              'from_name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (forwarding) {
+          SdkPresent<bool>(value: final value) => {
+              'forwarding': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
+}
+
+/// Typed representation of the `CreateInboxResponseSuccess` API schema.
+class CreateInboxResponseSuccess {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+
+  /// Type of the response object.
+  final String object;
+
+  /// The ID of the inbox.
+  final String id;
+
+  const CreateInboxResponseSuccess({required this.object, required this.id});
+
+  CreateInboxResponseSuccess Function({String object, String id})
+      get copyWith => _copyWith;
+
+  CreateInboxResponseSuccess _copyWith(
+          {Object? object = sdkOmittedValue, Object? id = sdkOmittedValue}) =>
+      CreateInboxResponseSuccess(
+        object:
+            identical(object, sdkOmittedValue) ? this.object : object as String,
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+      );
+
+  factory CreateInboxResponseSuccess.fromJson(Map<String, dynamic> json) =>
+      CreateInboxResponseSuccess(
         object: (json['object'] as String?)!,
         id: (json['id'] as String?)!,
       );

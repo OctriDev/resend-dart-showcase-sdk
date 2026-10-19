@@ -4,84 +4,16 @@
 part of 'inboxes_reply.dart';
 
 // inboxes_reply domain models
-sealed class ReplyInboxThreadEmailOptionsCc {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  const ReplyInboxThreadEmailOptionsCc();
-  factory ReplyInboxThreadEmailOptionsCc.fromJson(Object? json) {
-    if (json is String) {
-      return ReplyInboxThreadEmailOptionsCcString(json);
-    }
-    if (json is List) {
-      return ReplyInboxThreadEmailOptionsCcListString(
-          json.map((e) => e as String).toList().cast<String>());
-    }
-    throw FormatException(
-        "No variant matched for ReplyInboxThreadEmailOptionsCc");
-  }
-  Object? toJson();
-}
-
-final class ReplyInboxThreadEmailOptionsCcString
-    extends ReplyInboxThreadEmailOptionsCc {
-  final String value;
-  const ReplyInboxThreadEmailOptionsCcString(this.value);
-  @override
-  Object? toJson() => value;
-}
-
-final class ReplyInboxThreadEmailOptionsCcListString
-    extends ReplyInboxThreadEmailOptionsCc {
-  final List<String> value;
-  const ReplyInboxThreadEmailOptionsCcListString(this.value);
-  @override
-  Object? toJson() => value;
-}
-
-sealed class ReplyInboxThreadEmailOptionsBcc {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  const ReplyInboxThreadEmailOptionsBcc();
-  factory ReplyInboxThreadEmailOptionsBcc.fromJson(Object? json) {
-    if (json is String) {
-      return ReplyInboxThreadEmailOptionsBccString(json);
-    }
-    if (json is List) {
-      return ReplyInboxThreadEmailOptionsBccListString(
-          json.map((e) => e as String).toList().cast<String>());
-    }
-    throw FormatException(
-        "No variant matched for ReplyInboxThreadEmailOptionsBcc");
-  }
-  Object? toJson();
-}
-
-final class ReplyInboxThreadEmailOptionsBccString
-    extends ReplyInboxThreadEmailOptionsBcc {
-  final String value;
-  const ReplyInboxThreadEmailOptionsBccString(this.value);
-  @override
-  Object? toJson() => value;
-}
-
-final class ReplyInboxThreadEmailOptionsBccListString
-    extends ReplyInboxThreadEmailOptionsBcc {
-  final List<String> value;
-  const ReplyInboxThreadEmailOptionsBccListString(this.value);
-  @override
-  Object? toJson() => value;
-}
-
 /// At least one of `html` or `text` must contain more than whitespace.
 class ReplyInboxThreadEmailOptions {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
 
   /// CC recipient email address. For multiple addresses, send as an array of strings. Without `reply_all`, the reply copies only these addresses. With `reply_all`, these addresses are merged with the copied recipients, without duplicates. `cc` and `bcc` combined must be fewer than 50 addresses. After the `to` recipients are added, the reply cannot exceed 50 recipients. Each address is `email@example.com` or `Name &lt;email@example.com&gt;`. An address that is not valid returns a 422.
-  final SdkOptional<dynamic> cc;
+  final SdkOptional<List<String>?> cc;
 
   /// BCC recipient email address. For multiple addresses, send as an array of strings. BCC recipients of the original message are never copied. Each address is `email@example.com` or `Name &lt;email@example.com&gt;`. An address that is not valid returns a 422.
-  final SdkOptional<dynamic> bcc;
+  final SdkOptional<List<String>?> bcc;
 
   /// The HTML body of the reply.
   final SdkOptional<String> html;
@@ -112,8 +44,8 @@ class ReplyInboxThreadEmailOptions {
       this.headers = const SdkOmitted()});
 
   ReplyInboxThreadEmailOptions Function(
-      {SdkOptional<dynamic> cc,
-      SdkOptional<dynamic> bcc,
+      {SdkOptional<List<String>?> cc,
+      SdkOptional<List<String>?> bcc,
       SdkOptional<String> html,
       SdkOptional<String> text,
       SdkOptional<String> subject,
@@ -133,10 +65,10 @@ class ReplyInboxThreadEmailOptions {
       ReplyInboxThreadEmailOptions(
         cc: identical(cc, sdkOmittedValue)
             ? this.cc
-            : cc as SdkOptional<dynamic>,
+            : cc as SdkOptional<List<String>?>,
         bcc: identical(bcc, sdkOmittedValue)
             ? this.bcc
-            : bcc as SdkOptional<dynamic>,
+            : bcc as SdkOptional<List<String>?>,
         html: identical(html, sdkOmittedValue)
             ? this.html
             : html as SdkOptional<String>,
@@ -160,10 +92,12 @@ class ReplyInboxThreadEmailOptions {
   factory ReplyInboxThreadEmailOptions.fromJson(Map<String, dynamic> json) =>
       ReplyInboxThreadEmailOptions(
         cc: json.containsKey('cc')
-            ? SdkPresent(json['cc'])
+            ? SdkPresent(
+                (json['cc'] as List?)?.map((e) => e as String).toList())
             : const SdkOmitted(),
         bcc: json.containsKey('bcc')
-            ? SdkPresent(json['bcc'])
+            ? SdkPresent(
+                (json['bcc'] as List?)?.map((e) => e as String).toList())
             : const SdkOmitted(),
         html: json['html'] != null
             ? SdkPresent((json['html'] as String?)!)
@@ -192,13 +126,13 @@ class ReplyInboxThreadEmailOptions {
 
   Map<String, dynamic> toJson() => {
         ...switch (cc) {
-          SdkPresent<dynamic>(value: final value) => {
+          SdkPresent<List<String>?>(value: final value) => {
               'cc': value,
             },
           _ => const <String, dynamic>{},
         },
         ...switch (bcc) {
-          SdkPresent<dynamic>(value: final value) => {
+          SdkPresent<List<String>?>(value: final value) => {
               'bcc': value,
             },
           _ => const <String, dynamic>{},

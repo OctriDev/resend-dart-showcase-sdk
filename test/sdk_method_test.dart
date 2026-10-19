@@ -433,7 +433,7 @@ void main() {
       final actual = await sdk_methods_3.broadcastsCreate(
         config,
         segmentId: (jsonDecode("\"segment-1\"") as String),
-        from: (jsonDecode("\"from\"") as String),
+        from: (jsonDecode("\"user@example.com\"") as String),
         subject: (jsonDecode("\"subject\"") as String),
         name: SdkPresent<String>((jsonDecode("\"Example Name\"") as String)),
         audienceId:
@@ -568,7 +568,8 @@ void main() {
         audienceId:
             SdkPresent<String>((jsonDecode("\"audience-1\"") as String)),
         segmentId: SdkPresent<String>((jsonDecode("\"segment-1\"") as String)),
-        from: SdkPresent<String>((jsonDecode("\"from\"") as String)),
+        from:
+            SdkPresent<String>((jsonDecode("\"user@example.com\"") as String)),
         subject: SdkPresent<String>((jsonDecode("\"subject\"") as String)),
         replyTo: SdkPresent<List<String>>((jsonDecode("[\"reply_to\"]") as List)
             .map((element) => (element as String))
@@ -1203,14 +1204,22 @@ void main() {
     test("emailsSend reaches the mock and decodes its response", () async {
       final actual = await sdk_methods_7.emailsSend(
         config,
-        from: (jsonDecode("\"from\"") as String),
-        to: jsonDecode("\"to\""),
+        from: (jsonDecode("\"user@example.com\"") as String),
+        to: (jsonDecode("[\"to\"]") as List)
+            .map((element) => (element as String))
+            .toList(),
         subject: (jsonDecode("\"subject\"") as String),
         idempotencyKey:
             SdkPresent<String>((jsonDecode("\"Idempotency-Key\"") as String)),
-        bcc: SdkPresent<dynamic>(jsonDecode("\"bcc\"")),
-        cc: SdkPresent<dynamic>(jsonDecode("\"cc\"")),
-        replyTo: SdkPresent<dynamic>(jsonDecode("\"reply_to\"")),
+        bcc: SdkPresent<List<String>>((jsonDecode("[\"bcc\"]") as List)
+            .map((element) => (element as String))
+            .toList()),
+        cc: SdkPresent<List<String>>((jsonDecode("[\"cc\"]") as List)
+            .map((element) => (element as String))
+            .toList()),
+        replyTo: SdkPresent<List<String>>((jsonDecode("[\"reply_to\"]") as List)
+            .map((element) => (element as String))
+            .toList()),
         html: SdkPresent<String>((jsonDecode("\"html\"") as String)),
         text: SdkPresent<String>((jsonDecode("\"text\"") as String)),
         template: SdkPresent<
@@ -1250,7 +1259,7 @@ void main() {
         idempotencyKey:
             SdkPresent<String>((jsonDecode("\"Idempotency-Key\"") as String)),
         body: SdkPresent<List<SendEmailRequest>>((jsonDecode(
-                    "[{\"from\":\"from\",\"to\":\"to\",\"subject\":\"subject\",\"bcc\":\"bcc\",\"cc\":\"cc\",\"reply_to\":\"reply_to\",\"html\":\"html\",\"text\":\"text\",\"template\":{\"id\":\"id-1\",\"variables\":{\"variableName\":\"Sign up now\",\"variableName2\":123}},\"headers\":{},\"scheduled_at\":\"2024-01-01T00:00:00Z\",\"attachments\":[{\"content\":\"ZXhhbXBsZQ==\",\"filename\":\"Example Name\",\"path\":\"path\",\"content_type\":\"content_type\",\"content_id\":\"content-1\"}],\"tags\":[{\"name\":\"Example Name\",\"value\":\"value\"}],\"topic_id\":\"topic-1\"}]")
+                    "[{\"from\":\"user@example.com\",\"to\":[\"to\"],\"subject\":\"subject\",\"bcc\":[\"bcc\"],\"cc\":[\"cc\"],\"reply_to\":[\"reply_to\"],\"html\":\"html\",\"text\":\"text\",\"template\":{\"id\":\"id-1\",\"variables\":{\"variableName\":\"Sign up now\",\"variableName2\":123}},\"headers\":{},\"scheduled_at\":\"2024-01-01T00:00:00Z\",\"attachments\":[{\"content\":\"ZXhhbXBsZQ==\",\"filename\":\"Example Name\",\"path\":\"path\",\"content_type\":\"content_type\",\"content_id\":\"content-1\"}],\"tags\":[{\"name\":\"Example Name\",\"value\":\"value\"}],\"topic_id\":\"topic-1\"}]")
                 as List)
             .map((element) => SendEmailRequest.fromJson(
                 (element as Map).cast<String, dynamic>()))
@@ -1480,9 +1489,16 @@ void main() {
         inboxId:
             (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
         idempotencyKey: SdkPresent<String>((jsonDecode("\"x\"") as String)),
-        to: SdkPresent<dynamic>(jsonDecode("[\"ada@example.org\"]")),
-        cc: SdkPresent<dynamic>(jsonDecode("\"cc\"")),
-        bcc: SdkPresent<dynamic>(jsonDecode("\"bcc\"")),
+        to: SdkPresent<List<String>?>(
+            (jsonDecode("[\"ada@example.org\"]") as List)
+                .map((element) => (element as String))
+                .toList()),
+        cc: SdkPresent<List<String>?>((jsonDecode("[\"cc\"]") as List)
+            .map((element) => (element as String))
+            .toList()),
+        bcc: SdkPresent<List<String>?>((jsonDecode("[\"bcc\"]") as List)
+            .map((element) => (element as String))
+            .toList()),
         subject: SdkPresent<String?>(
             (jsonDecode("\"Refund for order 1041\"") as String)),
         html: SdkPresent<String?>(
@@ -1539,10 +1555,18 @@ void main() {
             (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
         emailId:
             (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
-        to: jsonDecode("[\"colleague@example.org\"]"),
+        to: (jsonDecode("[\"colleague@example.org\"]") as List)
+            .map((element) => (element as String))
+            .toList(),
         idempotencyKey: SdkPresent<String>((jsonDecode("\"x\"") as String)),
-        cc: SdkPresent<dynamic>(jsonDecode("[\"billing@acme.com\"]")),
-        bcc: SdkPresent<dynamic>(jsonDecode("[\"records@acme.com\"]")),
+        cc: SdkPresent<List<String>?>(
+            (jsonDecode("[\"billing@acme.com\"]") as List)
+                .map((element) => (element as String))
+                .toList()),
+        bcc: SdkPresent<List<String>?>(
+            (jsonDecode("[\"records@acme.com\"]") as List)
+                .map((element) => (element as String))
+                .toList()),
         html: SdkPresent<String>(
             (jsonDecode("\"<p>Flagging this refund request for you.</p>\"")
                 as String)),
@@ -1851,8 +1875,14 @@ void main() {
         emailId:
             (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
         idempotencyKey: SdkPresent<String>((jsonDecode("\"x\"") as String)),
-        cc: SdkPresent<dynamic>(jsonDecode("[\"billing@acme.com\"]")),
-        bcc: SdkPresent<dynamic>(jsonDecode("[\"records@acme.com\"]")),
+        cc: SdkPresent<List<String>?>(
+            (jsonDecode("[\"billing@acme.com\"]") as List)
+                .map((element) => (element as String))
+                .toList()),
+        bcc: SdkPresent<List<String>?>(
+            (jsonDecode("[\"records@acme.com\"]") as List)
+                .map((element) => (element as String))
+                .toList()),
         html: SdkPresent<String>(
             (jsonDecode("\"<p>Refund issued for order 1041.</p>\"") as String)),
         text: SdkPresent<String>(
@@ -2009,9 +2039,16 @@ void main() {
             (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
         draftId:
             (jsonDecode("\"00000000-0000-4000-8000-000000000000\"") as String),
-        to: SdkPresent<dynamic>(jsonDecode("[\"ada@example.org\"]")),
-        cc: SdkPresent<dynamic>(jsonDecode("\"cc\"")),
-        bcc: SdkPresent<dynamic>(jsonDecode("\"bcc\"")),
+        to: SdkPresent<List<String>?>(
+            (jsonDecode("[\"ada@example.org\"]") as List)
+                .map((element) => (element as String))
+                .toList()),
+        cc: SdkPresent<List<String>?>((jsonDecode("[\"cc\"]") as List)
+            .map((element) => (element as String))
+            .toList()),
+        bcc: SdkPresent<List<String>?>((jsonDecode("[\"bcc\"]") as List)
+            .map((element) => (element as String))
+            .toList()),
         subject: SdkPresent<String?>(
             (jsonDecode("\"Refund issued for order 1041\"") as String)),
         html: SdkPresent<String?>((jsonDecode("\"html\"") as String)),
@@ -2427,7 +2464,8 @@ void main() {
         name: (jsonDecode("\"Example Name\"") as String),
         html: (jsonDecode("\"html\"") as String),
         alias: SdkPresent<String>((jsonDecode("\"alias\"") as String)),
-        from: SdkPresent<String>((jsonDecode("\"from\"") as String)),
+        from:
+            SdkPresent<String>((jsonDecode("\"user@example.com\"") as String)),
         subject: SdkPresent<String>((jsonDecode("\"subject\"") as String)),
         replyTo: SdkPresent<List<String>>((jsonDecode("[\"reply_to\"]") as List)
             .map((element) => (element as String))
@@ -2473,7 +2511,7 @@ void main() {
         mismatch(
           normal(actual),
           SdkUtils.decodeJson(
-              "{\"object\":\"template\",\"id\":\"id-1\",\"current_version_id\":\"current_version-1\",\"name\":\"Example Name\",\"alias\":\"alias\",\"from\":\"from\",\"subject\":\"subject\",\"reply_to\":[\"reply_to\"],\"html\":\"html\",\"text\":\"text\",\"variables\":[{\"id\":\"id-1\",\"key\":\"key\",\"type\":\"string\",\"fallback_value\":\"fallback_value\",\"created_at\":\"2023-10-06 23:47:56.678+00\",\"updated_at\":\"2023-10-06 23:47:56.678+00\"}],\"created_at\":\"2023-10-06 23:47:56.678+00\",\"updated_at\":\"2023-10-06 23:47:56.678+00\",\"status\":\"draft\",\"published_at\":\"2023-10-06 23:47:56.678+00\",\"has_unpublished_versions\":false}"),
+              "{\"object\":\"template\",\"id\":\"id-1\",\"current_version_id\":\"current_version-1\",\"name\":\"Example Name\",\"alias\":\"alias\",\"from\":\"user@example.com\",\"subject\":\"subject\",\"reply_to\":[\"reply_to\"],\"html\":\"html\",\"text\":\"text\",\"variables\":[{\"id\":\"id-1\",\"key\":\"key\",\"type\":\"string\",\"fallback_value\":\"fallback_value\",\"created_at\":\"2023-10-06 23:47:56.678+00\",\"updated_at\":\"2023-10-06 23:47:56.678+00\"}],\"created_at\":\"2023-10-06 23:47:56.678+00\",\"updated_at\":\"2023-10-06 23:47:56.678+00\",\"status\":\"draft\",\"published_at\":\"2023-10-06 23:47:56.678+00\",\"has_unpublished_versions\":false}"),
         ),
         isNull,
       );
@@ -2532,7 +2570,8 @@ void main() {
         id: (jsonDecode("\"id-1\"") as String),
         name: SdkPresent<String>((jsonDecode("\"Example Name\"") as String)),
         alias: SdkPresent<String>((jsonDecode("\"alias\"") as String)),
-        from: SdkPresent<String>((jsonDecode("\"from\"") as String)),
+        from:
+            SdkPresent<String>((jsonDecode("\"user@example.com\"") as String)),
         subject: SdkPresent<String>((jsonDecode("\"subject\"") as String)),
         replyTo: SdkPresent<List<String>>((jsonDecode("[\"reply_to\"]") as List)
             .map((element) => (element as String))
