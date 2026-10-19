@@ -16,7 +16,7 @@ dependencies:
 
 ## Quickstart
 
-The example calls `client.domains.get_` (GET `/domains/{domain_id}`) with example values for its required arguments.
+The example calls `client.emails.send` (POST `/emails`) with example values for its required arguments.
 
 ```dart
 import 'dart:io';
@@ -30,7 +30,7 @@ Future<void> main() async {
     auth: ClientAuthConfig(bearerAuth: Platform.environment['API_TOKEN']!),
   );
   final client = Resend(config);
-  final result = await client.domains.get_(domainId: 'domain-1');
+  final result = await client.emails.send(from: 'user@example.com', to: ['user@example.com'], subject: 'subject');
   print(result);
 }
 ```

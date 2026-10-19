@@ -758,8 +758,8 @@ Future<ReplyInboxThreadEmailResponseSuccess> inboxesReplyThreadEmail(
     required String threadId,
     required String emailId,
     SdkOptional<String> idempotencyKey = const SdkOmitted(),
-    SdkOptional<dynamic> cc = const SdkOmitted(),
-    SdkOptional<dynamic> bcc = const SdkOmitted(),
+    SdkOptional<List<String>?> cc = const SdkOmitted(),
+    SdkOptional<List<String>?> bcc = const SdkOmitted(),
     SdkOptional<String> html = const SdkOmitted(),
     SdkOptional<String> text = const SdkOmitted(),
     SdkOptional<String> subject = const SdkOmitted(),
@@ -772,6 +772,18 @@ Future<ReplyInboxThreadEmailResponseSuccess> inboxesReplyThreadEmail(
   sdkValidateUuid('email_id', emailId);
   if (idempotencyKey is SdkPresent<String>) {
     validateLength('Idempotency-Key', idempotencyKey.value, min: 1, max: 256);
+  }
+  if (cc is SdkPresent<List<String>?>) {
+    final ccValue = cc.value;
+    if (ccValue != null) {
+      validateItems('cc', ccValue, max: 49);
+    }
+  }
+  if (bcc is SdkPresent<List<String>?>) {
+    final bccValue = bcc.value;
+    if (bccValue != null) {
+      validateItems('bcc', bccValue, max: 49);
+    }
   }
   if (subject is SdkPresent<String>) {
     validateLength('subject', subject.value, min: 1, max: 2000);
@@ -851,10 +863,10 @@ Future<ForwardInboxThreadEmailResponseSuccess> inboxesForwardThreadEmail(
     {required String inboxId,
     required String threadId,
     required String emailId,
-    required dynamic to,
+    required List<String> to,
     SdkOptional<String> idempotencyKey = const SdkOmitted(),
-    SdkOptional<dynamic> cc = const SdkOmitted(),
-    SdkOptional<dynamic> bcc = const SdkOmitted(),
+    SdkOptional<List<String>?> cc = const SdkOmitted(),
+    SdkOptional<List<String>?> bcc = const SdkOmitted(),
     SdkOptional<String> html = const SdkOmitted(),
     SdkOptional<String> text = const SdkOmitted(),
     SdkOptional<String> subject = const SdkOmitted(),
@@ -864,8 +876,21 @@ Future<ForwardInboxThreadEmailResponseSuccess> inboxesForwardThreadEmail(
   sdkValidateUuid('inbox_id', inboxId);
   sdkValidateUuid('thread_id', threadId);
   sdkValidateUuid('email_id', emailId);
+  validateItems('to', to, min: 1, max: 50);
   if (idempotencyKey is SdkPresent<String>) {
     validateLength('Idempotency-Key', idempotencyKey.value, min: 1, max: 256);
+  }
+  if (cc is SdkPresent<List<String>?>) {
+    final ccValue = cc.value;
+    if (ccValue != null) {
+      validateItems('cc', ccValue, max: 50);
+    }
+  }
+  if (bcc is SdkPresent<List<String>?>) {
+    final bccValue = bcc.value;
+    if (bccValue != null) {
+      validateItems('bcc', bccValue, max: 50);
+    }
   }
   if (subject is SdkPresent<String>) {
     validateLength('subject', subject.value, min: 1, max: 2000);
@@ -971,9 +996,9 @@ Future<ListInboxDraftsResponseSuccess> inboxesListDrafts(ClientConfig config,
 Future<CreateInboxDraftResponseSuccess> inboxesCreateDraft(ClientConfig config,
     {required String inboxId,
     SdkOptional<String> idempotencyKey = const SdkOmitted(),
-    SdkOptional<dynamic> to = const SdkOmitted(),
-    SdkOptional<dynamic> cc = const SdkOmitted(),
-    SdkOptional<dynamic> bcc = const SdkOmitted(),
+    SdkOptional<List<String>?> to = const SdkOmitted(),
+    SdkOptional<List<String>?> cc = const SdkOmitted(),
+    SdkOptional<List<String>?> bcc = const SdkOmitted(),
     SdkOptional<String?> subject = const SdkOmitted(),
     SdkOptional<String?> html = const SdkOmitted(),
     SdkOptional<String?> text = const SdkOmitted(),
@@ -985,6 +1010,24 @@ Future<CreateInboxDraftResponseSuccess> inboxesCreateDraft(ClientConfig config,
   sdkValidateUuid('inbox_id', inboxId);
   if (idempotencyKey is SdkPresent<String>) {
     validateLength('Idempotency-Key', idempotencyKey.value, min: 1, max: 256);
+  }
+  if (to is SdkPresent<List<String>?>) {
+    final toValue = to.value;
+    if (toValue != null) {
+      validateItems('to', toValue, max: 50);
+    }
+  }
+  if (cc is SdkPresent<List<String>?>) {
+    final ccValue = cc.value;
+    if (ccValue != null) {
+      validateItems('cc', ccValue, max: 50);
+    }
+  }
+  if (bcc is SdkPresent<List<String>?>) {
+    final bccValue = bcc.value;
+    if (bccValue != null) {
+      validateItems('bcc', bccValue, max: 50);
+    }
   }
   if (subject is SdkPresent<String?>) {
     final subjectValue = subject.value;
@@ -1074,9 +1117,9 @@ Future<InboxDraft> inboxesGetDraft(ClientConfig config,
 Future<InboxDraft> inboxesUpdateDraft(ClientConfig config,
     {required String inboxId,
     required String draftId,
-    SdkOptional<dynamic> to = const SdkOmitted(),
-    SdkOptional<dynamic> cc = const SdkOmitted(),
-    SdkOptional<dynamic> bcc = const SdkOmitted(),
+    SdkOptional<List<String>?> to = const SdkOmitted(),
+    SdkOptional<List<String>?> cc = const SdkOmitted(),
+    SdkOptional<List<String>?> bcc = const SdkOmitted(),
     SdkOptional<String?> subject = const SdkOmitted(),
     SdkOptional<String?> html = const SdkOmitted(),
     SdkOptional<String?> text = const SdkOmitted(),
@@ -1085,6 +1128,24 @@ Future<InboxDraft> inboxesUpdateDraft(ClientConfig config,
     RequestOptions? requestOptions}) async {
   sdkValidateUuid('inbox_id', inboxId);
   sdkValidateUuid('draft_id', draftId);
+  if (to is SdkPresent<List<String>?>) {
+    final toValue = to.value;
+    if (toValue != null) {
+      validateItems('to', toValue, max: 50);
+    }
+  }
+  if (cc is SdkPresent<List<String>?>) {
+    final ccValue = cc.value;
+    if (ccValue != null) {
+      validateItems('cc', ccValue, max: 50);
+    }
+  }
+  if (bcc is SdkPresent<List<String>?>) {
+    final bccValue = bcc.value;
+    if (bccValue != null) {
+      validateItems('bcc', bccValue, max: 50);
+    }
+  }
   if (subject is SdkPresent<String?>) {
     final subjectValue = subject.value;
     if (subjectValue != null) {

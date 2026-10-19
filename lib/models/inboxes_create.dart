@@ -6,4 +6,3 @@ import '../sdk_utils.dart';
 import 'inboxes_inbox.dart';
 
 part 'inboxes_create_part1.dart';
-part 'inboxes_create_part2.dart';

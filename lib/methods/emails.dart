@@ -39,12 +39,12 @@ import '../types.dart';
 ///   default subscription is opt_in.
 Future<SendEmailResponse> emailsSend(ClientConfig config,
     {required String from,
-    required dynamic to,
+    required List<String> to,
     required String subject,
     SdkOptional<String> idempotencyKey = const SdkOmitted(),
-    SdkOptional<dynamic> bcc = const SdkOmitted(),
-    SdkOptional<dynamic> cc = const SdkOmitted(),
-    SdkOptional<dynamic> replyTo = const SdkOmitted(),
+    SdkOptional<List<String>> bcc = const SdkOmitted(),
+    SdkOptional<List<String>> cc = const SdkOmitted(),
+    SdkOptional<List<String>> replyTo = const SdkOmitted(),
     SdkOptional<String> html = const SdkOmitted(),
     SdkOptional<String> text = const SdkOmitted(),
     SdkOptional<EmailTemplateInput> template = const SdkOmitted(),
@@ -54,6 +54,7 @@ Future<SendEmailResponse> emailsSend(ClientConfig config,
     SdkOptional<List<Tag>> tags = const SdkOmitted(),
     SdkOptional<String> topicId = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
+  validateItems('to', to, min: 1, max: 50);
   if (idempotencyKey is SdkPresent<String>) {
     validateLength('Idempotency-Key', idempotencyKey.value, max: 256);
   }
