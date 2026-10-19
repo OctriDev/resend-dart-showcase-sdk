@@ -8,100 +8,54 @@ part of 'webhook_event_attachment.dart';
 class WebhookEventAttachment {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Unique identifier for the attachment.
   final String id;
-
   /// The filename of the attachment.
   final SdkOptional<String> filename;
-
   /// The MIME type of the attachment.
   final SdkOptional<String> contentType;
-
   /// The content disposition (e.g., `inline` or `attachment`).
   final SdkOptional<String> contentDisposition;
-
   /// Content-ID header used for referencing inline images.
   final SdkOptional<String> contentId;
 
-  const WebhookEventAttachment(
-      {required this.id,
-      this.filename = const SdkOmitted(),
-      this.contentType = const SdkOmitted(),
-      this.contentDisposition = const SdkOmitted(),
-      this.contentId = const SdkOmitted()});
+  const WebhookEventAttachment({required this.id, this.filename = const SdkOmitted(), this.contentType = const SdkOmitted(), this.contentDisposition = const SdkOmitted(), this.contentId = const SdkOmitted()});
 
-  WebhookEventAttachment Function(
-      {String id,
-      SdkOptional<String> filename,
-      SdkOptional<String> contentType,
-      SdkOptional<String> contentDisposition,
-      SdkOptional<String> contentId}) get copyWith => _copyWith;
+  WebhookEventAttachment Function({String id, SdkOptional<String> filename, SdkOptional<String> contentType, SdkOptional<String> contentDisposition, SdkOptional<String> contentId}) get copyWith => _copyWith;
 
-  WebhookEventAttachment _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? filename = sdkOmittedValue,
-          Object? contentType = sdkOmittedValue,
-          Object? contentDisposition = sdkOmittedValue,
-          Object? contentId = sdkOmittedValue}) =>
-      WebhookEventAttachment(
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        filename: identical(filename, sdkOmittedValue)
-            ? this.filename
-            : filename as SdkOptional<String>,
-        contentType: identical(contentType, sdkOmittedValue)
-            ? this.contentType
-            : contentType as SdkOptional<String>,
-        contentDisposition: identical(contentDisposition, sdkOmittedValue)
-            ? this.contentDisposition
-            : contentDisposition as SdkOptional<String>,
-        contentId: identical(contentId, sdkOmittedValue)
-            ? this.contentId
-            : contentId as SdkOptional<String>,
-      );
+  WebhookEventAttachment _copyWith({Object? id = sdkOmittedValue, Object? filename = sdkOmittedValue, Object? contentType = sdkOmittedValue, Object? contentDisposition = sdkOmittedValue, Object? contentId = sdkOmittedValue}) => WebhookEventAttachment(
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    filename: identical(filename, sdkOmittedValue) ? this.filename : filename as SdkOptional<String>,
+    contentType: identical(contentType, sdkOmittedValue) ? this.contentType : contentType as SdkOptional<String>,
+    contentDisposition: identical(contentDisposition, sdkOmittedValue) ? this.contentDisposition : contentDisposition as SdkOptional<String>,
+    contentId: identical(contentId, sdkOmittedValue) ? this.contentId : contentId as SdkOptional<String>,
+  );
 
-  factory WebhookEventAttachment.fromJson(Map<String, dynamic> json) =>
-      WebhookEventAttachment(
-        id: (json['id'] as String?)!,
-        filename: json['filename'] != null
-            ? SdkPresent((json['filename'] as String?)!)
-            : const SdkOmitted(),
-        contentType: json['content_type'] != null
-            ? SdkPresent((json['content_type'] as String?)!)
-            : const SdkOmitted(),
-        contentDisposition: json['content_disposition'] != null
-            ? SdkPresent((json['content_disposition'] as String?)!)
-            : const SdkOmitted(),
-        contentId: json['content_id'] != null
-            ? SdkPresent((json['content_id'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory WebhookEventAttachment.fromJson(Map<String, dynamic> json) => WebhookEventAttachment(
+    id: (json['id'] as String?)!,
+    filename: json['filename'] != null ? SdkPresent((json['filename'] as String?)!) : const SdkOmitted(),
+    contentType: json['content_type'] != null ? SdkPresent((json['content_type'] as String?)!) : const SdkOmitted(),
+    contentDisposition: json['content_disposition'] != null ? SdkPresent((json['content_disposition'] as String?)!) : const SdkOmitted(),
+    contentId: json['content_id'] != null ? SdkPresent((json['content_id'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-        ...switch (filename) {
-          SdkPresent<String>(value: final value) => {
-              'filename': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (contentType) {
-          SdkPresent<String>(value: final value) => {
-              'content_type': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (contentDisposition) {
-          SdkPresent<String>(value: final value) => {
-              'content_disposition': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (contentId) {
-          SdkPresent<String>(value: final value) => {
-              'content_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'id': id,
+    ...switch (filename) {
+      SdkPresent<String>(value: final value) => {'filename': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (contentType) {
+      SdkPresent<String>(value: final value) => {'content_type': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (contentDisposition) {
+      SdkPresent<String>(value: final value) => {'content_disposition': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (contentId) {
+      SdkPresent<String>(value: final value) => {'content_id': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

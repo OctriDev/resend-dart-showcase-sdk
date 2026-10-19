@@ -6,12 +6,12 @@ part of 'inline.dart';
 // Inline operation models (part 6)
 /// Required enumerated value serialized in the `enabled_actions[]` wire field.
 final class InboxAgentEnabledActionsItem {
+
   final String value;
 
   const InboxAgentEnabledActionsItem._(this.value);
 
-  factory InboxAgentEnabledActionsItem.fromJson(String value) =>
-      InboxAgentEnabledActionsItem._(value);
+  factory InboxAgentEnabledActionsItem.fromJson(String value) => InboxAgentEnabledActionsItem._(value);
 
   static const draftReply = InboxAgentEnabledActionsItem._('draft_reply');
   static const forwardThread = InboxAgentEnabledActionsItem._('forward_thread');
@@ -23,19 +23,17 @@ final class InboxAgentEnabledActionsItem {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is InboxAgentEnabledActionsItem && other.value == value;
+  @override bool operator ==(Object other) => other is InboxAgentEnabledActionsItem && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The tone the agent writes in. Null when no tone is set.
 final class InboxAgentTone {
+
   final String value;
 
   const InboxAgentTone._(this.value);
@@ -49,15 +47,12 @@ final class InboxAgentTone {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is InboxAgentTone && other.value == value;
+  @override bool operator ==(Object other) => other is InboxAgentTone && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The event type.
@@ -66,17 +61,14 @@ enum InboxCreatedEventType {
 
   static InboxCreatedEventType fromJson(String value) {
     switch (value) {
-      case 'inbox.created':
-        return InboxCreatedEventType.inboxCreated;
-      default:
-        throw ArgumentError('Unknown InboxCreatedEventType: $value');
+      case 'inbox.created': return InboxCreatedEventType.inboxCreated;
+      default: throw ArgumentError('Unknown InboxCreatedEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case InboxCreatedEventType.inboxCreated:
-        return 'inbox.created';
+      case InboxCreatedEventType.inboxCreated: return 'inbox.created';
     }
   }
 
@@ -90,17 +82,14 @@ enum InboxDeletedEventType {
 
   static InboxDeletedEventType fromJson(String value) {
     switch (value) {
-      case 'inbox.deleted':
-        return InboxDeletedEventType.inboxDeleted;
-      default:
-        throw ArgumentError('Unknown InboxDeletedEventType: $value');
+      case 'inbox.deleted': return InboxDeletedEventType.inboxDeleted;
+      default: throw ArgumentError('Unknown InboxDeletedEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case InboxDeletedEventType.inboxDeleted:
-        return 'inbox.deleted';
+      case InboxDeletedEventType.inboxDeleted: return 'inbox.deleted';
     }
   }
 
@@ -110,6 +99,7 @@ enum InboxDeletedEventType {
 
 /// `reply` when the draft replies to an email in an existing thread. `standalone` when the draft starts a new thread.
 final class InboxDraftType {
+
   final String value;
 
   const InboxDraftType._(this.value);
@@ -121,15 +111,12 @@ final class InboxDraftType {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is InboxDraftType && other.value == value;
+  @override bool operator ==(Object other) => other is InboxDraftType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The event type.
@@ -138,17 +125,14 @@ enum InboxDraftCreatedEventType {
 
   static InboxDraftCreatedEventType fromJson(String value) {
     switch (value) {
-      case 'inbox.draft.created':
-        return InboxDraftCreatedEventType.inboxDraftCreated;
-      default:
-        throw ArgumentError('Unknown InboxDraftCreatedEventType: $value');
+      case 'inbox.draft.created': return InboxDraftCreatedEventType.inboxDraftCreated;
+      default: throw ArgumentError('Unknown InboxDraftCreatedEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case InboxDraftCreatedEventType.inboxDraftCreated:
-        return 'inbox.draft.created';
+      case InboxDraftCreatedEventType.inboxDraftCreated: return 'inbox.draft.created';
     }
   }
 
@@ -162,17 +146,14 @@ enum InboxDraftDeletedEventType {
 
   static InboxDraftDeletedEventType fromJson(String value) {
     switch (value) {
-      case 'inbox.draft.deleted':
-        return InboxDraftDeletedEventType.inboxDraftDeleted;
-      default:
-        throw ArgumentError('Unknown InboxDraftDeletedEventType: $value');
+      case 'inbox.draft.deleted': return InboxDraftDeletedEventType.inboxDraftDeleted;
+      default: throw ArgumentError('Unknown InboxDraftDeletedEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case InboxDraftDeletedEventType.inboxDraftDeleted:
-        return 'inbox.draft.deleted';
+      case InboxDraftDeletedEventType.inboxDraftDeleted: return 'inbox.draft.deleted';
     }
   }
 
@@ -182,27 +163,24 @@ enum InboxDraftDeletedEventType {
 
 /// `reply` when the draft replies to an email in an existing thread. `standalone` when the draft starts a new thread.
 final class InboxDraftListItemType {
+
   final String value;
 
   const InboxDraftListItemType._(this.value);
 
-  factory InboxDraftListItemType.fromJson(String value) =>
-      InboxDraftListItemType._(value);
+  factory InboxDraftListItemType.fromJson(String value) => InboxDraftListItemType._(value);
 
   static const standalone = InboxDraftListItemType._('standalone');
   static const reply = InboxDraftListItemType._('reply');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is InboxDraftListItemType && other.value == value;
+  @override bool operator ==(Object other) => other is InboxDraftListItemType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The event type.
@@ -211,17 +189,14 @@ enum InboxDraftSentEventType {
 
   static InboxDraftSentEventType fromJson(String value) {
     switch (value) {
-      case 'inbox.draft.sent':
-        return InboxDraftSentEventType.inboxDraftSent;
-      default:
-        throw ArgumentError('Unknown InboxDraftSentEventType: $value');
+      case 'inbox.draft.sent': return InboxDraftSentEventType.inboxDraftSent;
+      default: throw ArgumentError('Unknown InboxDraftSentEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case InboxDraftSentEventType.inboxDraftSent:
-        return 'inbox.draft.sent';
+      case InboxDraftSentEventType.inboxDraftSent: return 'inbox.draft.sent';
     }
   }
 
@@ -235,17 +210,14 @@ enum InboxDraftUpdatedEventType {
 
   static InboxDraftUpdatedEventType fromJson(String value) {
     switch (value) {
-      case 'inbox.draft.updated':
-        return InboxDraftUpdatedEventType.inboxDraftUpdated;
-      default:
-        throw ArgumentError('Unknown InboxDraftUpdatedEventType: $value');
+      case 'inbox.draft.updated': return InboxDraftUpdatedEventType.inboxDraftUpdated;
+      default: throw ArgumentError('Unknown InboxDraftUpdatedEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case InboxDraftUpdatedEventType.inboxDraftUpdated:
-        return 'inbox.draft.updated';
+      case InboxDraftUpdatedEventType.inboxDraftUpdated: return 'inbox.draft.updated';
     }
   }
 
@@ -259,17 +231,14 @@ enum InboxEmailReceivedEventType {
 
   static InboxEmailReceivedEventType fromJson(String value) {
     switch (value) {
-      case 'inbox.email.received':
-        return InboxEmailReceivedEventType.inboxEmailReceived;
-      default:
-        throw ArgumentError('Unknown InboxEmailReceivedEventType: $value');
+      case 'inbox.email.received': return InboxEmailReceivedEventType.inboxEmailReceived;
+      default: throw ArgumentError('Unknown InboxEmailReceivedEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case InboxEmailReceivedEventType.inboxEmailReceived:
-        return 'inbox.email.received';
+      case InboxEmailReceivedEventType.inboxEmailReceived: return 'inbox.email.received';
     }
   }
 
@@ -283,17 +252,14 @@ enum InboxEmailSentEventType {
 
   static InboxEmailSentEventType fromJson(String value) {
     switch (value) {
-      case 'inbox.email.sent':
-        return InboxEmailSentEventType.inboxEmailSent;
-      default:
-        throw ArgumentError('Unknown InboxEmailSentEventType: $value');
+      case 'inbox.email.sent': return InboxEmailSentEventType.inboxEmailSent;
+      default: throw ArgumentError('Unknown InboxEmailSentEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case InboxEmailSentEventType.inboxEmailSent:
-        return 'inbox.email.sent';
+      case InboxEmailSentEventType.inboxEmailSent: return 'inbox.email.sent';
     }
   }
 
@@ -303,25 +269,22 @@ enum InboxEmailSentEventType {
 
 /// `standalone` for a new conversation, or `reply`.
 final class InboxEventDraftType {
+
   final String value;
 
   const InboxEventDraftType._(this.value);
 
-  factory InboxEventDraftType.fromJson(String value) =>
-      InboxEventDraftType._(value);
+  factory InboxEventDraftType.fromJson(String value) => InboxEventDraftType._(value);
 
   static const standalone = InboxEventDraftType._('standalone');
   static const reply = InboxEventDraftType._('reply');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is InboxEventDraftType && other.value == value;
+  @override bool operator ==(Object other) => other is InboxEventDraftType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

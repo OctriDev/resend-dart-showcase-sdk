@@ -19,11 +19,11 @@ Future<CreateAudienceResponseSuccess> audiencesCreate(ClientConfig config,
           body: {'name': name},
           decoder: SdkResponseDecoder.json,
           operationId: 'audiencesCreate',
-          fromJsonRaw: (value) => CreateAudienceResponseSuccess.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => CreateAudienceResponseSuccess.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Lists audiences with their identifiers, names, and creation timestamps. Use the Segments endpoints instead, because this audience operation is deprecated. This operation is closing down and will be removed on a date not specified in the API definition.
 ///
@@ -36,11 +36,11 @@ Future<ListAudiencesResponseSuccess> audiencesList(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'audiencesList',
-          fromJsonRaw: (value) => ListAudiencesResponseSuccess.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ListAudiencesResponseSuccess.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Deletes an audience selected by its ID. Use the Segments endpoints instead, because this audience operation is deprecated. This operation is closing down and will be removed on a date not specified in the API definition.
 ///
@@ -56,11 +56,11 @@ Future<RemoveAudienceResponseSuccess> audiencesRemove(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'audiencesRemove',
-          fromJsonRaw: (value) => RemoveAudienceResponseSuccess.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => RemoveAudienceResponseSuccess.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Retrieves an audience by its ID. Use the Segments endpoints instead, because this audience operation is deprecated. This operation is closing down and will be removed on a date not specified in the API definition.
 ///
@@ -76,8 +76,7 @@ Future<GetAudienceResponseSuccess> audiencesGet(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'audiencesGet',
-          fromJsonRaw: (value) => GetAudienceResponseSuccess.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => GetAudienceResponseSuccess.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }

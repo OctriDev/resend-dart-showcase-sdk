@@ -8,394 +8,199 @@ part of 'logs.dart';
 class ListLogsResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Type of the response object.
   final SdkOptional<String> object;
-
   /// Indicates if there are more results available.
   final SdkOptional<bool> hasMore;
-
   /// Array containing log information.
   final SdkOptional<List<LogSummary>> data;
 
-  const ListLogsResponse(
-      {this.object = const SdkOmitted(),
-      this.hasMore = const SdkOmitted(),
-      this.data = const SdkOmitted()});
+  const ListLogsResponse({this.object = const SdkOmitted(), this.hasMore = const SdkOmitted(), this.data = const SdkOmitted()});
 
-  ListLogsResponse Function(
-      {SdkOptional<String> object,
-      SdkOptional<bool> hasMore,
-      SdkOptional<List<LogSummary>> data}) get copyWith => _copyWith;
+  ListLogsResponse Function({SdkOptional<String> object, SdkOptional<bool> hasMore, SdkOptional<List<LogSummary>> data}) get copyWith => _copyWith;
 
-  ListLogsResponse _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? hasMore = sdkOmittedValue,
-          Object? data = sdkOmittedValue}) =>
-      ListLogsResponse(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as SdkOptional<String>,
-        hasMore: identical(hasMore, sdkOmittedValue)
-            ? this.hasMore
-            : hasMore as SdkOptional<bool>,
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as SdkOptional<List<LogSummary>>,
-      );
+  ListLogsResponse _copyWith({Object? object = sdkOmittedValue, Object? hasMore = sdkOmittedValue, Object? data = sdkOmittedValue}) => ListLogsResponse(
+    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<String>,
+    hasMore: identical(hasMore, sdkOmittedValue) ? this.hasMore : hasMore as SdkOptional<bool>,
+    data: identical(data, sdkOmittedValue) ? this.data : data as SdkOptional<List<LogSummary>>,
+  );
 
-  factory ListLogsResponse.fromJson(Map<String, dynamic> json) =>
-      ListLogsResponse(
-        object: json['object'] != null
-            ? SdkPresent((json['object'] as String?)!)
-            : const SdkOmitted(),
-        hasMore: json['has_more'] != null
-            ? SdkPresent((json['has_more'] as bool?)!)
-            : const SdkOmitted(),
-        data: json['data'] != null
-            ? SdkPresent(((json['data'] as List?)
-                ?.map((e) => LogSummary.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory ListLogsResponse.fromJson(Map<String, dynamic> json) => ListLogsResponse(
+    object: json['object'] != null ? SdkPresent((json['object'] as String?)!) : const SdkOmitted(),
+    hasMore: json['has_more'] != null ? SdkPresent((json['has_more'] as bool?)!) : const SdkOmitted(),
+    data: json['data'] != null ? SdkPresent(((json['data'] as List?)?.map((e) => LogSummary.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (object) {
-          SdkPresent<String>(value: final value) => {
-              'object': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (hasMore) {
-          SdkPresent<bool>(value: final value) => {
-              'has_more': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (data) {
-          SdkPresent<List<LogSummary>>(value: final value) => {
-              'data': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (object) {
+      SdkPresent<String>(value: final value) => {'object': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (hasMore) {
+      SdkPresent<bool>(value: final value) => {'has_more': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (data) {
+      SdkPresent<List<LogSummary>>(value: final value) => {'data': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `Log` API schema.
 class Log {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Type of the response object.
   final SdkOptional<String> object;
-
   /// The log ID.
   final SdkOptional<String> id;
-
   /// The date the log was created.
   final SdkOptional<String> createdAt;
-
   /// The API endpoint that was called.
   final SdkOptional<String> endpoint;
-
   /// The HTTP method used.
   final SdkOptional<LogMethod> method;
-
   /// The HTTP status code of the response.
   final SdkOptional<int> responseStatus;
-
   /// The user agent of the request.
   final SdkOptional<String?> userAgent;
-
   /// The request body sent to the API.
   final SdkOptional<Map<String, dynamic>?> requestBody;
-
   /// The response body returned by the API.
   final SdkOptional<Map<String, dynamic>?> responseBody;
 
-  const Log(
-      {this.object = const SdkOmitted(),
-      this.id = const SdkOmitted(),
-      this.createdAt = const SdkOmitted(),
-      this.endpoint = const SdkOmitted(),
-      this.method = const SdkOmitted(),
-      this.responseStatus = const SdkOmitted(),
-      this.userAgent = const SdkOmitted(),
-      this.requestBody = const SdkOmitted(),
-      this.responseBody = const SdkOmitted()});
+  const Log({this.object = const SdkOmitted(), this.id = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.endpoint = const SdkOmitted(), this.method = const SdkOmitted(), this.responseStatus = const SdkOmitted(), this.userAgent = const SdkOmitted(), this.requestBody = const SdkOmitted(), this.responseBody = const SdkOmitted()});
 
-  Log Function(
-          {SdkOptional<String> object,
-          SdkOptional<String> id,
-          SdkOptional<String> createdAt,
-          SdkOptional<String> endpoint,
-          SdkOptional<LogMethod> method,
-          SdkOptional<int> responseStatus,
-          SdkOptional<String?> userAgent,
-          SdkOptional<Map<String, dynamic>?> requestBody,
-          SdkOptional<Map<String, dynamic>?> responseBody})
-      get copyWith => _copyWith;
+  Log Function({SdkOptional<String> object, SdkOptional<String> id, SdkOptional<String> createdAt, SdkOptional<String> endpoint, SdkOptional<LogMethod> method, SdkOptional<int> responseStatus, SdkOptional<String?> userAgent, SdkOptional<Map<String, dynamic>?> requestBody, SdkOptional<Map<String, dynamic>?> responseBody}) get copyWith => _copyWith;
 
-  Log _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? endpoint = sdkOmittedValue,
-          Object? method = sdkOmittedValue,
-          Object? responseStatus = sdkOmittedValue,
-          Object? userAgent = sdkOmittedValue,
-          Object? requestBody = sdkOmittedValue,
-          Object? responseBody = sdkOmittedValue}) =>
-      Log(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as SdkOptional<String>,
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as SdkOptional<String>,
-        endpoint: identical(endpoint, sdkOmittedValue)
-            ? this.endpoint
-            : endpoint as SdkOptional<String>,
-        method: identical(method, sdkOmittedValue)
-            ? this.method
-            : method as SdkOptional<LogMethod>,
-        responseStatus: identical(responseStatus, sdkOmittedValue)
-            ? this.responseStatus
-            : responseStatus as SdkOptional<int>,
-        userAgent: identical(userAgent, sdkOmittedValue)
-            ? this.userAgent
-            : userAgent as SdkOptional<String?>,
-        requestBody: identical(requestBody, sdkOmittedValue)
-            ? this.requestBody
-            : requestBody as SdkOptional<Map<String, dynamic>?>,
-        responseBody: identical(responseBody, sdkOmittedValue)
-            ? this.responseBody
-            : responseBody as SdkOptional<Map<String, dynamic>?>,
-      );
+  Log _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? endpoint = sdkOmittedValue, Object? method = sdkOmittedValue, Object? responseStatus = sdkOmittedValue, Object? userAgent = sdkOmittedValue, Object? requestBody = sdkOmittedValue, Object? responseBody = sdkOmittedValue}) => Log(
+    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<String>,
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
+    endpoint: identical(endpoint, sdkOmittedValue) ? this.endpoint : endpoint as SdkOptional<String>,
+    method: identical(method, sdkOmittedValue) ? this.method : method as SdkOptional<LogMethod>,
+    responseStatus: identical(responseStatus, sdkOmittedValue) ? this.responseStatus : responseStatus as SdkOptional<int>,
+    userAgent: identical(userAgent, sdkOmittedValue) ? this.userAgent : userAgent as SdkOptional<String?>,
+    requestBody: identical(requestBody, sdkOmittedValue) ? this.requestBody : requestBody as SdkOptional<Map<String, dynamic>?>,
+    responseBody: identical(responseBody, sdkOmittedValue) ? this.responseBody : responseBody as SdkOptional<Map<String, dynamic>?>,
+  );
 
   factory Log.fromJson(Map<String, dynamic> json) => Log(
-        object: json['object'] != null
-            ? SdkPresent((json['object'] as String?)!)
-            : const SdkOmitted(),
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-        createdAt: json['created_at'] != null
-            ? SdkPresent((json['created_at'] as String?)!)
-            : const SdkOmitted(),
-        endpoint: json['endpoint'] != null
-            ? SdkPresent((json['endpoint'] as String?)!)
-            : const SdkOmitted(),
-        method: json['method'] != null
-            ? SdkPresent((json['method'] != null
-                ? LogMethod.fromJson(json['method'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        responseStatus: json['response_status'] != null
-            ? SdkPresent(((json['response_status'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        userAgent: json.containsKey('user_agent')
-            ? SdkPresent(json['user_agent'] as String?)
-            : const SdkOmitted(),
-        requestBody: json.containsKey('request_body')
-            ? SdkPresent(json['request_body'] == null
-                ? null
-                : json['request_body'] as Map<String, dynamic>)
-            : const SdkOmitted(),
-        responseBody: json.containsKey('response_body')
-            ? SdkPresent(json['response_body'] == null
-                ? null
-                : json['response_body'] as Map<String, dynamic>)
-            : const SdkOmitted(),
-      );
+    object: json['object'] != null ? SdkPresent((json['object'] as String?)!) : const SdkOmitted(),
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
+    endpoint: json['endpoint'] != null ? SdkPresent((json['endpoint'] as String?)!) : const SdkOmitted(),
+    method: json['method'] != null ? SdkPresent((json['method'] != null ? LogMethod.fromJson(json['method'] as String) : null)!) : const SdkOmitted(),
+    responseStatus: json['response_status'] != null ? SdkPresent(((json['response_status'] as num?)?.toInt())!) : const SdkOmitted(),
+    userAgent: json.containsKey('user_agent') ? SdkPresent(json['user_agent'] as String?) : const SdkOmitted(),
+    requestBody: json.containsKey('request_body') ? SdkPresent(json['request_body'] == null ? null : json['request_body'] as Map<String, dynamic>) : const SdkOmitted(),
+    responseBody: json.containsKey('response_body') ? SdkPresent(json['response_body'] == null ? null : json['response_body'] as Map<String, dynamic>) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (object) {
-          SdkPresent<String>(value: final value) => {
-              'object': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (createdAt) {
-          SdkPresent<String>(value: final value) => {
-              'created_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (endpoint) {
-          SdkPresent<String>(value: final value) => {
-              'endpoint': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (method) {
-          SdkPresent<LogMethod>(value: final value) => {
-              'method': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (responseStatus) {
-          SdkPresent<int>(value: final value) => {
-              'response_status': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (userAgent) {
-          SdkPresent<String?>(value: final value) => {
-              'user_agent': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (requestBody) {
-          SdkPresent<Map<String, dynamic>?>(value: final value) => {
-              'request_body': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (responseBody) {
-          SdkPresent<Map<String, dynamic>?>(value: final value) => {
-              'response_body': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (object) {
+      SdkPresent<String>(value: final value) => {'object': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (createdAt) {
+      SdkPresent<String>(value: final value) => {'created_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (endpoint) {
+      SdkPresent<String>(value: final value) => {'endpoint': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (method) {
+      SdkPresent<LogMethod>(value: final value) => {'method': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (responseStatus) {
+      SdkPresent<int>(value: final value) => {'response_status': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (userAgent) {
+      SdkPresent<String?>(value: final value) => {'user_agent': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (requestBody) {
+      SdkPresent<Map<String, dynamic>?>(value: final value) => {'request_body': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (responseBody) {
+      SdkPresent<Map<String, dynamic>?>(value: final value) => {'response_body': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `LogSummary` API schema.
 class LogSummary {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The log ID.
   final SdkOptional<String> id;
-
   /// The date the log was created.
   final SdkOptional<String> createdAt;
-
   /// The API endpoint that was called.
   final SdkOptional<String> endpoint;
-
   /// The HTTP method used.
   final SdkOptional<LogSummaryMethod> method;
-
   /// The HTTP status code of the response.
   final SdkOptional<int> responseStatus;
-
   /// The user agent of the request.
   final SdkOptional<String?> userAgent;
 
-  const LogSummary(
-      {this.id = const SdkOmitted(),
-      this.createdAt = const SdkOmitted(),
-      this.endpoint = const SdkOmitted(),
-      this.method = const SdkOmitted(),
-      this.responseStatus = const SdkOmitted(),
-      this.userAgent = const SdkOmitted()});
+  const LogSummary({this.id = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.endpoint = const SdkOmitted(), this.method = const SdkOmitted(), this.responseStatus = const SdkOmitted(), this.userAgent = const SdkOmitted()});
 
-  LogSummary Function(
-      {SdkOptional<String> id,
-      SdkOptional<String> createdAt,
-      SdkOptional<String> endpoint,
-      SdkOptional<LogSummaryMethod> method,
-      SdkOptional<int> responseStatus,
-      SdkOptional<String?> userAgent}) get copyWith => _copyWith;
+  LogSummary Function({SdkOptional<String> id, SdkOptional<String> createdAt, SdkOptional<String> endpoint, SdkOptional<LogSummaryMethod> method, SdkOptional<int> responseStatus, SdkOptional<String?> userAgent}) get copyWith => _copyWith;
 
-  LogSummary _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? endpoint = sdkOmittedValue,
-          Object? method = sdkOmittedValue,
-          Object? responseStatus = sdkOmittedValue,
-          Object? userAgent = sdkOmittedValue}) =>
-      LogSummary(
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as SdkOptional<String>,
-        endpoint: identical(endpoint, sdkOmittedValue)
-            ? this.endpoint
-            : endpoint as SdkOptional<String>,
-        method: identical(method, sdkOmittedValue)
-            ? this.method
-            : method as SdkOptional<LogSummaryMethod>,
-        responseStatus: identical(responseStatus, sdkOmittedValue)
-            ? this.responseStatus
-            : responseStatus as SdkOptional<int>,
-        userAgent: identical(userAgent, sdkOmittedValue)
-            ? this.userAgent
-            : userAgent as SdkOptional<String?>,
-      );
+  LogSummary _copyWith({Object? id = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? endpoint = sdkOmittedValue, Object? method = sdkOmittedValue, Object? responseStatus = sdkOmittedValue, Object? userAgent = sdkOmittedValue}) => LogSummary(
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
+    endpoint: identical(endpoint, sdkOmittedValue) ? this.endpoint : endpoint as SdkOptional<String>,
+    method: identical(method, sdkOmittedValue) ? this.method : method as SdkOptional<LogSummaryMethod>,
+    responseStatus: identical(responseStatus, sdkOmittedValue) ? this.responseStatus : responseStatus as SdkOptional<int>,
+    userAgent: identical(userAgent, sdkOmittedValue) ? this.userAgent : userAgent as SdkOptional<String?>,
+  );
 
   factory LogSummary.fromJson(Map<String, dynamic> json) => LogSummary(
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-        createdAt: json['created_at'] != null
-            ? SdkPresent((json['created_at'] as String?)!)
-            : const SdkOmitted(),
-        endpoint: json['endpoint'] != null
-            ? SdkPresent((json['endpoint'] as String?)!)
-            : const SdkOmitted(),
-        method: json['method'] != null
-            ? SdkPresent((json['method'] != null
-                ? LogSummaryMethod.fromJson(json['method'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        responseStatus: json['response_status'] != null
-            ? SdkPresent(((json['response_status'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        userAgent: json.containsKey('user_agent')
-            ? SdkPresent(json['user_agent'] as String?)
-            : const SdkOmitted(),
-      );
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
+    endpoint: json['endpoint'] != null ? SdkPresent((json['endpoint'] as String?)!) : const SdkOmitted(),
+    method: json['method'] != null ? SdkPresent((json['method'] != null ? LogSummaryMethod.fromJson(json['method'] as String) : null)!) : const SdkOmitted(),
+    responseStatus: json['response_status'] != null ? SdkPresent(((json['response_status'] as num?)?.toInt())!) : const SdkOmitted(),
+    userAgent: json.containsKey('user_agent') ? SdkPresent(json['user_agent'] as String?) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (createdAt) {
-          SdkPresent<String>(value: final value) => {
-              'created_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (endpoint) {
-          SdkPresent<String>(value: final value) => {
-              'endpoint': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (method) {
-          SdkPresent<LogSummaryMethod>(value: final value) => {
-              'method': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (responseStatus) {
-          SdkPresent<int>(value: final value) => {
-              'response_status': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (userAgent) {
-          SdkPresent<String?>(value: final value) => {
-              'user_agent': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (createdAt) {
+      SdkPresent<String>(value: final value) => {'created_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (endpoint) {
+      SdkPresent<String>(value: final value) => {'endpoint': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (method) {
+      SdkPresent<LogSummaryMethod>(value: final value) => {'method': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (responseStatus) {
+      SdkPresent<int>(value: final value) => {'response_status': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (userAgent) {
+      SdkPresent<String?>(value: final value) => {'user_agent': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

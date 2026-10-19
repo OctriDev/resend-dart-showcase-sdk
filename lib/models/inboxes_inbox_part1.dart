@@ -8,528 +8,278 @@ part of 'inboxes_inbox.dart';
 class Inbox {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The object type. Always `inbox`.
   final String object;
-
   /// The ID of the inbox.
   final String id;
-
   /// Internal name for the inbox. Recipients do not see it. Falls back to the inbox email address.
   final String name;
-
   /// The address of the inbox.
   final String emailAddress;
-
   /// The ID of the domain that owns the address.
   final String domainId;
-
   /// The address to forward mail to when forwarding is enabled. `null` otherwise.
   final String? receivingAddress;
-
   /// The name recipients see when mail is sent from this inbox. `null` when not set.
   final String? fromName;
-
   /// The number of unread threads in the Inbox folder.
   final int unread;
-
   /// The number of unsent drafts.
   final int drafts;
-
   /// ISO 8601 timestamp of the newest received email in the Inbox folder. `null` when the folder has no received email.
   final String? lastReceived;
-
   /// ISO 8601 timestamp when the inbox was created.
   final String createdAt;
 
-  const Inbox(
-      {required this.object,
-      required this.id,
-      required this.name,
-      required this.emailAddress,
-      required this.domainId,
-      required this.receivingAddress,
-      required this.fromName,
-      required this.unread,
-      required this.drafts,
-      required this.lastReceived,
-      required this.createdAt});
+  const Inbox({required this.object, required this.id, required this.name, required this.emailAddress, required this.domainId, required this.receivingAddress, required this.fromName, required this.unread, required this.drafts, required this.lastReceived, required this.createdAt});
 
-  Inbox Function(
-      {String object,
-      String id,
-      String name,
-      String emailAddress,
-      String domainId,
-      String? receivingAddress,
-      String? fromName,
-      int unread,
-      int drafts,
-      String? lastReceived,
-      String createdAt}) get copyWith => _copyWith;
+  Inbox Function({String object, String id, String name, String emailAddress, String domainId, String? receivingAddress, String? fromName, int unread, int drafts, String? lastReceived, String createdAt}) get copyWith => _copyWith;
 
-  Inbox _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? emailAddress = sdkOmittedValue,
-          Object? domainId = sdkOmittedValue,
-          Object? receivingAddress = sdkOmittedValue,
-          Object? fromName = sdkOmittedValue,
-          Object? unread = sdkOmittedValue,
-          Object? drafts = sdkOmittedValue,
-          Object? lastReceived = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue}) =>
-      Inbox(
-        object:
-            identical(object, sdkOmittedValue) ? this.object : object as String,
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        emailAddress: identical(emailAddress, sdkOmittedValue)
-            ? this.emailAddress
-            : emailAddress as String,
-        domainId: identical(domainId, sdkOmittedValue)
-            ? this.domainId
-            : domainId as String,
-        receivingAddress: identical(receivingAddress, sdkOmittedValue)
-            ? this.receivingAddress
-            : receivingAddress as String?,
-        fromName: identical(fromName, sdkOmittedValue)
-            ? this.fromName
-            : fromName as String?,
-        unread:
-            identical(unread, sdkOmittedValue) ? this.unread : unread as int,
-        drafts:
-            identical(drafts, sdkOmittedValue) ? this.drafts : drafts as int,
-        lastReceived: identical(lastReceived, sdkOmittedValue)
-            ? this.lastReceived
-            : lastReceived as String?,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as String,
-      );
+  Inbox _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? name = sdkOmittedValue, Object? emailAddress = sdkOmittedValue, Object? domainId = sdkOmittedValue, Object? receivingAddress = sdkOmittedValue, Object? fromName = sdkOmittedValue, Object? unread = sdkOmittedValue, Object? drafts = sdkOmittedValue, Object? lastReceived = sdkOmittedValue, Object? createdAt = sdkOmittedValue}) => Inbox(
+    object: identical(object, sdkOmittedValue) ? this.object : object as String,
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    emailAddress: identical(emailAddress, sdkOmittedValue) ? this.emailAddress : emailAddress as String,
+    domainId: identical(domainId, sdkOmittedValue) ? this.domainId : domainId as String,
+    receivingAddress: identical(receivingAddress, sdkOmittedValue) ? this.receivingAddress : receivingAddress as String?,
+    fromName: identical(fromName, sdkOmittedValue) ? this.fromName : fromName as String?,
+    unread: identical(unread, sdkOmittedValue) ? this.unread : unread as int,
+    drafts: identical(drafts, sdkOmittedValue) ? this.drafts : drafts as int,
+    lastReceived: identical(lastReceived, sdkOmittedValue) ? this.lastReceived : lastReceived as String?,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as String,
+  );
 
   factory Inbox.fromJson(Map<String, dynamic> json) => Inbox(
-        object: (json['object'] as String?)!,
-        id: (json['id'] as String?)!,
-        name: (json['name'] as String?)!,
-        emailAddress: (json['email_address'] as String?)!,
-        domainId: (json['domain_id'] as String?)!,
-        receivingAddress: json.containsKey('receiving_address')
-            ? json['receiving_address'] as String?
-            : throw ArgumentError.value(
-                null, 'receiving_address', 'Required property is missing'),
-        fromName: json.containsKey('from_name')
-            ? json['from_name'] as String?
-            : throw ArgumentError.value(
-                null, 'from_name', 'Required property is missing'),
-        unread: ((json['unread'] as num?)?.toInt())!,
-        drafts: ((json['drafts'] as num?)?.toInt())!,
-        lastReceived: json.containsKey('last_received')
-            ? json['last_received'] as String?
-            : throw ArgumentError.value(
-                null, 'last_received', 'Required property is missing'),
-        createdAt: (json['created_at'] as String?)!,
-      );
+    object: (json['object'] as String?)!,
+    id: (json['id'] as String?)!,
+    name: (json['name'] as String?)!,
+    emailAddress: (json['email_address'] as String?)!,
+    domainId: (json['domain_id'] as String?)!,
+    receivingAddress: json.containsKey('receiving_address') ? json['receiving_address'] as String? : throw ArgumentError.value(null, 'receiving_address', 'Required property is missing'),
+    fromName: json.containsKey('from_name') ? json['from_name'] as String? : throw ArgumentError.value(null, 'from_name', 'Required property is missing'),
+    unread: ((json['unread'] as num?)?.toInt())!,
+    drafts: ((json['drafts'] as num?)?.toInt())!,
+    lastReceived: json.containsKey('last_received') ? json['last_received'] as String? : throw ArgumentError.value(null, 'last_received', 'Required property is missing'),
+    createdAt: (json['created_at'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'object': object,
-        'id': id,
-        'name': name,
-        'email_address': emailAddress,
-        'domain_id': domainId,
-        'receiving_address': receivingAddress,
-        'from_name': fromName,
-        'unread': unread,
-        'drafts': drafts,
-        'last_received': lastReceived,
-        'created_at': createdAt,
-      };
+    'object': object,
+    'id': id,
+    'name': name,
+    'email_address': emailAddress,
+    'domain_id': domainId,
+    'receiving_address': receivingAddress,
+    'from_name': fromName,
+    'unread': unread,
+    'drafts': drafts,
+    'last_received': lastReceived,
+    'created_at': createdAt,
+  };
 }
 
 /// Typed representation of the `InboxAgent` API schema.
 class InboxAgent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The object type. Always `inbox_agent`.
   final String object;
-
   /// Instructions the agent follows when it handles the threads of the inbox. Null when no instructions are set.
   final String? instructions;
-
   /// The tone the agent writes in. Null when no tone is set.
   final InboxAgentTone? tone;
-
   /// The actions the agent can take. Empty when no actions are enabled.
   final List<InboxAgentEnabledActionsItem> enabledActions;
 
-  const InboxAgent(
-      {required this.object,
-      required this.instructions,
-      required this.tone,
-      required this.enabledActions});
+  const InboxAgent({required this.object, required this.instructions, required this.tone, required this.enabledActions});
 
-  InboxAgent Function(
-          {String object,
-          String? instructions,
-          InboxAgentTone? tone,
-          List<InboxAgentEnabledActionsItem> enabledActions})
-      get copyWith => _copyWith;
+  InboxAgent Function({String object, String? instructions, InboxAgentTone? tone, List<InboxAgentEnabledActionsItem> enabledActions}) get copyWith => _copyWith;
 
-  InboxAgent _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? instructions = sdkOmittedValue,
-          Object? tone = sdkOmittedValue,
-          Object? enabledActions = sdkOmittedValue}) =>
-      InboxAgent(
-        object:
-            identical(object, sdkOmittedValue) ? this.object : object as String,
-        instructions: identical(instructions, sdkOmittedValue)
-            ? this.instructions
-            : instructions as String?,
-        tone: identical(tone, sdkOmittedValue)
-            ? this.tone
-            : tone as InboxAgentTone?,
-        enabledActions: identical(enabledActions, sdkOmittedValue)
-            ? this.enabledActions
-            : enabledActions as List<InboxAgentEnabledActionsItem>,
-      );
+  InboxAgent _copyWith({Object? object = sdkOmittedValue, Object? instructions = sdkOmittedValue, Object? tone = sdkOmittedValue, Object? enabledActions = sdkOmittedValue}) => InboxAgent(
+    object: identical(object, sdkOmittedValue) ? this.object : object as String,
+    instructions: identical(instructions, sdkOmittedValue) ? this.instructions : instructions as String?,
+    tone: identical(tone, sdkOmittedValue) ? this.tone : tone as InboxAgentTone?,
+    enabledActions: identical(enabledActions, sdkOmittedValue) ? this.enabledActions : enabledActions as List<InboxAgentEnabledActionsItem>,
+  );
 
   factory InboxAgent.fromJson(Map<String, dynamic> json) => InboxAgent(
-        object: (json['object'] as String?)!,
-        instructions: json.containsKey('instructions')
-            ? json['instructions'] as String?
-            : throw ArgumentError.value(
-                null, 'instructions', 'Required property is missing'),
-        tone: json.containsKey('tone')
-            ? json['tone'] != null
-                ? InboxAgentTone.fromJson(json['tone'] as String)
-                : null
-            : throw ArgumentError.value(
-                null, 'tone', 'Required property is missing'),
-        enabledActions: ((json['enabled_actions'] as List?)
-            ?.map((e) => InboxAgentEnabledActionsItem.fromJson(e as String))
-            .toList())!,
-      );
+    object: (json['object'] as String?)!,
+    instructions: json.containsKey('instructions') ? json['instructions'] as String? : throw ArgumentError.value(null, 'instructions', 'Required property is missing'),
+    tone: json.containsKey('tone') ? json['tone'] != null ? InboxAgentTone.fromJson(json['tone'] as String) : null : throw ArgumentError.value(null, 'tone', 'Required property is missing'),
+    enabledActions: ((json['enabled_actions'] as List?)?.map((e) => InboxAgentEnabledActionsItem.fromJson(e as String)).toList())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'object': object,
-        'instructions': instructions,
-        'tone': tone?.toJson(),
-        'enabled_actions': enabledActions.map((item) => item.toJson()).toList(),
-      };
+    'object': object,
+    'instructions': instructions,
+    'tone': tone?.toJson(),
+    'enabled_actions': enabledActions.map((item) => item.toJson()).toList(),
+  };
 }
 
 /// Typed representation of the `InboxDraft` API schema.
 class InboxDraft {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The object type.
   final String object;
-
   /// The ID of the draft.
   final String id;
-
   /// `reply` when the draft replies to an email in an existing thread. `standalone` when the draft starts a new thread.
   final InboxDraftType type_;
-
   /// The recipients. `null` or empty when no recipients are set.
   final List<String>? to;
-
   /// The CC recipients.
   final List<String> cc;
-
   /// The BCC recipients.
   final List<String> bcc;
-
   /// The subject.
   final String? subject;
-
   /// The HTML body.
   final String? html;
-
   /// The plain text body. A reply draft created without a body has an empty string.
   final String? text;
-
   /// The Thread ID when the draft is a reply. `null` otherwise.
   final String? threadId;
-
   /// The Email ID the draft replies to. `null` otherwise.
   final String? replyToEmailId;
-
   /// The ID of the outbound email queued when the draft was sent. `null` until the draft is sent.
   final String? emailId;
-
   /// Timestamp when the draft was created.
   final String createdAt;
-
   /// Timestamp when the draft was last saved.
   final String updatedAt;
-
   /// The files stored on the draft.
   final List<InboxDraftAttachment> attachments;
 
-  const InboxDraft(
-      {required this.object,
-      required this.id,
-      required this.type_,
-      required this.to,
-      required this.cc,
-      required this.bcc,
-      required this.subject,
-      required this.html,
-      required this.text,
-      required this.threadId,
-      required this.replyToEmailId,
-      required this.emailId,
-      required this.createdAt,
-      required this.updatedAt,
-      required this.attachments});
+  const InboxDraft({required this.object, required this.id, required this.type_, required this.to, required this.cc, required this.bcc, required this.subject, required this.html, required this.text, required this.threadId, required this.replyToEmailId, required this.emailId, required this.createdAt, required this.updatedAt, required this.attachments});
 
-  InboxDraft Function(
-      {String object,
-      String id,
-      InboxDraftType type_,
-      List<String>? to,
-      List<String> cc,
-      List<String> bcc,
-      String? subject,
-      String? html,
-      String? text,
-      String? threadId,
-      String? replyToEmailId,
-      String? emailId,
-      String createdAt,
-      String updatedAt,
-      List<InboxDraftAttachment> attachments}) get copyWith => _copyWith;
+  InboxDraft Function({String object, String id, InboxDraftType type_, List<String>? to, List<String> cc, List<String> bcc, String? subject, String? html, String? text, String? threadId, String? replyToEmailId, String? emailId, String createdAt, String updatedAt, List<InboxDraftAttachment> attachments}) get copyWith => _copyWith;
 
-  InboxDraft _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? to = sdkOmittedValue,
-          Object? cc = sdkOmittedValue,
-          Object? bcc = sdkOmittedValue,
-          Object? subject = sdkOmittedValue,
-          Object? html = sdkOmittedValue,
-          Object? text = sdkOmittedValue,
-          Object? threadId = sdkOmittedValue,
-          Object? replyToEmailId = sdkOmittedValue,
-          Object? emailId = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? updatedAt = sdkOmittedValue,
-          Object? attachments = sdkOmittedValue}) =>
-      InboxDraft(
-        object:
-            identical(object, sdkOmittedValue) ? this.object : object as String,
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as InboxDraftType,
-        to: identical(to, sdkOmittedValue) ? this.to : to as List<String>?,
-        cc: identical(cc, sdkOmittedValue) ? this.cc : cc as List<String>,
-        bcc: identical(bcc, sdkOmittedValue) ? this.bcc : bcc as List<String>,
-        subject: identical(subject, sdkOmittedValue)
-            ? this.subject
-            : subject as String?,
-        html: identical(html, sdkOmittedValue) ? this.html : html as String?,
-        text: identical(text, sdkOmittedValue) ? this.text : text as String?,
-        threadId: identical(threadId, sdkOmittedValue)
-            ? this.threadId
-            : threadId as String?,
-        replyToEmailId: identical(replyToEmailId, sdkOmittedValue)
-            ? this.replyToEmailId
-            : replyToEmailId as String?,
-        emailId: identical(emailId, sdkOmittedValue)
-            ? this.emailId
-            : emailId as String?,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as String,
-        updatedAt: identical(updatedAt, sdkOmittedValue)
-            ? this.updatedAt
-            : updatedAt as String,
-        attachments: identical(attachments, sdkOmittedValue)
-            ? this.attachments
-            : attachments as List<InboxDraftAttachment>,
-      );
+  InboxDraft _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? to = sdkOmittedValue, Object? cc = sdkOmittedValue, Object? bcc = sdkOmittedValue, Object? subject = sdkOmittedValue, Object? html = sdkOmittedValue, Object? text = sdkOmittedValue, Object? threadId = sdkOmittedValue, Object? replyToEmailId = sdkOmittedValue, Object? emailId = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue, Object? attachments = sdkOmittedValue}) => InboxDraft(
+    object: identical(object, sdkOmittedValue) ? this.object : object as String,
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as InboxDraftType,
+    to: identical(to, sdkOmittedValue) ? this.to : to as List<String>?,
+    cc: identical(cc, sdkOmittedValue) ? this.cc : cc as List<String>,
+    bcc: identical(bcc, sdkOmittedValue) ? this.bcc : bcc as List<String>,
+    subject: identical(subject, sdkOmittedValue) ? this.subject : subject as String?,
+    html: identical(html, sdkOmittedValue) ? this.html : html as String?,
+    text: identical(text, sdkOmittedValue) ? this.text : text as String?,
+    threadId: identical(threadId, sdkOmittedValue) ? this.threadId : threadId as String?,
+    replyToEmailId: identical(replyToEmailId, sdkOmittedValue) ? this.replyToEmailId : replyToEmailId as String?,
+    emailId: identical(emailId, sdkOmittedValue) ? this.emailId : emailId as String?,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as String,
+    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as String,
+    attachments: identical(attachments, sdkOmittedValue) ? this.attachments : attachments as List<InboxDraftAttachment>,
+  );
 
   factory InboxDraft.fromJson(Map<String, dynamic> json) => InboxDraft(
-        object: (json['object'] as String?)!,
-        id: (json['id'] as String?)!,
-        type_: (json['type'] != null
-            ? InboxDraftType.fromJson(json['type'] as String)
-            : null)!,
-        to: json.containsKey('to')
-            ? (json['to'] as List?)?.map((e) => e as String).toList()
-            : throw ArgumentError.value(
-                null, 'to', 'Required property is missing'),
-        cc: ((json['cc'] as List?)?.map((e) => e as String).toList())!,
-        bcc: ((json['bcc'] as List?)?.map((e) => e as String).toList())!,
-        subject: json.containsKey('subject')
-            ? json['subject'] as String?
-            : throw ArgumentError.value(
-                null, 'subject', 'Required property is missing'),
-        html: json.containsKey('html')
-            ? json['html'] as String?
-            : throw ArgumentError.value(
-                null, 'html', 'Required property is missing'),
-        text: json.containsKey('text')
-            ? json['text'] as String?
-            : throw ArgumentError.value(
-                null, 'text', 'Required property is missing'),
-        threadId: json.containsKey('thread_id')
-            ? json['thread_id'] as String?
-            : throw ArgumentError.value(
-                null, 'thread_id', 'Required property is missing'),
-        replyToEmailId: json.containsKey('reply_to_email_id')
-            ? json['reply_to_email_id'] as String?
-            : throw ArgumentError.value(
-                null, 'reply_to_email_id', 'Required property is missing'),
-        emailId: json.containsKey('email_id')
-            ? json['email_id'] as String?
-            : throw ArgumentError.value(
-                null, 'email_id', 'Required property is missing'),
-        createdAt: (json['created_at'] as String?)!,
-        updatedAt: (json['updated_at'] as String?)!,
-        attachments: ((json['attachments'] as List?)
-            ?.map(
-                (e) => InboxDraftAttachment.fromJson(e as Map<String, dynamic>))
-            .toList())!,
-      );
+    object: (json['object'] as String?)!,
+    id: (json['id'] as String?)!,
+    type_: (json['type'] != null ? InboxDraftType.fromJson(json['type'] as String) : null)!,
+    to: json.containsKey('to') ? (json['to'] as List?)?.map((e) => e as String).toList() : throw ArgumentError.value(null, 'to', 'Required property is missing'),
+    cc: ((json['cc'] as List?)?.map((e) => e as String).toList())!,
+    bcc: ((json['bcc'] as List?)?.map((e) => e as String).toList())!,
+    subject: json.containsKey('subject') ? json['subject'] as String? : throw ArgumentError.value(null, 'subject', 'Required property is missing'),
+    html: json.containsKey('html') ? json['html'] as String? : throw ArgumentError.value(null, 'html', 'Required property is missing'),
+    text: json.containsKey('text') ? json['text'] as String? : throw ArgumentError.value(null, 'text', 'Required property is missing'),
+    threadId: json.containsKey('thread_id') ? json['thread_id'] as String? : throw ArgumentError.value(null, 'thread_id', 'Required property is missing'),
+    replyToEmailId: json.containsKey('reply_to_email_id') ? json['reply_to_email_id'] as String? : throw ArgumentError.value(null, 'reply_to_email_id', 'Required property is missing'),
+    emailId: json.containsKey('email_id') ? json['email_id'] as String? : throw ArgumentError.value(null, 'email_id', 'Required property is missing'),
+    createdAt: (json['created_at'] as String?)!,
+    updatedAt: (json['updated_at'] as String?)!,
+    attachments: ((json['attachments'] as List?)?.map((e) => InboxDraftAttachment.fromJson(e as Map<String, dynamic>)).toList())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'object': object,
-        'id': id,
-        'type': type_.toJson(),
-        'to': to,
-        'cc': cc,
-        'bcc': bcc,
-        'subject': subject,
-        'html': html,
-        'text': text,
-        'thread_id': threadId,
-        'reply_to_email_id': replyToEmailId,
-        'email_id': emailId,
-        'created_at': createdAt,
-        'updated_at': updatedAt,
-        'attachments': attachments.map((item) => item.toJson()).toList(),
-      };
+    'object': object,
+    'id': id,
+    'type': type_.toJson(),
+    'to': to,
+    'cc': cc,
+    'bcc': bcc,
+    'subject': subject,
+    'html': html,
+    'text': text,
+    'thread_id': threadId,
+    'reply_to_email_id': replyToEmailId,
+    'email_id': emailId,
+    'created_at': createdAt,
+    'updated_at': updatedAt,
+    'attachments': attachments.map((item) => item.toJson()).toList(),
+  };
 }
 
 /// A file stored on a draft.
 class InboxDraftAttachment {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The ID of the attachment.
   final String id;
-
   /// The filename of the attachment.
   final String filename;
-
   /// The MIME type of the attachment.
   final String contentType;
-
   /// The size of the attachment in bytes.
   final int size;
 
-  const InboxDraftAttachment(
-      {required this.id,
-      required this.filename,
-      required this.contentType,
-      required this.size});
+  const InboxDraftAttachment({required this.id, required this.filename, required this.contentType, required this.size});
 
-  InboxDraftAttachment Function(
-      {String id,
-      String filename,
-      String contentType,
-      int size}) get copyWith => _copyWith;
+  InboxDraftAttachment Function({String id, String filename, String contentType, int size}) get copyWith => _copyWith;
 
-  InboxDraftAttachment _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? filename = sdkOmittedValue,
-          Object? contentType = sdkOmittedValue,
-          Object? size = sdkOmittedValue}) =>
-      InboxDraftAttachment(
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        filename: identical(filename, sdkOmittedValue)
-            ? this.filename
-            : filename as String,
-        contentType: identical(contentType, sdkOmittedValue)
-            ? this.contentType
-            : contentType as String,
-        size: identical(size, sdkOmittedValue) ? this.size : size as int,
-      );
+  InboxDraftAttachment _copyWith({Object? id = sdkOmittedValue, Object? filename = sdkOmittedValue, Object? contentType = sdkOmittedValue, Object? size = sdkOmittedValue}) => InboxDraftAttachment(
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    filename: identical(filename, sdkOmittedValue) ? this.filename : filename as String,
+    contentType: identical(contentType, sdkOmittedValue) ? this.contentType : contentType as String,
+    size: identical(size, sdkOmittedValue) ? this.size : size as int,
+  );
 
-  factory InboxDraftAttachment.fromJson(Map<String, dynamic> json) =>
-      InboxDraftAttachment(
-        id: (json['id'] as String?)!,
-        filename: (json['filename'] as String?)!,
-        contentType: (json['content_type'] as String?)!,
-        size: ((json['size'] as num?)?.toInt())!,
-      );
+  factory InboxDraftAttachment.fromJson(Map<String, dynamic> json) => InboxDraftAttachment(
+    id: (json['id'] as String?)!,
+    filename: (json['filename'] as String?)!,
+    contentType: (json['content_type'] as String?)!,
+    size: ((json['size'] as num?)?.toInt())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-        'filename': filename,
-        'content_type': contentType,
-        'size': size,
-      };
+    'id': id,
+    'filename': filename,
+    'content_type': contentType,
+    'size': size,
+  };
 }
 
 /// A file to store on a draft. Unlike `POST /emails` attachments, a draft attachment cannot use `path` or `content_id`. A `path` without `content` returns a 422, and when both are sent, `path` is ignored.
 class InboxDraftAttachmentInput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The content of the file, encoded in base64. It cannot be empty.
   final String content;
-
   /// The filename of the attachment. A blocked file type returns a 422.
   final String filename;
-
   /// The MIME type of the attachment. It must be a valid MIME type, such as `application/pdf`, or the request returns a 422.
   final String contentType;
 
-  const InboxDraftAttachmentInput(
-      {required this.content,
-      required this.filename,
-      required this.contentType});
+  const InboxDraftAttachmentInput({required this.content, required this.filename, required this.contentType});
 
-  InboxDraftAttachmentInput Function(
-      {String content,
-      String filename,
-      String contentType}) get copyWith => _copyWith;
+  InboxDraftAttachmentInput Function({String content, String filename, String contentType}) get copyWith => _copyWith;
 
-  InboxDraftAttachmentInput _copyWith(
-          {Object? content = sdkOmittedValue,
-          Object? filename = sdkOmittedValue,
-          Object? contentType = sdkOmittedValue}) =>
-      InboxDraftAttachmentInput(
-        content: identical(content, sdkOmittedValue)
-            ? this.content
-            : content as String,
-        filename: identical(filename, sdkOmittedValue)
-            ? this.filename
-            : filename as String,
-        contentType: identical(contentType, sdkOmittedValue)
-            ? this.contentType
-            : contentType as String,
-      );
+  InboxDraftAttachmentInput _copyWith({Object? content = sdkOmittedValue, Object? filename = sdkOmittedValue, Object? contentType = sdkOmittedValue}) => InboxDraftAttachmentInput(
+    content: identical(content, sdkOmittedValue) ? this.content : content as String,
+    filename: identical(filename, sdkOmittedValue) ? this.filename : filename as String,
+    contentType: identical(contentType, sdkOmittedValue) ? this.contentType : contentType as String,
+  );
 
-  factory InboxDraftAttachmentInput.fromJson(Map<String, dynamic> json) =>
-      InboxDraftAttachmentInput(
-        content: (json['content'] as String?)!,
-        filename: (json['filename'] as String?)!,
-        contentType: (json['content_type'] as String?)!,
-      );
+  factory InboxDraftAttachmentInput.fromJson(Map<String, dynamic> json) => InboxDraftAttachmentInput(
+    content: (json['content'] as String?)!,
+    filename: (json['filename'] as String?)!,
+    contentType: (json['content_type'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'content': content,
-        'filename': filename,
-        'content_type': contentType,
-      };
+    'content': content,
+    'filename': filename,
+    'content_type': contentType,
+  };
 }

@@ -8,110 +8,66 @@ part of 'inbox.dart';
 class InboxCreatedEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The event type.
   final InboxCreatedEventType type_;
-
   /// Timestamp when the event was emitted.
   final String createdAt;
-
   /// The data of an `inbox.created` or `inbox.updated` event.
   final InboxEventData data;
 
-  const InboxCreatedEvent(
-      {required this.type_, required this.createdAt, required this.data});
+  const InboxCreatedEvent({required this.type_, required this.createdAt, required this.data});
 
-  InboxCreatedEvent Function(
-      {InboxCreatedEventType type_,
-      String createdAt,
-      InboxEventData data}) get copyWith => _copyWith;
+  InboxCreatedEvent Function({InboxCreatedEventType type_, String createdAt, InboxEventData data}) get copyWith => _copyWith;
 
-  InboxCreatedEvent _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? data = sdkOmittedValue}) =>
-      InboxCreatedEvent(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as InboxCreatedEventType,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as String,
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as InboxEventData,
-      );
+  InboxCreatedEvent _copyWith({Object? type_ = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? data = sdkOmittedValue}) => InboxCreatedEvent(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as InboxCreatedEventType,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as String,
+    data: identical(data, sdkOmittedValue) ? this.data : data as InboxEventData,
+  );
 
-  factory InboxCreatedEvent.fromJson(Map<String, dynamic> json) =>
-      InboxCreatedEvent(
-        type_: (json['type'] != null
-            ? InboxCreatedEventType.fromJson(json['type'] as String)
-            : null)!,
-        createdAt: (json['created_at'] as String?)!,
-        data: (json['data'] != null
-            ? InboxEventData.fromJson(json['data'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory InboxCreatedEvent.fromJson(Map<String, dynamic> json) => InboxCreatedEvent(
+    type_: (json['type'] != null ? InboxCreatedEventType.fromJson(json['type'] as String) : null)!,
+    createdAt: (json['created_at'] as String?)!,
+    data: (json['data'] != null ? InboxEventData.fromJson(json['data'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'created_at': createdAt,
-        'data': data.toJson(),
-      };
+    'type': type_.toJson(),
+    'created_at': createdAt,
+    'data': data.toJson(),
+  };
 }
 
 /// Typed representation of the `InboxUpdatedEvent` API schema.
 class InboxUpdatedEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The event type.
   final InboxUpdatedEventType type_;
-
   /// Timestamp when the event was emitted.
   final String createdAt;
-
   /// The data of an `inbox.created` or `inbox.updated` event.
   final InboxEventData data;
 
-  const InboxUpdatedEvent(
-      {required this.type_, required this.createdAt, required this.data});
+  const InboxUpdatedEvent({required this.type_, required this.createdAt, required this.data});
 
-  InboxUpdatedEvent Function(
-      {InboxUpdatedEventType type_,
-      String createdAt,
-      InboxEventData data}) get copyWith => _copyWith;
+  InboxUpdatedEvent Function({InboxUpdatedEventType type_, String createdAt, InboxEventData data}) get copyWith => _copyWith;
 
-  InboxUpdatedEvent _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? data = sdkOmittedValue}) =>
-      InboxUpdatedEvent(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as InboxUpdatedEventType,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as String,
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as InboxEventData,
-      );
+  InboxUpdatedEvent _copyWith({Object? type_ = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? data = sdkOmittedValue}) => InboxUpdatedEvent(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as InboxUpdatedEventType,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as String,
+    data: identical(data, sdkOmittedValue) ? this.data : data as InboxEventData,
+  );
 
-  factory InboxUpdatedEvent.fromJson(Map<String, dynamic> json) =>
-      InboxUpdatedEvent(
-        type_: (json['type'] != null
-            ? InboxUpdatedEventType.fromJson(json['type'] as String)
-            : null)!,
-        createdAt: (json['created_at'] as String?)!,
-        data: (json['data'] != null
-            ? InboxEventData.fromJson(json['data'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory InboxUpdatedEvent.fromJson(Map<String, dynamic> json) => InboxUpdatedEvent(
+    type_: (json['type'] != null ? InboxUpdatedEventType.fromJson(json['type'] as String) : null)!,
+    createdAt: (json['created_at'] as String?)!,
+    data: (json['data'] != null ? InboxEventData.fromJson(json['data'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'created_at': createdAt,
-        'data': data.toJson(),
-      };
+    'type': type_.toJson(),
+    'created_at': createdAt,
+    'data': data.toJson(),
+  };
 }

@@ -8,578 +8,293 @@ part of 'shared.dart';
 class Attachment {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Content of an attached file.
   final SdkOptional<List<int>> content;
-
   /// Name of attached file.
   final SdkOptional<String> filename;
-
   /// Path where the attachment file is hosted
   final SdkOptional<String> path;
-
   /// Optional content type for the attachment, if not set it will be derived from the filename property
   final SdkOptional<String> contentType;
-
   /// Content ID for embedding inline images using cid references (e.g., cid:image001).
   final SdkOptional<String> contentId;
 
-  const Attachment(
-      {this.content = const SdkOmitted(),
-      this.filename = const SdkOmitted(),
-      this.path = const SdkOmitted(),
-      this.contentType = const SdkOmitted(),
-      this.contentId = const SdkOmitted()});
+  const Attachment({this.content = const SdkOmitted(), this.filename = const SdkOmitted(), this.path = const SdkOmitted(), this.contentType = const SdkOmitted(), this.contentId = const SdkOmitted()});
 
-  Attachment Function(
-      {SdkOptional<List<int>> content,
-      SdkOptional<String> filename,
-      SdkOptional<String> path,
-      SdkOptional<String> contentType,
-      SdkOptional<String> contentId}) get copyWith => _copyWith;
+  Attachment Function({SdkOptional<List<int>> content, SdkOptional<String> filename, SdkOptional<String> path, SdkOptional<String> contentType, SdkOptional<String> contentId}) get copyWith => _copyWith;
 
-  Attachment _copyWith(
-          {Object? content = sdkOmittedValue,
-          Object? filename = sdkOmittedValue,
-          Object? path = sdkOmittedValue,
-          Object? contentType = sdkOmittedValue,
-          Object? contentId = sdkOmittedValue}) =>
-      Attachment(
-        content: identical(content, sdkOmittedValue)
-            ? this.content
-            : content as SdkOptional<List<int>>,
-        filename: identical(filename, sdkOmittedValue)
-            ? this.filename
-            : filename as SdkOptional<String>,
-        path: identical(path, sdkOmittedValue)
-            ? this.path
-            : path as SdkOptional<String>,
-        contentType: identical(contentType, sdkOmittedValue)
-            ? this.contentType
-            : contentType as SdkOptional<String>,
-        contentId: identical(contentId, sdkOmittedValue)
-            ? this.contentId
-            : contentId as SdkOptional<String>,
-      );
+  Attachment _copyWith({Object? content = sdkOmittedValue, Object? filename = sdkOmittedValue, Object? path = sdkOmittedValue, Object? contentType = sdkOmittedValue, Object? contentId = sdkOmittedValue}) => Attachment(
+    content: identical(content, sdkOmittedValue) ? this.content : content as SdkOptional<List<int>>,
+    filename: identical(filename, sdkOmittedValue) ? this.filename : filename as SdkOptional<String>,
+    path: identical(path, sdkOmittedValue) ? this.path : path as SdkOptional<String>,
+    contentType: identical(contentType, sdkOmittedValue) ? this.contentType : contentType as SdkOptional<String>,
+    contentId: identical(contentId, sdkOmittedValue) ? this.contentId : contentId as SdkOptional<String>,
+  );
 
   factory Attachment.fromJson(Map<String, dynamic> json) => Attachment(
-        content: json['content'] != null
-            ? SdkPresent((json['content'] != null
-                ? base64Decode(json['content'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        filename: json['filename'] != null
-            ? SdkPresent((json['filename'] as String?)!)
-            : const SdkOmitted(),
-        path: json['path'] != null
-            ? SdkPresent((json['path'] as String?)!)
-            : const SdkOmitted(),
-        contentType: json['content_type'] != null
-            ? SdkPresent((json['content_type'] as String?)!)
-            : const SdkOmitted(),
-        contentId: json['content_id'] != null
-            ? SdkPresent((json['content_id'] as String?)!)
-            : const SdkOmitted(),
-      );
+    content: json['content'] != null ? SdkPresent((json['content'] != null ? base64Decode(json['content'] as String) : null)!) : const SdkOmitted(),
+    filename: json['filename'] != null ? SdkPresent((json['filename'] as String?)!) : const SdkOmitted(),
+    path: json['path'] != null ? SdkPresent((json['path'] as String?)!) : const SdkOmitted(),
+    contentType: json['content_type'] != null ? SdkPresent((json['content_type'] as String?)!) : const SdkOmitted(),
+    contentId: json['content_id'] != null ? SdkPresent((json['content_id'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (content) {
-          SdkPresent<List<int>>(value: final value) => {
-              'content': base64Encode(value),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (filename) {
-          SdkPresent<String>(value: final value) => {
-              'filename': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (path) {
-          SdkPresent<String>(value: final value) => {
-              'path': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (contentType) {
-          SdkPresent<String>(value: final value) => {
-              'content_type': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (contentId) {
-          SdkPresent<String>(value: final value) => {
-              'content_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (content) {
+      SdkPresent<List<int>>(value: final value) => {'content': base64Encode(value),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (filename) {
+      SdkPresent<String>(value: final value) => {'filename': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (path) {
+      SdkPresent<String>(value: final value) => {'path': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (contentType) {
+      SdkPresent<String>(value: final value) => {'content_type': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (contentId) {
+      SdkPresent<String>(value: final value) => {'content_id': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Required object value serialized in the `data[]` wire field.
 class ListAttachmentsResponseDataItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The ID of the attachment.
   final SdkOptional<String> id;
-
   /// The filename of the attachment.
   final SdkOptional<String?> filename;
-
   /// The MIME type of the attachment.
   final SdkOptional<String> contentType;
-
   /// The content ID for inline attachments.
   final SdkOptional<String> contentId;
-
   /// How the attachment should be displayed.
-  final SdkOptional<ListAttachmentsResponseDataItemContentDisposition?>
-      contentDisposition;
-
+  final SdkOptional<ListAttachmentsResponseDataItemContentDisposition?> contentDisposition;
   /// Signed URL to download the attachment content.
   final SdkOptional<String> downloadUrl;
-
   /// Timestamp when the download URL expires.
   final SdkOptional<String> expiresAt;
-
   /// Size of the attachment in bytes.
   final SdkOptional<int> size;
 
-  const ListAttachmentsResponseDataItem(
-      {this.id = const SdkOmitted(),
-      this.filename = const SdkOmitted(),
-      this.contentType = const SdkOmitted(),
-      this.contentId = const SdkOmitted(),
-      this.contentDisposition = const SdkOmitted(),
-      this.downloadUrl = const SdkOmitted(),
-      this.expiresAt = const SdkOmitted(),
-      this.size = const SdkOmitted()});
+  const ListAttachmentsResponseDataItem({this.id = const SdkOmitted(), this.filename = const SdkOmitted(), this.contentType = const SdkOmitted(), this.contentId = const SdkOmitted(), this.contentDisposition = const SdkOmitted(), this.downloadUrl = const SdkOmitted(), this.expiresAt = const SdkOmitted(), this.size = const SdkOmitted()});
 
-  ListAttachmentsResponseDataItem Function(
-      {SdkOptional<String> id,
-      SdkOptional<String?> filename,
-      SdkOptional<String> contentType,
-      SdkOptional<String> contentId,
-      SdkOptional<ListAttachmentsResponseDataItemContentDisposition?>
-          contentDisposition,
-      SdkOptional<String> downloadUrl,
-      SdkOptional<String> expiresAt,
-      SdkOptional<int> size}) get copyWith => _copyWith;
+  ListAttachmentsResponseDataItem Function({SdkOptional<String> id, SdkOptional<String?> filename, SdkOptional<String> contentType, SdkOptional<String> contentId, SdkOptional<ListAttachmentsResponseDataItemContentDisposition?> contentDisposition, SdkOptional<String> downloadUrl, SdkOptional<String> expiresAt, SdkOptional<int> size}) get copyWith => _copyWith;
 
-  ListAttachmentsResponseDataItem _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? filename = sdkOmittedValue,
-          Object? contentType = sdkOmittedValue,
-          Object? contentId = sdkOmittedValue,
-          Object? contentDisposition = sdkOmittedValue,
-          Object? downloadUrl = sdkOmittedValue,
-          Object? expiresAt = sdkOmittedValue,
-          Object? size = sdkOmittedValue}) =>
-      ListAttachmentsResponseDataItem(
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-        filename: identical(filename, sdkOmittedValue)
-            ? this.filename
-            : filename as SdkOptional<String?>,
-        contentType: identical(contentType, sdkOmittedValue)
-            ? this.contentType
-            : contentType as SdkOptional<String>,
-        contentId: identical(contentId, sdkOmittedValue)
-            ? this.contentId
-            : contentId as SdkOptional<String>,
-        contentDisposition: identical(contentDisposition, sdkOmittedValue)
-            ? this.contentDisposition
-            : contentDisposition as SdkOptional<
-                ListAttachmentsResponseDataItemContentDisposition?>,
-        downloadUrl: identical(downloadUrl, sdkOmittedValue)
-            ? this.downloadUrl
-            : downloadUrl as SdkOptional<String>,
-        expiresAt: identical(expiresAt, sdkOmittedValue)
-            ? this.expiresAt
-            : expiresAt as SdkOptional<String>,
-        size: identical(size, sdkOmittedValue)
-            ? this.size
-            : size as SdkOptional<int>,
-      );
+  ListAttachmentsResponseDataItem _copyWith({Object? id = sdkOmittedValue, Object? filename = sdkOmittedValue, Object? contentType = sdkOmittedValue, Object? contentId = sdkOmittedValue, Object? contentDisposition = sdkOmittedValue, Object? downloadUrl = sdkOmittedValue, Object? expiresAt = sdkOmittedValue, Object? size = sdkOmittedValue}) => ListAttachmentsResponseDataItem(
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+    filename: identical(filename, sdkOmittedValue) ? this.filename : filename as SdkOptional<String?>,
+    contentType: identical(contentType, sdkOmittedValue) ? this.contentType : contentType as SdkOptional<String>,
+    contentId: identical(contentId, sdkOmittedValue) ? this.contentId : contentId as SdkOptional<String>,
+    contentDisposition: identical(contentDisposition, sdkOmittedValue) ? this.contentDisposition : contentDisposition as SdkOptional<ListAttachmentsResponseDataItemContentDisposition?>,
+    downloadUrl: identical(downloadUrl, sdkOmittedValue) ? this.downloadUrl : downloadUrl as SdkOptional<String>,
+    expiresAt: identical(expiresAt, sdkOmittedValue) ? this.expiresAt : expiresAt as SdkOptional<String>,
+    size: identical(size, sdkOmittedValue) ? this.size : size as SdkOptional<int>,
+  );
 
-  factory ListAttachmentsResponseDataItem.fromJson(Map<String, dynamic> json) =>
-      ListAttachmentsResponseDataItem(
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-        filename: json.containsKey('filename')
-            ? SdkPresent(json['filename'] as String?)
-            : const SdkOmitted(),
-        contentType: json['content_type'] != null
-            ? SdkPresent((json['content_type'] as String?)!)
-            : const SdkOmitted(),
-        contentId: json['content_id'] != null
-            ? SdkPresent((json['content_id'] as String?)!)
-            : const SdkOmitted(),
-        contentDisposition: json.containsKey('content_disposition')
-            ? SdkPresent(json['content_disposition'] != null
-                ? ListAttachmentsResponseDataItemContentDisposition.fromJson(
-                    json['content_disposition'] as String)
-                : null)
-            : const SdkOmitted(),
-        downloadUrl: json['download_url'] != null
-            ? SdkPresent((json['download_url'] as String?)!)
-            : const SdkOmitted(),
-        expiresAt: json['expires_at'] != null
-            ? SdkPresent((json['expires_at'] as String?)!)
-            : const SdkOmitted(),
-        size: json['size'] != null
-            ? SdkPresent(((json['size'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-      );
+  factory ListAttachmentsResponseDataItem.fromJson(Map<String, dynamic> json) => ListAttachmentsResponseDataItem(
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+    filename: json.containsKey('filename') ? SdkPresent(json['filename'] as String?) : const SdkOmitted(),
+    contentType: json['content_type'] != null ? SdkPresent((json['content_type'] as String?)!) : const SdkOmitted(),
+    contentId: json['content_id'] != null ? SdkPresent((json['content_id'] as String?)!) : const SdkOmitted(),
+    contentDisposition: json.containsKey('content_disposition') ? SdkPresent(json['content_disposition'] != null ? ListAttachmentsResponseDataItemContentDisposition.fromJson(json['content_disposition'] as String) : null) : const SdkOmitted(),
+    downloadUrl: json['download_url'] != null ? SdkPresent((json['download_url'] as String?)!) : const SdkOmitted(),
+    expiresAt: json['expires_at'] != null ? SdkPresent((json['expires_at'] as String?)!) : const SdkOmitted(),
+    size: json['size'] != null ? SdkPresent(((json['size'] as num?)?.toInt())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (filename) {
-          SdkPresent<String?>(value: final value) => {
-              'filename': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (contentType) {
-          SdkPresent<String>(value: final value) => {
-              'content_type': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (contentId) {
-          SdkPresent<String>(value: final value) => {
-              'content_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (contentDisposition) {
-          SdkPresent<ListAttachmentsResponseDataItemContentDisposition?>(
-            value: final value
-          ) =>
-            {
-              'content_disposition': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (downloadUrl) {
-          SdkPresent<String>(value: final value) => {
-              'download_url': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (expiresAt) {
-          SdkPresent<String>(value: final value) => {
-              'expires_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (size) {
-          SdkPresent<int>(value: final value) => {
-              'size': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (filename) {
+      SdkPresent<String?>(value: final value) => {'filename': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (contentType) {
+      SdkPresent<String>(value: final value) => {'content_type': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (contentId) {
+      SdkPresent<String>(value: final value) => {'content_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (contentDisposition) {
+      SdkPresent<ListAttachmentsResponseDataItemContentDisposition?>(value: final value) => {'content_disposition': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (downloadUrl) {
+      SdkPresent<String>(value: final value) => {'download_url': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (expiresAt) {
+      SdkPresent<String>(value: final value) => {'expires_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (size) {
+      SdkPresent<int>(value: final value) => {'size': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `ListAttachmentsResponse` API schema.
 class ListAttachmentsResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Type of the response object.
   final SdkOptional<String> object;
-
   /// Indicates if there are more results available.
   final SdkOptional<bool> hasMore;
-
   /// Array containing attachment information.
   final SdkOptional<List<ListAttachmentsResponseDataItem>> data;
 
-  const ListAttachmentsResponse(
-      {this.object = const SdkOmitted(),
-      this.hasMore = const SdkOmitted(),
-      this.data = const SdkOmitted()});
+  const ListAttachmentsResponse({this.object = const SdkOmitted(), this.hasMore = const SdkOmitted(), this.data = const SdkOmitted()});
 
-  ListAttachmentsResponse Function(
-          {SdkOptional<String> object,
-          SdkOptional<bool> hasMore,
-          SdkOptional<List<ListAttachmentsResponseDataItem>> data})
-      get copyWith => _copyWith;
+  ListAttachmentsResponse Function({SdkOptional<String> object, SdkOptional<bool> hasMore, SdkOptional<List<ListAttachmentsResponseDataItem>> data}) get copyWith => _copyWith;
 
-  ListAttachmentsResponse _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? hasMore = sdkOmittedValue,
-          Object? data = sdkOmittedValue}) =>
-      ListAttachmentsResponse(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as SdkOptional<String>,
-        hasMore: identical(hasMore, sdkOmittedValue)
-            ? this.hasMore
-            : hasMore as SdkOptional<bool>,
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as SdkOptional<List<ListAttachmentsResponseDataItem>>,
-      );
+  ListAttachmentsResponse _copyWith({Object? object = sdkOmittedValue, Object? hasMore = sdkOmittedValue, Object? data = sdkOmittedValue}) => ListAttachmentsResponse(
+    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<String>,
+    hasMore: identical(hasMore, sdkOmittedValue) ? this.hasMore : hasMore as SdkOptional<bool>,
+    data: identical(data, sdkOmittedValue) ? this.data : data as SdkOptional<List<ListAttachmentsResponseDataItem>>,
+  );
 
-  factory ListAttachmentsResponse.fromJson(Map<String, dynamic> json) =>
-      ListAttachmentsResponse(
-        object: json['object'] != null
-            ? SdkPresent((json['object'] as String?)!)
-            : const SdkOmitted(),
-        hasMore: json['has_more'] != null
-            ? SdkPresent((json['has_more'] as bool?)!)
-            : const SdkOmitted(),
-        data: json['data'] != null
-            ? SdkPresent(((json['data'] as List?)
-                ?.map((e) => ListAttachmentsResponseDataItem.fromJson(
-                    e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory ListAttachmentsResponse.fromJson(Map<String, dynamic> json) => ListAttachmentsResponse(
+    object: json['object'] != null ? SdkPresent((json['object'] as String?)!) : const SdkOmitted(),
+    hasMore: json['has_more'] != null ? SdkPresent((json['has_more'] as bool?)!) : const SdkOmitted(),
+    data: json['data'] != null ? SdkPresent(((json['data'] as List?)?.map((e) => ListAttachmentsResponseDataItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (object) {
-          SdkPresent<String>(value: final value) => {
-              'object': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (hasMore) {
-          SdkPresent<bool>(value: final value) => {
-              'has_more': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (data) {
-          SdkPresent<List<ListAttachmentsResponseDataItem>>(
-            value: final value
-          ) =>
-            {
-              'data': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (object) {
+      SdkPresent<String>(value: final value) => {'object': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (hasMore) {
+      SdkPresent<bool>(value: final value) => {'has_more': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (data) {
+      SdkPresent<List<ListAttachmentsResponseDataItem>>(value: final value) => {'data': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Required object value serialized in the `data[]` wire field.
 class ListContactsResponseSuccessDataItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Unique identifier for the contact.
   final SdkOptional<String> id;
-
   /// Email address of the contact.
   final SdkOptional<String> email;
-
   /// First name of the contact.
   final SdkOptional<String?> firstName;
-
   /// Last name of the contact.
   final SdkOptional<String?> lastName;
-
   /// Timestamp indicating when the contact was created.
   final SdkOptional<String> createdAt;
-
   /// Indicates if the contact is unsubscribed.
   final SdkOptional<bool> unsubscribed;
 
-  const ListContactsResponseSuccessDataItem(
-      {this.id = const SdkOmitted(),
-      this.email = const SdkOmitted(),
-      this.firstName = const SdkOmitted(),
-      this.lastName = const SdkOmitted(),
-      this.createdAt = const SdkOmitted(),
-      this.unsubscribed = const SdkOmitted()});
+  const ListContactsResponseSuccessDataItem({this.id = const SdkOmitted(), this.email = const SdkOmitted(), this.firstName = const SdkOmitted(), this.lastName = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.unsubscribed = const SdkOmitted()});
 
-  ListContactsResponseSuccessDataItem Function(
-      {SdkOptional<String> id,
-      SdkOptional<String> email,
-      SdkOptional<String?> firstName,
-      SdkOptional<String?> lastName,
-      SdkOptional<String> createdAt,
-      SdkOptional<bool> unsubscribed}) get copyWith => _copyWith;
+  ListContactsResponseSuccessDataItem Function({SdkOptional<String> id, SdkOptional<String> email, SdkOptional<String?> firstName, SdkOptional<String?> lastName, SdkOptional<String> createdAt, SdkOptional<bool> unsubscribed}) get copyWith => _copyWith;
 
-  ListContactsResponseSuccessDataItem _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? email = sdkOmittedValue,
-          Object? firstName = sdkOmittedValue,
-          Object? lastName = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? unsubscribed = sdkOmittedValue}) =>
-      ListContactsResponseSuccessDataItem(
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-        email: identical(email, sdkOmittedValue)
-            ? this.email
-            : email as SdkOptional<String>,
-        firstName: identical(firstName, sdkOmittedValue)
-            ? this.firstName
-            : firstName as SdkOptional<String?>,
-        lastName: identical(lastName, sdkOmittedValue)
-            ? this.lastName
-            : lastName as SdkOptional<String?>,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as SdkOptional<String>,
-        unsubscribed: identical(unsubscribed, sdkOmittedValue)
-            ? this.unsubscribed
-            : unsubscribed as SdkOptional<bool>,
-      );
+  ListContactsResponseSuccessDataItem _copyWith({Object? id = sdkOmittedValue, Object? email = sdkOmittedValue, Object? firstName = sdkOmittedValue, Object? lastName = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? unsubscribed = sdkOmittedValue}) => ListContactsResponseSuccessDataItem(
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+    email: identical(email, sdkOmittedValue) ? this.email : email as SdkOptional<String>,
+    firstName: identical(firstName, sdkOmittedValue) ? this.firstName : firstName as SdkOptional<String?>,
+    lastName: identical(lastName, sdkOmittedValue) ? this.lastName : lastName as SdkOptional<String?>,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
+    unsubscribed: identical(unsubscribed, sdkOmittedValue) ? this.unsubscribed : unsubscribed as SdkOptional<bool>,
+  );
 
-  factory ListContactsResponseSuccessDataItem.fromJson(
-          Map<String, dynamic> json) =>
-      ListContactsResponseSuccessDataItem(
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-        email: json['email'] != null
-            ? SdkPresent((json['email'] as String?)!)
-            : const SdkOmitted(),
-        firstName: json.containsKey('first_name')
-            ? SdkPresent(json['first_name'] as String?)
-            : const SdkOmitted(),
-        lastName: json.containsKey('last_name')
-            ? SdkPresent(json['last_name'] as String?)
-            : const SdkOmitted(),
-        createdAt: json['created_at'] != null
-            ? SdkPresent((json['created_at'] as String?)!)
-            : const SdkOmitted(),
-        unsubscribed: json['unsubscribed'] != null
-            ? SdkPresent((json['unsubscribed'] as bool?)!)
-            : const SdkOmitted(),
-      );
+  factory ListContactsResponseSuccessDataItem.fromJson(Map<String, dynamic> json) => ListContactsResponseSuccessDataItem(
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+    email: json['email'] != null ? SdkPresent((json['email'] as String?)!) : const SdkOmitted(),
+    firstName: json.containsKey('first_name') ? SdkPresent(json['first_name'] as String?) : const SdkOmitted(),
+    lastName: json.containsKey('last_name') ? SdkPresent(json['last_name'] as String?) : const SdkOmitted(),
+    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
+    unsubscribed: json['unsubscribed'] != null ? SdkPresent((json['unsubscribed'] as bool?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (email) {
-          SdkPresent<String>(value: final value) => {
-              'email': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (firstName) {
-          SdkPresent<String?>(value: final value) => {
-              'first_name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (lastName) {
-          SdkPresent<String?>(value: final value) => {
-              'last_name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (createdAt) {
-          SdkPresent<String>(value: final value) => {
-              'created_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (unsubscribed) {
-          SdkPresent<bool>(value: final value) => {
-              'unsubscribed': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (email) {
+      SdkPresent<String>(value: final value) => {'email': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (firstName) {
+      SdkPresent<String?>(value: final value) => {'first_name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (lastName) {
+      SdkPresent<String?>(value: final value) => {'last_name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (createdAt) {
+      SdkPresent<String>(value: final value) => {'created_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (unsubscribed) {
+      SdkPresent<bool>(value: final value) => {'unsubscribed': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `ListContactsResponseSuccess` API schema.
 class ListContactsResponseSuccess {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Type of the response object.
   final SdkOptional<String> object;
-
   /// Indicates if there are more results available.
   final SdkOptional<bool> hasMore;
-
   /// Array containing contact information.
   final SdkOptional<List<ListContactsResponseSuccessDataItem>> data;
 
-  const ListContactsResponseSuccess(
-      {this.object = const SdkOmitted(),
-      this.hasMore = const SdkOmitted(),
-      this.data = const SdkOmitted()});
+  const ListContactsResponseSuccess({this.object = const SdkOmitted(), this.hasMore = const SdkOmitted(), this.data = const SdkOmitted()});
 
-  ListContactsResponseSuccess Function(
-          {SdkOptional<String> object,
-          SdkOptional<bool> hasMore,
-          SdkOptional<List<ListContactsResponseSuccessDataItem>> data})
-      get copyWith => _copyWith;
+  ListContactsResponseSuccess Function({SdkOptional<String> object, SdkOptional<bool> hasMore, SdkOptional<List<ListContactsResponseSuccessDataItem>> data}) get copyWith => _copyWith;
 
-  ListContactsResponseSuccess _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? hasMore = sdkOmittedValue,
-          Object? data = sdkOmittedValue}) =>
-      ListContactsResponseSuccess(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as SdkOptional<String>,
-        hasMore: identical(hasMore, sdkOmittedValue)
-            ? this.hasMore
-            : hasMore as SdkOptional<bool>,
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as SdkOptional<List<ListContactsResponseSuccessDataItem>>,
-      );
+  ListContactsResponseSuccess _copyWith({Object? object = sdkOmittedValue, Object? hasMore = sdkOmittedValue, Object? data = sdkOmittedValue}) => ListContactsResponseSuccess(
+    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<String>,
+    hasMore: identical(hasMore, sdkOmittedValue) ? this.hasMore : hasMore as SdkOptional<bool>,
+    data: identical(data, sdkOmittedValue) ? this.data : data as SdkOptional<List<ListContactsResponseSuccessDataItem>>,
+  );
 
-  factory ListContactsResponseSuccess.fromJson(Map<String, dynamic> json) =>
-      ListContactsResponseSuccess(
-        object: json['object'] != null
-            ? SdkPresent((json['object'] as String?)!)
-            : const SdkOmitted(),
-        hasMore: json['has_more'] != null
-            ? SdkPresent((json['has_more'] as bool?)!)
-            : const SdkOmitted(),
-        data: json['data'] != null
-            ? SdkPresent(((json['data'] as List?)
-                ?.map((e) => ListContactsResponseSuccessDataItem.fromJson(
-                    e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory ListContactsResponseSuccess.fromJson(Map<String, dynamic> json) => ListContactsResponseSuccess(
+    object: json['object'] != null ? SdkPresent((json['object'] as String?)!) : const SdkOmitted(),
+    hasMore: json['has_more'] != null ? SdkPresent((json['has_more'] as bool?)!) : const SdkOmitted(),
+    data: json['data'] != null ? SdkPresent(((json['data'] as List?)?.map((e) => ListContactsResponseSuccessDataItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (object) {
-          SdkPresent<String>(value: final value) => {
-              'object': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (hasMore) {
-          SdkPresent<bool>(value: final value) => {
-              'has_more': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (data) {
-          SdkPresent<List<ListContactsResponseSuccessDataItem>>(
-            value: final value
-          ) =>
-            {
-              'data': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (object) {
+      SdkPresent<String>(value: final value) => {'object': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (hasMore) {
+      SdkPresent<bool>(value: final value) => {'has_more': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (data) {
+      SdkPresent<List<ListContactsResponseSuccessDataItem>>(value: final value) => {'data': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

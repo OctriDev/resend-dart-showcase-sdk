@@ -6,88 +6,76 @@ part of 'inline.dart';
 // Inline operation models (part 11)
 /// Reason the address is suppressed.
 final class WebhookEventSuppressedReason {
+
   final String value;
 
   const WebhookEventSuppressedReason._(this.value);
 
-  factory WebhookEventSuppressedReason.fromJson(String value) =>
-      WebhookEventSuppressedReason._(value);
+  factory WebhookEventSuppressedReason.fromJson(String value) => WebhookEventSuppressedReason._(value);
 
-  static const previousBounce =
-      WebhookEventSuppressedReason._('previous_bounce');
-  static const previousComplaint =
-      WebhookEventSuppressedReason._('previous_complaint');
+  static const previousBounce = WebhookEventSuppressedReason._('previous_bounce');
+  static const previousComplaint = WebhookEventSuppressedReason._('previous_complaint');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is WebhookEventSuppressedReason && other.value == value;
+  @override bool operator ==(Object other) => other is WebhookEventSuppressedReason && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Suppression type.
 final class WebhookEventSuppressedType {
+
   final String value;
 
   const WebhookEventSuppressedType._(this.value);
 
-  factory WebhookEventSuppressedType.fromJson(String value) =>
-      WebhookEventSuppressedType._(value);
+  factory WebhookEventSuppressedType.fromJson(String value) => WebhookEventSuppressedType._(value);
 
   static const suppressed = WebhookEventSuppressedType._('Suppressed');
-  static const onaccountsuppressionlist =
-      WebhookEventSuppressedType._('OnAccountSuppressionList');
+  static const onaccountsuppressionlist = WebhookEventSuppressedType._('OnAccountSuppressionList');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is WebhookEventSuppressedType && other.value == value;
+  @override bool operator ==(Object other) => other is WebhookEventSuppressedType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 final class AutomationsListStatus {
+
   final String value;
 
   const AutomationsListStatus._(this.value);
 
-  factory AutomationsListStatus.fromJson(String value) =>
-      AutomationsListStatus._(value);
+  factory AutomationsListStatus.fromJson(String value) => AutomationsListStatus._(value);
 
   static const enabled = AutomationsListStatus._('enabled');
   static const disabled = AutomationsListStatus._('disabled');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is AutomationsListStatus && other.value == value;
+  @override bool operator ==(Object other) => other is AutomationsListStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 final class ListRecipientsType {
+
   final String value;
 
   const ListRecipientsType._(this.value);
 
-  factory ListRecipientsType.fromJson(String value) =>
-      ListRecipientsType._(value);
+  factory ListRecipientsType.fromJson(String value) => ListRecipientsType._(value);
 
   static const sent = ListRecipientsType._('sent');
   static const delivered = ListRecipientsType._('delivered');
@@ -100,24 +88,21 @@ final class ListRecipientsType {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ListRecipientsType && other.value == value;
+  @override bool operator ==(Object other) => other is ListRecipientsType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 final class ListRecipientsBounceType {
+
   final String value;
 
   const ListRecipientsBounceType._(this.value);
 
-  factory ListRecipientsBounceType.fromJson(String value) =>
-      ListRecipientsBounceType._(value);
+  factory ListRecipientsBounceType.fromJson(String value) => ListRecipientsBounceType._(value);
 
   static const permanent = ListRecipientsBounceType._('permanent');
   static const transient = ListRecipientsBounceType._('transient');
@@ -125,24 +110,21 @@ final class ListRecipientsBounceType {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ListRecipientsBounceType && other.value == value;
+  @override bool operator ==(Object other) => other is ListRecipientsBounceType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 final class ContactsListImportsStatus {
+
   final String value;
 
   const ContactsListImportsStatus._(this.value);
 
-  factory ContactsListImportsStatus.fromJson(String value) =>
-      ContactsListImportsStatus._(value);
+  factory ContactsListImportsStatus.fromJson(String value) => ContactsListImportsStatus._(value);
 
   static const queued = ContactsListImportsStatus._('queued');
   static const inProgress = ContactsListImportsStatus._('in_progress');
@@ -151,24 +133,21 @@ final class ContactsListImportsStatus {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ContactsListImportsStatus && other.value == value;
+  @override bool operator ==(Object other) => other is ContactsListImportsStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 final class GetMetricsGranularity {
+
   final String value;
 
   const GetMetricsGranularity._(this.value);
 
-  factory GetMetricsGranularity.fromJson(String value) =>
-      GetMetricsGranularity._(value);
+  factory GetMetricsGranularity.fromJson(String value) => GetMetricsGranularity._(value);
 
   static const hourly = GetMetricsGranularity._('hourly');
   static const daily = GetMetricsGranularity._('daily');
@@ -177,24 +156,21 @@ final class GetMetricsGranularity {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is GetMetricsGranularity && other.value == value;
+  @override bool operator ==(Object other) => other is GetMetricsGranularity && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 final class GetMetricsMetricsItem {
+
   final String value;
 
   const GetMetricsMetricsItem._(this.value);
 
-  factory GetMetricsMetricsItem.fromJson(String value) =>
-      GetMetricsMetricsItem._(value);
+  factory GetMetricsMetricsItem.fromJson(String value) => GetMetricsMetricsItem._(value);
 
   static const received = GetMetricsMetricsItem._('received');
   static const delivered = GetMetricsMetricsItem._('delivered');
@@ -203,8 +179,7 @@ final class GetMetricsMetricsItem {
   static const bounced = GetMetricsMetricsItem._('bounced');
   static const bouncedTransient = GetMetricsMetricsItem._('bounced_transient');
   static const bouncedPermanent = GetMetricsMetricsItem._('bounced_permanent');
-  static const bouncedUndetermined =
-      GetMetricsMetricsItem._('bounced_undetermined');
+  static const bouncedUndetermined = GetMetricsMetricsItem._('bounced_undetermined');
   static const opened = GetMetricsMetricsItem._('opened');
   static const clicked = GetMetricsMetricsItem._('clicked');
   static const unsubscribed = GetMetricsMetricsItem._('unsubscribed');
@@ -222,24 +197,21 @@ final class GetMetricsMetricsItem {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is GetMetricsMetricsItem && other.value == value;
+  @override bool operator ==(Object other) => other is GetMetricsMetricsItem && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 final class GetMetricsDimensionsItem {
+
   final String value;
 
   const GetMetricsDimensionsItem._(this.value);
 
-  factory GetMetricsDimensionsItem.fromJson(String value) =>
-      GetMetricsDimensionsItem._(value);
+  factory GetMetricsDimensionsItem.fromJson(String value) => GetMetricsDimensionsItem._(value);
 
   static const period = GetMetricsDimensionsItem._('period');
   static const domain = GetMetricsDimensionsItem._('domain');
@@ -248,24 +220,21 @@ final class GetMetricsDimensionsItem {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is GetMetricsDimensionsItem && other.value == value;
+  @override bool operator ==(Object other) => other is GetMetricsDimensionsItem && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 final class InboxesListThreadsFoldersItem {
+
   final String value;
 
   const InboxesListThreadsFoldersItem._(this.value);
 
-  factory InboxesListThreadsFoldersItem.fromJson(String value) =>
-      InboxesListThreadsFoldersItem._(value);
+  factory InboxesListThreadsFoldersItem.fromJson(String value) => InboxesListThreadsFoldersItem._(value);
 
   static const inbox = InboxesListThreadsFoldersItem._('inbox');
   static const archive = InboxesListThreadsFoldersItem._('archive');
@@ -275,24 +244,21 @@ final class InboxesListThreadsFoldersItem {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is InboxesListThreadsFoldersItem && other.value == value;
+  @override bool operator ==(Object other) => other is InboxesListThreadsFoldersItem && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 final class InboxesSearchThreadsFoldersItem {
+
   final String value;
 
   const InboxesSearchThreadsFoldersItem._(this.value);
 
-  factory InboxesSearchThreadsFoldersItem.fromJson(String value) =>
-      InboxesSearchThreadsFoldersItem._(value);
+  factory InboxesSearchThreadsFoldersItem.fromJson(String value) => InboxesSearchThreadsFoldersItem._(value);
 
   static const inbox = InboxesSearchThreadsFoldersItem._('inbox');
   static const archive = InboxesSearchThreadsFoldersItem._('archive');
@@ -302,13 +268,10 @@ final class InboxesSearchThreadsFoldersItem {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is InboxesSearchThreadsFoldersItem && other.value == value;
+  @override bool operator ==(Object other) => other is InboxesSearchThreadsFoldersItem && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

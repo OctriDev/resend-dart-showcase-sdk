@@ -22,11 +22,11 @@ Future<CreateEventResponse> eventsCreate(ClientConfig config,
           body: {'name': name, 'schema': SdkUtils.unwrapOptional(schema)},
           decoder: SdkResponseDecoder.json,
           operationId: 'eventsCreate',
-          fromJsonRaw: (value) =>
-              CreateEventResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => CreateEventResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Lists events available to your account. Use `after` or `before` to navigate results, and `limit` to control the number of items returned per request.
 ///
@@ -45,20 +45,17 @@ Future<ListEventsResponse> eventsList(ClientConfig config,
   return (await sdkRequest<ListEventsResponse>('GET', '/events',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
-                style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
-                style: 'form', explode: true),
-            'before': SdkQueryValue(SdkUtils.unwrapOptional(before),
-                style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true),
+            'before': SdkQueryValue(SdkUtils.unwrapOptional(before), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'eventsList',
-          fromJsonRaw: (value) =>
-              ListEventsResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ListEventsResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Sends an event and associates it with a contact or an email address. Supply the required `event` name and exactly one of `contact_id` or `email`; include `payload` to attach additional key/value data.
 ///
@@ -91,11 +88,11 @@ Future<SendEventResponse> eventsSend(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'eventsSend',
-          fromJsonRaw: (value) =>
-              SendEventResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => SendEventResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Retrieves an event by its UUID or event name. Use the `identifier` path parameter to select the event whose name, payload schema, and timestamps you need.
 ///
@@ -111,6 +108,7 @@ Future<Event> eventsGet(ClientConfig config,
           options: requestOptions))
       .data;
 }
+
 
 /// Updates the payload schema for an existing event. Supply `schema` as a flat key/type map using `string`, `number`, `boolean`, or `date`, or set it to `null` to clear the schema.
 ///
@@ -128,11 +126,11 @@ Future<UpdateEventResponse> eventsUpdate(ClientConfig config,
           body: {'schema': schema},
           decoder: SdkResponseDecoder.json,
           operationId: 'eventsUpdate',
-          fromJsonRaw: (value) =>
-              UpdateEventResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => UpdateEventResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Deletes an event identified by its UUID or name. Use the `identifier` path parameter to specify which event to remove; the response indicates whether the event was deleted.
 ///
@@ -144,8 +142,7 @@ Future<RemoveEventResponse> eventsRemove(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'eventsRemove',
-          fromJsonRaw: (value) =>
-              RemoveEventResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => RemoveEventResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }

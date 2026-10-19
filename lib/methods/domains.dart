@@ -45,11 +45,11 @@ Future<CreateDomainResponse> domainsCreate(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'domainsCreate',
-          fromJsonRaw: (value) =>
-              CreateDomainResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => CreateDomainResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Lists domains in the account. Use `limit` to control the number of results and `after` or `before` to navigate the cursor-based list.
 ///
@@ -68,20 +68,17 @@ Future<ListDomainsResponse> domainsList(ClientConfig config,
   return (await sdkRequest<ListDomainsResponse>('GET', '/domains',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
-                style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
-                style: 'form', explode: true),
-            'before': SdkQueryValue(SdkUtils.unwrapOptional(before),
-                style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true),
+            'before': SdkQueryValue(SdkUtils.unwrapOptional(before), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'domainsList',
-          fromJsonRaw: (value) =>
-              ListDomainsResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ListDomainsResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Retrieves a domain by its identifier. Use `domain_id` to select the domain and view its status, configuration, capabilities, and DNS records.
 ///
@@ -93,11 +90,11 @@ Future<Domain> domainsGet(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'domainsGet',
-          fromJsonRaw: (value) =>
-              Domain.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => Domain.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Updates the configuration of an existing domain. Supply only the settings you want to change, such as tracking options, TLS mode, capabilities, or the tracking subdomain.
 ///
@@ -128,11 +125,11 @@ Future<UpdateDomainResponseSuccess> domainsUpdate(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'domainsUpdate',
-          fromJsonRaw: (value) => UpdateDomainResponseSuccess.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => UpdateDomainResponseSuccess.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Deletes an existing domain. Use `domain_id` to select the domain to remove; the response indicates whether deletion succeeded.
 ///
@@ -144,11 +141,11 @@ Future<DeleteDomainResponse> domainsRemove(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'domainsRemove',
-          fromJsonRaw: (value) =>
-              DeleteDomainResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => DeleteDomainResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Triggers verification of a domain's DNS records, including DKIM, SPF, and the tracking CNAME when a tracking subdomain is configured. Use this operation after adding the required DNS records to check the domain's verification status.
 ///
@@ -162,11 +159,11 @@ Future<VerifyDomainResponse> domainsVerify(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'domainsVerify',
-          fromJsonRaw: (value) =>
-              VerifyDomainResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => VerifyDomainResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Start a claim for a domain that another Resend account has already verified. The domain is recreated under your account with fresh DKIM keys, so the previous account's DNS records cannot be reused. Returns a TXT record to add to your DNS to prove ownership. Uses the same request body as creating a domain.
 ///
@@ -198,11 +195,11 @@ Future<DomainClaim> domainsCreateClaim(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'domainsCreateClaim',
-          fromJsonRaw: (value) =>
-              DomainClaim.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => DomainClaim.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Retrieves the latest claim for the placeholder domain created by a domain claim. Use the claim status and TXT `record` details to track verification and prove ownership of the claimed domain.
 ///
@@ -216,11 +213,11 @@ Future<DomainClaim> domainsGetClaim(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'domainsGetClaim',
-          fromJsonRaw: (value) =>
-              DomainClaim.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => DomainClaim.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Triggers asynchronous DNS verification and ownership transfer for a domain claim. The claim remains `pending` while verification runs, so retrieve the claim to check its status. Once the claim is `completed`, add the transferred domain's new DKIM records to DNS and verify them with the standard domain verification endpoint.
 ///
@@ -234,8 +231,7 @@ Future<DomainClaim> domainsVerifyClaim(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'domainsVerifyClaim',
-          fromJsonRaw: (value) =>
-              DomainClaim.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => DomainClaim.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }

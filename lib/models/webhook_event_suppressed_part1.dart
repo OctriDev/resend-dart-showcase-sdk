@@ -8,69 +8,37 @@ part of 'webhook_event_suppressed.dart';
 class WebhookEventSuppressed {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Array of SMTP diagnostic responses from the receiving server, one entry per recipient.
   final List<String> diagnosticCode;
-
   /// Detailed suppression message describing why the email was suppressed.
   final String message;
-
   /// Reason the address is suppressed.
   final WebhookEventSuppressedReason reason;
-
   /// Suppression type.
   final WebhookEventSuppressedType type_;
 
-  const WebhookEventSuppressed(
-      {required this.diagnosticCode,
-      required this.message,
-      required this.reason,
-      required this.type_});
+  const WebhookEventSuppressed({required this.diagnosticCode, required this.message, required this.reason, required this.type_});
 
-  WebhookEventSuppressed Function(
-      {List<String> diagnosticCode,
-      String message,
-      WebhookEventSuppressedReason reason,
-      WebhookEventSuppressedType type_}) get copyWith => _copyWith;
+  WebhookEventSuppressed Function({List<String> diagnosticCode, String message, WebhookEventSuppressedReason reason, WebhookEventSuppressedType type_}) get copyWith => _copyWith;
 
-  WebhookEventSuppressed _copyWith(
-          {Object? diagnosticCode = sdkOmittedValue,
-          Object? message = sdkOmittedValue,
-          Object? reason = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue}) =>
-      WebhookEventSuppressed(
-        diagnosticCode: identical(diagnosticCode, sdkOmittedValue)
-            ? this.diagnosticCode
-            : diagnosticCode as List<String>,
-        message: identical(message, sdkOmittedValue)
-            ? this.message
-            : message as String,
-        reason: identical(reason, sdkOmittedValue)
-            ? this.reason
-            : reason as WebhookEventSuppressedReason,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as WebhookEventSuppressedType,
-      );
+  WebhookEventSuppressed _copyWith({Object? diagnosticCode = sdkOmittedValue, Object? message = sdkOmittedValue, Object? reason = sdkOmittedValue, Object? type_ = sdkOmittedValue}) => WebhookEventSuppressed(
+    diagnosticCode: identical(diagnosticCode, sdkOmittedValue) ? this.diagnosticCode : diagnosticCode as List<String>,
+    message: identical(message, sdkOmittedValue) ? this.message : message as String,
+    reason: identical(reason, sdkOmittedValue) ? this.reason : reason as WebhookEventSuppressedReason,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as WebhookEventSuppressedType,
+  );
 
-  factory WebhookEventSuppressed.fromJson(Map<String, dynamic> json) =>
-      WebhookEventSuppressed(
-        diagnosticCode: ((json['diagnosticCode'] as List?)
-            ?.map((e) => e as String)
-            .toList())!,
-        message: (json['message'] as String?)!,
-        reason: (json['reason'] != null
-            ? WebhookEventSuppressedReason.fromJson(json['reason'] as String)
-            : null)!,
-        type_: (json['type'] != null
-            ? WebhookEventSuppressedType.fromJson(json['type'] as String)
-            : null)!,
-      );
+  factory WebhookEventSuppressed.fromJson(Map<String, dynamic> json) => WebhookEventSuppressed(
+    diagnosticCode: ((json['diagnosticCode'] as List?)?.map((e) => e as String).toList())!,
+    message: (json['message'] as String?)!,
+    reason: (json['reason'] != null ? WebhookEventSuppressedReason.fromJson(json['reason'] as String) : null)!,
+    type_: (json['type'] != null ? WebhookEventSuppressedType.fromJson(json['type'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'diagnosticCode': diagnosticCode,
-        'message': message,
-        'reason': reason.toJson(),
-        'type': type_.toJson(),
-      };
+    'diagnosticCode': diagnosticCode,
+    'message': message,
+    'reason': reason.toJson(),
+    'type': type_.toJson(),
+  };
 }
