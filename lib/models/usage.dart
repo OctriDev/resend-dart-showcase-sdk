@@ -4,5 +4,5 @@
 // usage domain model library.
 import '../sdk_utils.dart';
 
-part 'usage_part1.dart';
-part 'usage_part2.dart';
+part 'usage_get_usage_response_success.dart';
+part 'usage_get_usage_response_success_ai_credits.dart';

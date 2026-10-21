@@ -5,4 +5,4 @@
 import '../sdk_utils.dart';
 import 'shared.dart';
 
-part 'inboxes_reply_part1.dart';
+part 'inboxes_reply_models.dart';

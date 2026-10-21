@@ -6,5 +6,8 @@ import '../sdk_utils.dart';
 import 'inboxes_inbox.dart';
 import 'inline.dart';
 
-part 'inboxes_update_part1.dart';
-part 'inboxes_update_part2.dart';
+part 'inboxes_update_agent.dart';
+part 'inboxes_update_draft.dart';
+part 'inboxes_update_label.dart';
+part 'inboxes_update2.dart';
+part 'inboxes_update_thread.dart';

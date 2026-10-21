@@ -4,4 +4,4 @@
 // audiences domain model library.
 import '../sdk_utils.dart';
 
-part 'audiences_part1.dart';
+part 'audiences_models.dart';

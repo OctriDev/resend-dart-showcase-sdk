@@ -4,4 +4,4 @@
 // misc domain model library.
 import '../sdk_utils.dart';
 
-part 'misc_part1.dart';
+part 'misc_models.dart';

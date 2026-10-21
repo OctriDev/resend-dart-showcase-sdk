@@ -6,4 +6,4 @@ import '../sdk_utils.dart';
 import 'inline.dart';
 import 'webhook_domain_record.dart';
 
-part 'domain_part1.dart';
+part 'domain_models.dart';

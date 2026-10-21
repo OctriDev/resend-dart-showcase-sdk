@@ -39,13 +39,13 @@ Future<ListOAuthGrantsResponse> listGrants(ClientConfig config,
 /// Revokes an OAuth grant, removing the authorization associated with it. Supply the grant's ID to identify which authorization to revoke. The response includes the revocation time and reason.
 ///
 /// [oauthGrantId] The OAuth grant ID.
-Future<RevokeOAuthGrantResponse> revokeGrant(ClientConfig config,
+Future<RevokeOAuthGrantResponse> revokeOauthGrant(ClientConfig config,
     {required String oauthGrantId, RequestOptions? requestOptions}) async {
   return (await sdkRequest<RevokeOAuthGrantResponse>('DELETE',
           '/oauth/grants/${Uri.encodeComponent(oauthGrantId.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
-          operationId: 'revokeGrant',
+          operationId: 'revokeOauthGrant',
           fromJsonRaw: (value) => RevokeOAuthGrantResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;

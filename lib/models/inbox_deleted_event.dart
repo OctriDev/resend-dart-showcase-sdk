@@ -6,4 +6,4 @@ import '../sdk_utils.dart';
 import 'inbox_event.dart';
 import 'inline.dart';
 
-part 'inbox_deleted_event_part1.dart';
+part 'inbox_deleted_event_models.dart';

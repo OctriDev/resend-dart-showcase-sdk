@@ -6,4 +6,4 @@ import '../sdk_utils.dart';
 import 'inbox_thread.dart';
 import 'inline.dart';
 
-part 'inbox_email_part1.dart';
+part 'inbox_email_models.dart';

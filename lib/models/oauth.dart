@@ -4,4 +4,4 @@
 // oauth domain model library.
 import '../sdk_utils.dart';
 
-part 'oauth_part1.dart';
+part 'oauth_models.dart';

@@ -5,4 +5,4 @@
 import '../sdk_utils.dart';
 import 'inboxes_inbox.dart';
 
-part 'inboxes_list_part1.dart';
+part 'inboxes_list_models.dart';

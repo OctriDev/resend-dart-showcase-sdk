@@ -7,4 +7,4 @@ import 'inline.dart';
 import 'misc.dart';
 import 'webhook_event_suppressed.dart';
 
-part 'email_suppressed_event_part1.dart';
+part 'email_suppressed_event_models.dart';

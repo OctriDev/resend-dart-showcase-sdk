@@ -5,5 +5,8 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'topics_part1.dart';
-part 'topics_part2.dart';
+part 'topics_create.dart';
+part 'topics_get.dart';
+part 'topics_list.dart';
+part 'topics_remove.dart';
+part 'topics_update.dart';

@@ -6,5 +6,8 @@ import '../sdk_utils.dart';
 import 'inboxes_inbox.dart';
 import 'inline.dart';
 
-part 'get_inbox_part1.dart';
-part 'get_inbox_part2.dart';
+part 'get_inbox_agent_response_success.dart';
+part 'get_inbox_draft_response_success.dart';
+part 'get_inbox_response_success.dart';
+part 'get_inbox_thread_email_response_success.dart';
+part 'get_inbox_thread_response_success.dart';

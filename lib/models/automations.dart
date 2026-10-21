@@ -5,6 +5,13 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'automations_part1.dart';
-part 'automations_part2.dart';
-part 'automations_part3.dart';
+part 'automations_get.dart';
+part 'automations_shared.dart';
+part 'automations_list.dart';
+part 'automations_get_run.dart';
+part 'automations_list_runs.dart';
+part 'automations_create.dart';
+part 'automations_remove.dart';
+part 'automations_duplicate.dart';
+part 'automations_update.dart';
+part 'automations_stop.dart';

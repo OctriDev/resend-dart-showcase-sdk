@@ -6,4 +6,4 @@ import '../sdk_utils.dart';
 import 'inboxes_inbox.dart';
 import 'inline.dart';
 
-part 'update_inbox_part1.dart';
+part 'update_inbox_models.dart';

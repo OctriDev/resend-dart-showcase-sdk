@@ -6,4 +6,4 @@ import '../sdk_utils.dart';
 import 'inline.dart';
 import 'webhook_event_attachment.dart';
 
-part 'email_received_event_part1.dart';
+part 'email_received_event_models.dart';

@@ -5,4 +5,4 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'topic_part1.dart';
+part 'topic_models.dart';

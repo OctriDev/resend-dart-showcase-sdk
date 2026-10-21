@@ -5,4 +5,4 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'webhook_domain_record_part1.dart';
+part 'webhook_domain_record_models.dart';

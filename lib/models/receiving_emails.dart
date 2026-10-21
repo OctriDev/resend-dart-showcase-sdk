@@ -5,5 +5,5 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'receiving_emails_part1.dart';
-part 'receiving_emails_part2.dart';
+part 'receiving_emails_get.dart';
+part 'receiving_emails_list.dart';

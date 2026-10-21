@@ -4,4 +4,4 @@
 // webhook_event_click domain model library.
 import '../sdk_utils.dart';
 
-part 'webhook_event_click_part1.dart';
+part 'webhook_event_click_models.dart';

@@ -5,6 +5,11 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'templates_part1.dart';
-part 'templates_part2.dart';
-part 'templates_part3.dart';
+part 'templates_create.dart';
+part 'templates_duplicate.dart';
+part 'templates_list.dart';
+part 'templates_publish.dart';
+part 'templates_remove.dart';
+part 'templates_get.dart';
+part 'templates_shared.dart';
+part 'templates_update.dart';

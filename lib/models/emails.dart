@@ -6,6 +6,13 @@ import '../sdk_utils.dart';
 import 'inline.dart';
 import 'shared.dart';
 
-part 'emails_part1.dart';
-part 'emails_part2.dart';
-part 'emails_part3.dart';
+part 'emails_send_batch.dart';
+part 'emails_email.dart';
+part 'emails_email_template_input.dart';
+part 'emails_send_email_request.dart';
+part 'emails_tag.dart';
+part 'emails_get_metrics.dart';
+part 'emails_list.dart';
+part 'emails_send.dart';
+part 'emails_share.dart';
+part 'emails_update.dart';

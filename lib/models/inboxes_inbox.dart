@@ -5,7 +5,16 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'inboxes_inbox_part1.dart';
-part 'inboxes_inbox_part2.dart';
-part 'inboxes_inbox_part3.dart';
-part 'inboxes_inbox_part4.dart';
+part 'inboxes_inbox_inboxes_get.dart';
+part 'inboxes_inbox_inboxes_get_agent.dart';
+part 'inboxes_inbox_draft.dart';
+part 'inboxes_inbox_draft_attachment.dart';
+part 'inboxes_inbox_draft_attachment_input.dart';
+part 'inboxes_inbox_thread.dart';
+part 'inboxes_inbox_thread_email.dart';
+part 'inboxes_inbox_thread_email_attachment.dart';
+part 'inboxes_inbox_thread_label.dart';
+part 'inboxes_inbox_thread_summary.dart';
+part 'inboxes_inbox_inboxes_list_drafts.dart';
+part 'inboxes_inbox_inboxes_list_labels.dart';
+part 'inboxes_inbox_inboxes_search_threads.dart';
