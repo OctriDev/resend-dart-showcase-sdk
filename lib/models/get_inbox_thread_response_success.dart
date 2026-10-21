@@ -8,47 +8,87 @@ part of 'get_inbox.dart';
 class GetInboxThreadResponseSuccess {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The object type.
   final String object;
+
   /// The ID of the thread.
   final String id;
+
   /// The subject of the thread.
   final String? subject;
+
   /// The folder the thread is in.
   final InboxThreadSummaryFolder folder;
+
   /// The labels attached to the thread.
   final List<InboxThreadLabel> labels;
+
   /// True only when every email in the thread is read.
   final bool read;
 
-  const GetInboxThreadResponseSuccess({required this.object, required this.id, required this.subject, required this.folder, required this.labels, required this.read});
+  const GetInboxThreadResponseSuccess(
+      {required this.object,
+      required this.id,
+      required this.subject,
+      required this.folder,
+      required this.labels,
+      required this.read});
 
-  GetInboxThreadResponseSuccess Function({String object, String id, String? subject, InboxThreadSummaryFolder folder, List<InboxThreadLabel> labels, bool read}) get copyWith => _copyWith;
+  GetInboxThreadResponseSuccess Function(
+      {String object,
+      String id,
+      String? subject,
+      InboxThreadSummaryFolder folder,
+      List<InboxThreadLabel> labels,
+      bool read}) get copyWith => _copyWith;
 
-  GetInboxThreadResponseSuccess _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? subject = sdkOmittedValue, Object? folder = sdkOmittedValue, Object? labels = sdkOmittedValue, Object? read = sdkOmittedValue}) => GetInboxThreadResponseSuccess(
-    object: identical(object, sdkOmittedValue) ? this.object : object as String,
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    subject: identical(subject, sdkOmittedValue) ? this.subject : subject as String?,
-    folder: identical(folder, sdkOmittedValue) ? this.folder : folder as InboxThreadSummaryFolder,
-    labels: identical(labels, sdkOmittedValue) ? this.labels : labels as List<InboxThreadLabel>,
-    read: identical(read, sdkOmittedValue) ? this.read : read as bool,
-  );
+  GetInboxThreadResponseSuccess _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? subject = sdkOmittedValue,
+          Object? folder = sdkOmittedValue,
+          Object? labels = sdkOmittedValue,
+          Object? read = sdkOmittedValue}) =>
+      GetInboxThreadResponseSuccess(
+        object:
+            identical(object, sdkOmittedValue) ? this.object : object as String,
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        subject: identical(subject, sdkOmittedValue)
+            ? this.subject
+            : subject as String?,
+        folder: identical(folder, sdkOmittedValue)
+            ? this.folder
+            : folder as InboxThreadSummaryFolder,
+        labels: identical(labels, sdkOmittedValue)
+            ? this.labels
+            : labels as List<InboxThreadLabel>,
+        read: identical(read, sdkOmittedValue) ? this.read : read as bool,
+      );
 
-  factory GetInboxThreadResponseSuccess.fromJson(Map<String, dynamic> json) => GetInboxThreadResponseSuccess(
-    object: (json['object'] as String?)!,
-    id: (json['id'] as String?)!,
-    subject: json.containsKey('subject') ? json['subject'] as String? : throw ArgumentError.value(null, 'subject', 'Required property is missing'),
-    folder: (json['folder'] != null ? InboxThreadSummaryFolder.fromJson(json['folder'] as String) : null)!,
-    labels: ((json['labels'] as List?)?.map((e) => InboxThreadLabel.fromJson(e as Map<String, dynamic>)).toList())!,
-    read: (json['read'] as bool?)!,
-  );
+  factory GetInboxThreadResponseSuccess.fromJson(Map<String, dynamic> json) =>
+      GetInboxThreadResponseSuccess(
+        object: (json['object'] as String?)!,
+        id: (json['id'] as String?)!,
+        subject: json.containsKey('subject')
+            ? json['subject'] as String?
+            : throw ArgumentError.value(
+                null, 'subject', 'Required property is missing'),
+        folder: (json['folder'] != null
+            ? InboxThreadSummaryFolder.fromJson(json['folder'] as String)
+            : null)!,
+        labels: ((json['labels'] as List?)
+            ?.map((e) => InboxThreadLabel.fromJson(e as Map<String, dynamic>))
+            .toList())!,
+        read: (json['read'] as bool?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'object': object,
-    'id': id,
-    'subject': subject,
-    'folder': folder.toJson(),
-    'labels': labels.map((item) => item.toJson()).toList(),
-    'read': read,
-  };
+        'object': object,
+        'id': id,
+        'subject': subject,
+        'folder': folder.toJson(),
+        'labels': labels.map((item) => item.toJson()).toList(),
+        'read': read,
+      };
 }

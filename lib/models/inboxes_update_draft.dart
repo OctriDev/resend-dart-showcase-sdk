@@ -8,73 +8,152 @@ part of 'inboxes_update.dart';
 class UpdateInboxDraftOptions {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The recipients. For multiple addresses, send an array of strings. Each value can include a friendly name. Pass `null` to clear. Each address is `email@example.com` or `Name &lt;email@example.com&gt;`. An address that is not valid returns a 422.
   final SdkOptional<List<String>?> to;
+
   /// The CC recipients. Pass `null` or `[]` to clear. Each address is `email@example.com` or `Name &lt;email@example.com&gt;`. An address that is not valid returns a 422.
   final SdkOptional<List<String>?> cc;
+
   /// The BCC recipients. Pass `null` or `[]` to clear. Each address is `email@example.com` or `Name &lt;email@example.com&gt;`. An address that is not valid returns a 422.
   final SdkOptional<List<String>?> bcc;
+
   /// The subject. Max 2000 characters. Cannot be only whitespace or contain a line break. Pass `null` to clear.
   final SdkOptional<String?> subject;
+
   /// The HTML body. Pass `null` to clear.
   final SdkOptional<String?> html;
+
   /// The plain text body. Pass `null` to clear.
   final SdkOptional<String?> text;
+
   /// Files to store on the draft. Each one needs `content`, `filename` and `content_type`. A `path` without `content` returns a 422, and when both are sent, `path` is ignored. A `content_id` returns a 422. The files on a draft can total at most 25 MB. An empty file or a blocked file type returns a 422. Sending the field replaces every attachment on the draft. Send `[]` to remove them all. `null` also removes them all.
   final SdkOptional<List<InboxDraftAttachmentInput>?> attachments;
 
-  const UpdateInboxDraftOptions({this.to = const SdkOmitted(), this.cc = const SdkOmitted(), this.bcc = const SdkOmitted(), this.subject = const SdkOmitted(), this.html = const SdkOmitted(), this.text = const SdkOmitted(), this.attachments = const SdkOmitted()});
+  const UpdateInboxDraftOptions(
+      {this.to = const SdkOmitted(),
+      this.cc = const SdkOmitted(),
+      this.bcc = const SdkOmitted(),
+      this.subject = const SdkOmitted(),
+      this.html = const SdkOmitted(),
+      this.text = const SdkOmitted(),
+      this.attachments = const SdkOmitted()});
 
-  UpdateInboxDraftOptions Function({SdkOptional<List<String>?> to, SdkOptional<List<String>?> cc, SdkOptional<List<String>?> bcc, SdkOptional<String?> subject, SdkOptional<String?> html, SdkOptional<String?> text, SdkOptional<List<InboxDraftAttachmentInput>?> attachments}) get copyWith => _copyWith;
+  UpdateInboxDraftOptions Function(
+          {SdkOptional<List<String>?> to,
+          SdkOptional<List<String>?> cc,
+          SdkOptional<List<String>?> bcc,
+          SdkOptional<String?> subject,
+          SdkOptional<String?> html,
+          SdkOptional<String?> text,
+          SdkOptional<List<InboxDraftAttachmentInput>?> attachments})
+      get copyWith => _copyWith;
 
-  UpdateInboxDraftOptions _copyWith({Object? to = sdkOmittedValue, Object? cc = sdkOmittedValue, Object? bcc = sdkOmittedValue, Object? subject = sdkOmittedValue, Object? html = sdkOmittedValue, Object? text = sdkOmittedValue, Object? attachments = sdkOmittedValue}) => UpdateInboxDraftOptions(
-    to: identical(to, sdkOmittedValue) ? this.to : to as SdkOptional<List<String>?>,
-    cc: identical(cc, sdkOmittedValue) ? this.cc : cc as SdkOptional<List<String>?>,
-    bcc: identical(bcc, sdkOmittedValue) ? this.bcc : bcc as SdkOptional<List<String>?>,
-    subject: identical(subject, sdkOmittedValue) ? this.subject : subject as SdkOptional<String?>,
-    html: identical(html, sdkOmittedValue) ? this.html : html as SdkOptional<String?>,
-    text: identical(text, sdkOmittedValue) ? this.text : text as SdkOptional<String?>,
-    attachments: identical(attachments, sdkOmittedValue) ? this.attachments : attachments as SdkOptional<List<InboxDraftAttachmentInput>?>,
-  );
+  UpdateInboxDraftOptions _copyWith(
+          {Object? to = sdkOmittedValue,
+          Object? cc = sdkOmittedValue,
+          Object? bcc = sdkOmittedValue,
+          Object? subject = sdkOmittedValue,
+          Object? html = sdkOmittedValue,
+          Object? text = sdkOmittedValue,
+          Object? attachments = sdkOmittedValue}) =>
+      UpdateInboxDraftOptions(
+        to: identical(to, sdkOmittedValue)
+            ? this.to
+            : to as SdkOptional<List<String>?>,
+        cc: identical(cc, sdkOmittedValue)
+            ? this.cc
+            : cc as SdkOptional<List<String>?>,
+        bcc: identical(bcc, sdkOmittedValue)
+            ? this.bcc
+            : bcc as SdkOptional<List<String>?>,
+        subject: identical(subject, sdkOmittedValue)
+            ? this.subject
+            : subject as SdkOptional<String?>,
+        html: identical(html, sdkOmittedValue)
+            ? this.html
+            : html as SdkOptional<String?>,
+        text: identical(text, sdkOmittedValue)
+            ? this.text
+            : text as SdkOptional<String?>,
+        attachments: identical(attachments, sdkOmittedValue)
+            ? this.attachments
+            : attachments as SdkOptional<List<InboxDraftAttachmentInput>?>,
+      );
 
-  factory UpdateInboxDraftOptions.fromJson(Map<String, dynamic> json) => UpdateInboxDraftOptions(
-    to: json.containsKey('to') ? SdkPresent((json['to'] as List?)?.map((e) => e as String).toList()) : const SdkOmitted(),
-    cc: json.containsKey('cc') ? SdkPresent((json['cc'] as List?)?.map((e) => e as String).toList()) : const SdkOmitted(),
-    bcc: json.containsKey('bcc') ? SdkPresent((json['bcc'] as List?)?.map((e) => e as String).toList()) : const SdkOmitted(),
-    subject: json.containsKey('subject') ? SdkPresent(json['subject'] as String?) : const SdkOmitted(),
-    html: json.containsKey('html') ? SdkPresent(json['html'] as String?) : const SdkOmitted(),
-    text: json.containsKey('text') ? SdkPresent(json['text'] as String?) : const SdkOmitted(),
-    attachments: json.containsKey('attachments') ? SdkPresent((json['attachments'] as List?)?.map((e) => InboxDraftAttachmentInput.fromJson(e as Map<String, dynamic>)).toList()) : const SdkOmitted(),
-  );
+  factory UpdateInboxDraftOptions.fromJson(Map<String, dynamic> json) =>
+      UpdateInboxDraftOptions(
+        to: json.containsKey('to')
+            ? SdkPresent(
+                (json['to'] as List?)?.map((e) => e as String).toList())
+            : const SdkOmitted(),
+        cc: json.containsKey('cc')
+            ? SdkPresent(
+                (json['cc'] as List?)?.map((e) => e as String).toList())
+            : const SdkOmitted(),
+        bcc: json.containsKey('bcc')
+            ? SdkPresent(
+                (json['bcc'] as List?)?.map((e) => e as String).toList())
+            : const SdkOmitted(),
+        subject: json.containsKey('subject')
+            ? SdkPresent(json['subject'] as String?)
+            : const SdkOmitted(),
+        html: json.containsKey('html')
+            ? SdkPresent(json['html'] as String?)
+            : const SdkOmitted(),
+        text: json.containsKey('text')
+            ? SdkPresent(json['text'] as String?)
+            : const SdkOmitted(),
+        attachments: json.containsKey('attachments')
+            ? SdkPresent((json['attachments'] as List?)
+                ?.map((e) => InboxDraftAttachmentInput.fromJson(
+                    e as Map<String, dynamic>))
+                .toList())
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (to) {
-      SdkPresent<List<String>?>(value: final value) => {'to': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (cc) {
-      SdkPresent<List<String>?>(value: final value) => {'cc': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (bcc) {
-      SdkPresent<List<String>?>(value: final value) => {'bcc': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (subject) {
-      SdkPresent<String?>(value: final value) => {'subject': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (html) {
-      SdkPresent<String?>(value: final value) => {'html': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (text) {
-      SdkPresent<String?>(value: final value) => {'text': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (attachments) {
-      SdkPresent<List<InboxDraftAttachmentInput>?>(value: final value) => {'attachments': value?.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (to) {
+          SdkPresent<List<String>?>(value: final value) => {
+              'to': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (cc) {
+          SdkPresent<List<String>?>(value: final value) => {
+              'cc': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (bcc) {
+          SdkPresent<List<String>?>(value: final value) => {
+              'bcc': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (subject) {
+          SdkPresent<String?>(value: final value) => {
+              'subject': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (html) {
+          SdkPresent<String?>(value: final value) => {
+              'html': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (text) {
+          SdkPresent<String?>(value: final value) => {
+              'text': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (attachments) {
+          SdkPresent<List<InboxDraftAttachmentInput>?>(value: final value) => {
+              'attachments': value?.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

@@ -8,32 +8,52 @@ part of 'inboxes_inbox.dart';
 class InboxDraftAttachmentInput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The content of the file, encoded in base64. It cannot be empty.
   final String content;
+
   /// The filename of the attachment. A blocked file type returns a 422.
   final String filename;
+
   /// The MIME type of the attachment. It must be a valid MIME type, such as `application/pdf`, or the request returns a 422.
   final String contentType;
 
-  const InboxDraftAttachmentInput({required this.content, required this.filename, required this.contentType});
+  const InboxDraftAttachmentInput(
+      {required this.content,
+      required this.filename,
+      required this.contentType});
 
-  InboxDraftAttachmentInput Function({String content, String filename, String contentType}) get copyWith => _copyWith;
+  InboxDraftAttachmentInput Function(
+      {String content,
+      String filename,
+      String contentType}) get copyWith => _copyWith;
 
-  InboxDraftAttachmentInput _copyWith({Object? content = sdkOmittedValue, Object? filename = sdkOmittedValue, Object? contentType = sdkOmittedValue}) => InboxDraftAttachmentInput(
-    content: identical(content, sdkOmittedValue) ? this.content : content as String,
-    filename: identical(filename, sdkOmittedValue) ? this.filename : filename as String,
-    contentType: identical(contentType, sdkOmittedValue) ? this.contentType : contentType as String,
-  );
+  InboxDraftAttachmentInput _copyWith(
+          {Object? content = sdkOmittedValue,
+          Object? filename = sdkOmittedValue,
+          Object? contentType = sdkOmittedValue}) =>
+      InboxDraftAttachmentInput(
+        content: identical(content, sdkOmittedValue)
+            ? this.content
+            : content as String,
+        filename: identical(filename, sdkOmittedValue)
+            ? this.filename
+            : filename as String,
+        contentType: identical(contentType, sdkOmittedValue)
+            ? this.contentType
+            : contentType as String,
+      );
 
-  factory InboxDraftAttachmentInput.fromJson(Map<String, dynamic> json) => InboxDraftAttachmentInput(
-    content: (json['content'] as String?)!,
-    filename: (json['filename'] as String?)!,
-    contentType: (json['content_type'] as String?)!,
-  );
+  factory InboxDraftAttachmentInput.fromJson(Map<String, dynamic> json) =>
+      InboxDraftAttachmentInput(
+        content: (json['content'] as String?)!,
+        filename: (json['filename'] as String?)!,
+        contentType: (json['content_type'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'content': content,
-    'filename': filename,
-    'content_type': contentType,
-  };
+        'content': content,
+        'filename': filename,
+        'content_type': contentType,
+      };
 }

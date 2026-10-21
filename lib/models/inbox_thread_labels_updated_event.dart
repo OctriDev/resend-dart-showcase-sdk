@@ -8,32 +8,55 @@ part of 'inbox_thread.dart';
 class InboxThreadLabelsUpdatedEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The event type.
   final InboxThreadLabelsUpdatedEventType type_;
+
   /// Timestamp when the event was emitted.
   final String createdAt;
+
   /// The data of an `inbox.thread.labels.updated` event. One event carries one label, in either `added` or `removed`.
   final InboxThreadLabelsUpdatedEventData data;
 
-  const InboxThreadLabelsUpdatedEvent({required this.type_, required this.createdAt, required this.data});
+  const InboxThreadLabelsUpdatedEvent(
+      {required this.type_, required this.createdAt, required this.data});
 
-  InboxThreadLabelsUpdatedEvent Function({InboxThreadLabelsUpdatedEventType type_, String createdAt, InboxThreadLabelsUpdatedEventData data}) get copyWith => _copyWith;
+  InboxThreadLabelsUpdatedEvent Function(
+      {InboxThreadLabelsUpdatedEventType type_,
+      String createdAt,
+      InboxThreadLabelsUpdatedEventData data}) get copyWith => _copyWith;
 
-  InboxThreadLabelsUpdatedEvent _copyWith({Object? type_ = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? data = sdkOmittedValue}) => InboxThreadLabelsUpdatedEvent(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as InboxThreadLabelsUpdatedEventType,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as String,
-    data: identical(data, sdkOmittedValue) ? this.data : data as InboxThreadLabelsUpdatedEventData,
-  );
+  InboxThreadLabelsUpdatedEvent _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? data = sdkOmittedValue}) =>
+      InboxThreadLabelsUpdatedEvent(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as InboxThreadLabelsUpdatedEventType,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as String,
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as InboxThreadLabelsUpdatedEventData,
+      );
 
-  factory InboxThreadLabelsUpdatedEvent.fromJson(Map<String, dynamic> json) => InboxThreadLabelsUpdatedEvent(
-    type_: (json['type'] != null ? InboxThreadLabelsUpdatedEventType.fromJson(json['type'] as String) : null)!,
-    createdAt: (json['created_at'] as String?)!,
-    data: (json['data'] != null ? InboxThreadLabelsUpdatedEventData.fromJson(json['data'] as Map<String, dynamic>) : null)!,
-  );
+  factory InboxThreadLabelsUpdatedEvent.fromJson(Map<String, dynamic> json) =>
+      InboxThreadLabelsUpdatedEvent(
+        type_: (json['type'] != null
+            ? InboxThreadLabelsUpdatedEventType.fromJson(json['type'] as String)
+            : null)!,
+        createdAt: (json['created_at'] as String?)!,
+        data: (json['data'] != null
+            ? InboxThreadLabelsUpdatedEventData.fromJson(
+                json['data'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'created_at': createdAt,
-    'data': data.toJson(),
-  };
+        'type': type_.toJson(),
+        'created_at': createdAt,
+        'data': data.toJson(),
+      };
 }

@@ -8,89 +8,188 @@ part of 'shared.dart';
 class RetrievedAttachment {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of object.
   final SdkOptional<String> object;
+
   /// The ID of the attachment.
   final SdkOptional<String> id;
+
   /// The filename of the attachment.
   final SdkOptional<String?> filename;
+
   /// The MIME type of the attachment.
   final SdkOptional<String> contentType;
+
   /// The content ID for inline attachments.
   final SdkOptional<String> contentId;
+
   /// How the attachment should be displayed.
   final SdkOptional<RetrievedAttachmentContentDisposition?> contentDisposition;
+
   /// Signed URL to download the attachment content.
   final SdkOptional<String> downloadUrl;
+
   /// Timestamp when the download URL expires.
   final SdkOptional<String> expiresAt;
+
   /// Size of the attachment in bytes.
   final SdkOptional<int> size;
 
-  const RetrievedAttachment({this.object = const SdkOmitted(), this.id = const SdkOmitted(), this.filename = const SdkOmitted(), this.contentType = const SdkOmitted(), this.contentId = const SdkOmitted(), this.contentDisposition = const SdkOmitted(), this.downloadUrl = const SdkOmitted(), this.expiresAt = const SdkOmitted(), this.size = const SdkOmitted()});
+  const RetrievedAttachment(
+      {this.object = const SdkOmitted(),
+      this.id = const SdkOmitted(),
+      this.filename = const SdkOmitted(),
+      this.contentType = const SdkOmitted(),
+      this.contentId = const SdkOmitted(),
+      this.contentDisposition = const SdkOmitted(),
+      this.downloadUrl = const SdkOmitted(),
+      this.expiresAt = const SdkOmitted(),
+      this.size = const SdkOmitted()});
 
-  RetrievedAttachment Function({SdkOptional<String> object, SdkOptional<String> id, SdkOptional<String?> filename, SdkOptional<String> contentType, SdkOptional<String> contentId, SdkOptional<RetrievedAttachmentContentDisposition?> contentDisposition, SdkOptional<String> downloadUrl, SdkOptional<String> expiresAt, SdkOptional<int> size}) get copyWith => _copyWith;
+  RetrievedAttachment Function(
+      {SdkOptional<String> object,
+      SdkOptional<String> id,
+      SdkOptional<String?> filename,
+      SdkOptional<String> contentType,
+      SdkOptional<String> contentId,
+      SdkOptional<RetrievedAttachmentContentDisposition?> contentDisposition,
+      SdkOptional<String> downloadUrl,
+      SdkOptional<String> expiresAt,
+      SdkOptional<int> size}) get copyWith => _copyWith;
 
-  RetrievedAttachment _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? filename = sdkOmittedValue, Object? contentType = sdkOmittedValue, Object? contentId = sdkOmittedValue, Object? contentDisposition = sdkOmittedValue, Object? downloadUrl = sdkOmittedValue, Object? expiresAt = sdkOmittedValue, Object? size = sdkOmittedValue}) => RetrievedAttachment(
-    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<String>,
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    filename: identical(filename, sdkOmittedValue) ? this.filename : filename as SdkOptional<String?>,
-    contentType: identical(contentType, sdkOmittedValue) ? this.contentType : contentType as SdkOptional<String>,
-    contentId: identical(contentId, sdkOmittedValue) ? this.contentId : contentId as SdkOptional<String>,
-    contentDisposition: identical(contentDisposition, sdkOmittedValue) ? this.contentDisposition : contentDisposition as SdkOptional<RetrievedAttachmentContentDisposition?>,
-    downloadUrl: identical(downloadUrl, sdkOmittedValue) ? this.downloadUrl : downloadUrl as SdkOptional<String>,
-    expiresAt: identical(expiresAt, sdkOmittedValue) ? this.expiresAt : expiresAt as SdkOptional<String>,
-    size: identical(size, sdkOmittedValue) ? this.size : size as SdkOptional<int>,
-  );
+  RetrievedAttachment _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? filename = sdkOmittedValue,
+          Object? contentType = sdkOmittedValue,
+          Object? contentId = sdkOmittedValue,
+          Object? contentDisposition = sdkOmittedValue,
+          Object? downloadUrl = sdkOmittedValue,
+          Object? expiresAt = sdkOmittedValue,
+          Object? size = sdkOmittedValue}) =>
+      RetrievedAttachment(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as SdkOptional<String>,
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        filename: identical(filename, sdkOmittedValue)
+            ? this.filename
+            : filename as SdkOptional<String?>,
+        contentType: identical(contentType, sdkOmittedValue)
+            ? this.contentType
+            : contentType as SdkOptional<String>,
+        contentId: identical(contentId, sdkOmittedValue)
+            ? this.contentId
+            : contentId as SdkOptional<String>,
+        contentDisposition: identical(contentDisposition, sdkOmittedValue)
+            ? this.contentDisposition
+            : contentDisposition
+                as SdkOptional<RetrievedAttachmentContentDisposition?>,
+        downloadUrl: identical(downloadUrl, sdkOmittedValue)
+            ? this.downloadUrl
+            : downloadUrl as SdkOptional<String>,
+        expiresAt: identical(expiresAt, sdkOmittedValue)
+            ? this.expiresAt
+            : expiresAt as SdkOptional<String>,
+        size: identical(size, sdkOmittedValue)
+            ? this.size
+            : size as SdkOptional<int>,
+      );
 
-  factory RetrievedAttachment.fromJson(Map<String, dynamic> json) => RetrievedAttachment(
-    object: json['object'] != null ? SdkPresent((json['object'] as String?)!) : const SdkOmitted(),
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    filename: json.containsKey('filename') ? SdkPresent(json['filename'] as String?) : const SdkOmitted(),
-    contentType: json['content_type'] != null ? SdkPresent((json['content_type'] as String?)!) : const SdkOmitted(),
-    contentId: json['content_id'] != null ? SdkPresent((json['content_id'] as String?)!) : const SdkOmitted(),
-    contentDisposition: json.containsKey('content_disposition') ? SdkPresent(json['content_disposition'] != null ? RetrievedAttachmentContentDisposition.fromJson(json['content_disposition'] as String) : null) : const SdkOmitted(),
-    downloadUrl: json['download_url'] != null ? SdkPresent((json['download_url'] as String?)!) : const SdkOmitted(),
-    expiresAt: json['expires_at'] != null ? SdkPresent((json['expires_at'] as String?)!) : const SdkOmitted(),
-    size: json['size'] != null ? SdkPresent(((json['size'] as num?)?.toInt())!) : const SdkOmitted(),
-  );
+  factory RetrievedAttachment.fromJson(Map<String, dynamic> json) =>
+      RetrievedAttachment(
+        object: json['object'] != null
+            ? SdkPresent((json['object'] as String?)!)
+            : const SdkOmitted(),
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        filename: json.containsKey('filename')
+            ? SdkPresent(json['filename'] as String?)
+            : const SdkOmitted(),
+        contentType: json['content_type'] != null
+            ? SdkPresent((json['content_type'] as String?)!)
+            : const SdkOmitted(),
+        contentId: json['content_id'] != null
+            ? SdkPresent((json['content_id'] as String?)!)
+            : const SdkOmitted(),
+        contentDisposition: json.containsKey('content_disposition')
+            ? SdkPresent(json['content_disposition'] != null
+                ? RetrievedAttachmentContentDisposition.fromJson(
+                    json['content_disposition'] as String)
+                : null)
+            : const SdkOmitted(),
+        downloadUrl: json['download_url'] != null
+            ? SdkPresent((json['download_url'] as String?)!)
+            : const SdkOmitted(),
+        expiresAt: json['expires_at'] != null
+            ? SdkPresent((json['expires_at'] as String?)!)
+            : const SdkOmitted(),
+        size: json['size'] != null
+            ? SdkPresent(((json['size'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (object) {
-      SdkPresent<String>(value: final value) => {'object': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (filename) {
-      SdkPresent<String?>(value: final value) => {'filename': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (contentType) {
-      SdkPresent<String>(value: final value) => {'content_type': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (contentId) {
-      SdkPresent<String>(value: final value) => {'content_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (contentDisposition) {
-      SdkPresent<RetrievedAttachmentContentDisposition?>(value: final value) => {'content_disposition': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (downloadUrl) {
-      SdkPresent<String>(value: final value) => {'download_url': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (expiresAt) {
-      SdkPresent<String>(value: final value) => {'expires_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (size) {
-      SdkPresent<int>(value: final value) => {'size': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (object) {
+          SdkPresent<String>(value: final value) => {
+              'object': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (filename) {
+          SdkPresent<String?>(value: final value) => {
+              'filename': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (contentType) {
+          SdkPresent<String>(value: final value) => {
+              'content_type': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (contentId) {
+          SdkPresent<String>(value: final value) => {
+              'content_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (contentDisposition) {
+          SdkPresent<RetrievedAttachmentContentDisposition?>(
+            value: final value
+          ) =>
+            {
+              'content_disposition': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (downloadUrl) {
+          SdkPresent<String>(value: final value) => {
+              'download_url': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (expiresAt) {
+          SdkPresent<String>(value: final value) => {
+              'expires_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (size) {
+          SdkPresent<int>(value: final value) => {
+              'size': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

@@ -8,25 +8,35 @@ part of 'emails.dart';
 class UpdateEmailOptions {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Schedule email to be sent later. The date should be in ISO 8601 format.
   final SdkOptional<String> scheduledAt;
 
   const UpdateEmailOptions({this.scheduledAt = const SdkOmitted()});
 
-  UpdateEmailOptions Function({SdkOptional<String> scheduledAt}) get copyWith => _copyWith;
+  UpdateEmailOptions Function({SdkOptional<String> scheduledAt}) get copyWith =>
+      _copyWith;
 
-  UpdateEmailOptions _copyWith({Object? scheduledAt = sdkOmittedValue}) => UpdateEmailOptions(
-    scheduledAt: identical(scheduledAt, sdkOmittedValue) ? this.scheduledAt : scheduledAt as SdkOptional<String>,
-  );
+  UpdateEmailOptions _copyWith({Object? scheduledAt = sdkOmittedValue}) =>
+      UpdateEmailOptions(
+        scheduledAt: identical(scheduledAt, sdkOmittedValue)
+            ? this.scheduledAt
+            : scheduledAt as SdkOptional<String>,
+      );
 
-  factory UpdateEmailOptions.fromJson(Map<String, dynamic> json) => UpdateEmailOptions(
-    scheduledAt: json['scheduled_at'] != null ? SdkPresent((json['scheduled_at'] as String?)!) : const SdkOmitted(),
-  );
+  factory UpdateEmailOptions.fromJson(Map<String, dynamic> json) =>
+      UpdateEmailOptions(
+        scheduledAt: json['scheduled_at'] != null
+            ? SdkPresent((json['scheduled_at'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (scheduledAt) {
-      SdkPresent<String>(value: final value) => {'scheduled_at': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (scheduledAt) {
+          SdkPresent<String>(value: final value) => {
+              'scheduled_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

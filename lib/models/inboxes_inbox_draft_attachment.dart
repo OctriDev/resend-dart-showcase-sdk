@@ -8,37 +8,59 @@ part of 'inboxes_inbox.dart';
 class InboxDraftAttachment {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The ID of the attachment.
   final String id;
+
   /// The filename of the attachment.
   final String filename;
+
   /// The MIME type of the attachment.
   final String contentType;
+
   /// The size of the attachment in bytes.
   final int size;
 
-  const InboxDraftAttachment({required this.id, required this.filename, required this.contentType, required this.size});
+  const InboxDraftAttachment(
+      {required this.id,
+      required this.filename,
+      required this.contentType,
+      required this.size});
 
-  InboxDraftAttachment Function({String id, String filename, String contentType, int size}) get copyWith => _copyWith;
+  InboxDraftAttachment Function(
+      {String id,
+      String filename,
+      String contentType,
+      int size}) get copyWith => _copyWith;
 
-  InboxDraftAttachment _copyWith({Object? id = sdkOmittedValue, Object? filename = sdkOmittedValue, Object? contentType = sdkOmittedValue, Object? size = sdkOmittedValue}) => InboxDraftAttachment(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    filename: identical(filename, sdkOmittedValue) ? this.filename : filename as String,
-    contentType: identical(contentType, sdkOmittedValue) ? this.contentType : contentType as String,
-    size: identical(size, sdkOmittedValue) ? this.size : size as int,
-  );
+  InboxDraftAttachment _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? filename = sdkOmittedValue,
+          Object? contentType = sdkOmittedValue,
+          Object? size = sdkOmittedValue}) =>
+      InboxDraftAttachment(
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        filename: identical(filename, sdkOmittedValue)
+            ? this.filename
+            : filename as String,
+        contentType: identical(contentType, sdkOmittedValue)
+            ? this.contentType
+            : contentType as String,
+        size: identical(size, sdkOmittedValue) ? this.size : size as int,
+      );
 
-  factory InboxDraftAttachment.fromJson(Map<String, dynamic> json) => InboxDraftAttachment(
-    id: (json['id'] as String?)!,
-    filename: (json['filename'] as String?)!,
-    contentType: (json['content_type'] as String?)!,
-    size: ((json['size'] as num?)?.toInt())!,
-  );
+  factory InboxDraftAttachment.fromJson(Map<String, dynamic> json) =>
+      InboxDraftAttachment(
+        id: (json['id'] as String?)!,
+        filename: (json['filename'] as String?)!,
+        contentType: (json['content_type'] as String?)!,
+        size: ((json['size'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-    'filename': filename,
-    'content_type': contentType,
-    'size': size,
-  };
+        'id': id,
+        'filename': filename,
+        'content_type': contentType,
+        'size': size,
+      };
 }

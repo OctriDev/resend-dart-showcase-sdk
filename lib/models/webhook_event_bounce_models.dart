@@ -8,37 +8,69 @@ part of 'webhook_event_bounce.dart';
 class WebhookEventBounce {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Array of SMTP diagnostic responses from the receiving server, one entry per recipient (e.g., `smtp; 550 5.1.1 user unknown`).
   final List<String> diagnosticCode;
+
   /// Detailed bounce message describing why the email bounced.
   final String message;
+
   /// Bounce sub-type.
   final WebhookEventBounceSubType subType;
+
   /// Bounce type.
   final WebhookEventBounceType type_;
 
-  const WebhookEventBounce({required this.diagnosticCode, required this.message, required this.subType, required this.type_});
+  const WebhookEventBounce(
+      {required this.diagnosticCode,
+      required this.message,
+      required this.subType,
+      required this.type_});
 
-  WebhookEventBounce Function({List<String> diagnosticCode, String message, WebhookEventBounceSubType subType, WebhookEventBounceType type_}) get copyWith => _copyWith;
+  WebhookEventBounce Function(
+      {List<String> diagnosticCode,
+      String message,
+      WebhookEventBounceSubType subType,
+      WebhookEventBounceType type_}) get copyWith => _copyWith;
 
-  WebhookEventBounce _copyWith({Object? diagnosticCode = sdkOmittedValue, Object? message = sdkOmittedValue, Object? subType = sdkOmittedValue, Object? type_ = sdkOmittedValue}) => WebhookEventBounce(
-    diagnosticCode: identical(diagnosticCode, sdkOmittedValue) ? this.diagnosticCode : diagnosticCode as List<String>,
-    message: identical(message, sdkOmittedValue) ? this.message : message as String,
-    subType: identical(subType, sdkOmittedValue) ? this.subType : subType as WebhookEventBounceSubType,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as WebhookEventBounceType,
-  );
+  WebhookEventBounce _copyWith(
+          {Object? diagnosticCode = sdkOmittedValue,
+          Object? message = sdkOmittedValue,
+          Object? subType = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue}) =>
+      WebhookEventBounce(
+        diagnosticCode: identical(diagnosticCode, sdkOmittedValue)
+            ? this.diagnosticCode
+            : diagnosticCode as List<String>,
+        message: identical(message, sdkOmittedValue)
+            ? this.message
+            : message as String,
+        subType: identical(subType, sdkOmittedValue)
+            ? this.subType
+            : subType as WebhookEventBounceSubType,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as WebhookEventBounceType,
+      );
 
-  factory WebhookEventBounce.fromJson(Map<String, dynamic> json) => WebhookEventBounce(
-    diagnosticCode: ((json['diagnosticCode'] as List?)?.map((e) => e as String).toList())!,
-    message: (json['message'] as String?)!,
-    subType: (json['subType'] != null ? WebhookEventBounceSubType.fromJson(json['subType'] as String) : null)!,
-    type_: (json['type'] != null ? WebhookEventBounceType.fromJson(json['type'] as String) : null)!,
-  );
+  factory WebhookEventBounce.fromJson(Map<String, dynamic> json) =>
+      WebhookEventBounce(
+        diagnosticCode: ((json['diagnosticCode'] as List?)
+            ?.map((e) => e as String)
+            .toList())!,
+        message: (json['message'] as String?)!,
+        subType: (json['subType'] != null
+            ? WebhookEventBounceSubType.fromJson(json['subType'] as String)
+            : null)!,
+        type_: (json['type'] != null
+            ? WebhookEventBounceType.fromJson(json['type'] as String)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'diagnosticCode': diagnosticCode,
-    'message': message,
-    'subType': subType.toJson(),
-    'type': type_.toJson(),
-  };
+        'diagnosticCode': diagnosticCode,
+        'message': message,
+        'subType': subType.toJson(),
+        'type': type_.toJson(),
+      };
 }

@@ -8,32 +8,55 @@ part of 'inbox_thread.dart';
 class InboxThreadFolderUpdatedEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The event type.
   final InboxThreadFolderUpdatedEventType type_;
+
   /// Timestamp when the event was emitted.
   final String createdAt;
+
   /// The data of an `inbox.thread.folder.updated` event.
   final InboxThreadFolderUpdatedEventData data;
 
-  const InboxThreadFolderUpdatedEvent({required this.type_, required this.createdAt, required this.data});
+  const InboxThreadFolderUpdatedEvent(
+      {required this.type_, required this.createdAt, required this.data});
 
-  InboxThreadFolderUpdatedEvent Function({InboxThreadFolderUpdatedEventType type_, String createdAt, InboxThreadFolderUpdatedEventData data}) get copyWith => _copyWith;
+  InboxThreadFolderUpdatedEvent Function(
+      {InboxThreadFolderUpdatedEventType type_,
+      String createdAt,
+      InboxThreadFolderUpdatedEventData data}) get copyWith => _copyWith;
 
-  InboxThreadFolderUpdatedEvent _copyWith({Object? type_ = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? data = sdkOmittedValue}) => InboxThreadFolderUpdatedEvent(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as InboxThreadFolderUpdatedEventType,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as String,
-    data: identical(data, sdkOmittedValue) ? this.data : data as InboxThreadFolderUpdatedEventData,
-  );
+  InboxThreadFolderUpdatedEvent _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? data = sdkOmittedValue}) =>
+      InboxThreadFolderUpdatedEvent(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as InboxThreadFolderUpdatedEventType,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as String,
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as InboxThreadFolderUpdatedEventData,
+      );
 
-  factory InboxThreadFolderUpdatedEvent.fromJson(Map<String, dynamic> json) => InboxThreadFolderUpdatedEvent(
-    type_: (json['type'] != null ? InboxThreadFolderUpdatedEventType.fromJson(json['type'] as String) : null)!,
-    createdAt: (json['created_at'] as String?)!,
-    data: (json['data'] != null ? InboxThreadFolderUpdatedEventData.fromJson(json['data'] as Map<String, dynamic>) : null)!,
-  );
+  factory InboxThreadFolderUpdatedEvent.fromJson(Map<String, dynamic> json) =>
+      InboxThreadFolderUpdatedEvent(
+        type_: (json['type'] != null
+            ? InboxThreadFolderUpdatedEventType.fromJson(json['type'] as String)
+            : null)!,
+        createdAt: (json['created_at'] as String?)!,
+        data: (json['data'] != null
+            ? InboxThreadFolderUpdatedEventData.fromJson(
+                json['data'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'created_at': createdAt,
-    'data': data.toJson(),
-  };
+        'type': type_.toJson(),
+        'created_at': createdAt,
+        'data': data.toJson(),
+      };
 }

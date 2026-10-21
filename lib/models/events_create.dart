@@ -8,65 +8,101 @@ part of 'events.dart';
 class CreateEventRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The name of the event. Cannot start with the reserved `resend:` prefix.
   final String name;
+
   /// An optional flat key/type map defining the event payload schema. Supported types are `string`, `number`, `boolean`, and `date`.
   final SdkOptional<Map<String, dynamic>?> schema;
 
-  const CreateEventRequest({required this.name, this.schema = const SdkOmitted()});
+  const CreateEventRequest(
+      {required this.name, this.schema = const SdkOmitted()});
 
-  CreateEventRequest Function({String name, SdkOptional<Map<String, dynamic>?> schema}) get copyWith => _copyWith;
+  CreateEventRequest Function(
+      {String name,
+      SdkOptional<Map<String, dynamic>?> schema}) get copyWith => _copyWith;
 
-  CreateEventRequest _copyWith({Object? name = sdkOmittedValue, Object? schema = sdkOmittedValue}) => CreateEventRequest(
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    schema: identical(schema, sdkOmittedValue) ? this.schema : schema as SdkOptional<Map<String, dynamic>?>,
-  );
+  CreateEventRequest _copyWith(
+          {Object? name = sdkOmittedValue, Object? schema = sdkOmittedValue}) =>
+      CreateEventRequest(
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        schema: identical(schema, sdkOmittedValue)
+            ? this.schema
+            : schema as SdkOptional<Map<String, dynamic>?>,
+      );
 
-  factory CreateEventRequest.fromJson(Map<String, dynamic> json) => CreateEventRequest(
-    name: (json['name'] as String?)!,
-    schema: json.containsKey('schema') ? SdkPresent(json['schema'] == null ? null : json['schema'] as Map<String, dynamic>) : const SdkOmitted(),
-  );
+  factory CreateEventRequest.fromJson(Map<String, dynamic> json) =>
+      CreateEventRequest(
+        name: (json['name'] as String?)!,
+        schema: json.containsKey('schema')
+            ? SdkPresent(json['schema'] == null
+                ? null
+                : json['schema'] as Map<String, dynamic>)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'name': name,
-    ...switch (schema) {
-      SdkPresent<Map<String, dynamic>?>(value: final value) => {'schema': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'name': name,
+        ...switch (schema) {
+          SdkPresent<Map<String, dynamic>?>(value: final value) => {
+              'schema': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `CreateEventResponse` API schema.
 class CreateEventResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Type of the response object.
   final SdkOptional<String> object;
+
   /// The ID of the created event.
   final SdkOptional<String> id;
 
-  const CreateEventResponse({this.object = const SdkOmitted(), this.id = const SdkOmitted()});
+  const CreateEventResponse(
+      {this.object = const SdkOmitted(), this.id = const SdkOmitted()});
 
-  CreateEventResponse Function({SdkOptional<String> object, SdkOptional<String> id}) get copyWith => _copyWith;
+  CreateEventResponse Function(
+      {SdkOptional<String> object,
+      SdkOptional<String> id}) get copyWith => _copyWith;
 
-  CreateEventResponse _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue}) => CreateEventResponse(
-    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<String>,
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-  );
+  CreateEventResponse _copyWith(
+          {Object? object = sdkOmittedValue, Object? id = sdkOmittedValue}) =>
+      CreateEventResponse(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as SdkOptional<String>,
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+      );
 
-  factory CreateEventResponse.fromJson(Map<String, dynamic> json) => CreateEventResponse(
-    object: json['object'] != null ? SdkPresent((json['object'] as String?)!) : const SdkOmitted(),
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-  );
+  factory CreateEventResponse.fromJson(Map<String, dynamic> json) =>
+      CreateEventResponse(
+        object: json['object'] != null
+            ? SdkPresent((json['object'] as String?)!)
+            : const SdkOmitted(),
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (object) {
-      SdkPresent<String>(value: final value) => {'object': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (object) {
+          SdkPresent<String>(value: final value) => {
+              'object': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

@@ -8,65 +8,132 @@ part of 'contacts.dart';
 class GetContactImportResponseSuccess {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Type of the response object.
   final SdkOptional<String> object;
+
   /// Unique identifier for the contact import.
   final SdkOptional<String> id;
+
   /// Current status of the contact import.
   final SdkOptional<ContactImportStatus> status;
+
   /// Timestamp indicating when the contact import was created.
   final SdkOptional<String> createdAt;
+
   /// Timestamp indicating when the contact import completed.
   final SdkOptional<String?> completedAt;
+
   /// Optional object value serialized in the `counts` wire field.
   final SdkOptional<ContactImportCounts> counts;
 
-  const GetContactImportResponseSuccess({this.object = const SdkOmitted(), this.id = const SdkOmitted(), this.status = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.completedAt = const SdkOmitted(), this.counts = const SdkOmitted()});
+  const GetContactImportResponseSuccess(
+      {this.object = const SdkOmitted(),
+      this.id = const SdkOmitted(),
+      this.status = const SdkOmitted(),
+      this.createdAt = const SdkOmitted(),
+      this.completedAt = const SdkOmitted(),
+      this.counts = const SdkOmitted()});
 
-  GetContactImportResponseSuccess Function({SdkOptional<String> object, SdkOptional<String> id, SdkOptional<ContactImportStatus> status, SdkOptional<String> createdAt, SdkOptional<String?> completedAt, SdkOptional<ContactImportCounts> counts}) get copyWith => _copyWith;
+  GetContactImportResponseSuccess Function(
+      {SdkOptional<String> object,
+      SdkOptional<String> id,
+      SdkOptional<ContactImportStatus> status,
+      SdkOptional<String> createdAt,
+      SdkOptional<String?> completedAt,
+      SdkOptional<ContactImportCounts> counts}) get copyWith => _copyWith;
 
-  GetContactImportResponseSuccess _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? status = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? completedAt = sdkOmittedValue, Object? counts = sdkOmittedValue}) => GetContactImportResponseSuccess(
-    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<String>,
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<ContactImportStatus>,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
-    completedAt: identical(completedAt, sdkOmittedValue) ? this.completedAt : completedAt as SdkOptional<String?>,
-    counts: identical(counts, sdkOmittedValue) ? this.counts : counts as SdkOptional<ContactImportCounts>,
-  );
+  GetContactImportResponseSuccess _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? status = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? completedAt = sdkOmittedValue,
+          Object? counts = sdkOmittedValue}) =>
+      GetContactImportResponseSuccess(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as SdkOptional<String>,
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as SdkOptional<ContactImportStatus>,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as SdkOptional<String>,
+        completedAt: identical(completedAt, sdkOmittedValue)
+            ? this.completedAt
+            : completedAt as SdkOptional<String?>,
+        counts: identical(counts, sdkOmittedValue)
+            ? this.counts
+            : counts as SdkOptional<ContactImportCounts>,
+      );
 
-  factory GetContactImportResponseSuccess.fromJson(Map<String, dynamic> json) => GetContactImportResponseSuccess(
-    object: json['object'] != null ? SdkPresent((json['object'] as String?)!) : const SdkOmitted(),
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    status: json['status'] != null ? SdkPresent((json['status'] != null ? ContactImportStatus.fromJson(json['status'] as String) : null)!) : const SdkOmitted(),
-    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
-    completedAt: json.containsKey('completed_at') ? SdkPresent(json['completed_at'] as String?) : const SdkOmitted(),
-    counts: json['counts'] != null ? SdkPresent((json['counts'] != null ? ContactImportCounts.fromJson(json['counts'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory GetContactImportResponseSuccess.fromJson(Map<String, dynamic> json) =>
+      GetContactImportResponseSuccess(
+        object: json['object'] != null
+            ? SdkPresent((json['object'] as String?)!)
+            : const SdkOmitted(),
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        status: json['status'] != null
+            ? SdkPresent((json['status'] != null
+                ? ContactImportStatus.fromJson(json['status'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        createdAt: json['created_at'] != null
+            ? SdkPresent((json['created_at'] as String?)!)
+            : const SdkOmitted(),
+        completedAt: json.containsKey('completed_at')
+            ? SdkPresent(json['completed_at'] as String?)
+            : const SdkOmitted(),
+        counts: json['counts'] != null
+            ? SdkPresent((json['counts'] != null
+                ? ContactImportCounts.fromJson(
+                    json['counts'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (object) {
-      SdkPresent<String>(value: final value) => {'object': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (status) {
-      SdkPresent<ContactImportStatus>(value: final value) => {'status': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (createdAt) {
-      SdkPresent<String>(value: final value) => {'created_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (completedAt) {
-      SdkPresent<String?>(value: final value) => {'completed_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (counts) {
-      SdkPresent<ContactImportCounts>(value: final value) => {'counts': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (object) {
+          SdkPresent<String>(value: final value) => {
+              'object': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (status) {
+          SdkPresent<ContactImportStatus>(value: final value) => {
+              'status': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (createdAt) {
+          SdkPresent<String>(value: final value) => {
+              'created_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (completedAt) {
+          SdkPresent<String?>(value: final value) => {
+              'completed_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (counts) {
+          SdkPresent<ContactImportCounts>(value: final value) => {
+              'counts': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

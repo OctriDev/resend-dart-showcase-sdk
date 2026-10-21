@@ -33,11 +33,11 @@ Future<CreateAutomationResponse> automationsCreate(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'automationsCreate',
-          fromJsonRaw: (value) => CreateAutomationResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              CreateAutomationResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
-
 
 /// Lists automations, with optional filtering by status and cursor-based pagination. Use `status` to select enabled or disabled automations, and use `after` or `before` to navigate results.
 ///
@@ -58,18 +58,22 @@ Future<ListAutomationsResponse> automationsList(ClientConfig config,
   return (await sdkRequest<ListAutomationsResponse>('GET', '/automations',
           config: config,
           query: {
-            'status': SdkQueryValue(SdkUtils.unwrapOptional(status), style: 'form', explode: true),
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true),
-            'before': SdkQueryValue(SdkUtils.unwrapOptional(before), style: 'form', explode: true)
+            'status': SdkQueryValue(SdkUtils.unwrapOptional(status),
+                style: 'form', explode: true),
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
+                style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
+                style: 'form', explode: true),
+            'before': SdkQueryValue(SdkUtils.unwrapOptional(before),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'automationsList',
-          fromJsonRaw: (value) => ListAutomationsResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ListAutomationsResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
-
 
 /// Retrieves a single automation and its active workflow version. Use the automation details to inspect its status, timestamps, steps, and connections.
 ///
@@ -83,11 +87,11 @@ Future<Automation> automationsGet(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'automationsGet',
-          fromJsonRaw: (value) => Automation.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Automation.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
-
 
 /// Updates an automation's name, status, or workflow graph. Supply at least one of `name`, `status`, or both `steps` and `connections`; workflow graph updates require both arrays together. Provide between 1 and 150 steps when updating the graph.
 ///
@@ -124,11 +128,11 @@ Future<PatchAutomationResponse> automationsUpdate(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'automationsUpdate',
-          fromJsonRaw: (value) => PatchAutomationResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              PatchAutomationResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
-
 
 /// Deletes an automation by its identifier. Use this operation to remove an automation you no longer need; the response indicates whether deletion succeeded.
 ///
@@ -142,11 +146,11 @@ Future<DeleteAutomationResponse> automationsRemove(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'automationsRemove',
-          fromJsonRaw: (value) => DeleteAutomationResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              DeleteAutomationResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
-
 
 /// Duplicates an existing automation to create a separate automation. Supply the source automation's identifier to create the duplicate, then use the returned identifier to access it.
 ///
@@ -160,11 +164,11 @@ Future<DuplicateAutomationResponse> automationsDuplicate(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'automationsDuplicate',
-          fromJsonRaw: (value) => DuplicateAutomationResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => DuplicateAutomationResponse.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
-
 
 /// Stops an automation by its identifier. Use this operation when you want the automation to stop running; the response includes its status after stopping.
 ///
@@ -178,11 +182,11 @@ Future<StopAutomationResponse> automationsStop(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'automationsStop',
-          fromJsonRaw: (value) => StopAutomationResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              StopAutomationResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
-
 
 /// Lists runs for a specific automation, with optional filtering by run status and cursor-based pagination. Use `status` to filter by run state, and use `after` or `before` to navigate the results.
 ///
@@ -208,18 +212,22 @@ Future<ListAutomationRunsResponse> automationsListRuns(ClientConfig config,
           '/automations/${Uri.encodeComponent(automationId.toString())}/runs',
           config: config,
           query: {
-            'status': SdkQueryValue(SdkUtils.unwrapOptional(status), style: 'form', explode: true),
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true),
-            'before': SdkQueryValue(SdkUtils.unwrapOptional(before), style: 'form', explode: true)
+            'status': SdkQueryValue(SdkUtils.unwrapOptional(status),
+                style: 'form', explode: true),
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
+                style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
+                style: 'form', explode: true),
+            'before': SdkQueryValue(SdkUtils.unwrapOptional(before),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'automationsListRuns',
-          fromJsonRaw: (value) => ListAutomationRunsResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ListAutomationRunsResponse.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
-
 
 /// Retrieves a single run for a specific automation. Use the run details to inspect its status, timestamps, and step executions, which are returned in workflow graph order.
 ///
@@ -237,7 +245,8 @@ Future<AutomationRun> automationsGetRun(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'automationsGetRun',
-          fromJsonRaw: (value) => AutomationRun.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              AutomationRun.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }

@@ -8,41 +8,73 @@ part of 'broadcasts.dart';
 class RemoveBroadcastResponseSuccess {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The ID of the broadcast.
   final SdkOptional<String> id;
+
   /// Type of the response object.
   final SdkOptional<String> object;
+
   /// The deleted attribute indicates that the corresponding broadcast has been deleted.
   final SdkOptional<bool> deleted;
 
-  const RemoveBroadcastResponseSuccess({this.id = const SdkOmitted(), this.object = const SdkOmitted(), this.deleted = const SdkOmitted()});
+  const RemoveBroadcastResponseSuccess(
+      {this.id = const SdkOmitted(),
+      this.object = const SdkOmitted(),
+      this.deleted = const SdkOmitted()});
 
-  RemoveBroadcastResponseSuccess Function({SdkOptional<String> id, SdkOptional<String> object, SdkOptional<bool> deleted}) get copyWith => _copyWith;
+  RemoveBroadcastResponseSuccess Function(
+      {SdkOptional<String> id,
+      SdkOptional<String> object,
+      SdkOptional<bool> deleted}) get copyWith => _copyWith;
 
-  RemoveBroadcastResponseSuccess _copyWith({Object? id = sdkOmittedValue, Object? object = sdkOmittedValue, Object? deleted = sdkOmittedValue}) => RemoveBroadcastResponseSuccess(
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<String>,
-    deleted: identical(deleted, sdkOmittedValue) ? this.deleted : deleted as SdkOptional<bool>,
-  );
+  RemoveBroadcastResponseSuccess _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? object = sdkOmittedValue,
+          Object? deleted = sdkOmittedValue}) =>
+      RemoveBroadcastResponseSuccess(
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as SdkOptional<String>,
+        deleted: identical(deleted, sdkOmittedValue)
+            ? this.deleted
+            : deleted as SdkOptional<bool>,
+      );
 
-  factory RemoveBroadcastResponseSuccess.fromJson(Map<String, dynamic> json) => RemoveBroadcastResponseSuccess(
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    object: json['object'] != null ? SdkPresent((json['object'] as String?)!) : const SdkOmitted(),
-    deleted: json['deleted'] != null ? SdkPresent((json['deleted'] as bool?)!) : const SdkOmitted(),
-  );
+  factory RemoveBroadcastResponseSuccess.fromJson(Map<String, dynamic> json) =>
+      RemoveBroadcastResponseSuccess(
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        object: json['object'] != null
+            ? SdkPresent((json['object'] as String?)!)
+            : const SdkOmitted(),
+        deleted: json['deleted'] != null
+            ? SdkPresent((json['deleted'] as bool?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (object) {
-      SdkPresent<String>(value: final value) => {'object': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (deleted) {
-      SdkPresent<bool>(value: final value) => {'deleted': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (object) {
+          SdkPresent<String>(value: final value) => {
+              'object': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (deleted) {
+          SdkPresent<bool>(value: final value) => {
+              'deleted': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

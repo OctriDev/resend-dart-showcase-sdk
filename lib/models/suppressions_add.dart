@@ -8,6 +8,7 @@ part of 'suppressions.dart';
 class CreateSuppressionOptions {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Email address to suppress.
   final String email;
 
@@ -15,50 +16,73 @@ class CreateSuppressionOptions {
 
   CreateSuppressionOptions Function({String email}) get copyWith => _copyWith;
 
-  CreateSuppressionOptions _copyWith({Object? email = sdkOmittedValue}) => CreateSuppressionOptions(
-    email: identical(email, sdkOmittedValue) ? this.email : email as String,
-  );
+  CreateSuppressionOptions _copyWith({Object? email = sdkOmittedValue}) =>
+      CreateSuppressionOptions(
+        email: identical(email, sdkOmittedValue) ? this.email : email as String,
+      );
 
-  factory CreateSuppressionOptions.fromJson(Map<String, dynamic> json) => CreateSuppressionOptions(
-    email: (json['email'] as String?)!,
-  );
+  factory CreateSuppressionOptions.fromJson(Map<String, dynamic> json) =>
+      CreateSuppressionOptions(
+        email: (json['email'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'email': email,
-  };
+        'email': email,
+      };
 }
 
 /// Typed representation of the `CreateSuppressionResponseSuccess` API schema.
 class CreateSuppressionResponseSuccess {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Type of the response object.
   final SdkOptional<String> object;
+
   /// Unique identifier for the created suppression.
   final SdkOptional<String> id;
 
-  const CreateSuppressionResponseSuccess({this.object = const SdkOmitted(), this.id = const SdkOmitted()});
+  const CreateSuppressionResponseSuccess(
+      {this.object = const SdkOmitted(), this.id = const SdkOmitted()});
 
-  CreateSuppressionResponseSuccess Function({SdkOptional<String> object, SdkOptional<String> id}) get copyWith => _copyWith;
+  CreateSuppressionResponseSuccess Function(
+      {SdkOptional<String> object,
+      SdkOptional<String> id}) get copyWith => _copyWith;
 
-  CreateSuppressionResponseSuccess _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue}) => CreateSuppressionResponseSuccess(
-    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<String>,
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-  );
+  CreateSuppressionResponseSuccess _copyWith(
+          {Object? object = sdkOmittedValue, Object? id = sdkOmittedValue}) =>
+      CreateSuppressionResponseSuccess(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as SdkOptional<String>,
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+      );
 
-  factory CreateSuppressionResponseSuccess.fromJson(Map<String, dynamic> json) => CreateSuppressionResponseSuccess(
-    object: json['object'] != null ? SdkPresent((json['object'] as String?)!) : const SdkOmitted(),
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-  );
+  factory CreateSuppressionResponseSuccess.fromJson(
+          Map<String, dynamic> json) =>
+      CreateSuppressionResponseSuccess(
+        object: json['object'] != null
+            ? SdkPresent((json['object'] as String?)!)
+            : const SdkOmitted(),
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (object) {
-      SdkPresent<String>(value: final value) => {'object': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (object) {
+          SdkPresent<String>(value: final value) => {
+              'object': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

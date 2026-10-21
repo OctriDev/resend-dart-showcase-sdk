@@ -8,73 +8,150 @@ part of 'webhooks.dart';
 class GetWebhookEventResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of object.
   final SdkOptional<String> object;
+
   /// The ID of the webhook event.
   final SdkOptional<String> id;
+
   /// The type of the event.
   final SdkOptional<String> type_;
+
   /// Timestamp indicating when the event was created.
   final SdkOptional<String> createdAt;
+
   /// The delivery status of the event for this webhook.
   final SdkOptional<GetWebhookEventResponseStatus> status;
+
   /// Timestamp of the next scheduled delivery attempt, or null when none is scheduled. Always null once the event has succeeded or permanently failed.
   final SdkOptional<String?> nextAttemptAt;
+
   /// The event payload sent to the webhook endpoint.
   final SdkOptional<Map<String, dynamic>> payload;
 
-  const GetWebhookEventResponse({this.object = const SdkOmitted(), this.id = const SdkOmitted(), this.type_ = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.status = const SdkOmitted(), this.nextAttemptAt = const SdkOmitted(), this.payload = const SdkOmitted()});
+  const GetWebhookEventResponse(
+      {this.object = const SdkOmitted(),
+      this.id = const SdkOmitted(),
+      this.type_ = const SdkOmitted(),
+      this.createdAt = const SdkOmitted(),
+      this.status = const SdkOmitted(),
+      this.nextAttemptAt = const SdkOmitted(),
+      this.payload = const SdkOmitted()});
 
-  GetWebhookEventResponse Function({SdkOptional<String> object, SdkOptional<String> id, SdkOptional<String> type_, SdkOptional<String> createdAt, SdkOptional<GetWebhookEventResponseStatus> status, SdkOptional<String?> nextAttemptAt, SdkOptional<Map<String, dynamic>> payload}) get copyWith => _copyWith;
+  GetWebhookEventResponse Function(
+      {SdkOptional<String> object,
+      SdkOptional<String> id,
+      SdkOptional<String> type_,
+      SdkOptional<String> createdAt,
+      SdkOptional<GetWebhookEventResponseStatus> status,
+      SdkOptional<String?> nextAttemptAt,
+      SdkOptional<Map<String, dynamic>> payload}) get copyWith => _copyWith;
 
-  GetWebhookEventResponse _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? status = sdkOmittedValue, Object? nextAttemptAt = sdkOmittedValue, Object? payload = sdkOmittedValue}) => GetWebhookEventResponse(
-    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<String>,
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<String>,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
-    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<GetWebhookEventResponseStatus>,
-    nextAttemptAt: identical(nextAttemptAt, sdkOmittedValue) ? this.nextAttemptAt : nextAttemptAt as SdkOptional<String?>,
-    payload: identical(payload, sdkOmittedValue) ? this.payload : payload as SdkOptional<Map<String, dynamic>>,
-  );
+  GetWebhookEventResponse _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? status = sdkOmittedValue,
+          Object? nextAttemptAt = sdkOmittedValue,
+          Object? payload = sdkOmittedValue}) =>
+      GetWebhookEventResponse(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as SdkOptional<String>,
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<String>,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as SdkOptional<String>,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as SdkOptional<GetWebhookEventResponseStatus>,
+        nextAttemptAt: identical(nextAttemptAt, sdkOmittedValue)
+            ? this.nextAttemptAt
+            : nextAttemptAt as SdkOptional<String?>,
+        payload: identical(payload, sdkOmittedValue)
+            ? this.payload
+            : payload as SdkOptional<Map<String, dynamic>>,
+      );
 
-  factory GetWebhookEventResponse.fromJson(Map<String, dynamic> json) => GetWebhookEventResponse(
-    object: json['object'] != null ? SdkPresent((json['object'] as String?)!) : const SdkOmitted(),
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    type_: json['type'] != null ? SdkPresent((json['type'] as String?)!) : const SdkOmitted(),
-    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
-    status: json['status'] != null ? SdkPresent((json['status'] != null ? GetWebhookEventResponseStatus.fromJson(json['status'] as String) : null)!) : const SdkOmitted(),
-    nextAttemptAt: json.containsKey('next_attempt_at') ? SdkPresent(json['next_attempt_at'] as String?) : const SdkOmitted(),
-    payload: json['payload'] != null ? SdkPresent((json['payload'] == null ? null : json['payload'] as Map<String, dynamic>)!) : const SdkOmitted(),
-  );
+  factory GetWebhookEventResponse.fromJson(Map<String, dynamic> json) =>
+      GetWebhookEventResponse(
+        object: json['object'] != null
+            ? SdkPresent((json['object'] as String?)!)
+            : const SdkOmitted(),
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] as String?)!)
+            : const SdkOmitted(),
+        createdAt: json['created_at'] != null
+            ? SdkPresent((json['created_at'] as String?)!)
+            : const SdkOmitted(),
+        status: json['status'] != null
+            ? SdkPresent((json['status'] != null
+                ? GetWebhookEventResponseStatus.fromJson(
+                    json['status'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        nextAttemptAt: json.containsKey('next_attempt_at')
+            ? SdkPresent(json['next_attempt_at'] as String?)
+            : const SdkOmitted(),
+        payload: json['payload'] != null
+            ? SdkPresent((json['payload'] == null
+                ? null
+                : json['payload'] as Map<String, dynamic>)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (object) {
-      SdkPresent<String>(value: final value) => {'object': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (type_) {
-      SdkPresent<String>(value: final value) => {'type': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (createdAt) {
-      SdkPresent<String>(value: final value) => {'created_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (status) {
-      SdkPresent<GetWebhookEventResponseStatus>(value: final value) => {'status': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (nextAttemptAt) {
-      SdkPresent<String?>(value: final value) => {'next_attempt_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (payload) {
-      SdkPresent<Map<String, dynamic>>(value: final value) => {'payload': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (object) {
+          SdkPresent<String>(value: final value) => {
+              'object': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (type_) {
+          SdkPresent<String>(value: final value) => {
+              'type': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (createdAt) {
+          SdkPresent<String>(value: final value) => {
+              'created_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (status) {
+          SdkPresent<GetWebhookEventResponseStatus>(value: final value) => {
+              'status': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (nextAttemptAt) {
+          SdkPresent<String?>(value: final value) => {
+              'next_attempt_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (payload) {
+          SdkPresent<Map<String, dynamic>>(value: final value) => {
+              'payload': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
