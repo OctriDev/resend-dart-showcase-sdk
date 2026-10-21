@@ -8,137 +8,253 @@ part of 'email_clicked_event.dart';
 class EmailClickedEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The event type.
   final EmailClickedEventType type_;
+
   /// Timestamp when the event was emitted.
   final String createdAt;
+
   /// Required API value serialized in the `data` wire field.
   final EmailClickedEventData data;
 
-  const EmailClickedEvent({required this.type_, required this.createdAt, required this.data});
+  const EmailClickedEvent(
+      {required this.type_, required this.createdAt, required this.data});
 
-  EmailClickedEvent Function({EmailClickedEventType type_, String createdAt, EmailClickedEventData data}) get copyWith => _copyWith;
+  EmailClickedEvent Function(
+      {EmailClickedEventType type_,
+      String createdAt,
+      EmailClickedEventData data}) get copyWith => _copyWith;
 
-  EmailClickedEvent _copyWith({Object? type_ = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? data = sdkOmittedValue}) => EmailClickedEvent(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as EmailClickedEventType,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as String,
-    data: identical(data, sdkOmittedValue) ? this.data : data as EmailClickedEventData,
-  );
+  EmailClickedEvent _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? data = sdkOmittedValue}) =>
+      EmailClickedEvent(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as EmailClickedEventType,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as String,
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as EmailClickedEventData,
+      );
 
-  factory EmailClickedEvent.fromJson(Map<String, dynamic> json) => EmailClickedEvent(
-    type_: (json['type'] != null ? EmailClickedEventType.fromJson(json['type'] as String) : null)!,
-    createdAt: (json['created_at'] as String?)!,
-    data: (json['data'] != null ? EmailClickedEventData.fromJson(json['data'] as Map<String, dynamic>) : null)!,
-  );
+  factory EmailClickedEvent.fromJson(Map<String, dynamic> json) =>
+      EmailClickedEvent(
+        type_: (json['type'] != null
+            ? EmailClickedEventType.fromJson(json['type'] as String)
+            : null)!,
+        createdAt: (json['created_at'] as String?)!,
+        data: (json['data'] != null
+            ? EmailClickedEventData.fromJson(
+                json['data'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'created_at': createdAt,
-    'data': data.toJson(),
-  };
+        'type': type_.toJson(),
+        'created_at': createdAt,
+        'data': data.toJson(),
+      };
 }
 
 /// Required object value serialized in the `data` wire field.
 class EmailClickedEventDataVariant1 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required object value serialized in the `click` wire field.
   final WebhookEventClick click;
 
   const EmailClickedEventDataVariant1({required this.click});
 
-  EmailClickedEventDataVariant1 Function({WebhookEventClick click}) get copyWith => _copyWith;
+  EmailClickedEventDataVariant1 Function({WebhookEventClick click})
+      get copyWith => _copyWith;
 
-  EmailClickedEventDataVariant1 _copyWith({Object? click = sdkOmittedValue}) => EmailClickedEventDataVariant1(
-    click: identical(click, sdkOmittedValue) ? this.click : click as WebhookEventClick,
-  );
+  EmailClickedEventDataVariant1 _copyWith({Object? click = sdkOmittedValue}) =>
+      EmailClickedEventDataVariant1(
+        click: identical(click, sdkOmittedValue)
+            ? this.click
+            : click as WebhookEventClick,
+      );
 
-  factory EmailClickedEventDataVariant1.fromJson(Map<String, dynamic> json) => EmailClickedEventDataVariant1(
-    click: (json['click'] != null ? WebhookEventClick.fromJson(json['click'] as Map<String, dynamic>) : null)!,
-  );
+  factory EmailClickedEventDataVariant1.fromJson(Map<String, dynamic> json) =>
+      EmailClickedEventDataVariant1(
+        click: (json['click'] != null
+            ? WebhookEventClick.fromJson(json['click'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'click': click.toJson(),
-  };
+        'click': click.toJson(),
+      };
 }
 
 /// Typed representation of the `EmailClickedEventData` API schema.
 class EmailClickedEventData {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Unique identifier for the email.
   final String emailId;
+
   /// Timestamp when the email was created.
   final String createdAt;
+
   /// Sender email address and name in the format `Name &lt;email@domain.com&gt;`.
   final String from;
+
   /// Array of impacted recipient email addresses.
   final List<String> to;
+
   /// Email subject line.
   final String subject;
+
   /// Unique identifier for the broadcast campaign, if applicable.
   final SdkOptional<String> broadcastId;
+
   /// Unique identifier for the template used, if applicable.
   final SdkOptional<String> templateId;
+
   /// Tag key-value pairs associated with the email.
   final SdkOptional<Map<String, String>> tags;
+
   /// Custom headers included with the email (omitted when no custom headers are set).
   final SdkOptional<List<OutboundEmailEventDataHeadersItem>> headers;
+
   /// Required object value serialized in the `click` wire field.
   final WebhookEventClick click;
 
-  const EmailClickedEventData({required this.emailId, required this.createdAt, required this.from, required this.to, required this.subject, this.broadcastId = const SdkOmitted(), this.templateId = const SdkOmitted(), this.tags = const SdkOmitted(), this.headers = const SdkOmitted(), required this.click});
+  const EmailClickedEventData(
+      {required this.emailId,
+      required this.createdAt,
+      required this.from,
+      required this.to,
+      required this.subject,
+      this.broadcastId = const SdkOmitted(),
+      this.templateId = const SdkOmitted(),
+      this.tags = const SdkOmitted(),
+      this.headers = const SdkOmitted(),
+      required this.click});
 
-  EmailClickedEventData Function({String emailId, String createdAt, String from, List<String> to, String subject, SdkOptional<String> broadcastId, SdkOptional<String> templateId, SdkOptional<Map<String, String>> tags, SdkOptional<List<OutboundEmailEventDataHeadersItem>> headers, WebhookEventClick click}) get copyWith => _copyWith;
+  EmailClickedEventData Function(
+      {String emailId,
+      String createdAt,
+      String from,
+      List<String> to,
+      String subject,
+      SdkOptional<String> broadcastId,
+      SdkOptional<String> templateId,
+      SdkOptional<Map<String, String>> tags,
+      SdkOptional<List<OutboundEmailEventDataHeadersItem>> headers,
+      WebhookEventClick click}) get copyWith => _copyWith;
 
-  EmailClickedEventData _copyWith({Object? emailId = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? from = sdkOmittedValue, Object? to = sdkOmittedValue, Object? subject = sdkOmittedValue, Object? broadcastId = sdkOmittedValue, Object? templateId = sdkOmittedValue, Object? tags = sdkOmittedValue, Object? headers = sdkOmittedValue, Object? click = sdkOmittedValue}) => EmailClickedEventData(
-    emailId: identical(emailId, sdkOmittedValue) ? this.emailId : emailId as String,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as String,
-    from: identical(from, sdkOmittedValue) ? this.from : from as String,
-    to: identical(to, sdkOmittedValue) ? this.to : to as List<String>,
-    subject: identical(subject, sdkOmittedValue) ? this.subject : subject as String,
-    broadcastId: identical(broadcastId, sdkOmittedValue) ? this.broadcastId : broadcastId as SdkOptional<String>,
-    templateId: identical(templateId, sdkOmittedValue) ? this.templateId : templateId as SdkOptional<String>,
-    tags: identical(tags, sdkOmittedValue) ? this.tags : tags as SdkOptional<Map<String, String>>,
-    headers: identical(headers, sdkOmittedValue) ? this.headers : headers as SdkOptional<List<OutboundEmailEventDataHeadersItem>>,
-    click: identical(click, sdkOmittedValue) ? this.click : click as WebhookEventClick,
-  );
+  EmailClickedEventData _copyWith(
+          {Object? emailId = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? from = sdkOmittedValue,
+          Object? to = sdkOmittedValue,
+          Object? subject = sdkOmittedValue,
+          Object? broadcastId = sdkOmittedValue,
+          Object? templateId = sdkOmittedValue,
+          Object? tags = sdkOmittedValue,
+          Object? headers = sdkOmittedValue,
+          Object? click = sdkOmittedValue}) =>
+      EmailClickedEventData(
+        emailId: identical(emailId, sdkOmittedValue)
+            ? this.emailId
+            : emailId as String,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as String,
+        from: identical(from, sdkOmittedValue) ? this.from : from as String,
+        to: identical(to, sdkOmittedValue) ? this.to : to as List<String>,
+        subject: identical(subject, sdkOmittedValue)
+            ? this.subject
+            : subject as String,
+        broadcastId: identical(broadcastId, sdkOmittedValue)
+            ? this.broadcastId
+            : broadcastId as SdkOptional<String>,
+        templateId: identical(templateId, sdkOmittedValue)
+            ? this.templateId
+            : templateId as SdkOptional<String>,
+        tags: identical(tags, sdkOmittedValue)
+            ? this.tags
+            : tags as SdkOptional<Map<String, String>>,
+        headers: identical(headers, sdkOmittedValue)
+            ? this.headers
+            : headers as SdkOptional<List<OutboundEmailEventDataHeadersItem>>,
+        click: identical(click, sdkOmittedValue)
+            ? this.click
+            : click as WebhookEventClick,
+      );
 
-  factory EmailClickedEventData.fromJson(Map<String, dynamic> json) => EmailClickedEventData(
-    emailId: (json['email_id'] as String?)!,
-    createdAt: (json['created_at'] as String?)!,
-    from: (json['from'] as String?)!,
-    to: ((json['to'] as List?)?.map((e) => e as String).toList())!,
-    subject: (json['subject'] as String?)!,
-    broadcastId: json['broadcast_id'] != null ? SdkPresent((json['broadcast_id'] as String?)!) : const SdkOmitted(),
-    templateId: json['template_id'] != null ? SdkPresent((json['template_id'] as String?)!) : const SdkOmitted(),
-    tags: json['tags'] != null ? SdkPresent((json['tags'] == null ? null : Map<String, dynamic>.from(json['tags'] as Map).map((key, value) => MapEntry(key, value as String)))!) : const SdkOmitted(),
-    headers: json['headers'] != null ? SdkPresent(((json['headers'] as List?)?.map((e) => OutboundEmailEventDataHeadersItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    click: (json['click'] != null ? WebhookEventClick.fromJson(json['click'] as Map<String, dynamic>) : null)!,
-  );
+  factory EmailClickedEventData.fromJson(Map<String, dynamic> json) =>
+      EmailClickedEventData(
+        emailId: (json['email_id'] as String?)!,
+        createdAt: (json['created_at'] as String?)!,
+        from: (json['from'] as String?)!,
+        to: ((json['to'] as List?)?.map((e) => e as String).toList())!,
+        subject: (json['subject'] as String?)!,
+        broadcastId: json['broadcast_id'] != null
+            ? SdkPresent((json['broadcast_id'] as String?)!)
+            : const SdkOmitted(),
+        templateId: json['template_id'] != null
+            ? SdkPresent((json['template_id'] as String?)!)
+            : const SdkOmitted(),
+        tags: json['tags'] != null
+            ? SdkPresent((json['tags'] == null
+                ? null
+                : Map<String, dynamic>.from(json['tags'] as Map)
+                    .map((key, value) => MapEntry(key, value as String)))!)
+            : const SdkOmitted(),
+        headers: json['headers'] != null
+            ? SdkPresent(((json['headers'] as List?)
+                ?.map((e) => OutboundEmailEventDataHeadersItem.fromJson(
+                    e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        click: (json['click'] != null
+            ? WebhookEventClick.fromJson(json['click'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'email_id': emailId,
-    'created_at': createdAt,
-    'from': from,
-    'to': to,
-    'subject': subject,
-    ...switch (broadcastId) {
-      SdkPresent<String>(value: final value) => {'broadcast_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (templateId) {
-      SdkPresent<String>(value: final value) => {'template_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (tags) {
-      SdkPresent<Map<String, String>>(value: final value) => {'tags': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (headers) {
-      SdkPresent<List<OutboundEmailEventDataHeadersItem>>(value: final value) => {'headers': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    'click': click.toJson(),
-  };
+        'email_id': emailId,
+        'created_at': createdAt,
+        'from': from,
+        'to': to,
+        'subject': subject,
+        ...switch (broadcastId) {
+          SdkPresent<String>(value: final value) => {
+              'broadcast_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (templateId) {
+          SdkPresent<String>(value: final value) => {
+              'template_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (tags) {
+          SdkPresent<Map<String, String>>(value: final value) => {
+              'tags': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (headers) {
+          SdkPresent<List<OutboundEmailEventDataHeadersItem>>(
+            value: final value
+          ) =>
+            {
+              'headers': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'click': click.toJson(),
+      };
 }

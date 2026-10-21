@@ -8,37 +8,53 @@ part of 'inboxes_inbox.dart';
 class InboxLabel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The ID of the label.
   final String id;
+
   /// The name of the label.
   final String name;
+
   /// The color of the label, as a `#RRGGBB` hex color in uppercase.
   final String color;
+
   /// Timestamp when the label was created.
   final String createdAt;
 
-  const InboxLabel({required this.id, required this.name, required this.color, required this.createdAt});
+  const InboxLabel(
+      {required this.id,
+      required this.name,
+      required this.color,
+      required this.createdAt});
 
-  InboxLabel Function({String id, String name, String color, String createdAt}) get copyWith => _copyWith;
+  InboxLabel Function({String id, String name, String color, String createdAt})
+      get copyWith => _copyWith;
 
-  InboxLabel _copyWith({Object? id = sdkOmittedValue, Object? name = sdkOmittedValue, Object? color = sdkOmittedValue, Object? createdAt = sdkOmittedValue}) => InboxLabel(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    color: identical(color, sdkOmittedValue) ? this.color : color as String,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as String,
-  );
+  InboxLabel _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? color = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue}) =>
+      InboxLabel(
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        color: identical(color, sdkOmittedValue) ? this.color : color as String,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as String,
+      );
 
   factory InboxLabel.fromJson(Map<String, dynamic> json) => InboxLabel(
-    id: (json['id'] as String?)!,
-    name: (json['name'] as String?)!,
-    color: (json['color'] as String?)!,
-    createdAt: (json['created_at'] as String?)!,
-  );
+        id: (json['id'] as String?)!,
+        name: (json['name'] as String?)!,
+        color: (json['color'] as String?)!,
+        createdAt: (json['created_at'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-    'name': name,
-    'color': color,
-    'created_at': createdAt,
-  };
+        'id': id,
+        'name': name,
+        'color': color,
+        'created_at': createdAt,
+      };
 }

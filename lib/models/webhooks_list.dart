@@ -8,100 +8,190 @@ part of 'webhooks.dart';
 class ListWebhooksResponseDataItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The ID of the webhook.
   final SdkOptional<String> id;
+
   /// The URL where webhook events are sent.
   final SdkOptional<String> endpoint;
+
   /// Array of event types subscribed to.
   final SdkOptional<List<String>?> events;
+
   /// The status of the webhook.
   final SdkOptional<String> status;
+
   /// Timestamp indicating when the webhook was created.
   final SdkOptional<String> createdAt;
 
-  const ListWebhooksResponseDataItem({this.id = const SdkOmitted(), this.endpoint = const SdkOmitted(), this.events = const SdkOmitted(), this.status = const SdkOmitted(), this.createdAt = const SdkOmitted()});
+  const ListWebhooksResponseDataItem(
+      {this.id = const SdkOmitted(),
+      this.endpoint = const SdkOmitted(),
+      this.events = const SdkOmitted(),
+      this.status = const SdkOmitted(),
+      this.createdAt = const SdkOmitted()});
 
-  ListWebhooksResponseDataItem Function({SdkOptional<String> id, SdkOptional<String> endpoint, SdkOptional<List<String>?> events, SdkOptional<String> status, SdkOptional<String> createdAt}) get copyWith => _copyWith;
+  ListWebhooksResponseDataItem Function(
+      {SdkOptional<String> id,
+      SdkOptional<String> endpoint,
+      SdkOptional<List<String>?> events,
+      SdkOptional<String> status,
+      SdkOptional<String> createdAt}) get copyWith => _copyWith;
 
-  ListWebhooksResponseDataItem _copyWith({Object? id = sdkOmittedValue, Object? endpoint = sdkOmittedValue, Object? events = sdkOmittedValue, Object? status = sdkOmittedValue, Object? createdAt = sdkOmittedValue}) => ListWebhooksResponseDataItem(
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    endpoint: identical(endpoint, sdkOmittedValue) ? this.endpoint : endpoint as SdkOptional<String>,
-    events: identical(events, sdkOmittedValue) ? this.events : events as SdkOptional<List<String>?>,
-    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<String>,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
-  );
+  ListWebhooksResponseDataItem _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? endpoint = sdkOmittedValue,
+          Object? events = sdkOmittedValue,
+          Object? status = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue}) =>
+      ListWebhooksResponseDataItem(
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        endpoint: identical(endpoint, sdkOmittedValue)
+            ? this.endpoint
+            : endpoint as SdkOptional<String>,
+        events: identical(events, sdkOmittedValue)
+            ? this.events
+            : events as SdkOptional<List<String>?>,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as SdkOptional<String>,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as SdkOptional<String>,
+      );
 
-  factory ListWebhooksResponseDataItem.fromJson(Map<String, dynamic> json) => ListWebhooksResponseDataItem(
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    endpoint: json['endpoint'] != null ? SdkPresent((json['endpoint'] as String?)!) : const SdkOmitted(),
-    events: json.containsKey('events') ? SdkPresent((json['events'] as List?)?.map((e) => e as String).toList()) : const SdkOmitted(),
-    status: json['status'] != null ? SdkPresent((json['status'] as String?)!) : const SdkOmitted(),
-    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
-  );
+  factory ListWebhooksResponseDataItem.fromJson(Map<String, dynamic> json) =>
+      ListWebhooksResponseDataItem(
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        endpoint: json['endpoint'] != null
+            ? SdkPresent((json['endpoint'] as String?)!)
+            : const SdkOmitted(),
+        events: json.containsKey('events')
+            ? SdkPresent(
+                (json['events'] as List?)?.map((e) => e as String).toList())
+            : const SdkOmitted(),
+        status: json['status'] != null
+            ? SdkPresent((json['status'] as String?)!)
+            : const SdkOmitted(),
+        createdAt: json['created_at'] != null
+            ? SdkPresent((json['created_at'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (endpoint) {
-      SdkPresent<String>(value: final value) => {'endpoint': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (events) {
-      SdkPresent<List<String>?>(value: final value) => {'events': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (status) {
-      SdkPresent<String>(value: final value) => {'status': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (createdAt) {
-      SdkPresent<String>(value: final value) => {'created_at': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (endpoint) {
+          SdkPresent<String>(value: final value) => {
+              'endpoint': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (events) {
+          SdkPresent<List<String>?>(value: final value) => {
+              'events': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (status) {
+          SdkPresent<String>(value: final value) => {
+              'status': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (createdAt) {
+          SdkPresent<String>(value: final value) => {
+              'created_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `ListWebhooksResponse` API schema.
 class ListWebhooksResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Type of the response object.
   final SdkOptional<String> object;
+
   /// Indicates if there are more results available.
   final SdkOptional<bool> hasMore;
+
   /// Array containing webhook information.
   final SdkOptional<List<ListWebhooksResponseDataItem>> data;
 
-  const ListWebhooksResponse({this.object = const SdkOmitted(), this.hasMore = const SdkOmitted(), this.data = const SdkOmitted()});
+  const ListWebhooksResponse(
+      {this.object = const SdkOmitted(),
+      this.hasMore = const SdkOmitted(),
+      this.data = const SdkOmitted()});
 
-  ListWebhooksResponse Function({SdkOptional<String> object, SdkOptional<bool> hasMore, SdkOptional<List<ListWebhooksResponseDataItem>> data}) get copyWith => _copyWith;
+  ListWebhooksResponse Function(
+          {SdkOptional<String> object,
+          SdkOptional<bool> hasMore,
+          SdkOptional<List<ListWebhooksResponseDataItem>> data})
+      get copyWith => _copyWith;
 
-  ListWebhooksResponse _copyWith({Object? object = sdkOmittedValue, Object? hasMore = sdkOmittedValue, Object? data = sdkOmittedValue}) => ListWebhooksResponse(
-    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<String>,
-    hasMore: identical(hasMore, sdkOmittedValue) ? this.hasMore : hasMore as SdkOptional<bool>,
-    data: identical(data, sdkOmittedValue) ? this.data : data as SdkOptional<List<ListWebhooksResponseDataItem>>,
-  );
+  ListWebhooksResponse _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? hasMore = sdkOmittedValue,
+          Object? data = sdkOmittedValue}) =>
+      ListWebhooksResponse(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as SdkOptional<String>,
+        hasMore: identical(hasMore, sdkOmittedValue)
+            ? this.hasMore
+            : hasMore as SdkOptional<bool>,
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as SdkOptional<List<ListWebhooksResponseDataItem>>,
+      );
 
-  factory ListWebhooksResponse.fromJson(Map<String, dynamic> json) => ListWebhooksResponse(
-    object: json['object'] != null ? SdkPresent((json['object'] as String?)!) : const SdkOmitted(),
-    hasMore: json['has_more'] != null ? SdkPresent((json['has_more'] as bool?)!) : const SdkOmitted(),
-    data: json['data'] != null ? SdkPresent(((json['data'] as List?)?.map((e) => ListWebhooksResponseDataItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory ListWebhooksResponse.fromJson(Map<String, dynamic> json) =>
+      ListWebhooksResponse(
+        object: json['object'] != null
+            ? SdkPresent((json['object'] as String?)!)
+            : const SdkOmitted(),
+        hasMore: json['has_more'] != null
+            ? SdkPresent((json['has_more'] as bool?)!)
+            : const SdkOmitted(),
+        data: json['data'] != null
+            ? SdkPresent(((json['data'] as List?)
+                ?.map((e) => ListWebhooksResponseDataItem.fromJson(
+                    e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (object) {
-      SdkPresent<String>(value: final value) => {'object': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (hasMore) {
-      SdkPresent<bool>(value: final value) => {'has_more': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (data) {
-      SdkPresent<List<ListWebhooksResponseDataItem>>(value: final value) => {'data': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (object) {
+          SdkPresent<String>(value: final value) => {
+              'object': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (hasMore) {
+          SdkPresent<bool>(value: final value) => {
+              'has_more': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (data) {
+          SdkPresent<List<ListWebhooksResponseDataItem>>(value: final value) =>
+            {
+              'data': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

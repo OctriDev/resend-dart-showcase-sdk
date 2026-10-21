@@ -8,52 +8,80 @@ part of 'emails.dart';
 class CreateBatchEmailsResponseDataItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The ID of the sent email.
   final SdkOptional<String> id;
 
   const CreateBatchEmailsResponseDataItem({this.id = const SdkOmitted()});
 
-  CreateBatchEmailsResponseDataItem Function({SdkOptional<String> id}) get copyWith => _copyWith;
+  CreateBatchEmailsResponseDataItem Function({SdkOptional<String> id})
+      get copyWith => _copyWith;
 
-  CreateBatchEmailsResponseDataItem _copyWith({Object? id = sdkOmittedValue}) => CreateBatchEmailsResponseDataItem(
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-  );
+  CreateBatchEmailsResponseDataItem _copyWith({Object? id = sdkOmittedValue}) =>
+      CreateBatchEmailsResponseDataItem(
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+      );
 
-  factory CreateBatchEmailsResponseDataItem.fromJson(Map<String, dynamic> json) => CreateBatchEmailsResponseDataItem(
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-  );
+  factory CreateBatchEmailsResponseDataItem.fromJson(
+          Map<String, dynamic> json) =>
+      CreateBatchEmailsResponseDataItem(
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `CreateBatchEmailsResponse` API schema.
 class CreateBatchEmailsResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional array value serialized in the `data` wire field.
   final SdkOptional<List<CreateBatchEmailsResponseDataItem>> data;
 
   const CreateBatchEmailsResponse({this.data = const SdkOmitted()});
 
-  CreateBatchEmailsResponse Function({SdkOptional<List<CreateBatchEmailsResponseDataItem>> data}) get copyWith => _copyWith;
+  CreateBatchEmailsResponse Function(
+          {SdkOptional<List<CreateBatchEmailsResponseDataItem>> data})
+      get copyWith => _copyWith;
 
-  CreateBatchEmailsResponse _copyWith({Object? data = sdkOmittedValue}) => CreateBatchEmailsResponse(
-    data: identical(data, sdkOmittedValue) ? this.data : data as SdkOptional<List<CreateBatchEmailsResponseDataItem>>,
-  );
+  CreateBatchEmailsResponse _copyWith({Object? data = sdkOmittedValue}) =>
+      CreateBatchEmailsResponse(
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as SdkOptional<List<CreateBatchEmailsResponseDataItem>>,
+      );
 
-  factory CreateBatchEmailsResponse.fromJson(Map<String, dynamic> json) => CreateBatchEmailsResponse(
-    data: json['data'] != null ? SdkPresent(((json['data'] as List?)?.map((e) => CreateBatchEmailsResponseDataItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory CreateBatchEmailsResponse.fromJson(Map<String, dynamic> json) =>
+      CreateBatchEmailsResponse(
+        data: json['data'] != null
+            ? SdkPresent(((json['data'] as List?)
+                ?.map((e) => CreateBatchEmailsResponseDataItem.fromJson(
+                    e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (data) {
-      SdkPresent<List<CreateBatchEmailsResponseDataItem>>(value: final value) => {'data': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (data) {
+          SdkPresent<List<CreateBatchEmailsResponseDataItem>>(
+            value: final value
+          ) =>
+            {
+              'data': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

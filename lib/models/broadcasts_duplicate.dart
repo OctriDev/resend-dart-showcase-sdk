@@ -8,33 +8,54 @@ part of 'broadcasts.dart';
 class DuplicateBroadcastResponseSuccess {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The ID of the duplicated broadcast.
   final SdkOptional<String> id;
+
   /// The object type of the response.
   final SdkOptional<String> object;
 
-  const DuplicateBroadcastResponseSuccess({this.id = const SdkOmitted(), this.object = const SdkOmitted()});
+  const DuplicateBroadcastResponseSuccess(
+      {this.id = const SdkOmitted(), this.object = const SdkOmitted()});
 
-  DuplicateBroadcastResponseSuccess Function({SdkOptional<String> id, SdkOptional<String> object}) get copyWith => _copyWith;
+  DuplicateBroadcastResponseSuccess Function(
+      {SdkOptional<String> id,
+      SdkOptional<String> object}) get copyWith => _copyWith;
 
-  DuplicateBroadcastResponseSuccess _copyWith({Object? id = sdkOmittedValue, Object? object = sdkOmittedValue}) => DuplicateBroadcastResponseSuccess(
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<String>,
-  );
+  DuplicateBroadcastResponseSuccess _copyWith(
+          {Object? id = sdkOmittedValue, Object? object = sdkOmittedValue}) =>
+      DuplicateBroadcastResponseSuccess(
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as SdkOptional<String>,
+      );
 
-  factory DuplicateBroadcastResponseSuccess.fromJson(Map<String, dynamic> json) => DuplicateBroadcastResponseSuccess(
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    object: json['object'] != null ? SdkPresent((json['object'] as String?)!) : const SdkOmitted(),
-  );
+  factory DuplicateBroadcastResponseSuccess.fromJson(
+          Map<String, dynamic> json) =>
+      DuplicateBroadcastResponseSuccess(
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        object: json['object'] != null
+            ? SdkPresent((json['object'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (object) {
-      SdkPresent<String>(value: final value) => {'object': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (object) {
+          SdkPresent<String>(value: final value) => {
+              'object': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

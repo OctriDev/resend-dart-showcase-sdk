@@ -8,32 +8,42 @@ part of 'inboxes_inbox.dart';
 class InboxThreadLabel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The ID of the label.
   final String id;
+
   /// The name of the label.
   final String name;
+
   /// The color of the label, as a `#RRGGBB` hex color in uppercase.
   final String color;
 
-  const InboxThreadLabel({required this.id, required this.name, required this.color});
+  const InboxThreadLabel(
+      {required this.id, required this.name, required this.color});
 
-  InboxThreadLabel Function({String id, String name, String color}) get copyWith => _copyWith;
+  InboxThreadLabel Function({String id, String name, String color})
+      get copyWith => _copyWith;
 
-  InboxThreadLabel _copyWith({Object? id = sdkOmittedValue, Object? name = sdkOmittedValue, Object? color = sdkOmittedValue}) => InboxThreadLabel(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    color: identical(color, sdkOmittedValue) ? this.color : color as String,
-  );
+  InboxThreadLabel _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? color = sdkOmittedValue}) =>
+      InboxThreadLabel(
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        color: identical(color, sdkOmittedValue) ? this.color : color as String,
+      );
 
-  factory InboxThreadLabel.fromJson(Map<String, dynamic> json) => InboxThreadLabel(
-    id: (json['id'] as String?)!,
-    name: (json['name'] as String?)!,
-    color: (json['color'] as String?)!,
-  );
+  factory InboxThreadLabel.fromJson(Map<String, dynamic> json) =>
+      InboxThreadLabel(
+        id: (json['id'] as String?)!,
+        name: (json['name'] as String?)!,
+        color: (json['color'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-    'name': name,
-    'color': color,
-  };
+        'id': id,
+        'name': name,
+        'color': color,
+      };
 }

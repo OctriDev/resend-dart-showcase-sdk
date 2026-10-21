@@ -8,32 +8,50 @@ part of 'inboxes_inbox.dart';
 class InboxThreadEmailAttachment {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The ID of the attachment.
   final String id;
+
   /// The filename of the attachment.
   final String? filename;
+
   /// The size of the attachment in bytes.
   final int? size;
 
-  const InboxThreadEmailAttachment({required this.id, required this.filename, required this.size});
+  const InboxThreadEmailAttachment(
+      {required this.id, required this.filename, required this.size});
 
-  InboxThreadEmailAttachment Function({String id, String? filename, int? size}) get copyWith => _copyWith;
+  InboxThreadEmailAttachment Function({String id, String? filename, int? size})
+      get copyWith => _copyWith;
 
-  InboxThreadEmailAttachment _copyWith({Object? id = sdkOmittedValue, Object? filename = sdkOmittedValue, Object? size = sdkOmittedValue}) => InboxThreadEmailAttachment(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    filename: identical(filename, sdkOmittedValue) ? this.filename : filename as String?,
-    size: identical(size, sdkOmittedValue) ? this.size : size as int?,
-  );
+  InboxThreadEmailAttachment _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? filename = sdkOmittedValue,
+          Object? size = sdkOmittedValue}) =>
+      InboxThreadEmailAttachment(
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        filename: identical(filename, sdkOmittedValue)
+            ? this.filename
+            : filename as String?,
+        size: identical(size, sdkOmittedValue) ? this.size : size as int?,
+      );
 
-  factory InboxThreadEmailAttachment.fromJson(Map<String, dynamic> json) => InboxThreadEmailAttachment(
-    id: (json['id'] as String?)!,
-    filename: json.containsKey('filename') ? json['filename'] as String? : throw ArgumentError.value(null, 'filename', 'Required property is missing'),
-    size: json.containsKey('size') ? (json['size'] as num?)?.toInt() : throw ArgumentError.value(null, 'size', 'Required property is missing'),
-  );
+  factory InboxThreadEmailAttachment.fromJson(Map<String, dynamic> json) =>
+      InboxThreadEmailAttachment(
+        id: (json['id'] as String?)!,
+        filename: json.containsKey('filename')
+            ? json['filename'] as String?
+            : throw ArgumentError.value(
+                null, 'filename', 'Required property is missing'),
+        size: json.containsKey('size')
+            ? (json['size'] as num?)?.toInt()
+            : throw ArgumentError.value(
+                null, 'size', 'Required property is missing'),
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-    'filename': filename,
-    'size': size,
-  };
+        'id': id,
+        'filename': filename,
+        'size': size,
+      };
 }

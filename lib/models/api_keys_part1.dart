@@ -8,218 +8,375 @@ part of 'api_keys.dart';
 class ApiKey {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The ID of the API key.
   final SdkOptional<String> id;
+
   /// The name of the API key.
   final SdkOptional<String> name;
+
   /// The date and time the API key was created.
   final SdkOptional<String> createdAt;
+
   /// The date and time the API key was last used.
   final SdkOptional<String?> lastUsedAt;
 
-  const ApiKey({this.id = const SdkOmitted(), this.name = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.lastUsedAt = const SdkOmitted()});
+  const ApiKey(
+      {this.id = const SdkOmitted(),
+      this.name = const SdkOmitted(),
+      this.createdAt = const SdkOmitted(),
+      this.lastUsedAt = const SdkOmitted()});
 
-  ApiKey Function({SdkOptional<String> id, SdkOptional<String> name, SdkOptional<String> createdAt, SdkOptional<String?> lastUsedAt}) get copyWith => _copyWith;
+  ApiKey Function(
+      {SdkOptional<String> id,
+      SdkOptional<String> name,
+      SdkOptional<String> createdAt,
+      SdkOptional<String?> lastUsedAt}) get copyWith => _copyWith;
 
-  ApiKey _copyWith({Object? id = sdkOmittedValue, Object? name = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? lastUsedAt = sdkOmittedValue}) => ApiKey(
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
-    lastUsedAt: identical(lastUsedAt, sdkOmittedValue) ? this.lastUsedAt : lastUsedAt as SdkOptional<String?>,
-  );
+  ApiKey _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? lastUsedAt = sdkOmittedValue}) =>
+      ApiKey(
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as SdkOptional<String>,
+        lastUsedAt: identical(lastUsedAt, sdkOmittedValue)
+            ? this.lastUsedAt
+            : lastUsedAt as SdkOptional<String?>,
+      );
 
   factory ApiKey.fromJson(Map<String, dynamic> json) => ApiKey(
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
-    lastUsedAt: json.containsKey('last_used_at') ? SdkPresent(json['last_used_at'] as String?) : const SdkOmitted(),
-  );
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        createdAt: json['created_at'] != null
+            ? SdkPresent((json['created_at'] as String?)!)
+            : const SdkOmitted(),
+        lastUsedAt: json.containsKey('last_used_at')
+            ? SdkPresent(json['last_used_at'] as String?)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (createdAt) {
-      SdkPresent<String>(value: final value) => {'created_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (lastUsedAt) {
-      SdkPresent<String?>(value: final value) => {'last_used_at': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (createdAt) {
+          SdkPresent<String>(value: final value) => {
+              'created_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (lastUsedAt) {
+          SdkPresent<String?>(value: final value) => {
+              'last_used_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `CreateApiKeyRequest` API schema.
 class CreateApiKeyRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The API key name.
   final String name;
+
   /// The API key can have full access to Resend’s API or be only restricted to send emails. * full_access - Can create, delete, get, and update any resource. * sending_access - Can only send emails.
   final SdkOptional<CreateApiKeyRequestPermission> permission;
+
   /// Restrict an API key to send emails only from a specific domain. Only used when the permission is sending_access.
   final SdkOptional<String> domainId;
 
-  const CreateApiKeyRequest({required this.name, this.permission = const SdkOmitted(), this.domainId = const SdkOmitted()});
+  const CreateApiKeyRequest(
+      {required this.name,
+      this.permission = const SdkOmitted(),
+      this.domainId = const SdkOmitted()});
 
-  CreateApiKeyRequest Function({String name, SdkOptional<CreateApiKeyRequestPermission> permission, SdkOptional<String> domainId}) get copyWith => _copyWith;
+  CreateApiKeyRequest Function(
+      {String name,
+      SdkOptional<CreateApiKeyRequestPermission> permission,
+      SdkOptional<String> domainId}) get copyWith => _copyWith;
 
-  CreateApiKeyRequest _copyWith({Object? name = sdkOmittedValue, Object? permission = sdkOmittedValue, Object? domainId = sdkOmittedValue}) => CreateApiKeyRequest(
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    permission: identical(permission, sdkOmittedValue) ? this.permission : permission as SdkOptional<CreateApiKeyRequestPermission>,
-    domainId: identical(domainId, sdkOmittedValue) ? this.domainId : domainId as SdkOptional<String>,
-  );
+  CreateApiKeyRequest _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? permission = sdkOmittedValue,
+          Object? domainId = sdkOmittedValue}) =>
+      CreateApiKeyRequest(
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        permission: identical(permission, sdkOmittedValue)
+            ? this.permission
+            : permission as SdkOptional<CreateApiKeyRequestPermission>,
+        domainId: identical(domainId, sdkOmittedValue)
+            ? this.domainId
+            : domainId as SdkOptional<String>,
+      );
 
-  factory CreateApiKeyRequest.fromJson(Map<String, dynamic> json) => CreateApiKeyRequest(
-    name: (json['name'] as String?)!,
-    permission: json['permission'] != null ? SdkPresent((json['permission'] != null ? CreateApiKeyRequestPermission.fromJson(json['permission'] as String) : null)!) : const SdkOmitted(),
-    domainId: json['domain_id'] != null ? SdkPresent((json['domain_id'] as String?)!) : const SdkOmitted(),
-  );
+  factory CreateApiKeyRequest.fromJson(Map<String, dynamic> json) =>
+      CreateApiKeyRequest(
+        name: (json['name'] as String?)!,
+        permission: json['permission'] != null
+            ? SdkPresent((json['permission'] != null
+                ? CreateApiKeyRequestPermission.fromJson(
+                    json['permission'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        domainId: json['domain_id'] != null
+            ? SdkPresent((json['domain_id'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'name': name,
-    ...switch (permission) {
-      SdkPresent<CreateApiKeyRequestPermission>(value: final value) => {'permission': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (domainId) {
-      SdkPresent<String>(value: final value) => {'domain_id': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'name': name,
+        ...switch (permission) {
+          SdkPresent<CreateApiKeyRequestPermission>(value: final value) => {
+              'permission': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (domainId) {
+          SdkPresent<String>(value: final value) => {
+              'domain_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `CreateApiKeyResponse` API schema.
 class CreateApiKeyResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The ID of the API key.
   final SdkOptional<String> id;
+
   /// The token of the API key.
   final SdkOptional<String> token;
 
-  const CreateApiKeyResponse({this.id = const SdkOmitted(), this.token = const SdkOmitted()});
+  const CreateApiKeyResponse(
+      {this.id = const SdkOmitted(), this.token = const SdkOmitted()});
 
-  CreateApiKeyResponse Function({SdkOptional<String> id, SdkOptional<String> token}) get copyWith => _copyWith;
+  CreateApiKeyResponse Function(
+      {SdkOptional<String> id,
+      SdkOptional<String> token}) get copyWith => _copyWith;
 
-  CreateApiKeyResponse _copyWith({Object? id = sdkOmittedValue, Object? token = sdkOmittedValue}) => CreateApiKeyResponse(
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    token: identical(token, sdkOmittedValue) ? this.token : token as SdkOptional<String>,
-  );
+  CreateApiKeyResponse _copyWith(
+          {Object? id = sdkOmittedValue, Object? token = sdkOmittedValue}) =>
+      CreateApiKeyResponse(
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        token: identical(token, sdkOmittedValue)
+            ? this.token
+            : token as SdkOptional<String>,
+      );
 
-  factory CreateApiKeyResponse.fromJson(Map<String, dynamic> json) => CreateApiKeyResponse(
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    token: json['token'] != null ? SdkPresent((json['token'] as String?)!) : const SdkOmitted(),
-  );
+  factory CreateApiKeyResponse.fromJson(Map<String, dynamic> json) =>
+      CreateApiKeyResponse(
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        token: json['token'] != null
+            ? SdkPresent((json['token'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (token) {
-      SdkPresent<String>(value: final value) => {'token': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (token) {
+          SdkPresent<String>(value: final value) => {
+              'token': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `DeleteApiKeyResponse` API schema.
 class DeleteApiKeyResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of object.
   final SdkOptional<String> object;
+
   /// The ID of the API key.
   final SdkOptional<String> id;
+
   /// Indicates whether the API key was successfully deleted.
   final SdkOptional<bool> deleted;
 
-  const DeleteApiKeyResponse({this.object = const SdkOmitted(), this.id = const SdkOmitted(), this.deleted = const SdkOmitted()});
+  const DeleteApiKeyResponse(
+      {this.object = const SdkOmitted(),
+      this.id = const SdkOmitted(),
+      this.deleted = const SdkOmitted()});
 
-  DeleteApiKeyResponse Function({SdkOptional<String> object, SdkOptional<String> id, SdkOptional<bool> deleted}) get copyWith => _copyWith;
+  DeleteApiKeyResponse Function(
+      {SdkOptional<String> object,
+      SdkOptional<String> id,
+      SdkOptional<bool> deleted}) get copyWith => _copyWith;
 
-  DeleteApiKeyResponse _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? deleted = sdkOmittedValue}) => DeleteApiKeyResponse(
-    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<String>,
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    deleted: identical(deleted, sdkOmittedValue) ? this.deleted : deleted as SdkOptional<bool>,
-  );
+  DeleteApiKeyResponse _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? deleted = sdkOmittedValue}) =>
+      DeleteApiKeyResponse(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as SdkOptional<String>,
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        deleted: identical(deleted, sdkOmittedValue)
+            ? this.deleted
+            : deleted as SdkOptional<bool>,
+      );
 
-  factory DeleteApiKeyResponse.fromJson(Map<String, dynamic> json) => DeleteApiKeyResponse(
-    object: json['object'] != null ? SdkPresent((json['object'] as String?)!) : const SdkOmitted(),
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    deleted: json['deleted'] != null ? SdkPresent((json['deleted'] as bool?)!) : const SdkOmitted(),
-  );
+  factory DeleteApiKeyResponse.fromJson(Map<String, dynamic> json) =>
+      DeleteApiKeyResponse(
+        object: json['object'] != null
+            ? SdkPresent((json['object'] as String?)!)
+            : const SdkOmitted(),
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        deleted: json['deleted'] != null
+            ? SdkPresent((json['deleted'] as bool?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (object) {
-      SdkPresent<String>(value: final value) => {'object': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (deleted) {
-      SdkPresent<bool>(value: final value) => {'deleted': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (object) {
+          SdkPresent<String>(value: final value) => {
+              'object': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (deleted) {
+          SdkPresent<bool>(value: final value) => {
+              'deleted': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `ListApiKeysResponse` API schema.
 class ListApiKeysResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Type of the response object.
   final SdkOptional<String> object;
+
   /// Indicates if there are more results available.
   final SdkOptional<bool> hasMore;
+
   /// Optional array value serialized in the `data` wire field.
   final SdkOptional<List<ApiKey>> data;
 
-  const ListApiKeysResponse({this.object = const SdkOmitted(), this.hasMore = const SdkOmitted(), this.data = const SdkOmitted()});
+  const ListApiKeysResponse(
+      {this.object = const SdkOmitted(),
+      this.hasMore = const SdkOmitted(),
+      this.data = const SdkOmitted()});
 
-  ListApiKeysResponse Function({SdkOptional<String> object, SdkOptional<bool> hasMore, SdkOptional<List<ApiKey>> data}) get copyWith => _copyWith;
+  ListApiKeysResponse Function(
+      {SdkOptional<String> object,
+      SdkOptional<bool> hasMore,
+      SdkOptional<List<ApiKey>> data}) get copyWith => _copyWith;
 
-  ListApiKeysResponse _copyWith({Object? object = sdkOmittedValue, Object? hasMore = sdkOmittedValue, Object? data = sdkOmittedValue}) => ListApiKeysResponse(
-    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<String>,
-    hasMore: identical(hasMore, sdkOmittedValue) ? this.hasMore : hasMore as SdkOptional<bool>,
-    data: identical(data, sdkOmittedValue) ? this.data : data as SdkOptional<List<ApiKey>>,
-  );
+  ListApiKeysResponse _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? hasMore = sdkOmittedValue,
+          Object? data = sdkOmittedValue}) =>
+      ListApiKeysResponse(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as SdkOptional<String>,
+        hasMore: identical(hasMore, sdkOmittedValue)
+            ? this.hasMore
+            : hasMore as SdkOptional<bool>,
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as SdkOptional<List<ApiKey>>,
+      );
 
-  factory ListApiKeysResponse.fromJson(Map<String, dynamic> json) => ListApiKeysResponse(
-    object: json['object'] != null ? SdkPresent((json['object'] as String?)!) : const SdkOmitted(),
-    hasMore: json['has_more'] != null ? SdkPresent((json['has_more'] as bool?)!) : const SdkOmitted(),
-    data: json['data'] != null ? SdkPresent(((json['data'] as List?)?.map((e) => ApiKey.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory ListApiKeysResponse.fromJson(Map<String, dynamic> json) =>
+      ListApiKeysResponse(
+        object: json['object'] != null
+            ? SdkPresent((json['object'] as String?)!)
+            : const SdkOmitted(),
+        hasMore: json['has_more'] != null
+            ? SdkPresent((json['has_more'] as bool?)!)
+            : const SdkOmitted(),
+        data: json['data'] != null
+            ? SdkPresent(((json['data'] as List?)
+                ?.map((e) => ApiKey.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (object) {
-      SdkPresent<String>(value: final value) => {'object': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (hasMore) {
-      SdkPresent<bool>(value: final value) => {'has_more': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (data) {
-      SdkPresent<List<ApiKey>>(value: final value) => {'data': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (object) {
+          SdkPresent<String>(value: final value) => {
+              'object': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (hasMore) {
+          SdkPresent<bool>(value: final value) => {
+              'has_more': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (data) {
+          SdkPresent<List<ApiKey>>(value: final value) => {
+              'data': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `UpdateApiKeyRequest` API schema.
 class UpdateApiKeyRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The API key name.
   final String name;
 
@@ -227,50 +384,72 @@ class UpdateApiKeyRequest {
 
   UpdateApiKeyRequest Function({String name}) get copyWith => _copyWith;
 
-  UpdateApiKeyRequest _copyWith({Object? name = sdkOmittedValue}) => UpdateApiKeyRequest(
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-  );
+  UpdateApiKeyRequest _copyWith({Object? name = sdkOmittedValue}) =>
+      UpdateApiKeyRequest(
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+      );
 
-  factory UpdateApiKeyRequest.fromJson(Map<String, dynamic> json) => UpdateApiKeyRequest(
-    name: (json['name'] as String?)!,
-  );
+  factory UpdateApiKeyRequest.fromJson(Map<String, dynamic> json) =>
+      UpdateApiKeyRequest(
+        name: (json['name'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'name': name,
-  };
+        'name': name,
+      };
 }
 
 /// Typed representation of the `UpdateApiKeyResponse` API schema.
 class UpdateApiKeyResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of object.
   final SdkOptional<String> object;
+
   /// The ID of the API key.
   final SdkOptional<String> id;
 
-  const UpdateApiKeyResponse({this.object = const SdkOmitted(), this.id = const SdkOmitted()});
+  const UpdateApiKeyResponse(
+      {this.object = const SdkOmitted(), this.id = const SdkOmitted()});
 
-  UpdateApiKeyResponse Function({SdkOptional<String> object, SdkOptional<String> id}) get copyWith => _copyWith;
+  UpdateApiKeyResponse Function(
+      {SdkOptional<String> object,
+      SdkOptional<String> id}) get copyWith => _copyWith;
 
-  UpdateApiKeyResponse _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue}) => UpdateApiKeyResponse(
-    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<String>,
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-  );
+  UpdateApiKeyResponse _copyWith(
+          {Object? object = sdkOmittedValue, Object? id = sdkOmittedValue}) =>
+      UpdateApiKeyResponse(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as SdkOptional<String>,
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+      );
 
-  factory UpdateApiKeyResponse.fromJson(Map<String, dynamic> json) => UpdateApiKeyResponse(
-    object: json['object'] != null ? SdkPresent((json['object'] as String?)!) : const SdkOmitted(),
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-  );
+  factory UpdateApiKeyResponse.fromJson(Map<String, dynamic> json) =>
+      UpdateApiKeyResponse(
+        object: json['object'] != null
+            ? SdkPresent((json['object'] as String?)!)
+            : const SdkOmitted(),
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (object) {
-      SdkPresent<String>(value: final value) => {'object': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (object) {
+          SdkPresent<String>(value: final value) => {
+              'object': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

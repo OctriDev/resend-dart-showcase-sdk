@@ -8,175 +8,325 @@ part of 'contacts.dart';
 class CreateContactOptionsSegmentsItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The segment ID
   final SdkOptional<String> id;
 
   const CreateContactOptionsSegmentsItem({this.id = const SdkOmitted()});
 
-  CreateContactOptionsSegmentsItem Function({SdkOptional<String> id}) get copyWith => _copyWith;
+  CreateContactOptionsSegmentsItem Function({SdkOptional<String> id})
+      get copyWith => _copyWith;
 
-  CreateContactOptionsSegmentsItem _copyWith({Object? id = sdkOmittedValue}) => CreateContactOptionsSegmentsItem(
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-  );
+  CreateContactOptionsSegmentsItem _copyWith({Object? id = sdkOmittedValue}) =>
+      CreateContactOptionsSegmentsItem(
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+      );
 
-  factory CreateContactOptionsSegmentsItem.fromJson(Map<String, dynamic> json) => CreateContactOptionsSegmentsItem(
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-  );
+  factory CreateContactOptionsSegmentsItem.fromJson(
+          Map<String, dynamic> json) =>
+      CreateContactOptionsSegmentsItem(
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Required object value serialized in the `topics[]` wire field.
 class CreateContactOptionsTopicsItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The topic ID.
   final SdkOptional<String> id;
+
   /// The subscription status for this topic.
   final SdkOptional<CreateContactOptionsTopicsItemSubscription> subscription;
 
-  const CreateContactOptionsTopicsItem({this.id = const SdkOmitted(), this.subscription = const SdkOmitted()});
+  const CreateContactOptionsTopicsItem(
+      {this.id = const SdkOmitted(), this.subscription = const SdkOmitted()});
 
-  CreateContactOptionsTopicsItem Function({SdkOptional<String> id, SdkOptional<CreateContactOptionsTopicsItemSubscription> subscription}) get copyWith => _copyWith;
+  CreateContactOptionsTopicsItem Function(
+          {SdkOptional<String> id,
+          SdkOptional<CreateContactOptionsTopicsItemSubscription> subscription})
+      get copyWith => _copyWith;
 
-  CreateContactOptionsTopicsItem _copyWith({Object? id = sdkOmittedValue, Object? subscription = sdkOmittedValue}) => CreateContactOptionsTopicsItem(
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    subscription: identical(subscription, sdkOmittedValue) ? this.subscription : subscription as SdkOptional<CreateContactOptionsTopicsItemSubscription>,
-  );
+  CreateContactOptionsTopicsItem _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? subscription = sdkOmittedValue}) =>
+      CreateContactOptionsTopicsItem(
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        subscription: identical(subscription, sdkOmittedValue)
+            ? this.subscription
+            : subscription
+                as SdkOptional<CreateContactOptionsTopicsItemSubscription>,
+      );
 
-  factory CreateContactOptionsTopicsItem.fromJson(Map<String, dynamic> json) => CreateContactOptionsTopicsItem(
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    subscription: json['subscription'] != null ? SdkPresent((json['subscription'] != null ? CreateContactOptionsTopicsItemSubscription.fromJson(json['subscription'] as String) : null)!) : const SdkOmitted(),
-  );
+  factory CreateContactOptionsTopicsItem.fromJson(Map<String, dynamic> json) =>
+      CreateContactOptionsTopicsItem(
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        subscription: json['subscription'] != null
+            ? SdkPresent((json['subscription'] != null
+                ? CreateContactOptionsTopicsItemSubscription.fromJson(
+                    json['subscription'] as String)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (subscription) {
-      SdkPresent<CreateContactOptionsTopicsItemSubscription>(value: final value) => {'subscription': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (subscription) {
+          SdkPresent<CreateContactOptionsTopicsItemSubscription>(
+            value: final value
+          ) =>
+            {
+              'subscription': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `CreateContactOptions` API schema.
 class CreateContactOptions {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Email address of the contact.
   final String email;
+
   /// First name of the contact.
   final SdkOptional<String> firstName;
+
   /// Last name of the contact.
   final SdkOptional<String> lastName;
+
   /// The Contact's global subscription status. If set to true, the contact will be unsubscribed from all Broadcasts.
   final SdkOptional<bool> unsubscribed;
+
   /// A map of custom property keys and values to create.
   final SdkOptional<Map<String, dynamic>> properties;
+
   /// Array of segment IDs to add the contact to.
   final SdkOptional<List<CreateContactOptionsSegmentsItem>> segments;
+
   /// Array of topic subscriptions for the contact.
   final SdkOptional<List<CreateContactOptionsTopicsItem>> topics;
+
   /// Unique identifier of the audience to which the contact belongs.
   final SdkOptional<String> audienceId;
 
-  const CreateContactOptions({required this.email, this.firstName = const SdkOmitted(), this.lastName = const SdkOmitted(), this.unsubscribed = const SdkOmitted(), this.properties = const SdkOmitted(), this.segments = const SdkOmitted(), this.topics = const SdkOmitted(), this.audienceId = const SdkOmitted()});
+  const CreateContactOptions(
+      {required this.email,
+      this.firstName = const SdkOmitted(),
+      this.lastName = const SdkOmitted(),
+      this.unsubscribed = const SdkOmitted(),
+      this.properties = const SdkOmitted(),
+      this.segments = const SdkOmitted(),
+      this.topics = const SdkOmitted(),
+      this.audienceId = const SdkOmitted()});
 
-  CreateContactOptions Function({String email, SdkOptional<String> firstName, SdkOptional<String> lastName, SdkOptional<bool> unsubscribed, SdkOptional<Map<String, dynamic>> properties, SdkOptional<List<CreateContactOptionsSegmentsItem>> segments, SdkOptional<List<CreateContactOptionsTopicsItem>> topics, SdkOptional<String> audienceId}) get copyWith => _copyWith;
+  CreateContactOptions Function(
+      {String email,
+      SdkOptional<String> firstName,
+      SdkOptional<String> lastName,
+      SdkOptional<bool> unsubscribed,
+      SdkOptional<Map<String, dynamic>> properties,
+      SdkOptional<List<CreateContactOptionsSegmentsItem>> segments,
+      SdkOptional<List<CreateContactOptionsTopicsItem>> topics,
+      SdkOptional<String> audienceId}) get copyWith => _copyWith;
 
-  CreateContactOptions _copyWith({Object? email = sdkOmittedValue, Object? firstName = sdkOmittedValue, Object? lastName = sdkOmittedValue, Object? unsubscribed = sdkOmittedValue, Object? properties = sdkOmittedValue, Object? segments = sdkOmittedValue, Object? topics = sdkOmittedValue, Object? audienceId = sdkOmittedValue}) => CreateContactOptions(
-    email: identical(email, sdkOmittedValue) ? this.email : email as String,
-    firstName: identical(firstName, sdkOmittedValue) ? this.firstName : firstName as SdkOptional<String>,
-    lastName: identical(lastName, sdkOmittedValue) ? this.lastName : lastName as SdkOptional<String>,
-    unsubscribed: identical(unsubscribed, sdkOmittedValue) ? this.unsubscribed : unsubscribed as SdkOptional<bool>,
-    properties: identical(properties, sdkOmittedValue) ? this.properties : properties as SdkOptional<Map<String, dynamic>>,
-    segments: identical(segments, sdkOmittedValue) ? this.segments : segments as SdkOptional<List<CreateContactOptionsSegmentsItem>>,
-    topics: identical(topics, sdkOmittedValue) ? this.topics : topics as SdkOptional<List<CreateContactOptionsTopicsItem>>,
-    audienceId: identical(audienceId, sdkOmittedValue) ? this.audienceId : audienceId as SdkOptional<String>,
-  );
+  CreateContactOptions _copyWith(
+          {Object? email = sdkOmittedValue,
+          Object? firstName = sdkOmittedValue,
+          Object? lastName = sdkOmittedValue,
+          Object? unsubscribed = sdkOmittedValue,
+          Object? properties = sdkOmittedValue,
+          Object? segments = sdkOmittedValue,
+          Object? topics = sdkOmittedValue,
+          Object? audienceId = sdkOmittedValue}) =>
+      CreateContactOptions(
+        email: identical(email, sdkOmittedValue) ? this.email : email as String,
+        firstName: identical(firstName, sdkOmittedValue)
+            ? this.firstName
+            : firstName as SdkOptional<String>,
+        lastName: identical(lastName, sdkOmittedValue)
+            ? this.lastName
+            : lastName as SdkOptional<String>,
+        unsubscribed: identical(unsubscribed, sdkOmittedValue)
+            ? this.unsubscribed
+            : unsubscribed as SdkOptional<bool>,
+        properties: identical(properties, sdkOmittedValue)
+            ? this.properties
+            : properties as SdkOptional<Map<String, dynamic>>,
+        segments: identical(segments, sdkOmittedValue)
+            ? this.segments
+            : segments as SdkOptional<List<CreateContactOptionsSegmentsItem>>,
+        topics: identical(topics, sdkOmittedValue)
+            ? this.topics
+            : topics as SdkOptional<List<CreateContactOptionsTopicsItem>>,
+        audienceId: identical(audienceId, sdkOmittedValue)
+            ? this.audienceId
+            : audienceId as SdkOptional<String>,
+      );
 
-  factory CreateContactOptions.fromJson(Map<String, dynamic> json) => CreateContactOptions(
-    email: (json['email'] as String?)!,
-    firstName: json['first_name'] != null ? SdkPresent((json['first_name'] as String?)!) : const SdkOmitted(),
-    lastName: json['last_name'] != null ? SdkPresent((json['last_name'] as String?)!) : const SdkOmitted(),
-    unsubscribed: json['unsubscribed'] != null ? SdkPresent((json['unsubscribed'] as bool?)!) : const SdkOmitted(),
-    properties: json['properties'] != null ? SdkPresent((json['properties'] == null ? null : json['properties'] as Map<String, dynamic>)!) : const SdkOmitted(),
-    segments: json['segments'] != null ? SdkPresent(((json['segments'] as List?)?.map((e) => CreateContactOptionsSegmentsItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    topics: json['topics'] != null ? SdkPresent(((json['topics'] as List?)?.map((e) => CreateContactOptionsTopicsItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    audienceId: json['audience_id'] != null ? SdkPresent((json['audience_id'] as String?)!) : const SdkOmitted(),
-  );
+  factory CreateContactOptions.fromJson(Map<String, dynamic> json) =>
+      CreateContactOptions(
+        email: (json['email'] as String?)!,
+        firstName: json['first_name'] != null
+            ? SdkPresent((json['first_name'] as String?)!)
+            : const SdkOmitted(),
+        lastName: json['last_name'] != null
+            ? SdkPresent((json['last_name'] as String?)!)
+            : const SdkOmitted(),
+        unsubscribed: json['unsubscribed'] != null
+            ? SdkPresent((json['unsubscribed'] as bool?)!)
+            : const SdkOmitted(),
+        properties: json['properties'] != null
+            ? SdkPresent((json['properties'] == null
+                ? null
+                : json['properties'] as Map<String, dynamic>)!)
+            : const SdkOmitted(),
+        segments: json['segments'] != null
+            ? SdkPresent(((json['segments'] as List?)
+                ?.map((e) => CreateContactOptionsSegmentsItem.fromJson(
+                    e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        topics: json['topics'] != null
+            ? SdkPresent(((json['topics'] as List?)
+                ?.map((e) => CreateContactOptionsTopicsItem.fromJson(
+                    e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        audienceId: json['audience_id'] != null
+            ? SdkPresent((json['audience_id'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'email': email,
-    ...switch (firstName) {
-      SdkPresent<String>(value: final value) => {'first_name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (lastName) {
-      SdkPresent<String>(value: final value) => {'last_name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (unsubscribed) {
-      SdkPresent<bool>(value: final value) => {'unsubscribed': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (properties) {
-      SdkPresent<Map<String, dynamic>>(value: final value) => {'properties': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (segments) {
-      SdkPresent<List<CreateContactOptionsSegmentsItem>>(value: final value) => {'segments': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (topics) {
-      SdkPresent<List<CreateContactOptionsTopicsItem>>(value: final value) => {'topics': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (audienceId) {
-      SdkPresent<String>(value: final value) => {'audience_id': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'email': email,
+        ...switch (firstName) {
+          SdkPresent<String>(value: final value) => {
+              'first_name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (lastName) {
+          SdkPresent<String>(value: final value) => {
+              'last_name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (unsubscribed) {
+          SdkPresent<bool>(value: final value) => {
+              'unsubscribed': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (properties) {
+          SdkPresent<Map<String, dynamic>>(value: final value) => {
+              'properties': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (segments) {
+          SdkPresent<List<CreateContactOptionsSegmentsItem>>(
+            value: final value
+          ) =>
+            {
+              'segments': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (topics) {
+          SdkPresent<List<CreateContactOptionsTopicsItem>>(
+            value: final value
+          ) =>
+            {
+              'topics': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (audienceId) {
+          SdkPresent<String>(value: final value) => {
+              'audience_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `CreateContactResponseSuccess` API schema.
 class CreateContactResponseSuccess {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Type of the response object.
   final SdkOptional<String> object;
+
   /// Unique identifier for the created contact.
   final SdkOptional<String> id;
 
-  const CreateContactResponseSuccess({this.object = const SdkOmitted(), this.id = const SdkOmitted()});
+  const CreateContactResponseSuccess(
+      {this.object = const SdkOmitted(), this.id = const SdkOmitted()});
 
-  CreateContactResponseSuccess Function({SdkOptional<String> object, SdkOptional<String> id}) get copyWith => _copyWith;
+  CreateContactResponseSuccess Function(
+      {SdkOptional<String> object,
+      SdkOptional<String> id}) get copyWith => _copyWith;
 
-  CreateContactResponseSuccess _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue}) => CreateContactResponseSuccess(
-    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<String>,
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-  );
+  CreateContactResponseSuccess _copyWith(
+          {Object? object = sdkOmittedValue, Object? id = sdkOmittedValue}) =>
+      CreateContactResponseSuccess(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as SdkOptional<String>,
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+      );
 
-  factory CreateContactResponseSuccess.fromJson(Map<String, dynamic> json) => CreateContactResponseSuccess(
-    object: json['object'] != null ? SdkPresent((json['object'] as String?)!) : const SdkOmitted(),
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-  );
+  factory CreateContactResponseSuccess.fromJson(Map<String, dynamic> json) =>
+      CreateContactResponseSuccess(
+        object: json['object'] != null
+            ? SdkPresent((json['object'] as String?)!)
+            : const SdkOmitted(),
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (object) {
-      SdkPresent<String>(value: final value) => {'object': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (object) {
+          SdkPresent<String>(value: final value) => {
+              'object': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

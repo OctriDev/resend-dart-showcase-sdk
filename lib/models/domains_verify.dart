@@ -8,33 +8,53 @@ part of 'domains.dart';
 class VerifyDomainResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of object.
   final SdkOptional<String> object;
+
   /// The ID of the domain.
   final SdkOptional<String> id;
 
-  const VerifyDomainResponse({this.object = const SdkOmitted(), this.id = const SdkOmitted()});
+  const VerifyDomainResponse(
+      {this.object = const SdkOmitted(), this.id = const SdkOmitted()});
 
-  VerifyDomainResponse Function({SdkOptional<String> object, SdkOptional<String> id}) get copyWith => _copyWith;
+  VerifyDomainResponse Function(
+      {SdkOptional<String> object,
+      SdkOptional<String> id}) get copyWith => _copyWith;
 
-  VerifyDomainResponse _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue}) => VerifyDomainResponse(
-    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<String>,
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-  );
+  VerifyDomainResponse _copyWith(
+          {Object? object = sdkOmittedValue, Object? id = sdkOmittedValue}) =>
+      VerifyDomainResponse(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as SdkOptional<String>,
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+      );
 
-  factory VerifyDomainResponse.fromJson(Map<String, dynamic> json) => VerifyDomainResponse(
-    object: json['object'] != null ? SdkPresent((json['object'] as String?)!) : const SdkOmitted(),
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-  );
+  factory VerifyDomainResponse.fromJson(Map<String, dynamic> json) =>
+      VerifyDomainResponse(
+        object: json['object'] != null
+            ? SdkPresent((json['object'] as String?)!)
+            : const SdkOmitted(),
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (object) {
-      SdkPresent<String>(value: final value) => {'object': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (object) {
+          SdkPresent<String>(value: final value) => {
+              'object': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

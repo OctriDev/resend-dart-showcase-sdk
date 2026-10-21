@@ -8,108 +8,226 @@ part of 'topics.dart';
 class ListTopicsResponseSuccessDataItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Unique identifier for the topic.
   final SdkOptional<String> id;
+
   /// Name of the topic.
   final SdkOptional<String> name;
+
   /// A description of the topic.
   final SdkOptional<String> description;
+
   /// The default subscription status for the topic.
-  final SdkOptional<ListTopicsResponseSuccessDataItemDefaultSubscription> defaultSubscription;
+  final SdkOptional<ListTopicsResponseSuccessDataItemDefaultSubscription>
+      defaultSubscription;
+
   /// The visibility of the topic.
   final SdkOptional<ListTopicsResponseSuccessDataItemVisibility> visibility;
+
   /// Timestamp indicating when the topic was created.
   final SdkOptional<String> createdAt;
 
-  const ListTopicsResponseSuccessDataItem({this.id = const SdkOmitted(), this.name = const SdkOmitted(), this.description = const SdkOmitted(), this.defaultSubscription = const SdkOmitted(), this.visibility = const SdkOmitted(), this.createdAt = const SdkOmitted()});
+  const ListTopicsResponseSuccessDataItem(
+      {this.id = const SdkOmitted(),
+      this.name = const SdkOmitted(),
+      this.description = const SdkOmitted(),
+      this.defaultSubscription = const SdkOmitted(),
+      this.visibility = const SdkOmitted(),
+      this.createdAt = const SdkOmitted()});
 
-  ListTopicsResponseSuccessDataItem Function({SdkOptional<String> id, SdkOptional<String> name, SdkOptional<String> description, SdkOptional<ListTopicsResponseSuccessDataItemDefaultSubscription> defaultSubscription, SdkOptional<ListTopicsResponseSuccessDataItemVisibility> visibility, SdkOptional<String> createdAt}) get copyWith => _copyWith;
+  ListTopicsResponseSuccessDataItem Function(
+      {SdkOptional<String> id,
+      SdkOptional<String> name,
+      SdkOptional<String> description,
+      SdkOptional<ListTopicsResponseSuccessDataItemDefaultSubscription>
+          defaultSubscription,
+      SdkOptional<ListTopicsResponseSuccessDataItemVisibility> visibility,
+      SdkOptional<String> createdAt}) get copyWith => _copyWith;
 
-  ListTopicsResponseSuccessDataItem _copyWith({Object? id = sdkOmittedValue, Object? name = sdkOmittedValue, Object? description = sdkOmittedValue, Object? defaultSubscription = sdkOmittedValue, Object? visibility = sdkOmittedValue, Object? createdAt = sdkOmittedValue}) => ListTopicsResponseSuccessDataItem(
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String>,
-    defaultSubscription: identical(defaultSubscription, sdkOmittedValue) ? this.defaultSubscription : defaultSubscription as SdkOptional<ListTopicsResponseSuccessDataItemDefaultSubscription>,
-    visibility: identical(visibility, sdkOmittedValue) ? this.visibility : visibility as SdkOptional<ListTopicsResponseSuccessDataItemVisibility>,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
-  );
+  ListTopicsResponseSuccessDataItem _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? description = sdkOmittedValue,
+          Object? defaultSubscription = sdkOmittedValue,
+          Object? visibility = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue}) =>
+      ListTopicsResponseSuccessDataItem(
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        description: identical(description, sdkOmittedValue)
+            ? this.description
+            : description as SdkOptional<String>,
+        defaultSubscription: identical(defaultSubscription, sdkOmittedValue)
+            ? this.defaultSubscription
+            : defaultSubscription as SdkOptional<
+                ListTopicsResponseSuccessDataItemDefaultSubscription>,
+        visibility: identical(visibility, sdkOmittedValue)
+            ? this.visibility
+            : visibility
+                as SdkOptional<ListTopicsResponseSuccessDataItemVisibility>,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as SdkOptional<String>,
+      );
 
-  factory ListTopicsResponseSuccessDataItem.fromJson(Map<String, dynamic> json) => ListTopicsResponseSuccessDataItem(
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    description: json['description'] != null ? SdkPresent((json['description'] as String?)!) : const SdkOmitted(),
-    defaultSubscription: json['default_subscription'] != null ? SdkPresent((json['default_subscription'] != null ? ListTopicsResponseSuccessDataItemDefaultSubscription.fromJson(json['default_subscription'] as String) : null)!) : const SdkOmitted(),
-    visibility: json['visibility'] != null ? SdkPresent((json['visibility'] != null ? ListTopicsResponseSuccessDataItemVisibility.fromJson(json['visibility'] as String) : null)!) : const SdkOmitted(),
-    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
-  );
+  factory ListTopicsResponseSuccessDataItem.fromJson(
+          Map<String, dynamic> json) =>
+      ListTopicsResponseSuccessDataItem(
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        description: json['description'] != null
+            ? SdkPresent((json['description'] as String?)!)
+            : const SdkOmitted(),
+        defaultSubscription: json['default_subscription'] != null
+            ? SdkPresent((json['default_subscription'] != null
+                ? ListTopicsResponseSuccessDataItemDefaultSubscription.fromJson(
+                    json['default_subscription'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        visibility: json['visibility'] != null
+            ? SdkPresent((json['visibility'] != null
+                ? ListTopicsResponseSuccessDataItemVisibility.fromJson(
+                    json['visibility'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        createdAt: json['created_at'] != null
+            ? SdkPresent((json['created_at'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (description) {
-      SdkPresent<String>(value: final value) => {'description': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (defaultSubscription) {
-      SdkPresent<ListTopicsResponseSuccessDataItemDefaultSubscription>(value: final value) => {'default_subscription': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (visibility) {
-      SdkPresent<ListTopicsResponseSuccessDataItemVisibility>(value: final value) => {'visibility': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (createdAt) {
-      SdkPresent<String>(value: final value) => {'created_at': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (description) {
+          SdkPresent<String>(value: final value) => {
+              'description': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (defaultSubscription) {
+          SdkPresent<ListTopicsResponseSuccessDataItemDefaultSubscription>(
+            value: final value
+          ) =>
+            {
+              'default_subscription': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (visibility) {
+          SdkPresent<ListTopicsResponseSuccessDataItemVisibility>(
+            value: final value
+          ) =>
+            {
+              'visibility': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (createdAt) {
+          SdkPresent<String>(value: final value) => {
+              'created_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `ListTopicsResponseSuccess` API schema.
 class ListTopicsResponseSuccess {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Type of the response object.
   final SdkOptional<String> object;
+
   /// Indicates if there are more results available.
   final SdkOptional<bool> hasMore;
+
   /// Array containing topic information.
   final SdkOptional<List<ListTopicsResponseSuccessDataItem>> data;
 
-  const ListTopicsResponseSuccess({this.object = const SdkOmitted(), this.hasMore = const SdkOmitted(), this.data = const SdkOmitted()});
+  const ListTopicsResponseSuccess(
+      {this.object = const SdkOmitted(),
+      this.hasMore = const SdkOmitted(),
+      this.data = const SdkOmitted()});
 
-  ListTopicsResponseSuccess Function({SdkOptional<String> object, SdkOptional<bool> hasMore, SdkOptional<List<ListTopicsResponseSuccessDataItem>> data}) get copyWith => _copyWith;
+  ListTopicsResponseSuccess Function(
+          {SdkOptional<String> object,
+          SdkOptional<bool> hasMore,
+          SdkOptional<List<ListTopicsResponseSuccessDataItem>> data})
+      get copyWith => _copyWith;
 
-  ListTopicsResponseSuccess _copyWith({Object? object = sdkOmittedValue, Object? hasMore = sdkOmittedValue, Object? data = sdkOmittedValue}) => ListTopicsResponseSuccess(
-    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<String>,
-    hasMore: identical(hasMore, sdkOmittedValue) ? this.hasMore : hasMore as SdkOptional<bool>,
-    data: identical(data, sdkOmittedValue) ? this.data : data as SdkOptional<List<ListTopicsResponseSuccessDataItem>>,
-  );
+  ListTopicsResponseSuccess _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? hasMore = sdkOmittedValue,
+          Object? data = sdkOmittedValue}) =>
+      ListTopicsResponseSuccess(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as SdkOptional<String>,
+        hasMore: identical(hasMore, sdkOmittedValue)
+            ? this.hasMore
+            : hasMore as SdkOptional<bool>,
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as SdkOptional<List<ListTopicsResponseSuccessDataItem>>,
+      );
 
-  factory ListTopicsResponseSuccess.fromJson(Map<String, dynamic> json) => ListTopicsResponseSuccess(
-    object: json['object'] != null ? SdkPresent((json['object'] as String?)!) : const SdkOmitted(),
-    hasMore: json['has_more'] != null ? SdkPresent((json['has_more'] as bool?)!) : const SdkOmitted(),
-    data: json['data'] != null ? SdkPresent(((json['data'] as List?)?.map((e) => ListTopicsResponseSuccessDataItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory ListTopicsResponseSuccess.fromJson(Map<String, dynamic> json) =>
+      ListTopicsResponseSuccess(
+        object: json['object'] != null
+            ? SdkPresent((json['object'] as String?)!)
+            : const SdkOmitted(),
+        hasMore: json['has_more'] != null
+            ? SdkPresent((json['has_more'] as bool?)!)
+            : const SdkOmitted(),
+        data: json['data'] != null
+            ? SdkPresent(((json['data'] as List?)
+                ?.map((e) => ListTopicsResponseSuccessDataItem.fromJson(
+                    e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (object) {
-      SdkPresent<String>(value: final value) => {'object': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (hasMore) {
-      SdkPresent<bool>(value: final value) => {'has_more': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (data) {
-      SdkPresent<List<ListTopicsResponseSuccessDataItem>>(value: final value) => {'data': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (object) {
+          SdkPresent<String>(value: final value) => {
+              'object': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (hasMore) {
+          SdkPresent<bool>(value: final value) => {
+              'has_more': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (data) {
+          SdkPresent<List<ListTopicsResponseSuccessDataItem>>(
+            value: final value
+          ) =>
+            {
+              'data': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

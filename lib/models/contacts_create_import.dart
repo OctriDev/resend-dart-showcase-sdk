@@ -8,89 +8,164 @@ part of 'contacts.dart';
 class CreateContactImportOptions {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// CSV file to import. Maximum size is 50MB.
   final List<int> file;
+
   /// JSON-encoded object mapping contact fields and custom property keys to CSV column names. Supports `email`, `first_name`, `last_name`, `unsubscribed`, and `properties`. Custom property mappings can include `type` as `string`, `number`, or `boolean`; defaults to `string`.
   final SdkOptional<String> columnMap;
+
   /// Strategy to use when an imported contact already exists.
   final SdkOptional<CreateContactImportOptionsOnConflict> onConflict;
+
   /// JSON-encoded array of segments to add imported contacts to.
   final SdkOptional<String> segments;
+
   /// JSON-encoded array of topic subscriptions to apply to imported contacts. Each `subscription` must be `opt_in` or `opt_out`.
   final SdkOptional<String> topics;
 
-  const CreateContactImportOptions({required this.file, this.columnMap = const SdkOmitted(), this.onConflict = const SdkOmitted(), this.segments = const SdkOmitted(), this.topics = const SdkOmitted()});
+  const CreateContactImportOptions(
+      {required this.file,
+      this.columnMap = const SdkOmitted(),
+      this.onConflict = const SdkOmitted(),
+      this.segments = const SdkOmitted(),
+      this.topics = const SdkOmitted()});
 
-  CreateContactImportOptions Function({List<int> file, SdkOptional<String> columnMap, SdkOptional<CreateContactImportOptionsOnConflict> onConflict, SdkOptional<String> segments, SdkOptional<String> topics}) get copyWith => _copyWith;
+  CreateContactImportOptions Function(
+      {List<int> file,
+      SdkOptional<String> columnMap,
+      SdkOptional<CreateContactImportOptionsOnConflict> onConflict,
+      SdkOptional<String> segments,
+      SdkOptional<String> topics}) get copyWith => _copyWith;
 
-  CreateContactImportOptions _copyWith({Object? file = sdkOmittedValue, Object? columnMap = sdkOmittedValue, Object? onConflict = sdkOmittedValue, Object? segments = sdkOmittedValue, Object? topics = sdkOmittedValue}) => CreateContactImportOptions(
-    file: identical(file, sdkOmittedValue) ? this.file : file as List<int>,
-    columnMap: identical(columnMap, sdkOmittedValue) ? this.columnMap : columnMap as SdkOptional<String>,
-    onConflict: identical(onConflict, sdkOmittedValue) ? this.onConflict : onConflict as SdkOptional<CreateContactImportOptionsOnConflict>,
-    segments: identical(segments, sdkOmittedValue) ? this.segments : segments as SdkOptional<String>,
-    topics: identical(topics, sdkOmittedValue) ? this.topics : topics as SdkOptional<String>,
-  );
+  CreateContactImportOptions _copyWith(
+          {Object? file = sdkOmittedValue,
+          Object? columnMap = sdkOmittedValue,
+          Object? onConflict = sdkOmittedValue,
+          Object? segments = sdkOmittedValue,
+          Object? topics = sdkOmittedValue}) =>
+      CreateContactImportOptions(
+        file: identical(file, sdkOmittedValue) ? this.file : file as List<int>,
+        columnMap: identical(columnMap, sdkOmittedValue)
+            ? this.columnMap
+            : columnMap as SdkOptional<String>,
+        onConflict: identical(onConflict, sdkOmittedValue)
+            ? this.onConflict
+            : onConflict as SdkOptional<CreateContactImportOptionsOnConflict>,
+        segments: identical(segments, sdkOmittedValue)
+            ? this.segments
+            : segments as SdkOptional<String>,
+        topics: identical(topics, sdkOmittedValue)
+            ? this.topics
+            : topics as SdkOptional<String>,
+      );
 
-  factory CreateContactImportOptions.fromJson(Map<String, dynamic> json) => CreateContactImportOptions(
-    file: (json['file'] != null ? base64Decode(json['file'] as String) : null)!,
-    columnMap: json['column_map'] != null ? SdkPresent((json['column_map'] as String?)!) : const SdkOmitted(),
-    onConflict: json['on_conflict'] != null ? SdkPresent((json['on_conflict'] != null ? CreateContactImportOptionsOnConflict.fromJson(json['on_conflict'] as String) : null)!) : const SdkOmitted(),
-    segments: json['segments'] != null ? SdkPresent((json['segments'] as String?)!) : const SdkOmitted(),
-    topics: json['topics'] != null ? SdkPresent((json['topics'] as String?)!) : const SdkOmitted(),
-  );
+  factory CreateContactImportOptions.fromJson(Map<String, dynamic> json) =>
+      CreateContactImportOptions(
+        file: (json['file'] != null
+            ? base64Decode(json['file'] as String)
+            : null)!,
+        columnMap: json['column_map'] != null
+            ? SdkPresent((json['column_map'] as String?)!)
+            : const SdkOmitted(),
+        onConflict: json['on_conflict'] != null
+            ? SdkPresent((json['on_conflict'] != null
+                ? CreateContactImportOptionsOnConflict.fromJson(
+                    json['on_conflict'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        segments: json['segments'] != null
+            ? SdkPresent((json['segments'] as String?)!)
+            : const SdkOmitted(),
+        topics: json['topics'] != null
+            ? SdkPresent((json['topics'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'file': base64Encode(file),
-    ...switch (columnMap) {
-      SdkPresent<String>(value: final value) => {'column_map': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (onConflict) {
-      SdkPresent<CreateContactImportOptionsOnConflict>(value: final value) => {'on_conflict': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (segments) {
-      SdkPresent<String>(value: final value) => {'segments': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (topics) {
-      SdkPresent<String>(value: final value) => {'topics': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'file': base64Encode(file),
+        ...switch (columnMap) {
+          SdkPresent<String>(value: final value) => {
+              'column_map': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (onConflict) {
+          SdkPresent<CreateContactImportOptionsOnConflict>(
+            value: final value
+          ) =>
+            {
+              'on_conflict': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (segments) {
+          SdkPresent<String>(value: final value) => {
+              'segments': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (topics) {
+          SdkPresent<String>(value: final value) => {
+              'topics': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `CreateContactImportResponseSuccess` API schema.
 class CreateContactImportResponseSuccess {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Type of the response object.
   final SdkOptional<String> object;
+
   /// Unique identifier for the created contact import.
   final SdkOptional<String> id;
 
-  const CreateContactImportResponseSuccess({this.object = const SdkOmitted(), this.id = const SdkOmitted()});
+  const CreateContactImportResponseSuccess(
+      {this.object = const SdkOmitted(), this.id = const SdkOmitted()});
 
-  CreateContactImportResponseSuccess Function({SdkOptional<String> object, SdkOptional<String> id}) get copyWith => _copyWith;
+  CreateContactImportResponseSuccess Function(
+      {SdkOptional<String> object,
+      SdkOptional<String> id}) get copyWith => _copyWith;
 
-  CreateContactImportResponseSuccess _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue}) => CreateContactImportResponseSuccess(
-    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<String>,
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-  );
+  CreateContactImportResponseSuccess _copyWith(
+          {Object? object = sdkOmittedValue, Object? id = sdkOmittedValue}) =>
+      CreateContactImportResponseSuccess(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as SdkOptional<String>,
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+      );
 
-  factory CreateContactImportResponseSuccess.fromJson(Map<String, dynamic> json) => CreateContactImportResponseSuccess(
-    object: json['object'] != null ? SdkPresent((json['object'] as String?)!) : const SdkOmitted(),
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-  );
+  factory CreateContactImportResponseSuccess.fromJson(
+          Map<String, dynamic> json) =>
+      CreateContactImportResponseSuccess(
+        object: json['object'] != null
+            ? SdkPresent((json['object'] as String?)!)
+            : const SdkOmitted(),
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (object) {
-      SdkPresent<String>(value: final value) => {'object': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (object) {
+          SdkPresent<String>(value: final value) => {
+              'object': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

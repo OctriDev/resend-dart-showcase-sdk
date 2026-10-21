@@ -8,86 +8,161 @@ part of 'contact_properties.dart';
 class ListContactPropertiesResponseSuccess {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Type of the response object.
   final SdkOptional<String> object;
+
   /// Indicates if there are more results available.
   final SdkOptional<bool> hasMore;
+
   /// Array containing contact property information.
   final SdkOptional<List<ListContactPropertiesResponseSuccessDataItem>> data;
 
-  const ListContactPropertiesResponseSuccess({this.object = const SdkOmitted(), this.hasMore = const SdkOmitted(), this.data = const SdkOmitted()});
+  const ListContactPropertiesResponseSuccess(
+      {this.object = const SdkOmitted(),
+      this.hasMore = const SdkOmitted(),
+      this.data = const SdkOmitted()});
 
-  ListContactPropertiesResponseSuccess Function({SdkOptional<String> object, SdkOptional<bool> hasMore, SdkOptional<List<ListContactPropertiesResponseSuccessDataItem>> data}) get copyWith => _copyWith;
+  ListContactPropertiesResponseSuccess Function(
+          {SdkOptional<String> object,
+          SdkOptional<bool> hasMore,
+          SdkOptional<List<ListContactPropertiesResponseSuccessDataItem>> data})
+      get copyWith => _copyWith;
 
-  ListContactPropertiesResponseSuccess _copyWith({Object? object = sdkOmittedValue, Object? hasMore = sdkOmittedValue, Object? data = sdkOmittedValue}) => ListContactPropertiesResponseSuccess(
-    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<String>,
-    hasMore: identical(hasMore, sdkOmittedValue) ? this.hasMore : hasMore as SdkOptional<bool>,
-    data: identical(data, sdkOmittedValue) ? this.data : data as SdkOptional<List<ListContactPropertiesResponseSuccessDataItem>>,
-  );
+  ListContactPropertiesResponseSuccess _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? hasMore = sdkOmittedValue,
+          Object? data = sdkOmittedValue}) =>
+      ListContactPropertiesResponseSuccess(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as SdkOptional<String>,
+        hasMore: identical(hasMore, sdkOmittedValue)
+            ? this.hasMore
+            : hasMore as SdkOptional<bool>,
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as SdkOptional<
+                List<ListContactPropertiesResponseSuccessDataItem>>,
+      );
 
-  factory ListContactPropertiesResponseSuccess.fromJson(Map<String, dynamic> json) => ListContactPropertiesResponseSuccess(
-    object: json['object'] != null ? SdkPresent((json['object'] as String?)!) : const SdkOmitted(),
-    hasMore: json['has_more'] != null ? SdkPresent((json['has_more'] as bool?)!) : const SdkOmitted(),
-    data: json['data'] != null ? SdkPresent(((json['data'] as List?)?.map((e) => ListContactPropertiesResponseSuccessDataItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory ListContactPropertiesResponseSuccess.fromJson(
+          Map<String, dynamic> json) =>
+      ListContactPropertiesResponseSuccess(
+        object: json['object'] != null
+            ? SdkPresent((json['object'] as String?)!)
+            : const SdkOmitted(),
+        hasMore: json['has_more'] != null
+            ? SdkPresent((json['has_more'] as bool?)!)
+            : const SdkOmitted(),
+        data: json['data'] != null
+            ? SdkPresent(((json['data'] as List?)
+                ?.map((e) =>
+                    ListContactPropertiesResponseSuccessDataItem.fromJson(
+                        e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (object) {
-      SdkPresent<String>(value: final value) => {'object': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (hasMore) {
-      SdkPresent<bool>(value: final value) => {'has_more': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (data) {
-      SdkPresent<List<ListContactPropertiesResponseSuccessDataItem>>(value: final value) => {'data': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (object) {
+          SdkPresent<String>(value: final value) => {
+              'object': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (hasMore) {
+          SdkPresent<bool>(value: final value) => {
+              'has_more': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (data) {
+          SdkPresent<List<ListContactPropertiesResponseSuccessDataItem>>(
+            value: final value
+          ) =>
+            {
+              'data': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `RemoveContactPropertyResponseSuccess` API schema.
 class RemoveContactPropertyResponseSuccess {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The ID of the contact property.
   final SdkOptional<String> id;
+
   /// The object type.
   final SdkOptional<String> object;
+
   /// Indicates whether the contact property was successfully deleted.
   final SdkOptional<bool> deleted;
 
-  const RemoveContactPropertyResponseSuccess({this.id = const SdkOmitted(), this.object = const SdkOmitted(), this.deleted = const SdkOmitted()});
+  const RemoveContactPropertyResponseSuccess(
+      {this.id = const SdkOmitted(),
+      this.object = const SdkOmitted(),
+      this.deleted = const SdkOmitted()});
 
-  RemoveContactPropertyResponseSuccess Function({SdkOptional<String> id, SdkOptional<String> object, SdkOptional<bool> deleted}) get copyWith => _copyWith;
+  RemoveContactPropertyResponseSuccess Function(
+      {SdkOptional<String> id,
+      SdkOptional<String> object,
+      SdkOptional<bool> deleted}) get copyWith => _copyWith;
 
-  RemoveContactPropertyResponseSuccess _copyWith({Object? id = sdkOmittedValue, Object? object = sdkOmittedValue, Object? deleted = sdkOmittedValue}) => RemoveContactPropertyResponseSuccess(
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<String>,
-    deleted: identical(deleted, sdkOmittedValue) ? this.deleted : deleted as SdkOptional<bool>,
-  );
+  RemoveContactPropertyResponseSuccess _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? object = sdkOmittedValue,
+          Object? deleted = sdkOmittedValue}) =>
+      RemoveContactPropertyResponseSuccess(
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as SdkOptional<String>,
+        deleted: identical(deleted, sdkOmittedValue)
+            ? this.deleted
+            : deleted as SdkOptional<bool>,
+      );
 
-  factory RemoveContactPropertyResponseSuccess.fromJson(Map<String, dynamic> json) => RemoveContactPropertyResponseSuccess(
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    object: json['object'] != null ? SdkPresent((json['object'] as String?)!) : const SdkOmitted(),
-    deleted: json['deleted'] != null ? SdkPresent((json['deleted'] as bool?)!) : const SdkOmitted(),
-  );
+  factory RemoveContactPropertyResponseSuccess.fromJson(
+          Map<String, dynamic> json) =>
+      RemoveContactPropertyResponseSuccess(
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        object: json['object'] != null
+            ? SdkPresent((json['object'] as String?)!)
+            : const SdkOmitted(),
+        deleted: json['deleted'] != null
+            ? SdkPresent((json['deleted'] as bool?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (object) {
-      SdkPresent<String>(value: final value) => {'object': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (deleted) {
-      SdkPresent<bool>(value: final value) => {'deleted': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (object) {
+          SdkPresent<String>(value: final value) => {
+              'object': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (deleted) {
+          SdkPresent<bool>(value: final value) => {
+              'deleted': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 sealed class UpdateContactPropertyOptionsFallbackValue {
@@ -95,83 +170,124 @@ sealed class UpdateContactPropertyOptionsFallbackValue {
   static const String constructionSurface = 'named';
   const UpdateContactPropertyOptionsFallbackValue();
   factory UpdateContactPropertyOptionsFallbackValue.fromJson(Object? json) {
-    if (json is String) { return UpdateContactPropertyOptionsFallbackValueString(json); }
-    if (json is num) { return UpdateContactPropertyOptionsFallbackValueDouble(json.toDouble()); }
-    throw FormatException("No variant matched for UpdateContactPropertyOptionsFallbackValue");
+    if (json is String) {
+      return UpdateContactPropertyOptionsFallbackValueString(json);
+    }
+    if (json is num) {
+      return UpdateContactPropertyOptionsFallbackValueDouble(json.toDouble());
+    }
+    throw FormatException(
+        "No variant matched for UpdateContactPropertyOptionsFallbackValue");
   }
   Object? toJson();
 }
 
-final class UpdateContactPropertyOptionsFallbackValueString extends UpdateContactPropertyOptionsFallbackValue {
+final class UpdateContactPropertyOptionsFallbackValueString
+    extends UpdateContactPropertyOptionsFallbackValue {
   final String value;
   const UpdateContactPropertyOptionsFallbackValueString(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
-final class UpdateContactPropertyOptionsFallbackValueDouble extends UpdateContactPropertyOptionsFallbackValue {
+final class UpdateContactPropertyOptionsFallbackValueDouble
+    extends UpdateContactPropertyOptionsFallbackValue {
   final double value;
   const UpdateContactPropertyOptionsFallbackValueDouble(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
 /// Typed representation of the `UpdateContactPropertyOptions` API schema.
 class UpdateContactPropertyOptions {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The default value to use when the property is not set for a contact. Must match the type of the property.
   final SdkOptional<dynamic> fallbackValue;
 
   const UpdateContactPropertyOptions({this.fallbackValue = const SdkOmitted()});
 
-  UpdateContactPropertyOptions Function({SdkOptional<dynamic> fallbackValue}) get copyWith => _copyWith;
+  UpdateContactPropertyOptions Function({SdkOptional<dynamic> fallbackValue})
+      get copyWith => _copyWith;
 
-  UpdateContactPropertyOptions _copyWith({Object? fallbackValue = sdkOmittedValue}) => UpdateContactPropertyOptions(
-    fallbackValue: identical(fallbackValue, sdkOmittedValue) ? this.fallbackValue : fallbackValue as SdkOptional<dynamic>,
-  );
+  UpdateContactPropertyOptions _copyWith(
+          {Object? fallbackValue = sdkOmittedValue}) =>
+      UpdateContactPropertyOptions(
+        fallbackValue: identical(fallbackValue, sdkOmittedValue)
+            ? this.fallbackValue
+            : fallbackValue as SdkOptional<dynamic>,
+      );
 
-  factory UpdateContactPropertyOptions.fromJson(Map<String, dynamic> json) => UpdateContactPropertyOptions(
-    fallbackValue: json['fallback_value'] != null ? SdkPresent((json['fallback_value'])!) : const SdkOmitted(),
-  );
+  factory UpdateContactPropertyOptions.fromJson(Map<String, dynamic> json) =>
+      UpdateContactPropertyOptions(
+        fallbackValue: json['fallback_value'] != null
+            ? SdkPresent((json['fallback_value'])!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (fallbackValue) {
-      SdkPresent<dynamic>(value: final value) => {'fallback_value': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (fallbackValue) {
+          SdkPresent<dynamic>(value: final value) => {
+              'fallback_value': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `UpdateContactPropertyResponseSuccess` API schema.
 class UpdateContactPropertyResponseSuccess {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The ID of the contact property.
   final SdkOptional<String> id;
+
   /// The object type.
   final SdkOptional<String> object;
 
-  const UpdateContactPropertyResponseSuccess({this.id = const SdkOmitted(), this.object = const SdkOmitted()});
+  const UpdateContactPropertyResponseSuccess(
+      {this.id = const SdkOmitted(), this.object = const SdkOmitted()});
 
-  UpdateContactPropertyResponseSuccess Function({SdkOptional<String> id, SdkOptional<String> object}) get copyWith => _copyWith;
+  UpdateContactPropertyResponseSuccess Function(
+      {SdkOptional<String> id,
+      SdkOptional<String> object}) get copyWith => _copyWith;
 
-  UpdateContactPropertyResponseSuccess _copyWith({Object? id = sdkOmittedValue, Object? object = sdkOmittedValue}) => UpdateContactPropertyResponseSuccess(
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<String>,
-  );
+  UpdateContactPropertyResponseSuccess _copyWith(
+          {Object? id = sdkOmittedValue, Object? object = sdkOmittedValue}) =>
+      UpdateContactPropertyResponseSuccess(
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as SdkOptional<String>,
+      );
 
-  factory UpdateContactPropertyResponseSuccess.fromJson(Map<String, dynamic> json) => UpdateContactPropertyResponseSuccess(
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    object: json['object'] != null ? SdkPresent((json['object'] as String?)!) : const SdkOmitted(),
-  );
+  factory UpdateContactPropertyResponseSuccess.fromJson(
+          Map<String, dynamic> json) =>
+      UpdateContactPropertyResponseSuccess(
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        object: json['object'] != null
+            ? SdkPresent((json['object'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (object) {
-      SdkPresent<String>(value: final value) => {'object': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (object) {
+          SdkPresent<String>(value: final value) => {
+              'object': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

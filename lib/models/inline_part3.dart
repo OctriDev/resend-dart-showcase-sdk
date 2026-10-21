@@ -6,29 +6,31 @@ part of 'inline.dart';
 // Inline operation models (part 3)
 /// The visibility of the topic. Public topics are visible to all contacts on the unsubscribe page. Private topics are only visible to opted-in contacts.
 final class CreateTopicOptionsVisibility {
-
   final String value;
 
   const CreateTopicOptionsVisibility._(this.value);
 
-  factory CreateTopicOptionsVisibility.fromJson(String value) => CreateTopicOptionsVisibility._(value);
+  factory CreateTopicOptionsVisibility.fromJson(String value) =>
+      CreateTopicOptionsVisibility._(value);
 
   static const public = CreateTopicOptionsVisibility._('public');
   static const private = CreateTopicOptionsVisibility._('private');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is CreateTopicOptionsVisibility && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is CreateTopicOptionsVisibility && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The status of the domain.
 final class DomainStatus {
-
   final String value;
 
   const DomainStatus._(this.value);
@@ -44,89 +46,103 @@ final class DomainStatus {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is DomainStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is DomainStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Enable or disable receiving emails to this domain.
 final class DomainCapabilitiesReceiving {
-
   final String value;
 
   const DomainCapabilitiesReceiving._(this.value);
 
-  factory DomainCapabilitiesReceiving.fromJson(String value) => DomainCapabilitiesReceiving._(value);
+  factory DomainCapabilitiesReceiving.fromJson(String value) =>
+      DomainCapabilitiesReceiving._(value);
 
   static const enabled = DomainCapabilitiesReceiving._('enabled');
   static const disabled = DomainCapabilitiesReceiving._('disabled');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is DomainCapabilitiesReceiving && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is DomainCapabilitiesReceiving && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Enable or disable sending emails from this domain.
 final class DomainCapabilitiesSending {
-
   final String value;
 
   const DomainCapabilitiesSending._(this.value);
 
-  factory DomainCapabilitiesSending.fromJson(String value) => DomainCapabilitiesSending._(value);
+  factory DomainCapabilitiesSending.fromJson(String value) =>
+      DomainCapabilitiesSending._(value);
 
   static const enabled = DomainCapabilitiesSending._('enabled');
   static const disabled = DomainCapabilitiesSending._('disabled');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is DomainCapabilitiesSending && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is DomainCapabilitiesSending && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Why the claim is currently blocked, if applicable.
 final class DomainClaimBlockedReason {
-
   final String value;
 
   const DomainClaimBlockedReason._(this.value);
 
-  factory DomainClaimBlockedReason.fromJson(String value) => DomainClaimBlockedReason._(value);
+  factory DomainClaimBlockedReason.fromJson(String value) =>
+      DomainClaimBlockedReason._(value);
 
   static const gracePeriod = DomainClaimBlockedReason._('grace_period');
-  static const recentOwnerActivity = DomainClaimBlockedReason._('recent_owner_activity');
-  static const pendingScheduledEmails = DomainClaimBlockedReason._('pending_scheduled_emails');
+  static const recentOwnerActivity =
+      DomainClaimBlockedReason._('recent_owner_activity');
+  static const pendingScheduledEmails =
+      DomainClaimBlockedReason._('pending_scheduled_emails');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is DomainClaimBlockedReason && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is DomainClaimBlockedReason && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The region where the claimed domain will send from.
 final class DomainClaimRegion {
-
   final String value;
 
   const DomainClaimRegion._(this.value);
 
-  factory DomainClaimRegion.fromJson(String value) => DomainClaimRegion._(value);
+  factory DomainClaimRegion.fromJson(String value) =>
+      DomainClaimRegion._(value);
 
   static const usEast1 = DomainClaimRegion._('us-east-1');
   static const euWest1 = DomainClaimRegion._('eu-west-1');
@@ -135,22 +151,25 @@ final class DomainClaimRegion {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is DomainClaimRegion && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is DomainClaimRegion && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The status of the claim.
 final class DomainClaimStatus {
-
   final String value;
 
   const DomainClaimStatus._(this.value);
 
-  factory DomainClaimStatus.fromJson(String value) => DomainClaimStatus._(value);
+  factory DomainClaimStatus.fromJson(String value) =>
+      DomainClaimStatus._(value);
 
   static const pending = DomainClaimStatus._('pending');
   static const verified = DomainClaimStatus._('verified');
@@ -163,33 +182,39 @@ final class DomainClaimStatus {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is DomainClaimStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is DomainClaimStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The DNS record type. Always TXT for domain claims.
 final class DomainClaimRecordType {
-
   final String value;
 
   const DomainClaimRecordType._(this.value);
 
-  factory DomainClaimRecordType.fromJson(String value) => DomainClaimRecordType._(value);
+  factory DomainClaimRecordType.fromJson(String value) =>
+      DomainClaimRecordType._(value);
 
   static const txt = DomainClaimRecordType._('TXT');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is DomainClaimRecordType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is DomainClaimRecordType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The event type.
@@ -198,14 +223,17 @@ enum DomainCreatedEventType {
 
   static DomainCreatedEventType fromJson(String value) {
     switch (value) {
-      case 'domain.created': return DomainCreatedEventType.domainCreated;
-      default: throw ArgumentError('Unknown DomainCreatedEventType: $value');
+      case 'domain.created':
+        return DomainCreatedEventType.domainCreated;
+      default:
+        throw ArgumentError('Unknown DomainCreatedEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case DomainCreatedEventType.domainCreated: return 'domain.created';
+      case DomainCreatedEventType.domainCreated:
+        return 'domain.created';
     }
   }
 
@@ -219,14 +247,17 @@ enum DomainDeletedEventType {
 
   static DomainDeletedEventType fromJson(String value) {
     switch (value) {
-      case 'domain.deleted': return DomainDeletedEventType.domainDeleted;
-      default: throw ArgumentError('Unknown DomainDeletedEventType: $value');
+      case 'domain.deleted':
+        return DomainDeletedEventType.domainDeleted;
+      default:
+        throw ArgumentError('Unknown DomainDeletedEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case DomainDeletedEventType.domainDeleted: return 'domain.deleted';
+      case DomainDeletedEventType.domainDeleted:
+        return 'domain.deleted';
     }
   }
 
@@ -236,12 +267,12 @@ enum DomainDeletedEventType {
 
 /// AWS region where the domain is configured.
 final class DomainEventDataRegion {
-
   final String value;
 
   const DomainEventDataRegion._(this.value);
 
-  factory DomainEventDataRegion.fromJson(String value) => DomainEventDataRegion._(value);
+  factory DomainEventDataRegion.fromJson(String value) =>
+      DomainEventDataRegion._(value);
 
   static const usEast1 = DomainEventDataRegion._('us-east-1');
   static const euWest1 = DomainEventDataRegion._('eu-west-1');
@@ -250,25 +281,29 @@ final class DomainEventDataRegion {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is DomainEventDataRegion && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is DomainEventDataRegion && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Aggregated verification status of the domain.
 final class DomainEventDataStatus {
-
   final String value;
 
   const DomainEventDataStatus._(this.value);
 
-  factory DomainEventDataStatus.fromJson(String value) => DomainEventDataStatus._(value);
+  factory DomainEventDataStatus.fromJson(String value) =>
+      DomainEventDataStatus._(value);
 
   static const verified = DomainEventDataStatus._('verified');
-  static const partiallyVerified = DomainEventDataStatus._('partially_verified');
+  static const partiallyVerified =
+      DomainEventDataStatus._('partially_verified');
   static const partiallyFailed = DomainEventDataStatus._('partially_failed');
   static const failed = DomainEventDataStatus._('failed');
   static const pending = DomainEventDataStatus._('pending');
@@ -276,10 +311,13 @@ final class DomainEventDataStatus {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is DomainEventDataStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is DomainEventDataStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

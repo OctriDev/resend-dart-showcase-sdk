@@ -8,121 +8,259 @@ part of 'emails.dart';
 class Email {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of object.
   final SdkOptional<String> object;
+
   /// The ID of the email.
   final SdkOptional<String> id;
+
   /// The Message-ID header value of the email.
   final SdkOptional<String> messageId;
+
   /// Optional array value serialized in the `to` wire field.
   final SdkOptional<List<String>> to;
+
   /// The email address of the sender.
   final SdkOptional<String> from;
+
   /// The date and time the email was created.
   final SdkOptional<String> createdAt;
+
   /// The subject line of the email.
   final SdkOptional<String> subject;
+
   /// The HTML body of the email.
   final SdkOptional<String> html;
+
   /// The plain text body of the email.
   final SdkOptional<String> text;
+
   /// The email addresses of the blind carbon copy recipients.
   final SdkOptional<List<String>> bcc;
+
   /// The email addresses of the carbon copy recipients.
   final SdkOptional<List<String>> cc;
+
   /// The email addresses to which replies should be sent.
   final SdkOptional<List<String>> replyTo;
+
   /// The status of the email.
   final SdkOptional<EmailLastEvent> lastEvent;
 
-  const Email({this.object = const SdkOmitted(), this.id = const SdkOmitted(), this.messageId = const SdkOmitted(), this.to = const SdkOmitted(), this.from = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.subject = const SdkOmitted(), this.html = const SdkOmitted(), this.text = const SdkOmitted(), this.bcc = const SdkOmitted(), this.cc = const SdkOmitted(), this.replyTo = const SdkOmitted(), this.lastEvent = const SdkOmitted()});
+  const Email(
+      {this.object = const SdkOmitted(),
+      this.id = const SdkOmitted(),
+      this.messageId = const SdkOmitted(),
+      this.to = const SdkOmitted(),
+      this.from = const SdkOmitted(),
+      this.createdAt = const SdkOmitted(),
+      this.subject = const SdkOmitted(),
+      this.html = const SdkOmitted(),
+      this.text = const SdkOmitted(),
+      this.bcc = const SdkOmitted(),
+      this.cc = const SdkOmitted(),
+      this.replyTo = const SdkOmitted(),
+      this.lastEvent = const SdkOmitted()});
 
-  Email Function({SdkOptional<String> object, SdkOptional<String> id, SdkOptional<String> messageId, SdkOptional<List<String>> to, SdkOptional<String> from, SdkOptional<String> createdAt, SdkOptional<String> subject, SdkOptional<String> html, SdkOptional<String> text, SdkOptional<List<String>> bcc, SdkOptional<List<String>> cc, SdkOptional<List<String>> replyTo, SdkOptional<EmailLastEvent> lastEvent}) get copyWith => _copyWith;
+  Email Function(
+      {SdkOptional<String> object,
+      SdkOptional<String> id,
+      SdkOptional<String> messageId,
+      SdkOptional<List<String>> to,
+      SdkOptional<String> from,
+      SdkOptional<String> createdAt,
+      SdkOptional<String> subject,
+      SdkOptional<String> html,
+      SdkOptional<String> text,
+      SdkOptional<List<String>> bcc,
+      SdkOptional<List<String>> cc,
+      SdkOptional<List<String>> replyTo,
+      SdkOptional<EmailLastEvent> lastEvent}) get copyWith => _copyWith;
 
-  Email _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? messageId = sdkOmittedValue, Object? to = sdkOmittedValue, Object? from = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? subject = sdkOmittedValue, Object? html = sdkOmittedValue, Object? text = sdkOmittedValue, Object? bcc = sdkOmittedValue, Object? cc = sdkOmittedValue, Object? replyTo = sdkOmittedValue, Object? lastEvent = sdkOmittedValue}) => Email(
-    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<String>,
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    messageId: identical(messageId, sdkOmittedValue) ? this.messageId : messageId as SdkOptional<String>,
-    to: identical(to, sdkOmittedValue) ? this.to : to as SdkOptional<List<String>>,
-    from: identical(from, sdkOmittedValue) ? this.from : from as SdkOptional<String>,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
-    subject: identical(subject, sdkOmittedValue) ? this.subject : subject as SdkOptional<String>,
-    html: identical(html, sdkOmittedValue) ? this.html : html as SdkOptional<String>,
-    text: identical(text, sdkOmittedValue) ? this.text : text as SdkOptional<String>,
-    bcc: identical(bcc, sdkOmittedValue) ? this.bcc : bcc as SdkOptional<List<String>>,
-    cc: identical(cc, sdkOmittedValue) ? this.cc : cc as SdkOptional<List<String>>,
-    replyTo: identical(replyTo, sdkOmittedValue) ? this.replyTo : replyTo as SdkOptional<List<String>>,
-    lastEvent: identical(lastEvent, sdkOmittedValue) ? this.lastEvent : lastEvent as SdkOptional<EmailLastEvent>,
-  );
+  Email _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? messageId = sdkOmittedValue,
+          Object? to = sdkOmittedValue,
+          Object? from = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? subject = sdkOmittedValue,
+          Object? html = sdkOmittedValue,
+          Object? text = sdkOmittedValue,
+          Object? bcc = sdkOmittedValue,
+          Object? cc = sdkOmittedValue,
+          Object? replyTo = sdkOmittedValue,
+          Object? lastEvent = sdkOmittedValue}) =>
+      Email(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as SdkOptional<String>,
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        messageId: identical(messageId, sdkOmittedValue)
+            ? this.messageId
+            : messageId as SdkOptional<String>,
+        to: identical(to, sdkOmittedValue)
+            ? this.to
+            : to as SdkOptional<List<String>>,
+        from: identical(from, sdkOmittedValue)
+            ? this.from
+            : from as SdkOptional<String>,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as SdkOptional<String>,
+        subject: identical(subject, sdkOmittedValue)
+            ? this.subject
+            : subject as SdkOptional<String>,
+        html: identical(html, sdkOmittedValue)
+            ? this.html
+            : html as SdkOptional<String>,
+        text: identical(text, sdkOmittedValue)
+            ? this.text
+            : text as SdkOptional<String>,
+        bcc: identical(bcc, sdkOmittedValue)
+            ? this.bcc
+            : bcc as SdkOptional<List<String>>,
+        cc: identical(cc, sdkOmittedValue)
+            ? this.cc
+            : cc as SdkOptional<List<String>>,
+        replyTo: identical(replyTo, sdkOmittedValue)
+            ? this.replyTo
+            : replyTo as SdkOptional<List<String>>,
+        lastEvent: identical(lastEvent, sdkOmittedValue)
+            ? this.lastEvent
+            : lastEvent as SdkOptional<EmailLastEvent>,
+      );
 
   factory Email.fromJson(Map<String, dynamic> json) => Email(
-    object: json['object'] != null ? SdkPresent((json['object'] as String?)!) : const SdkOmitted(),
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    messageId: json['message_id'] != null ? SdkPresent((json['message_id'] as String?)!) : const SdkOmitted(),
-    to: json['to'] != null ? SdkPresent(((json['to'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    from: json['from'] != null ? SdkPresent((json['from'] as String?)!) : const SdkOmitted(),
-    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
-    subject: json['subject'] != null ? SdkPresent((json['subject'] as String?)!) : const SdkOmitted(),
-    html: json['html'] != null ? SdkPresent((json['html'] as String?)!) : const SdkOmitted(),
-    text: json['text'] != null ? SdkPresent((json['text'] as String?)!) : const SdkOmitted(),
-    bcc: json['bcc'] != null ? SdkPresent(((json['bcc'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    cc: json['cc'] != null ? SdkPresent(((json['cc'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    replyTo: json['reply_to'] != null ? SdkPresent(((json['reply_to'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    lastEvent: json['last_event'] != null ? SdkPresent((json['last_event'] != null ? EmailLastEvent.fromJson(json['last_event'] as String) : null)!) : const SdkOmitted(),
-  );
+        object: json['object'] != null
+            ? SdkPresent((json['object'] as String?)!)
+            : const SdkOmitted(),
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        messageId: json['message_id'] != null
+            ? SdkPresent((json['message_id'] as String?)!)
+            : const SdkOmitted(),
+        to: json['to'] != null
+            ? SdkPresent(
+                ((json['to'] as List?)?.map((e) => e as String).toList())!)
+            : const SdkOmitted(),
+        from: json['from'] != null
+            ? SdkPresent((json['from'] as String?)!)
+            : const SdkOmitted(),
+        createdAt: json['created_at'] != null
+            ? SdkPresent((json['created_at'] as String?)!)
+            : const SdkOmitted(),
+        subject: json['subject'] != null
+            ? SdkPresent((json['subject'] as String?)!)
+            : const SdkOmitted(),
+        html: json['html'] != null
+            ? SdkPresent((json['html'] as String?)!)
+            : const SdkOmitted(),
+        text: json['text'] != null
+            ? SdkPresent((json['text'] as String?)!)
+            : const SdkOmitted(),
+        bcc: json['bcc'] != null
+            ? SdkPresent(
+                ((json['bcc'] as List?)?.map((e) => e as String).toList())!)
+            : const SdkOmitted(),
+        cc: json['cc'] != null
+            ? SdkPresent(
+                ((json['cc'] as List?)?.map((e) => e as String).toList())!)
+            : const SdkOmitted(),
+        replyTo: json['reply_to'] != null
+            ? SdkPresent(((json['reply_to'] as List?)
+                ?.map((e) => e as String)
+                .toList())!)
+            : const SdkOmitted(),
+        lastEvent: json['last_event'] != null
+            ? SdkPresent((json['last_event'] != null
+                ? EmailLastEvent.fromJson(json['last_event'] as String)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (object) {
-      SdkPresent<String>(value: final value) => {'object': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (messageId) {
-      SdkPresent<String>(value: final value) => {'message_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (to) {
-      SdkPresent<List<String>>(value: final value) => {'to': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (from) {
-      SdkPresent<String>(value: final value) => {'from': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (createdAt) {
-      SdkPresent<String>(value: final value) => {'created_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (subject) {
-      SdkPresent<String>(value: final value) => {'subject': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (html) {
-      SdkPresent<String>(value: final value) => {'html': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (text) {
-      SdkPresent<String>(value: final value) => {'text': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (bcc) {
-      SdkPresent<List<String>>(value: final value) => {'bcc': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (cc) {
-      SdkPresent<List<String>>(value: final value) => {'cc': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (replyTo) {
-      SdkPresent<List<String>>(value: final value) => {'reply_to': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (lastEvent) {
-      SdkPresent<EmailLastEvent>(value: final value) => {'last_event': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (object) {
+          SdkPresent<String>(value: final value) => {
+              'object': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (messageId) {
+          SdkPresent<String>(value: final value) => {
+              'message_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (to) {
+          SdkPresent<List<String>>(value: final value) => {
+              'to': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (from) {
+          SdkPresent<String>(value: final value) => {
+              'from': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (createdAt) {
+          SdkPresent<String>(value: final value) => {
+              'created_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (subject) {
+          SdkPresent<String>(value: final value) => {
+              'subject': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (html) {
+          SdkPresent<String>(value: final value) => {
+              'html': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (text) {
+          SdkPresent<String>(value: final value) => {
+              'text': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (bcc) {
+          SdkPresent<List<String>>(value: final value) => {
+              'bcc': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (cc) {
+          SdkPresent<List<String>>(value: final value) => {
+              'cc': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (replyTo) {
+          SdkPresent<List<String>>(value: final value) => {
+              'reply_to': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (lastEvent) {
+          SdkPresent<EmailLastEvent>(value: final value) => {
+              'last_event': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

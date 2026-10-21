@@ -8,104 +8,190 @@ part of 'email_received_event.dart';
 class EmailReceivedEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The event type.
   final EmailReceivedEventType type_;
+
   /// Timestamp when the event was emitted.
   final String createdAt;
+
   /// Required object value serialized in the `data` wire field.
   final EmailReceivedEventData data;
 
-  const EmailReceivedEvent({required this.type_, required this.createdAt, required this.data});
+  const EmailReceivedEvent(
+      {required this.type_, required this.createdAt, required this.data});
 
-  EmailReceivedEvent Function({EmailReceivedEventType type_, String createdAt, EmailReceivedEventData data}) get copyWith => _copyWith;
+  EmailReceivedEvent Function(
+      {EmailReceivedEventType type_,
+      String createdAt,
+      EmailReceivedEventData data}) get copyWith => _copyWith;
 
-  EmailReceivedEvent _copyWith({Object? type_ = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? data = sdkOmittedValue}) => EmailReceivedEvent(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as EmailReceivedEventType,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as String,
-    data: identical(data, sdkOmittedValue) ? this.data : data as EmailReceivedEventData,
-  );
+  EmailReceivedEvent _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? data = sdkOmittedValue}) =>
+      EmailReceivedEvent(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as EmailReceivedEventType,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as String,
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as EmailReceivedEventData,
+      );
 
-  factory EmailReceivedEvent.fromJson(Map<String, dynamic> json) => EmailReceivedEvent(
-    type_: (json['type'] != null ? EmailReceivedEventType.fromJson(json['type'] as String) : null)!,
-    createdAt: (json['created_at'] as String?)!,
-    data: (json['data'] != null ? EmailReceivedEventData.fromJson(json['data'] as Map<String, dynamic>) : null)!,
-  );
+  factory EmailReceivedEvent.fromJson(Map<String, dynamic> json) =>
+      EmailReceivedEvent(
+        type_: (json['type'] != null
+            ? EmailReceivedEventType.fromJson(json['type'] as String)
+            : null)!,
+        createdAt: (json['created_at'] as String?)!,
+        data: (json['data'] != null
+            ? EmailReceivedEventData.fromJson(
+                json['data'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'created_at': createdAt,
-    'data': data.toJson(),
-  };
+        'type': type_.toJson(),
+        'created_at': createdAt,
+        'data': data.toJson(),
+      };
 }
 
 /// Typed representation of the `EmailReceivedEventData` API schema.
 class EmailReceivedEventData {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Unique identifier for the email.
   final String emailId;
+
   /// Timestamp when the email was received.
   final String createdAt;
+
   /// Sender email address.
   final String from;
+
   /// Array of recipient email addresses.
   final List<String> to;
+
   /// Email subject line.
   final String subject;
+
   /// The unique message ID from the email headers.
   final String messageId;
+
   /// BCC recipients.
   final List<String> bcc;
+
   /// CC recipients.
   final List<String> cc;
+
   /// The recipient addresses the email was forwarded for, taken from the `for` clause of the message's `Received` headers.
   final SdkOptional<List<String>> receivedFor;
+
   /// Array of attachment metadata.
   final List<WebhookEventAttachment> attachments;
 
-  const EmailReceivedEventData({required this.emailId, required this.createdAt, required this.from, required this.to, required this.subject, required this.messageId, required this.bcc, required this.cc, this.receivedFor = const SdkOmitted(), required this.attachments});
+  const EmailReceivedEventData(
+      {required this.emailId,
+      required this.createdAt,
+      required this.from,
+      required this.to,
+      required this.subject,
+      required this.messageId,
+      required this.bcc,
+      required this.cc,
+      this.receivedFor = const SdkOmitted(),
+      required this.attachments});
 
-  EmailReceivedEventData Function({String emailId, String createdAt, String from, List<String> to, String subject, String messageId, List<String> bcc, List<String> cc, SdkOptional<List<String>> receivedFor, List<WebhookEventAttachment> attachments}) get copyWith => _copyWith;
+  EmailReceivedEventData Function(
+      {String emailId,
+      String createdAt,
+      String from,
+      List<String> to,
+      String subject,
+      String messageId,
+      List<String> bcc,
+      List<String> cc,
+      SdkOptional<List<String>> receivedFor,
+      List<WebhookEventAttachment> attachments}) get copyWith => _copyWith;
 
-  EmailReceivedEventData _copyWith({Object? emailId = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? from = sdkOmittedValue, Object? to = sdkOmittedValue, Object? subject = sdkOmittedValue, Object? messageId = sdkOmittedValue, Object? bcc = sdkOmittedValue, Object? cc = sdkOmittedValue, Object? receivedFor = sdkOmittedValue, Object? attachments = sdkOmittedValue}) => EmailReceivedEventData(
-    emailId: identical(emailId, sdkOmittedValue) ? this.emailId : emailId as String,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as String,
-    from: identical(from, sdkOmittedValue) ? this.from : from as String,
-    to: identical(to, sdkOmittedValue) ? this.to : to as List<String>,
-    subject: identical(subject, sdkOmittedValue) ? this.subject : subject as String,
-    messageId: identical(messageId, sdkOmittedValue) ? this.messageId : messageId as String,
-    bcc: identical(bcc, sdkOmittedValue) ? this.bcc : bcc as List<String>,
-    cc: identical(cc, sdkOmittedValue) ? this.cc : cc as List<String>,
-    receivedFor: identical(receivedFor, sdkOmittedValue) ? this.receivedFor : receivedFor as SdkOptional<List<String>>,
-    attachments: identical(attachments, sdkOmittedValue) ? this.attachments : attachments as List<WebhookEventAttachment>,
-  );
+  EmailReceivedEventData _copyWith(
+          {Object? emailId = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? from = sdkOmittedValue,
+          Object? to = sdkOmittedValue,
+          Object? subject = sdkOmittedValue,
+          Object? messageId = sdkOmittedValue,
+          Object? bcc = sdkOmittedValue,
+          Object? cc = sdkOmittedValue,
+          Object? receivedFor = sdkOmittedValue,
+          Object? attachments = sdkOmittedValue}) =>
+      EmailReceivedEventData(
+        emailId: identical(emailId, sdkOmittedValue)
+            ? this.emailId
+            : emailId as String,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as String,
+        from: identical(from, sdkOmittedValue) ? this.from : from as String,
+        to: identical(to, sdkOmittedValue) ? this.to : to as List<String>,
+        subject: identical(subject, sdkOmittedValue)
+            ? this.subject
+            : subject as String,
+        messageId: identical(messageId, sdkOmittedValue)
+            ? this.messageId
+            : messageId as String,
+        bcc: identical(bcc, sdkOmittedValue) ? this.bcc : bcc as List<String>,
+        cc: identical(cc, sdkOmittedValue) ? this.cc : cc as List<String>,
+        receivedFor: identical(receivedFor, sdkOmittedValue)
+            ? this.receivedFor
+            : receivedFor as SdkOptional<List<String>>,
+        attachments: identical(attachments, sdkOmittedValue)
+            ? this.attachments
+            : attachments as List<WebhookEventAttachment>,
+      );
 
-  factory EmailReceivedEventData.fromJson(Map<String, dynamic> json) => EmailReceivedEventData(
-    emailId: (json['email_id'] as String?)!,
-    createdAt: (json['created_at'] as String?)!,
-    from: (json['from'] as String?)!,
-    to: ((json['to'] as List?)?.map((e) => e as String).toList())!,
-    subject: (json['subject'] as String?)!,
-    messageId: (json['message_id'] as String?)!,
-    bcc: ((json['bcc'] as List?)?.map((e) => e as String).toList())!,
-    cc: ((json['cc'] as List?)?.map((e) => e as String).toList())!,
-    receivedFor: json['received_for'] != null ? SdkPresent(((json['received_for'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    attachments: ((json['attachments'] as List?)?.map((e) => WebhookEventAttachment.fromJson(e as Map<String, dynamic>)).toList())!,
-  );
+  factory EmailReceivedEventData.fromJson(Map<String, dynamic> json) =>
+      EmailReceivedEventData(
+        emailId: (json['email_id'] as String?)!,
+        createdAt: (json['created_at'] as String?)!,
+        from: (json['from'] as String?)!,
+        to: ((json['to'] as List?)?.map((e) => e as String).toList())!,
+        subject: (json['subject'] as String?)!,
+        messageId: (json['message_id'] as String?)!,
+        bcc: ((json['bcc'] as List?)?.map((e) => e as String).toList())!,
+        cc: ((json['cc'] as List?)?.map((e) => e as String).toList())!,
+        receivedFor: json['received_for'] != null
+            ? SdkPresent(((json['received_for'] as List?)
+                ?.map((e) => e as String)
+                .toList())!)
+            : const SdkOmitted(),
+        attachments: ((json['attachments'] as List?)
+            ?.map((e) =>
+                WebhookEventAttachment.fromJson(e as Map<String, dynamic>))
+            .toList())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'email_id': emailId,
-    'created_at': createdAt,
-    'from': from,
-    'to': to,
-    'subject': subject,
-    'message_id': messageId,
-    'bcc': bcc,
-    'cc': cc,
-    ...switch (receivedFor) {
-      SdkPresent<List<String>>(value: final value) => {'received_for': value,},
-      _ => const <String, dynamic>{},
-    },
-    'attachments': attachments.map((item) => item.toJson()).toList(),
-  };
+        'email_id': emailId,
+        'created_at': createdAt,
+        'from': from,
+        'to': to,
+        'subject': subject,
+        'message_id': messageId,
+        'bcc': bcc,
+        'cc': cc,
+        ...switch (receivedFor) {
+          SdkPresent<List<String>>(value: final value) => {
+              'received_for': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'attachments': attachments.map((item) => item.toJson()).toList(),
+      };
 }

@@ -8,92 +8,176 @@ part of 'webhooks.dart';
 class ListWebhookEventAttemptsResponseDataItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The ID of the webhook event attempt.
   final SdkOptional<String> id;
+
   /// The HTTP status code returned by the webhook endpoint.
   final SdkOptional<int> httpStatusCode;
+
   /// The response body returned by the webhook endpoint.
   final SdkOptional<String> response;
+
   /// Timestamp indicating when the attempt was sent.
   final SdkOptional<String> sentAt;
 
-  const ListWebhookEventAttemptsResponseDataItem({this.id = const SdkOmitted(), this.httpStatusCode = const SdkOmitted(), this.response = const SdkOmitted(), this.sentAt = const SdkOmitted()});
+  const ListWebhookEventAttemptsResponseDataItem(
+      {this.id = const SdkOmitted(),
+      this.httpStatusCode = const SdkOmitted(),
+      this.response = const SdkOmitted(),
+      this.sentAt = const SdkOmitted()});
 
-  ListWebhookEventAttemptsResponseDataItem Function({SdkOptional<String> id, SdkOptional<int> httpStatusCode, SdkOptional<String> response, SdkOptional<String> sentAt}) get copyWith => _copyWith;
+  ListWebhookEventAttemptsResponseDataItem Function(
+      {SdkOptional<String> id,
+      SdkOptional<int> httpStatusCode,
+      SdkOptional<String> response,
+      SdkOptional<String> sentAt}) get copyWith => _copyWith;
 
-  ListWebhookEventAttemptsResponseDataItem _copyWith({Object? id = sdkOmittedValue, Object? httpStatusCode = sdkOmittedValue, Object? response = sdkOmittedValue, Object? sentAt = sdkOmittedValue}) => ListWebhookEventAttemptsResponseDataItem(
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    httpStatusCode: identical(httpStatusCode, sdkOmittedValue) ? this.httpStatusCode : httpStatusCode as SdkOptional<int>,
-    response: identical(response, sdkOmittedValue) ? this.response : response as SdkOptional<String>,
-    sentAt: identical(sentAt, sdkOmittedValue) ? this.sentAt : sentAt as SdkOptional<String>,
-  );
+  ListWebhookEventAttemptsResponseDataItem _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? httpStatusCode = sdkOmittedValue,
+          Object? response = sdkOmittedValue,
+          Object? sentAt = sdkOmittedValue}) =>
+      ListWebhookEventAttemptsResponseDataItem(
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        httpStatusCode: identical(httpStatusCode, sdkOmittedValue)
+            ? this.httpStatusCode
+            : httpStatusCode as SdkOptional<int>,
+        response: identical(response, sdkOmittedValue)
+            ? this.response
+            : response as SdkOptional<String>,
+        sentAt: identical(sentAt, sdkOmittedValue)
+            ? this.sentAt
+            : sentAt as SdkOptional<String>,
+      );
 
-  factory ListWebhookEventAttemptsResponseDataItem.fromJson(Map<String, dynamic> json) => ListWebhookEventAttemptsResponseDataItem(
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    httpStatusCode: json['http_status_code'] != null ? SdkPresent(((json['http_status_code'] as num?)?.toInt())!) : const SdkOmitted(),
-    response: json['response'] != null ? SdkPresent((json['response'] as String?)!) : const SdkOmitted(),
-    sentAt: json['sent_at'] != null ? SdkPresent((json['sent_at'] as String?)!) : const SdkOmitted(),
-  );
+  factory ListWebhookEventAttemptsResponseDataItem.fromJson(
+          Map<String, dynamic> json) =>
+      ListWebhookEventAttemptsResponseDataItem(
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        httpStatusCode: json['http_status_code'] != null
+            ? SdkPresent(((json['http_status_code'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        response: json['response'] != null
+            ? SdkPresent((json['response'] as String?)!)
+            : const SdkOmitted(),
+        sentAt: json['sent_at'] != null
+            ? SdkPresent((json['sent_at'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (httpStatusCode) {
-      SdkPresent<int>(value: final value) => {'http_status_code': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (response) {
-      SdkPresent<String>(value: final value) => {'response': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (sentAt) {
-      SdkPresent<String>(value: final value) => {'sent_at': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (httpStatusCode) {
+          SdkPresent<int>(value: final value) => {
+              'http_status_code': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (response) {
+          SdkPresent<String>(value: final value) => {
+              'response': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (sentAt) {
+          SdkPresent<String>(value: final value) => {
+              'sent_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `ListWebhookEventAttemptsResponse` API schema.
 class ListWebhookEventAttemptsResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Type of the response object.
   final SdkOptional<String> object;
+
   /// Indicates if there are more results available.
   final SdkOptional<bool> hasMore;
+
   /// Array containing webhook event attempt information.
   final SdkOptional<List<ListWebhookEventAttemptsResponseDataItem>> data;
 
-  const ListWebhookEventAttemptsResponse({this.object = const SdkOmitted(), this.hasMore = const SdkOmitted(), this.data = const SdkOmitted()});
+  const ListWebhookEventAttemptsResponse(
+      {this.object = const SdkOmitted(),
+      this.hasMore = const SdkOmitted(),
+      this.data = const SdkOmitted()});
 
-  ListWebhookEventAttemptsResponse Function({SdkOptional<String> object, SdkOptional<bool> hasMore, SdkOptional<List<ListWebhookEventAttemptsResponseDataItem>> data}) get copyWith => _copyWith;
+  ListWebhookEventAttemptsResponse Function(
+          {SdkOptional<String> object,
+          SdkOptional<bool> hasMore,
+          SdkOptional<List<ListWebhookEventAttemptsResponseDataItem>> data})
+      get copyWith => _copyWith;
 
-  ListWebhookEventAttemptsResponse _copyWith({Object? object = sdkOmittedValue, Object? hasMore = sdkOmittedValue, Object? data = sdkOmittedValue}) => ListWebhookEventAttemptsResponse(
-    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<String>,
-    hasMore: identical(hasMore, sdkOmittedValue) ? this.hasMore : hasMore as SdkOptional<bool>,
-    data: identical(data, sdkOmittedValue) ? this.data : data as SdkOptional<List<ListWebhookEventAttemptsResponseDataItem>>,
-  );
+  ListWebhookEventAttemptsResponse _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? hasMore = sdkOmittedValue,
+          Object? data = sdkOmittedValue}) =>
+      ListWebhookEventAttemptsResponse(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as SdkOptional<String>,
+        hasMore: identical(hasMore, sdkOmittedValue)
+            ? this.hasMore
+            : hasMore as SdkOptional<bool>,
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data
+                as SdkOptional<List<ListWebhookEventAttemptsResponseDataItem>>,
+      );
 
-  factory ListWebhookEventAttemptsResponse.fromJson(Map<String, dynamic> json) => ListWebhookEventAttemptsResponse(
-    object: json['object'] != null ? SdkPresent((json['object'] as String?)!) : const SdkOmitted(),
-    hasMore: json['has_more'] != null ? SdkPresent((json['has_more'] as bool?)!) : const SdkOmitted(),
-    data: json['data'] != null ? SdkPresent(((json['data'] as List?)?.map((e) => ListWebhookEventAttemptsResponseDataItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory ListWebhookEventAttemptsResponse.fromJson(
+          Map<String, dynamic> json) =>
+      ListWebhookEventAttemptsResponse(
+        object: json['object'] != null
+            ? SdkPresent((json['object'] as String?)!)
+            : const SdkOmitted(),
+        hasMore: json['has_more'] != null
+            ? SdkPresent((json['has_more'] as bool?)!)
+            : const SdkOmitted(),
+        data: json['data'] != null
+            ? SdkPresent(((json['data'] as List?)
+                ?.map((e) => ListWebhookEventAttemptsResponseDataItem.fromJson(
+                    e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (object) {
-      SdkPresent<String>(value: final value) => {'object': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (hasMore) {
-      SdkPresent<bool>(value: final value) => {'has_more': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (data) {
-      SdkPresent<List<ListWebhookEventAttemptsResponseDataItem>>(value: final value) => {'data': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (object) {
+          SdkPresent<String>(value: final value) => {
+              'object': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (hasMore) {
+          SdkPresent<bool>(value: final value) => {
+              'has_more': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (data) {
+          SdkPresent<List<ListWebhookEventAttemptsResponseDataItem>>(
+            value: final value
+          ) =>
+            {
+              'data': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

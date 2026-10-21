@@ -8,81 +8,166 @@ part of 'contacts.dart';
 class GetContactResponseSuccess {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Type of the response object.
   final SdkOptional<String> object;
+
   /// Unique identifier for the contact.
   final SdkOptional<String> id;
+
   /// Email address of the contact.
   final SdkOptional<String> email;
+
   /// First name of the contact.
   final SdkOptional<String?> firstName;
+
   /// Last name of the contact.
   final SdkOptional<String?> lastName;
+
   /// Timestamp indicating when the contact was created.
   final SdkOptional<String> createdAt;
+
   /// Indicates if the contact is unsubscribed.
   final SdkOptional<bool> unsubscribed;
+
   /// A map of custom property keys and values.
   final SdkOptional<Map<String, Object?>> properties;
 
-  const GetContactResponseSuccess({this.object = const SdkOmitted(), this.id = const SdkOmitted(), this.email = const SdkOmitted(), this.firstName = const SdkOmitted(), this.lastName = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.unsubscribed = const SdkOmitted(), this.properties = const SdkOmitted()});
+  const GetContactResponseSuccess(
+      {this.object = const SdkOmitted(),
+      this.id = const SdkOmitted(),
+      this.email = const SdkOmitted(),
+      this.firstName = const SdkOmitted(),
+      this.lastName = const SdkOmitted(),
+      this.createdAt = const SdkOmitted(),
+      this.unsubscribed = const SdkOmitted(),
+      this.properties = const SdkOmitted()});
 
-  GetContactResponseSuccess Function({SdkOptional<String> object, SdkOptional<String> id, SdkOptional<String> email, SdkOptional<String?> firstName, SdkOptional<String?> lastName, SdkOptional<String> createdAt, SdkOptional<bool> unsubscribed, SdkOptional<Map<String, Object?>> properties}) get copyWith => _copyWith;
+  GetContactResponseSuccess Function(
+      {SdkOptional<String> object,
+      SdkOptional<String> id,
+      SdkOptional<String> email,
+      SdkOptional<String?> firstName,
+      SdkOptional<String?> lastName,
+      SdkOptional<String> createdAt,
+      SdkOptional<bool> unsubscribed,
+      SdkOptional<Map<String, Object?>> properties}) get copyWith => _copyWith;
 
-  GetContactResponseSuccess _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? email = sdkOmittedValue, Object? firstName = sdkOmittedValue, Object? lastName = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? unsubscribed = sdkOmittedValue, Object? properties = sdkOmittedValue}) => GetContactResponseSuccess(
-    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<String>,
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    email: identical(email, sdkOmittedValue) ? this.email : email as SdkOptional<String>,
-    firstName: identical(firstName, sdkOmittedValue) ? this.firstName : firstName as SdkOptional<String?>,
-    lastName: identical(lastName, sdkOmittedValue) ? this.lastName : lastName as SdkOptional<String?>,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
-    unsubscribed: identical(unsubscribed, sdkOmittedValue) ? this.unsubscribed : unsubscribed as SdkOptional<bool>,
-    properties: identical(properties, sdkOmittedValue) ? this.properties : properties as SdkOptional<Map<String, Object?>>,
-  );
+  GetContactResponseSuccess _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? email = sdkOmittedValue,
+          Object? firstName = sdkOmittedValue,
+          Object? lastName = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? unsubscribed = sdkOmittedValue,
+          Object? properties = sdkOmittedValue}) =>
+      GetContactResponseSuccess(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as SdkOptional<String>,
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        email: identical(email, sdkOmittedValue)
+            ? this.email
+            : email as SdkOptional<String>,
+        firstName: identical(firstName, sdkOmittedValue)
+            ? this.firstName
+            : firstName as SdkOptional<String?>,
+        lastName: identical(lastName, sdkOmittedValue)
+            ? this.lastName
+            : lastName as SdkOptional<String?>,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as SdkOptional<String>,
+        unsubscribed: identical(unsubscribed, sdkOmittedValue)
+            ? this.unsubscribed
+            : unsubscribed as SdkOptional<bool>,
+        properties: identical(properties, sdkOmittedValue)
+            ? this.properties
+            : properties as SdkOptional<Map<String, Object?>>,
+      );
 
-  factory GetContactResponseSuccess.fromJson(Map<String, dynamic> json) => GetContactResponseSuccess(
-    object: json['object'] != null ? SdkPresent((json['object'] as String?)!) : const SdkOmitted(),
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    email: json['email'] != null ? SdkPresent((json['email'] as String?)!) : const SdkOmitted(),
-    firstName: json.containsKey('first_name') ? SdkPresent(json['first_name'] as String?) : const SdkOmitted(),
-    lastName: json.containsKey('last_name') ? SdkPresent(json['last_name'] as String?) : const SdkOmitted(),
-    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
-    unsubscribed: json['unsubscribed'] != null ? SdkPresent((json['unsubscribed'] as bool?)!) : const SdkOmitted(),
-    properties: json['properties'] != null ? SdkPresent((json['properties'] == null ? null : Map<String, dynamic>.from(json['properties'] as Map).map((key, value) => MapEntry(key, value)))!) : const SdkOmitted(),
-  );
+  factory GetContactResponseSuccess.fromJson(Map<String, dynamic> json) =>
+      GetContactResponseSuccess(
+        object: json['object'] != null
+            ? SdkPresent((json['object'] as String?)!)
+            : const SdkOmitted(),
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        email: json['email'] != null
+            ? SdkPresent((json['email'] as String?)!)
+            : const SdkOmitted(),
+        firstName: json.containsKey('first_name')
+            ? SdkPresent(json['first_name'] as String?)
+            : const SdkOmitted(),
+        lastName: json.containsKey('last_name')
+            ? SdkPresent(json['last_name'] as String?)
+            : const SdkOmitted(),
+        createdAt: json['created_at'] != null
+            ? SdkPresent((json['created_at'] as String?)!)
+            : const SdkOmitted(),
+        unsubscribed: json['unsubscribed'] != null
+            ? SdkPresent((json['unsubscribed'] as bool?)!)
+            : const SdkOmitted(),
+        properties: json['properties'] != null
+            ? SdkPresent((json['properties'] == null
+                ? null
+                : Map<String, dynamic>.from(json['properties'] as Map)
+                    .map((key, value) => MapEntry(key, value)))!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (object) {
-      SdkPresent<String>(value: final value) => {'object': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (email) {
-      SdkPresent<String>(value: final value) => {'email': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (firstName) {
-      SdkPresent<String?>(value: final value) => {'first_name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (lastName) {
-      SdkPresent<String?>(value: final value) => {'last_name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (createdAt) {
-      SdkPresent<String>(value: final value) => {'created_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (unsubscribed) {
-      SdkPresent<bool>(value: final value) => {'unsubscribed': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (properties) {
-      SdkPresent<Map<String, Object?>>(value: final value) => {'properties': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (object) {
+          SdkPresent<String>(value: final value) => {
+              'object': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (email) {
+          SdkPresent<String>(value: final value) => {
+              'email': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (firstName) {
+          SdkPresent<String?>(value: final value) => {
+              'first_name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (lastName) {
+          SdkPresent<String?>(value: final value) => {
+              'last_name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (createdAt) {
+          SdkPresent<String>(value: final value) => {
+              'created_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (unsubscribed) {
+          SdkPresent<bool>(value: final value) => {
+              'unsubscribed': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (properties) {
+          SdkPresent<Map<String, Object?>>(value: final value) => {
+              'properties': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
