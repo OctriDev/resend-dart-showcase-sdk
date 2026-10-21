@@ -8,178 +8,92 @@ part of 'broadcasts.dart';
 class ListBroadcastClickedLinksResponseSuccessDataItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// An opaque cursor for this row, used only for pagination. It does not identify any entity in Resend.
   final SdkOptional<String> id;
-
   /// The URL that was clicked.
   final SdkOptional<String> url;
-
   /// Total number of clicks on this URL.
   final SdkOptional<int> clicks;
-
   /// Number of unique clicks on this URL.
   final SdkOptional<int> uniqueClicks;
 
-  const ListBroadcastClickedLinksResponseSuccessDataItem(
-      {this.id = const SdkOmitted(),
-      this.url = const SdkOmitted(),
-      this.clicks = const SdkOmitted(),
-      this.uniqueClicks = const SdkOmitted()});
+  const ListBroadcastClickedLinksResponseSuccessDataItem({this.id = const SdkOmitted(), this.url = const SdkOmitted(), this.clicks = const SdkOmitted(), this.uniqueClicks = const SdkOmitted()});
 
-  ListBroadcastClickedLinksResponseSuccessDataItem Function(
-      {SdkOptional<String> id,
-      SdkOptional<String> url,
-      SdkOptional<int> clicks,
-      SdkOptional<int> uniqueClicks}) get copyWith => _copyWith;
+  ListBroadcastClickedLinksResponseSuccessDataItem Function({SdkOptional<String> id, SdkOptional<String> url, SdkOptional<int> clicks, SdkOptional<int> uniqueClicks}) get copyWith => _copyWith;
 
-  ListBroadcastClickedLinksResponseSuccessDataItem _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? url = sdkOmittedValue,
-          Object? clicks = sdkOmittedValue,
-          Object? uniqueClicks = sdkOmittedValue}) =>
-      ListBroadcastClickedLinksResponseSuccessDataItem(
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-        url: identical(url, sdkOmittedValue)
-            ? this.url
-            : url as SdkOptional<String>,
-        clicks: identical(clicks, sdkOmittedValue)
-            ? this.clicks
-            : clicks as SdkOptional<int>,
-        uniqueClicks: identical(uniqueClicks, sdkOmittedValue)
-            ? this.uniqueClicks
-            : uniqueClicks as SdkOptional<int>,
-      );
+  ListBroadcastClickedLinksResponseSuccessDataItem _copyWith({Object? id = sdkOmittedValue, Object? url = sdkOmittedValue, Object? clicks = sdkOmittedValue, Object? uniqueClicks = sdkOmittedValue}) => ListBroadcastClickedLinksResponseSuccessDataItem(
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+    url: identical(url, sdkOmittedValue) ? this.url : url as SdkOptional<String>,
+    clicks: identical(clicks, sdkOmittedValue) ? this.clicks : clicks as SdkOptional<int>,
+    uniqueClicks: identical(uniqueClicks, sdkOmittedValue) ? this.uniqueClicks : uniqueClicks as SdkOptional<int>,
+  );
 
-  factory ListBroadcastClickedLinksResponseSuccessDataItem.fromJson(
-          Map<String, dynamic> json) =>
-      ListBroadcastClickedLinksResponseSuccessDataItem(
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-        url: json['url'] != null
-            ? SdkPresent((json['url'] as String?)!)
-            : const SdkOmitted(),
-        clicks: json['clicks'] != null
-            ? SdkPresent(((json['clicks'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        uniqueClicks: json['unique_clicks'] != null
-            ? SdkPresent(((json['unique_clicks'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-      );
+  factory ListBroadcastClickedLinksResponseSuccessDataItem.fromJson(Map<String, dynamic> json) => ListBroadcastClickedLinksResponseSuccessDataItem(
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+    url: json['url'] != null ? SdkPresent((json['url'] as String?)!) : const SdkOmitted(),
+    clicks: json['clicks'] != null ? SdkPresent(((json['clicks'] as num?)?.toInt())!) : const SdkOmitted(),
+    uniqueClicks: json['unique_clicks'] != null ? SdkPresent(((json['unique_clicks'] as num?)?.toInt())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (url) {
-          SdkPresent<String>(value: final value) => {
-              'url': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (clicks) {
-          SdkPresent<int>(value: final value) => {
-              'clicks': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (uniqueClicks) {
-          SdkPresent<int>(value: final value) => {
-              'unique_clicks': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (url) {
+      SdkPresent<String>(value: final value) => {'url': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (clicks) {
+      SdkPresent<int>(value: final value) => {'clicks': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (uniqueClicks) {
+      SdkPresent<int>(value: final value) => {'unique_clicks': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `ListBroadcastClickedLinksResponseSuccess` API schema.
 class ListBroadcastClickedLinksResponseSuccess {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Type of the response object.
   final SdkOptional<String> object;
-
   /// Indicates if there are more results available.
   final SdkOptional<bool> hasMore;
-
   /// Array containing the broadcast's clicked links.
-  final SdkOptional<List<ListBroadcastClickedLinksResponseSuccessDataItem>>
-      data;
+  final SdkOptional<List<ListBroadcastClickedLinksResponseSuccessDataItem>> data;
 
-  const ListBroadcastClickedLinksResponseSuccess(
-      {this.object = const SdkOmitted(),
-      this.hasMore = const SdkOmitted(),
-      this.data = const SdkOmitted()});
+  const ListBroadcastClickedLinksResponseSuccess({this.object = const SdkOmitted(), this.hasMore = const SdkOmitted(), this.data = const SdkOmitted()});
 
-  ListBroadcastClickedLinksResponseSuccess Function(
-      {SdkOptional<String> object,
-      SdkOptional<bool> hasMore,
-      SdkOptional<List<ListBroadcastClickedLinksResponseSuccessDataItem>>
-          data}) get copyWith => _copyWith;
+  ListBroadcastClickedLinksResponseSuccess Function({SdkOptional<String> object, SdkOptional<bool> hasMore, SdkOptional<List<ListBroadcastClickedLinksResponseSuccessDataItem>> data}) get copyWith => _copyWith;
 
-  ListBroadcastClickedLinksResponseSuccess _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? hasMore = sdkOmittedValue,
-          Object? data = sdkOmittedValue}) =>
-      ListBroadcastClickedLinksResponseSuccess(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as SdkOptional<String>,
-        hasMore: identical(hasMore, sdkOmittedValue)
-            ? this.hasMore
-            : hasMore as SdkOptional<bool>,
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as SdkOptional<
-                List<ListBroadcastClickedLinksResponseSuccessDataItem>>,
-      );
+  ListBroadcastClickedLinksResponseSuccess _copyWith({Object? object = sdkOmittedValue, Object? hasMore = sdkOmittedValue, Object? data = sdkOmittedValue}) => ListBroadcastClickedLinksResponseSuccess(
+    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<String>,
+    hasMore: identical(hasMore, sdkOmittedValue) ? this.hasMore : hasMore as SdkOptional<bool>,
+    data: identical(data, sdkOmittedValue) ? this.data : data as SdkOptional<List<ListBroadcastClickedLinksResponseSuccessDataItem>>,
+  );
 
-  factory ListBroadcastClickedLinksResponseSuccess.fromJson(
-          Map<String, dynamic> json) =>
-      ListBroadcastClickedLinksResponseSuccess(
-        object: json['object'] != null
-            ? SdkPresent((json['object'] as String?)!)
-            : const SdkOmitted(),
-        hasMore: json['has_more'] != null
-            ? SdkPresent((json['has_more'] as bool?)!)
-            : const SdkOmitted(),
-        data: json['data'] != null
-            ? SdkPresent(((json['data'] as List?)
-                ?.map((e) =>
-                    ListBroadcastClickedLinksResponseSuccessDataItem.fromJson(
-                        e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory ListBroadcastClickedLinksResponseSuccess.fromJson(Map<String, dynamic> json) => ListBroadcastClickedLinksResponseSuccess(
+    object: json['object'] != null ? SdkPresent((json['object'] as String?)!) : const SdkOmitted(),
+    hasMore: json['has_more'] != null ? SdkPresent((json['has_more'] as bool?)!) : const SdkOmitted(),
+    data: json['data'] != null ? SdkPresent(((json['data'] as List?)?.map((e) => ListBroadcastClickedLinksResponseSuccessDataItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (object) {
-          SdkPresent<String>(value: final value) => {
-              'object': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (hasMore) {
-          SdkPresent<bool>(value: final value) => {
-              'has_more': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (data) {
-          SdkPresent<List<ListBroadcastClickedLinksResponseSuccessDataItem>>(
-            value: final value
-          ) =>
-            {
-              'data': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (object) {
+      SdkPresent<String>(value: final value) => {'object': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (hasMore) {
+      SdkPresent<bool>(value: final value) => {'has_more': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (data) {
+      SdkPresent<List<ListBroadcastClickedLinksResponseSuccessDataItem>>(value: final value) => {'data': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

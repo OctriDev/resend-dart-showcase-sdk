@@ -8,163 +8,89 @@ sealed class GetContactPropertyResponseSuccessFallbackValue {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   const GetContactPropertyResponseSuccessFallbackValue();
-  factory GetContactPropertyResponseSuccessFallbackValue.fromJson(
-      Object? json) {
-    if (json is String) {
-      return GetContactPropertyResponseSuccessFallbackValueString(json);
-    }
-    if (json is num) {
-      return GetContactPropertyResponseSuccessFallbackValueDouble(
-          json.toDouble());
-    }
-    throw FormatException(
-        "No variant matched for GetContactPropertyResponseSuccessFallbackValue");
+  factory GetContactPropertyResponseSuccessFallbackValue.fromJson(Object? json) {
+    if (json is String) { return GetContactPropertyResponseSuccessFallbackValueString(json); }
+    if (json is num) { return GetContactPropertyResponseSuccessFallbackValueDouble(json.toDouble()); }
+    throw FormatException("No variant matched for GetContactPropertyResponseSuccessFallbackValue");
   }
   Object? toJson();
 }
 
-final class GetContactPropertyResponseSuccessFallbackValueString
-    extends GetContactPropertyResponseSuccessFallbackValue {
+final class GetContactPropertyResponseSuccessFallbackValueString extends GetContactPropertyResponseSuccessFallbackValue {
   final String value;
   const GetContactPropertyResponseSuccessFallbackValueString(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
-final class GetContactPropertyResponseSuccessFallbackValueDouble
-    extends GetContactPropertyResponseSuccessFallbackValue {
+final class GetContactPropertyResponseSuccessFallbackValueDouble extends GetContactPropertyResponseSuccessFallbackValue {
   final double value;
   const GetContactPropertyResponseSuccessFallbackValueDouble(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
 /// Typed representation of the `GetContactPropertyResponseSuccess` API schema.
 class GetContactPropertyResponseSuccess {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The object type.
   final SdkOptional<String> object;
-
   /// The ID of the contact property.
   final SdkOptional<String> id;
-
   /// The property key.
   final SdkOptional<String> key;
-
   /// The property type.
   final SdkOptional<String> type_;
-
   /// The default value when the property is not set for a contact.
   final SdkOptional<dynamic> fallbackValue;
-
   /// Timestamp indicating when the contact property was created.
   final SdkOptional<String> createdAt;
 
-  const GetContactPropertyResponseSuccess(
-      {this.object = const SdkOmitted(),
-      this.id = const SdkOmitted(),
-      this.key = const SdkOmitted(),
-      this.type_ = const SdkOmitted(),
-      this.fallbackValue = const SdkOmitted(),
-      this.createdAt = const SdkOmitted()});
+  const GetContactPropertyResponseSuccess({this.object = const SdkOmitted(), this.id = const SdkOmitted(), this.key = const SdkOmitted(), this.type_ = const SdkOmitted(), this.fallbackValue = const SdkOmitted(), this.createdAt = const SdkOmitted()});
 
-  GetContactPropertyResponseSuccess Function(
-      {SdkOptional<String> object,
-      SdkOptional<String> id,
-      SdkOptional<String> key,
-      SdkOptional<String> type_,
-      SdkOptional<dynamic> fallbackValue,
-      SdkOptional<String> createdAt}) get copyWith => _copyWith;
+  GetContactPropertyResponseSuccess Function({SdkOptional<String> object, SdkOptional<String> id, SdkOptional<String> key, SdkOptional<String> type_, SdkOptional<dynamic> fallbackValue, SdkOptional<String> createdAt}) get copyWith => _copyWith;
 
-  GetContactPropertyResponseSuccess _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? key = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? fallbackValue = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue}) =>
-      GetContactPropertyResponseSuccess(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as SdkOptional<String>,
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-        key: identical(key, sdkOmittedValue)
-            ? this.key
-            : key as SdkOptional<String>,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<String>,
-        fallbackValue: identical(fallbackValue, sdkOmittedValue)
-            ? this.fallbackValue
-            : fallbackValue as SdkOptional<dynamic>,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as SdkOptional<String>,
-      );
+  GetContactPropertyResponseSuccess _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? key = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? fallbackValue = sdkOmittedValue, Object? createdAt = sdkOmittedValue}) => GetContactPropertyResponseSuccess(
+    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<String>,
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+    key: identical(key, sdkOmittedValue) ? this.key : key as SdkOptional<String>,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<String>,
+    fallbackValue: identical(fallbackValue, sdkOmittedValue) ? this.fallbackValue : fallbackValue as SdkOptional<dynamic>,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
+  );
 
-  factory GetContactPropertyResponseSuccess.fromJson(
-          Map<String, dynamic> json) =>
-      GetContactPropertyResponseSuccess(
-        object: json['object'] != null
-            ? SdkPresent((json['object'] as String?)!)
-            : const SdkOmitted(),
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-        key: json['key'] != null
-            ? SdkPresent((json['key'] as String?)!)
-            : const SdkOmitted(),
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] as String?)!)
-            : const SdkOmitted(),
-        fallbackValue: json['fallback_value'] != null
-            ? SdkPresent((json['fallback_value'])!)
-            : const SdkOmitted(),
-        createdAt: json['created_at'] != null
-            ? SdkPresent((json['created_at'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory GetContactPropertyResponseSuccess.fromJson(Map<String, dynamic> json) => GetContactPropertyResponseSuccess(
+    object: json['object'] != null ? SdkPresent((json['object'] as String?)!) : const SdkOmitted(),
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+    key: json['key'] != null ? SdkPresent((json['key'] as String?)!) : const SdkOmitted(),
+    type_: json['type'] != null ? SdkPresent((json['type'] as String?)!) : const SdkOmitted(),
+    fallbackValue: json['fallback_value'] != null ? SdkPresent((json['fallback_value'])!) : const SdkOmitted(),
+    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (object) {
-          SdkPresent<String>(value: final value) => {
-              'object': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (key) {
-          SdkPresent<String>(value: final value) => {
-              'key': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (type_) {
-          SdkPresent<String>(value: final value) => {
-              'type': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (fallbackValue) {
-          SdkPresent<dynamic>(value: final value) => {
-              'fallback_value': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (createdAt) {
-          SdkPresent<String>(value: final value) => {
-              'created_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (object) {
+      SdkPresent<String>(value: final value) => {'object': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (key) {
+      SdkPresent<String>(value: final value) => {'key': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (type_) {
+      SdkPresent<String>(value: final value) => {'type': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (fallbackValue) {
+      SdkPresent<dynamic>(value: final value) => {'fallback_value': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (createdAt) {
+      SdkPresent<String>(value: final value) => {'created_at': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

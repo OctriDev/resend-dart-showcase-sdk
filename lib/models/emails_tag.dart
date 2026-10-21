@@ -8,50 +8,33 @@ part of 'emails.dart';
 class Tag {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The name of the email tag. It can only contain ASCII letters (a–z, A–Z), numbers (0–9), underscores (_), or dashes (-). It can contain no more than 256 characters.
   final SdkOptional<String> name;
-
   /// The value of the email tag.It can only contain ASCII letters (a–z, A–Z), numbers (0–9), underscores (_), or dashes (-). It can contain no more than 256 characters.
   final SdkOptional<String> value;
 
   const Tag({this.name = const SdkOmitted(), this.value = const SdkOmitted()});
 
-  Tag Function({SdkOptional<String> name, SdkOptional<String> value})
-      get copyWith => _copyWith;
+  Tag Function({SdkOptional<String> name, SdkOptional<String> value}) get copyWith => _copyWith;
 
-  Tag _copyWith(
-          {Object? name = sdkOmittedValue, Object? value = sdkOmittedValue}) =>
-      Tag(
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-        value: identical(value, sdkOmittedValue)
-            ? this.value
-            : value as SdkOptional<String>,
-      );
+  Tag _copyWith({Object? name = sdkOmittedValue, Object? value = sdkOmittedValue}) => Tag(
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+    value: identical(value, sdkOmittedValue) ? this.value : value as SdkOptional<String>,
+  );
 
   factory Tag.fromJson(Map<String, dynamic> json) => Tag(
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-        value: json['value'] != null
-            ? SdkPresent((json['value'] as String?)!)
-            : const SdkOmitted(),
-      );
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+    value: json['value'] != null ? SdkPresent((json['value'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (value) {
-          SdkPresent<String>(value: final value) => {
-              'value': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (value) {
+      SdkPresent<String>(value: final value) => {'value': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

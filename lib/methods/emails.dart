@@ -78,14 +78,13 @@ Future<SendEmailResponse> emailsSend(ClientConfig config,
             'topic_id': SdkUtils.unwrapOptional(topicId)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Idempotency-Key': SdkUtils.unwrapOptional(idempotencyKey)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Idempotency-Key': SdkUtils.unwrapOptional(idempotencyKey)}),
           operationId: 'emailsSend',
-          fromJsonRaw: (value) =>
-              SendEmailResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => SendEmailResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Lists emails with cursor-based pagination. Use `limit` to control the number of results and `after` or `before` to choose a pagination cursor.
 ///
@@ -104,20 +103,17 @@ Future<ListEmailsResponse> emailsList(ClientConfig config,
   return (await sdkRequest<ListEmailsResponse>('GET', '/emails',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
-                style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
-                style: 'form', explode: true),
-            'before': SdkQueryValue(SdkUtils.unwrapOptional(before),
-                style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true),
+            'before': SdkQueryValue(SdkUtils.unwrapOptional(before), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'emailsList',
-          fromJsonRaw: (value) =>
-              ListEmailsResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ListEmailsResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Retrieves a single email by its identifier. Use `email_id` to select the email whose message details and latest delivery event you want to inspect.
 ///
@@ -134,6 +130,7 @@ Future<Email> emailsGet(ClientConfig config,
       .data;
 }
 
+
 /// Updates the scheduled send time for a single email. Use `email_id` to identify the email whose schedule you want to change; the response contains its scheduled time.
 ///
 /// [emailId] The ID of the email.
@@ -144,11 +141,11 @@ Future<UpdateEmailOptions> emailsUpdate(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'emailsUpdate',
-          fromJsonRaw: (value) =>
-              UpdateEmailOptions.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => UpdateEmailOptions.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Cancels the scheduled send of an email. Use `email_id` to identify the email whose scheduled delivery you want to cancel; the response includes the email's current details and latest event.
 ///
@@ -165,6 +162,7 @@ Future<Email> emailsCancel(ClientConfig config,
       .data;
 }
 
+
 /// Creates a shareable link for a sent or received email. Use `email_id` to select the email and optionally set `expires_in` to a duration of up to 48 hours; the default is 48 hours.
 ///
 /// [emailId] The ID of the email.
@@ -180,11 +178,11 @@ Future<ShareEmailResponse> emailsShare(ClientConfig config,
           body: {'expires_in': SdkUtils.unwrapOptional(expiresIn)},
           decoder: SdkResponseDecoder.json,
           operationId: 'emailsShare',
-          fromJsonRaw: (value) =>
-              ShareEmailResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ShareEmailResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Submits a batch of email messages for sending, with up to 100 emails in the batch. Each message requires `from`, `to`, and `subject`; the response includes an ID for each submitted email.
 ///
@@ -203,14 +201,13 @@ Future<CreateBatchEmailsResponse> emailsSendBatch(ClientConfig config,
           config: config,
           body: SdkUtils.unwrapOptional(body),
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Idempotency-Key': SdkUtils.unwrapOptional(idempotencyKey)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Idempotency-Key': SdkUtils.unwrapOptional(idempotencyKey)}),
           operationId: 'emailsSendBatch',
-          fromJsonRaw: (value) =>
-              CreateBatchEmailsResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => CreateBatchEmailsResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Lists the attachments for a sent email. Use `email_id` to select the email and `after` or `before` to paginate through its attachments; these cursor parameters cannot be used together.
 ///
@@ -238,20 +235,17 @@ Future<ListAttachmentsResponse> emailsListAttachments(ClientConfig config,
           '/emails/${Uri.encodeComponent(emailId.toString())}/attachments',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
-                style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
-                style: 'form', explode: true),
-            'before': SdkQueryValue(SdkUtils.unwrapOptional(before),
-                style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true),
+            'before': SdkQueryValue(SdkUtils.unwrapOptional(before), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'emailsListAttachments',
-          fromJsonRaw: (value) =>
-              ListAttachmentsResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ListAttachmentsResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Retrieves a single attachment for a sent email. Use `email_id` and `attachment_id` to identify the email and attachment; the response includes a signed download URL and its expiration time.
 ///
@@ -269,11 +263,11 @@ Future<RetrievedAttachment> emailsGetAttachment(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'emailsGetAttachment',
-          fromJsonRaw: (value) =>
-              RetrievedAttachment.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => RetrievedAttachment.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Retrieves account-level email metrics for a date range, optionally broken down by dimensions. Use `metrics` and `dimensions` to choose the returned measures and breakdowns, and use the ID filters to restrict the data.
 ///
@@ -315,29 +309,19 @@ Future<GetEmailsMetricsResponse> getMetrics(ClientConfig config,
   return (await sdkRequest<GetEmailsMetricsResponse>('GET', '/emails/metrics',
           config: config,
           query: {
-            'start_date': SdkQueryValue(SdkUtils.unwrapOptional(startDate),
-                style: 'form', explode: true),
-            'end_date': SdkQueryValue(SdkUtils.unwrapOptional(endDate),
-                style: 'form', explode: true),
-            'timezone': SdkQueryValue(SdkUtils.unwrapOptional(timezone),
-                style: 'form', explode: true),
-            'granularity': SdkQueryValue(SdkUtils.unwrapOptional(granularity),
-                style: 'form', explode: true),
-            'metrics': SdkQueryValue(SdkUtils.unwrapOptional(metrics),
-                style: 'form', explode: false),
-            'dimensions': SdkQueryValue(SdkUtils.unwrapOptional(dimensions),
-                style: 'form', explode: false),
-            'domain_id': SdkQueryValue(SdkUtils.unwrapOptional(domainId),
-                style: 'form', explode: false),
-            'email_id': SdkQueryValue(SdkUtils.unwrapOptional(emailId),
-                style: 'form', explode: false),
-            'broadcast_id': SdkQueryValue(SdkUtils.unwrapOptional(broadcastId),
-                style: 'form', explode: false)
+            'start_date': SdkQueryValue(SdkUtils.unwrapOptional(startDate), style: 'form', explode: true),
+            'end_date': SdkQueryValue(SdkUtils.unwrapOptional(endDate), style: 'form', explode: true),
+            'timezone': SdkQueryValue(SdkUtils.unwrapOptional(timezone), style: 'form', explode: true),
+            'granularity': SdkQueryValue(SdkUtils.unwrapOptional(granularity), style: 'form', explode: true),
+            'metrics': SdkQueryValue(SdkUtils.unwrapOptional(metrics), style: 'form', explode: false),
+            'dimensions': SdkQueryValue(SdkUtils.unwrapOptional(dimensions), style: 'form', explode: false),
+            'domain_id': SdkQueryValue(SdkUtils.unwrapOptional(domainId), style: 'form', explode: false),
+            'email_id': SdkQueryValue(SdkUtils.unwrapOptional(emailId), style: 'form', explode: false),
+            'broadcast_id': SdkQueryValue(SdkUtils.unwrapOptional(broadcastId), style: 'form', explode: false)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'getMetrics',
-          fromJsonRaw: (value) =>
-              GetEmailsMetricsResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => GetEmailsMetricsResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }

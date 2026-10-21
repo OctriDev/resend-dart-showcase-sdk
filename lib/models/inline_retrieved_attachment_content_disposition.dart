@@ -6,28 +6,24 @@ part of 'inline.dart';
 // Inline operation models
 /// How the attachment should be displayed.
 final class RetrievedAttachmentContentDisposition {
+
   final String value;
 
   const RetrievedAttachmentContentDisposition._(this.value);
 
-  factory RetrievedAttachmentContentDisposition.fromJson(String value) =>
-      RetrievedAttachmentContentDisposition._(value);
+  factory RetrievedAttachmentContentDisposition.fromJson(String value) => RetrievedAttachmentContentDisposition._(value);
 
   static const inline = RetrievedAttachmentContentDisposition._('inline');
-  static const attachment =
-      RetrievedAttachmentContentDisposition._('attachment');
+  static const attachment = RetrievedAttachmentContentDisposition._('attachment');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is RetrievedAttachmentContentDisposition && other.value == value;
+  @override bool operator ==(Object other) => other is RetrievedAttachmentContentDisposition && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The event type.
@@ -36,17 +32,14 @@ enum SuppressionAddedEventType {
 
   static SuppressionAddedEventType fromJson(String value) {
     switch (value) {
-      case 'suppression.added':
-        return SuppressionAddedEventType.suppressionAdded;
-      default:
-        throw ArgumentError('Unknown SuppressionAddedEventType: $value');
+      case 'suppression.added': return SuppressionAddedEventType.suppressionAdded;
+      default: throw ArgumentError('Unknown SuppressionAddedEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case SuppressionAddedEventType.suppressionAdded:
-        return 'suppression.added';
+      case SuppressionAddedEventType.suppressionAdded: return 'suppression.added';
     }
   }
 
@@ -56,12 +49,12 @@ enum SuppressionAddedEventType {
 
 /// Origin of the suppression.
 final class SuppressionEventDataOrigin {
+
   final String value;
 
   const SuppressionEventDataOrigin._(this.value);
 
-  factory SuppressionEventDataOrigin.fromJson(String value) =>
-      SuppressionEventDataOrigin._(value);
+  factory SuppressionEventDataOrigin.fromJson(String value) => SuppressionEventDataOrigin._(value);
 
   static const bounce = SuppressionEventDataOrigin._('bounce');
   static const complaint = SuppressionEventDataOrigin._('complaint');
@@ -69,15 +62,12 @@ final class SuppressionEventDataOrigin {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is SuppressionEventDataOrigin && other.value == value;
+  @override bool operator ==(Object other) => other is SuppressionEventDataOrigin && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The event type.
@@ -86,17 +76,14 @@ enum SuppressionRemovedEventType {
 
   static SuppressionRemovedEventType fromJson(String value) {
     switch (value) {
-      case 'suppression.removed':
-        return SuppressionRemovedEventType.suppressionRemoved;
-      default:
-        throw ArgumentError('Unknown SuppressionRemovedEventType: $value');
+      case 'suppression.removed': return SuppressionRemovedEventType.suppressionRemoved;
+      default: throw ArgumentError('Unknown SuppressionRemovedEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case SuppressionRemovedEventType.suppressionRemoved:
-        return 'suppression.removed';
+      case SuppressionRemovedEventType.suppressionRemoved: return 'suppression.removed';
     }
   }
 
@@ -106,6 +93,7 @@ enum SuppressionRemovedEventType {
 
 /// The publication status of the template.
 final class TemplateStatus {
+
   final String value;
 
   const TemplateStatus._(this.value);
@@ -117,50 +105,44 @@ final class TemplateStatus {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is TemplateStatus && other.value == value;
+  @override bool operator ==(Object other) => other is TemplateStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The publication status of the template.
 final class TemplateListItemStatus {
+
   final String value;
 
   const TemplateListItemStatus._(this.value);
 
-  factory TemplateListItemStatus.fromJson(String value) =>
-      TemplateListItemStatus._(value);
+  factory TemplateListItemStatus.fromJson(String value) => TemplateListItemStatus._(value);
 
   static const draft = TemplateListItemStatus._('draft');
   static const published = TemplateListItemStatus._('published');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is TemplateListItemStatus && other.value == value;
+  @override bool operator ==(Object other) => other is TemplateListItemStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of the variable.
 final class TemplateVariableType {
+
   final String value;
 
   const TemplateVariableType._(this.value);
 
-  factory TemplateVariableType.fromJson(String value) =>
-      TemplateVariableType._(value);
+  factory TemplateVariableType.fromJson(String value) => TemplateVariableType._(value);
 
   static const string = TemplateVariableType._('string');
   static const number = TemplateVariableType._('number');
@@ -170,25 +152,22 @@ final class TemplateVariableType {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is TemplateVariableType && other.value == value;
+  @override bool operator ==(Object other) => other is TemplateVariableType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of the variable.
 final class TemplateVariableInputType {
+
   final String value;
 
   const TemplateVariableInputType._(this.value);
 
-  factory TemplateVariableInputType.fromJson(String value) =>
-      TemplateVariableInputType._(value);
+  factory TemplateVariableInputType.fromJson(String value) => TemplateVariableInputType._(value);
 
   static const string = TemplateVariableInputType._('string');
   static const number = TemplateVariableInputType._('number');
@@ -198,15 +177,12 @@ final class TemplateVariableInputType {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is TemplateVariableInputType && other.value == value;
+  @override bool operator ==(Object other) => other is TemplateVariableInputType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The event type.
@@ -215,17 +191,14 @@ enum TopicCreatedEventType {
 
   static TopicCreatedEventType fromJson(String value) {
     switch (value) {
-      case 'topic.created':
-        return TopicCreatedEventType.topicCreated;
-      default:
-        throw ArgumentError('Unknown TopicCreatedEventType: $value');
+      case 'topic.created': return TopicCreatedEventType.topicCreated;
+      default: throw ArgumentError('Unknown TopicCreatedEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case TopicCreatedEventType.topicCreated:
-        return 'topic.created';
+      case TopicCreatedEventType.topicCreated: return 'topic.created';
     }
   }
 
@@ -239,17 +212,14 @@ enum TopicDeletedEventType {
 
   static TopicDeletedEventType fromJson(String value) {
     switch (value) {
-      case 'topic.deleted':
-        return TopicDeletedEventType.topicDeleted;
-      default:
-        throw ArgumentError('Unknown TopicDeletedEventType: $value');
+      case 'topic.deleted': return TopicDeletedEventType.topicDeleted;
+      default: throw ArgumentError('Unknown TopicDeletedEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case TopicDeletedEventType.topicDeleted:
-        return 'topic.deleted';
+      case TopicDeletedEventType.topicDeleted: return 'topic.deleted';
     }
   }
 
@@ -259,27 +229,24 @@ enum TopicDeletedEventType {
 
 /// The default subscription status for the topic.
 final class TopicEventDataDefaultSubscription {
+
   final String value;
 
   const TopicEventDataDefaultSubscription._(this.value);
 
-  factory TopicEventDataDefaultSubscription.fromJson(String value) =>
-      TopicEventDataDefaultSubscription._(value);
+  factory TopicEventDataDefaultSubscription.fromJson(String value) => TopicEventDataDefaultSubscription._(value);
 
   static const optIn = TopicEventDataDefaultSubscription._('opt_in');
   static const optOut = TopicEventDataDefaultSubscription._('opt_out');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is TopicEventDataDefaultSubscription && other.value == value;
+  @override bool operator ==(Object other) => other is TopicEventDataDefaultSubscription && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The event type.
@@ -288,17 +255,14 @@ enum TopicUpdatedEventType {
 
   static TopicUpdatedEventType fromJson(String value) {
     switch (value) {
-      case 'topic.updated':
-        return TopicUpdatedEventType.topicUpdated;
-      default:
-        throw ArgumentError('Unknown TopicUpdatedEventType: $value');
+      case 'topic.updated': return TopicUpdatedEventType.topicUpdated;
+      default: throw ArgumentError('Unknown TopicUpdatedEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case TopicUpdatedEventType.topicUpdated:
-        return 'topic.updated';
+      case TopicUpdatedEventType.topicUpdated: return 'topic.updated';
     }
   }
 
@@ -308,29 +272,22 @@ enum TopicUpdatedEventType {
 
 /// The subscription status (opt_in or opt_out).
 final class UpdateContactTopicsOptionsTopicsItemSubscription {
+
   final String value;
 
   const UpdateContactTopicsOptionsTopicsItemSubscription._(this.value);
 
-  factory UpdateContactTopicsOptionsTopicsItemSubscription.fromJson(
-          String value) =>
-      UpdateContactTopicsOptionsTopicsItemSubscription._(value);
+  factory UpdateContactTopicsOptionsTopicsItemSubscription.fromJson(String value) => UpdateContactTopicsOptionsTopicsItemSubscription._(value);
 
-  static const optIn =
-      UpdateContactTopicsOptionsTopicsItemSubscription._('opt_in');
-  static const optOut =
-      UpdateContactTopicsOptionsTopicsItemSubscription._('opt_out');
+  static const optIn = UpdateContactTopicsOptionsTopicsItemSubscription._('opt_in');
+  static const optOut = UpdateContactTopicsOptionsTopicsItemSubscription._('opt_out');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is UpdateContactTopicsOptionsTopicsItemSubscription &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is UpdateContactTopicsOptionsTopicsItemSubscription && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

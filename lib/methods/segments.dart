@@ -26,11 +26,11 @@ Future<CreateSegmentResponseSuccess> segmentsCreate(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'segmentsCreate',
-          fromJsonRaw: (value) => CreateSegmentResponseSuccess.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => CreateSegmentResponseSuccess.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Lists segments. Use `limit` to control the number of results and `after` or `before` to navigate the results with cursors.
 ///
@@ -49,20 +49,17 @@ Future<ListSegmentsResponseSuccess> segmentsList(ClientConfig config,
   return (await sdkRequest<ListSegmentsResponseSuccess>('GET', '/segments',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
-                style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
-                style: 'form', explode: true),
-            'before': SdkQueryValue(SdkUtils.unwrapOptional(before),
-                style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true),
+            'before': SdkQueryValue(SdkUtils.unwrapOptional(before), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'segmentsList',
-          fromJsonRaw: (value) => ListSegmentsResponseSuccess.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ListSegmentsResponseSuccess.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Retrieves a segment by its identifier. Use the segment ID to look up a specific segment and its filter conditions.
 ///
@@ -74,11 +71,11 @@ Future<GetSegmentResponseSuccess> segmentsGet(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'segmentsGet',
-          fromJsonRaw: (value) =>
-              GetSegmentResponseSuccess.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => GetSegmentResponseSuccess.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Updates the name of an existing segment. Supply `name` in the request body to set the segment's name.
 ///
@@ -94,11 +91,11 @@ Future<UpdateSegmentResponseSuccess> segmentsUpdate(ClientConfig config,
           body: {'name': name},
           decoder: SdkResponseDecoder.json,
           operationId: 'segmentsUpdate',
-          fromJsonRaw: (value) => UpdateSegmentResponseSuccess.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => UpdateSegmentResponseSuccess.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Deletes an existing segment. Use the segment ID to select the segment to remove.
 ///
@@ -110,11 +107,11 @@ Future<RemoveSegmentResponseSuccess> segmentsRemove(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'segmentsRemove',
-          fromJsonRaw: (value) => RemoveSegmentResponseSuccess.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => RemoveSegmentResponseSuccess.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Lists the contacts in a segment. Use `after` or `before` to navigate results with cursors, and `limit` to control the number of contacts returned.
 ///
@@ -137,17 +134,13 @@ Future<ListContactsResponseSuccess> segmentsListContacts(ClientConfig config,
           'GET', '/segments/${Uri.encodeComponent(id.toString())}/contacts',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
-                style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
-                style: 'form', explode: true),
-            'before': SdkQueryValue(SdkUtils.unwrapOptional(before),
-                style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true),
+            'before': SdkQueryValue(SdkUtils.unwrapOptional(before), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'segmentsListContacts',
-          fromJsonRaw: (value) => ListContactsResponseSuccess.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ListContactsResponseSuccess.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }

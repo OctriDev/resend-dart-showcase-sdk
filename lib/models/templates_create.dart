@@ -8,206 +8,110 @@ part of 'templates.dart';
 class CreateTemplateRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The name of the template.
   final String name;
-
   /// The alias of the template.
   final SdkOptional<String> alias;
-
   /// Sender email address. To include a friendly name, use the format "Your Name &lt;sender@domain.com&gt;".
   final SdkOptional<String> from;
-
   /// Email subject.
   final SdkOptional<String> subject;
-
   /// Reply-to email addresses.
   final SdkOptional<List<String>> replyTo;
-
   /// The HTML version of the template.
   final String html;
-
   /// The plain text version of the template.
   final SdkOptional<String> text;
-
   /// Optional array value serialized in the `variables` wire field.
   final SdkOptional<List<TemplateVariableInput>> variables;
 
-  const CreateTemplateRequest(
-      {required this.name,
-      this.alias = const SdkOmitted(),
-      this.from = const SdkOmitted(),
-      this.subject = const SdkOmitted(),
-      this.replyTo = const SdkOmitted(),
-      required this.html,
-      this.text = const SdkOmitted(),
-      this.variables = const SdkOmitted()});
+  const CreateTemplateRequest({required this.name, this.alias = const SdkOmitted(), this.from = const SdkOmitted(), this.subject = const SdkOmitted(), this.replyTo = const SdkOmitted(), required this.html, this.text = const SdkOmitted(), this.variables = const SdkOmitted()});
 
-  CreateTemplateRequest Function(
-          {String name,
-          SdkOptional<String> alias,
-          SdkOptional<String> from,
-          SdkOptional<String> subject,
-          SdkOptional<List<String>> replyTo,
-          String html,
-          SdkOptional<String> text,
-          SdkOptional<List<TemplateVariableInput>> variables})
-      get copyWith => _copyWith;
+  CreateTemplateRequest Function({String name, SdkOptional<String> alias, SdkOptional<String> from, SdkOptional<String> subject, SdkOptional<List<String>> replyTo, String html, SdkOptional<String> text, SdkOptional<List<TemplateVariableInput>> variables}) get copyWith => _copyWith;
 
-  CreateTemplateRequest _copyWith(
-          {Object? name = sdkOmittedValue,
-          Object? alias = sdkOmittedValue,
-          Object? from = sdkOmittedValue,
-          Object? subject = sdkOmittedValue,
-          Object? replyTo = sdkOmittedValue,
-          Object? html = sdkOmittedValue,
-          Object? text = sdkOmittedValue,
-          Object? variables = sdkOmittedValue}) =>
-      CreateTemplateRequest(
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        alias: identical(alias, sdkOmittedValue)
-            ? this.alias
-            : alias as SdkOptional<String>,
-        from: identical(from, sdkOmittedValue)
-            ? this.from
-            : from as SdkOptional<String>,
-        subject: identical(subject, sdkOmittedValue)
-            ? this.subject
-            : subject as SdkOptional<String>,
-        replyTo: identical(replyTo, sdkOmittedValue)
-            ? this.replyTo
-            : replyTo as SdkOptional<List<String>>,
-        html: identical(html, sdkOmittedValue) ? this.html : html as String,
-        text: identical(text, sdkOmittedValue)
-            ? this.text
-            : text as SdkOptional<String>,
-        variables: identical(variables, sdkOmittedValue)
-            ? this.variables
-            : variables as SdkOptional<List<TemplateVariableInput>>,
-      );
+  CreateTemplateRequest _copyWith({Object? name = sdkOmittedValue, Object? alias = sdkOmittedValue, Object? from = sdkOmittedValue, Object? subject = sdkOmittedValue, Object? replyTo = sdkOmittedValue, Object? html = sdkOmittedValue, Object? text = sdkOmittedValue, Object? variables = sdkOmittedValue}) => CreateTemplateRequest(
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    alias: identical(alias, sdkOmittedValue) ? this.alias : alias as SdkOptional<String>,
+    from: identical(from, sdkOmittedValue) ? this.from : from as SdkOptional<String>,
+    subject: identical(subject, sdkOmittedValue) ? this.subject : subject as SdkOptional<String>,
+    replyTo: identical(replyTo, sdkOmittedValue) ? this.replyTo : replyTo as SdkOptional<List<String>>,
+    html: identical(html, sdkOmittedValue) ? this.html : html as String,
+    text: identical(text, sdkOmittedValue) ? this.text : text as SdkOptional<String>,
+    variables: identical(variables, sdkOmittedValue) ? this.variables : variables as SdkOptional<List<TemplateVariableInput>>,
+  );
 
-  factory CreateTemplateRequest.fromJson(Map<String, dynamic> json) =>
-      CreateTemplateRequest(
-        name: (json['name'] as String?)!,
-        alias: json['alias'] != null
-            ? SdkPresent((json['alias'] as String?)!)
-            : const SdkOmitted(),
-        from: json['from'] != null
-            ? SdkPresent((json['from'] as String?)!)
-            : const SdkOmitted(),
-        subject: json['subject'] != null
-            ? SdkPresent((json['subject'] as String?)!)
-            : const SdkOmitted(),
-        replyTo: json['reply_to'] != null
-            ? SdkPresent(((json['reply_to'] as List?)
-                ?.map((e) => e as String)
-                .toList())!)
-            : const SdkOmitted(),
-        html: (json['html'] as String?)!,
-        text: json['text'] != null
-            ? SdkPresent((json['text'] as String?)!)
-            : const SdkOmitted(),
-        variables: json['variables'] != null
-            ? SdkPresent(((json['variables'] as List?)
-                ?.map((e) =>
-                    TemplateVariableInput.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory CreateTemplateRequest.fromJson(Map<String, dynamic> json) => CreateTemplateRequest(
+    name: (json['name'] as String?)!,
+    alias: json['alias'] != null ? SdkPresent((json['alias'] as String?)!) : const SdkOmitted(),
+    from: json['from'] != null ? SdkPresent((json['from'] as String?)!) : const SdkOmitted(),
+    subject: json['subject'] != null ? SdkPresent((json['subject'] as String?)!) : const SdkOmitted(),
+    replyTo: json['reply_to'] != null ? SdkPresent(((json['reply_to'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    html: (json['html'] as String?)!,
+    text: json['text'] != null ? SdkPresent((json['text'] as String?)!) : const SdkOmitted(),
+    variables: json['variables'] != null ? SdkPresent(((json['variables'] as List?)?.map((e) => TemplateVariableInput.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'name': name,
-        ...switch (alias) {
-          SdkPresent<String>(value: final value) => {
-              'alias': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (from) {
-          SdkPresent<String>(value: final value) => {
-              'from': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (subject) {
-          SdkPresent<String>(value: final value) => {
-              'subject': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (replyTo) {
-          SdkPresent<List<String>>(value: final value) => {
-              'reply_to': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'html': html,
-        ...switch (text) {
-          SdkPresent<String>(value: final value) => {
-              'text': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (variables) {
-          SdkPresent<List<TemplateVariableInput>>(value: final value) => {
-              'variables': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'name': name,
+    ...switch (alias) {
+      SdkPresent<String>(value: final value) => {'alias': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (from) {
+      SdkPresent<String>(value: final value) => {'from': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (subject) {
+      SdkPresent<String>(value: final value) => {'subject': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (replyTo) {
+      SdkPresent<List<String>>(value: final value) => {'reply_to': value,},
+      _ => const <String, dynamic>{},
+    },
+    'html': html,
+    ...switch (text) {
+      SdkPresent<String>(value: final value) => {'text': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (variables) {
+      SdkPresent<List<TemplateVariableInput>>(value: final value) => {'variables': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `CreateTemplateResponseSuccess` API schema.
 class CreateTemplateResponseSuccess {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The ID of the template.
   final SdkOptional<String> id;
-
   /// The object type of the response.
   final SdkOptional<String> object;
 
-  const CreateTemplateResponseSuccess(
-      {this.id = const SdkOmitted(), this.object = const SdkOmitted()});
+  const CreateTemplateResponseSuccess({this.id = const SdkOmitted(), this.object = const SdkOmitted()});
 
-  CreateTemplateResponseSuccess Function(
-      {SdkOptional<String> id,
-      SdkOptional<String> object}) get copyWith => _copyWith;
+  CreateTemplateResponseSuccess Function({SdkOptional<String> id, SdkOptional<String> object}) get copyWith => _copyWith;
 
-  CreateTemplateResponseSuccess _copyWith(
-          {Object? id = sdkOmittedValue, Object? object = sdkOmittedValue}) =>
-      CreateTemplateResponseSuccess(
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as SdkOptional<String>,
-      );
+  CreateTemplateResponseSuccess _copyWith({Object? id = sdkOmittedValue, Object? object = sdkOmittedValue}) => CreateTemplateResponseSuccess(
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<String>,
+  );
 
-  factory CreateTemplateResponseSuccess.fromJson(Map<String, dynamic> json) =>
-      CreateTemplateResponseSuccess(
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-        object: json['object'] != null
-            ? SdkPresent((json['object'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory CreateTemplateResponseSuccess.fromJson(Map<String, dynamic> json) => CreateTemplateResponseSuccess(
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+    object: json['object'] != null ? SdkPresent((json['object'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (object) {
-          SdkPresent<String>(value: final value) => {
-              'object': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (object) {
+      SdkPresent<String>(value: final value) => {'object': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

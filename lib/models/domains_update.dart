@@ -8,169 +8,92 @@ part of 'domains.dart';
 class UpdateDomainOptions {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Track the open rate of each email.
   final SdkOptional<bool> openTracking;
-
   /// Track clicks within the body of each HTML email.
   final SdkOptional<bool> clickTracking;
-
   /// enforced | opportunistic.
   final SdkOptional<UpdateDomainOptionsTls> tls;
-
   /// Configure the domain capabilities for sending and receiving emails. At least one capability must be enabled.
   final SdkOptional<DomainCapabilities> capabilities;
-
   /// The subdomain to use for click and open tracking.
   final SdkOptional<String> trackingSubdomain;
 
-  const UpdateDomainOptions(
-      {this.openTracking = const SdkOmitted(),
-      this.clickTracking = const SdkOmitted(),
-      this.tls = const SdkOmitted(),
-      this.capabilities = const SdkOmitted(),
-      this.trackingSubdomain = const SdkOmitted()});
+  const UpdateDomainOptions({this.openTracking = const SdkOmitted(), this.clickTracking = const SdkOmitted(), this.tls = const SdkOmitted(), this.capabilities = const SdkOmitted(), this.trackingSubdomain = const SdkOmitted()});
 
-  UpdateDomainOptions Function(
-      {SdkOptional<bool> openTracking,
-      SdkOptional<bool> clickTracking,
-      SdkOptional<UpdateDomainOptionsTls> tls,
-      SdkOptional<DomainCapabilities> capabilities,
-      SdkOptional<String> trackingSubdomain}) get copyWith => _copyWith;
+  UpdateDomainOptions Function({SdkOptional<bool> openTracking, SdkOptional<bool> clickTracking, SdkOptional<UpdateDomainOptionsTls> tls, SdkOptional<DomainCapabilities> capabilities, SdkOptional<String> trackingSubdomain}) get copyWith => _copyWith;
 
-  UpdateDomainOptions _copyWith(
-          {Object? openTracking = sdkOmittedValue,
-          Object? clickTracking = sdkOmittedValue,
-          Object? tls = sdkOmittedValue,
-          Object? capabilities = sdkOmittedValue,
-          Object? trackingSubdomain = sdkOmittedValue}) =>
-      UpdateDomainOptions(
-        openTracking: identical(openTracking, sdkOmittedValue)
-            ? this.openTracking
-            : openTracking as SdkOptional<bool>,
-        clickTracking: identical(clickTracking, sdkOmittedValue)
-            ? this.clickTracking
-            : clickTracking as SdkOptional<bool>,
-        tls: identical(tls, sdkOmittedValue)
-            ? this.tls
-            : tls as SdkOptional<UpdateDomainOptionsTls>,
-        capabilities: identical(capabilities, sdkOmittedValue)
-            ? this.capabilities
-            : capabilities as SdkOptional<DomainCapabilities>,
-        trackingSubdomain: identical(trackingSubdomain, sdkOmittedValue)
-            ? this.trackingSubdomain
-            : trackingSubdomain as SdkOptional<String>,
-      );
+  UpdateDomainOptions _copyWith({Object? openTracking = sdkOmittedValue, Object? clickTracking = sdkOmittedValue, Object? tls = sdkOmittedValue, Object? capabilities = sdkOmittedValue, Object? trackingSubdomain = sdkOmittedValue}) => UpdateDomainOptions(
+    openTracking: identical(openTracking, sdkOmittedValue) ? this.openTracking : openTracking as SdkOptional<bool>,
+    clickTracking: identical(clickTracking, sdkOmittedValue) ? this.clickTracking : clickTracking as SdkOptional<bool>,
+    tls: identical(tls, sdkOmittedValue) ? this.tls : tls as SdkOptional<UpdateDomainOptionsTls>,
+    capabilities: identical(capabilities, sdkOmittedValue) ? this.capabilities : capabilities as SdkOptional<DomainCapabilities>,
+    trackingSubdomain: identical(trackingSubdomain, sdkOmittedValue) ? this.trackingSubdomain : trackingSubdomain as SdkOptional<String>,
+  );
 
-  factory UpdateDomainOptions.fromJson(Map<String, dynamic> json) =>
-      UpdateDomainOptions(
-        openTracking: json['open_tracking'] != null
-            ? SdkPresent((json['open_tracking'] as bool?)!)
-            : const SdkOmitted(),
-        clickTracking: json['click_tracking'] != null
-            ? SdkPresent((json['click_tracking'] as bool?)!)
-            : const SdkOmitted(),
-        tls: json['tls'] != null
-            ? SdkPresent((json['tls'] != null
-                ? UpdateDomainOptionsTls.fromJson(json['tls'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        capabilities: json['capabilities'] != null
-            ? SdkPresent((json['capabilities'] != null
-                ? DomainCapabilities.fromJson(
-                    json['capabilities'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        trackingSubdomain: json['tracking_subdomain'] != null
-            ? SdkPresent((json['tracking_subdomain'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory UpdateDomainOptions.fromJson(Map<String, dynamic> json) => UpdateDomainOptions(
+    openTracking: json['open_tracking'] != null ? SdkPresent((json['open_tracking'] as bool?)!) : const SdkOmitted(),
+    clickTracking: json['click_tracking'] != null ? SdkPresent((json['click_tracking'] as bool?)!) : const SdkOmitted(),
+    tls: json['tls'] != null ? SdkPresent((json['tls'] != null ? UpdateDomainOptionsTls.fromJson(json['tls'] as String) : null)!) : const SdkOmitted(),
+    capabilities: json['capabilities'] != null ? SdkPresent((json['capabilities'] != null ? DomainCapabilities.fromJson(json['capabilities'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    trackingSubdomain: json['tracking_subdomain'] != null ? SdkPresent((json['tracking_subdomain'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (openTracking) {
-          SdkPresent<bool>(value: final value) => {
-              'open_tracking': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (clickTracking) {
-          SdkPresent<bool>(value: final value) => {
-              'click_tracking': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (tls) {
-          SdkPresent<UpdateDomainOptionsTls>(value: final value) => {
-              'tls': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (capabilities) {
-          SdkPresent<DomainCapabilities>(value: final value) => {
-              'capabilities': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (trackingSubdomain) {
-          SdkPresent<String>(value: final value) => {
-              'tracking_subdomain': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (openTracking) {
+      SdkPresent<bool>(value: final value) => {'open_tracking': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (clickTracking) {
+      SdkPresent<bool>(value: final value) => {'click_tracking': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (tls) {
+      SdkPresent<UpdateDomainOptionsTls>(value: final value) => {'tls': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (capabilities) {
+      SdkPresent<DomainCapabilities>(value: final value) => {'capabilities': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (trackingSubdomain) {
+      SdkPresent<String>(value: final value) => {'tracking_subdomain': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `UpdateDomainResponseSuccess` API schema.
 class UpdateDomainResponseSuccess {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The ID of the updated domain.
   final SdkOptional<String> id;
-
   /// The object type representing the updated domain.
   final SdkOptional<String> object;
 
-  const UpdateDomainResponseSuccess(
-      {this.id = const SdkOmitted(), this.object = const SdkOmitted()});
+  const UpdateDomainResponseSuccess({this.id = const SdkOmitted(), this.object = const SdkOmitted()});
 
-  UpdateDomainResponseSuccess Function(
-      {SdkOptional<String> id,
-      SdkOptional<String> object}) get copyWith => _copyWith;
+  UpdateDomainResponseSuccess Function({SdkOptional<String> id, SdkOptional<String> object}) get copyWith => _copyWith;
 
-  UpdateDomainResponseSuccess _copyWith(
-          {Object? id = sdkOmittedValue, Object? object = sdkOmittedValue}) =>
-      UpdateDomainResponseSuccess(
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as SdkOptional<String>,
-      );
+  UpdateDomainResponseSuccess _copyWith({Object? id = sdkOmittedValue, Object? object = sdkOmittedValue}) => UpdateDomainResponseSuccess(
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<String>,
+  );
 
-  factory UpdateDomainResponseSuccess.fromJson(Map<String, dynamic> json) =>
-      UpdateDomainResponseSuccess(
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-        object: json['object'] != null
-            ? SdkPresent((json['object'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory UpdateDomainResponseSuccess.fromJson(Map<String, dynamic> json) => UpdateDomainResponseSuccess(
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+    object: json['object'] != null ? SdkPresent((json['object'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (object) {
-          SdkPresent<String>(value: final value) => {
-              'object': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (object) {
+      SdkPresent<String>(value: final value) => {'object': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

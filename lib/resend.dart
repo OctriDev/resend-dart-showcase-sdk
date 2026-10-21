@@ -27,7 +27,6 @@ import 'methods/inboxes.dart' as inboxes_methods;
 class EmailsNamespace {
   final ClientConfig _config;
   EmailsNamespace(ClientConfig config) : _config = config;
-
   /// Sends an email to one or more recipients. Supply `from`, `to`, and `subject`; use either message content in `html` or `text`, or a published `template`. A successful response includes the sent email's identifier.
   Future<SendEmailResponse> send(
       {required String from,
@@ -46,23 +45,7 @@ class EmailsNamespace {
       SdkOptional<List<Tag>> tags = const SdkOmitted(),
       SdkOptional<String> topicId = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return emails_methods.emailsSend(_config,
-        from: from,
-        to: to,
-        subject: subject,
-        idempotencyKey: idempotencyKey,
-        bcc: bcc,
-        cc: cc,
-        replyTo: replyTo,
-        html: html,
-        text: text,
-        template: template,
-        headers: headers,
-        scheduledAt: scheduledAt,
-        attachments: attachments,
-        tags: tags,
-        topicId: topicId,
-        requestOptions: requestOptions);
+    return emails_methods.emailsSend(_config, from: from, to: to, subject: subject, idempotencyKey: idempotencyKey, bcc: bcc, cc: cc, replyTo: replyTo, html: html, text: text, template: template, headers: headers, scheduledAt: scheduledAt, attachments: attachments, tags: tags, topicId: topicId, requestOptions: requestOptions);
   }
 
   /// Lists emails with cursor-based pagination. Use `limit` to control the number of results and `after` or `before` to choose a pagination cursor.
@@ -71,32 +54,25 @@ class EmailsNamespace {
       SdkOptional<String> after = const SdkOmitted(),
       SdkOptional<String> before = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return emails_methods.emailsList(_config,
-        limit: limit,
-        after: after,
-        before: before,
-        requestOptions: requestOptions);
+    return emails_methods.emailsList(_config, limit: limit, after: after, before: before, requestOptions: requestOptions);
   }
 
   /// Retrieves a single email by its identifier. Use `email_id` to select the email whose message details and latest delivery event you want to inspect.
   Future<Email> get_(
       {required String emailId, RequestOptions? requestOptions}) async {
-    return emails_methods.emailsGet(_config,
-        emailId: emailId, requestOptions: requestOptions);
+    return emails_methods.emailsGet(_config, emailId: emailId, requestOptions: requestOptions);
   }
 
   /// Updates the scheduled send time for a single email. Use `email_id` to identify the email whose schedule you want to change; the response contains its scheduled time.
   Future<UpdateEmailOptions> update(
       {required String emailId, RequestOptions? requestOptions}) async {
-    return emails_methods.emailsUpdate(_config,
-        emailId: emailId, requestOptions: requestOptions);
+    return emails_methods.emailsUpdate(_config, emailId: emailId, requestOptions: requestOptions);
   }
 
   /// Cancels the scheduled send of an email. Use `email_id` to identify the email whose scheduled delivery you want to cancel; the response includes the email's current details and latest event.
   Future<Email> cancel(
       {required String emailId, RequestOptions? requestOptions}) async {
-    return emails_methods.emailsCancel(_config,
-        emailId: emailId, requestOptions: requestOptions);
+    return emails_methods.emailsCancel(_config, emailId: emailId, requestOptions: requestOptions);
   }
 
   /// Creates a shareable link for a sent or received email. Use `email_id` to select the email and optionally set `expires_in` to a duration of up to 48 hours; the default is 48 hours.
@@ -104,8 +80,7 @@ class EmailsNamespace {
       {required String emailId,
       SdkOptional<String> expiresIn = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return emails_methods.emailsShare(_config,
-        emailId: emailId, expiresIn: expiresIn, requestOptions: requestOptions);
+    return emails_methods.emailsShare(_config, emailId: emailId, expiresIn: expiresIn, requestOptions: requestOptions);
   }
 
   /// Submits a batch of email messages for sending, with up to 100 emails in the batch. Each message requires `from`, `to`, and `subject`; the response includes an ID for each submitted email.
@@ -113,10 +88,7 @@ class EmailsNamespace {
       {SdkOptional<String> idempotencyKey = const SdkOmitted(),
       SdkOptional<List<SendEmailRequest>> body = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return emails_methods.emailsSendBatch(_config,
-        idempotencyKey: idempotencyKey,
-        body: body,
-        requestOptions: requestOptions);
+    return emails_methods.emailsSendBatch(_config, idempotencyKey: idempotencyKey, body: body, requestOptions: requestOptions);
   }
 
   /// Lists the attachments for a sent email. Use `email_id` to select the email and `after` or `before` to paginate through its attachments; these cursor parameters cannot be used together.
@@ -126,12 +98,7 @@ class EmailsNamespace {
       SdkOptional<String> after = const SdkOmitted(),
       SdkOptional<String> before = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return emails_methods.emailsListAttachments(_config,
-        emailId: emailId,
-        limit: limit,
-        after: after,
-        before: before,
-        requestOptions: requestOptions);
+    return emails_methods.emailsListAttachments(_config, emailId: emailId, limit: limit, after: after, before: before, requestOptions: requestOptions);
   }
 
   /// Retrieves a single attachment for a sent email. Use `email_id` and `attachment_id` to identify the email and attachment; the response includes a signed download URL and its expiration time.
@@ -139,10 +106,7 @@ class EmailsNamespace {
       {required String emailId,
       required String attachmentId,
       RequestOptions? requestOptions}) async {
-    return emails_methods.emailsGetAttachment(_config,
-        emailId: emailId,
-        attachmentId: attachmentId,
-        requestOptions: requestOptions);
+    return emails_methods.emailsGetAttachment(_config, emailId: emailId, attachmentId: attachmentId, requestOptions: requestOptions);
   }
 
   /// Retrieves account-level email metrics for a date range, optionally broken down by dimensions. Use `metrics` and `dimensions` to choose the returned measures and breakdowns, and use the ID filters to restrict the data.
@@ -152,48 +116,32 @@ class EmailsNamespace {
       SdkOptional<String> timezone = const SdkOmitted(),
       SdkOptional<GetMetricsGranularity> granularity = const SdkOmitted(),
       SdkOptional<List<GetMetricsMetricsItem>> metrics = const SdkOmitted(),
-      SdkOptional<List<GetMetricsDimensionsItem>> dimensions =
-          const SdkOmitted(),
+      SdkOptional<List<GetMetricsDimensionsItem>> dimensions = const SdkOmitted(),
       SdkOptional<List<String>> domainId = const SdkOmitted(),
       SdkOptional<List<String>> emailId = const SdkOmitted(),
       SdkOptional<List<String>> broadcastId = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return emails_methods.getMetrics(_config,
-        startDate: startDate,
-        endDate: endDate,
-        timezone: timezone,
-        granularity: granularity,
-        metrics: metrics,
-        dimensions: dimensions,
-        domainId: domainId,
-        emailId: emailId,
-        broadcastId: broadcastId,
-        requestOptions: requestOptions);
+    return emails_methods.getMetrics(_config, startDate: startDate, endDate: endDate, timezone: timezone, granularity: granularity, metrics: metrics, dimensions: dimensions, domainId: domainId, emailId: emailId, broadcastId: broadcastId, requestOptions: requestOptions);
   }
+
 }
 
 class ReceivingEmailsNamespace {
   final ClientConfig _config;
   ReceivingEmailsNamespace(ClientConfig config) : _config = config;
-
   /// Lists received emails with cursor-based pagination. Use `limit` to control the number of results and `after` or `before` to select a pagination cursor; the cursor parameters cannot be used together.
   Future<ListReceivedEmailsResponse> list(
       {SdkOptional<int> limit = const SdkOmitted(),
       SdkOptional<String> after = const SdkOmitted(),
       SdkOptional<String> before = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return receiving_emails_methods.list(_config,
-        limit: limit,
-        after: after,
-        before: before,
-        requestOptions: requestOptions);
+    return receiving_emails_methods.list(_config, limit: limit, after: after, before: before, requestOptions: requestOptions);
   }
 
   /// Retrieves a received email by its identifier. Use `email_id` to select the email; the response includes its message content, headers, recipients, receipt time, and attachments.
   Future<GetReceivedEmailResponse> get_(
       {required String emailId, RequestOptions? requestOptions}) async {
-    return receiving_emails_methods.get_(_config,
-        emailId: emailId, requestOptions: requestOptions);
+    return receiving_emails_methods.get_(_config, emailId: emailId, requestOptions: requestOptions);
   }
 
   /// Lists attachments for a received email. Use `email_id` to select the email and `after` or `before` to navigate through attachment results.
@@ -203,12 +151,7 @@ class ReceivingEmailsNamespace {
       SdkOptional<String> after = const SdkOmitted(),
       SdkOptional<String> before = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return receiving_emails_methods.listAttachments(_config,
-        emailId: emailId,
-        limit: limit,
-        after: after,
-        before: before,
-        requestOptions: requestOptions);
+    return receiving_emails_methods.listAttachments(_config, emailId: emailId, limit: limit, after: after, before: before, requestOptions: requestOptions);
   }
 
   /// Retrieves an attachment belonging to a received email. Use `email_id` to identify the email and `attachment_id` to select its attachment; the response includes a signed download URL and its expiration time.
@@ -216,17 +159,14 @@ class ReceivingEmailsNamespace {
       {required String emailId,
       required String attachmentId,
       RequestOptions? requestOptions}) async {
-    return receiving_emails_methods.getAttachment(_config,
-        emailId: emailId,
-        attachmentId: attachmentId,
-        requestOptions: requestOptions);
+    return receiving_emails_methods.getAttachment(_config, emailId: emailId, attachmentId: attachmentId, requestOptions: requestOptions);
   }
+
 }
 
 class DomainsNamespace {
   final ClientConfig _config;
   DomainsNamespace(ClientConfig config) : _config = config;
-
   /// Creates a domain for sending or receiving email. Supply `name` and configure the sending region, tracking options, TLS mode, and capabilities as needed; at least one domain capability must be enabled.
   Future<CreateDomainResponse> create(
       {required String name,
@@ -238,16 +178,7 @@ class DomainsNamespace {
       SdkOptional<DomainCapabilities> capabilities = const SdkOmitted(),
       SdkOptional<String> trackingSubdomain = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return domains_methods.domainsCreate(_config,
-        name: name,
-        region: region,
-        customReturnPath: customReturnPath,
-        openTracking: openTracking,
-        clickTracking: clickTracking,
-        tls: tls,
-        capabilities: capabilities,
-        trackingSubdomain: trackingSubdomain,
-        requestOptions: requestOptions);
+    return domains_methods.domainsCreate(_config, name: name, region: region, customReturnPath: customReturnPath, openTracking: openTracking, clickTracking: clickTracking, tls: tls, capabilities: capabilities, trackingSubdomain: trackingSubdomain, requestOptions: requestOptions);
   }
 
   /// Lists domains in the account. Use `limit` to control the number of results and `after` or `before` to navigate the cursor-based list.
@@ -256,18 +187,13 @@ class DomainsNamespace {
       SdkOptional<String> after = const SdkOmitted(),
       SdkOptional<String> before = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return domains_methods.domainsList(_config,
-        limit: limit,
-        after: after,
-        before: before,
-        requestOptions: requestOptions);
+    return domains_methods.domainsList(_config, limit: limit, after: after, before: before, requestOptions: requestOptions);
   }
 
   /// Retrieves a domain by its identifier. Use `domain_id` to select the domain and view its status, configuration, capabilities, and DNS records.
   Future<Domain> get_(
       {required String domainId, RequestOptions? requestOptions}) async {
-    return domains_methods.domainsGet(_config,
-        domainId: domainId, requestOptions: requestOptions);
+    return domains_methods.domainsGet(_config, domainId: domainId, requestOptions: requestOptions);
   }
 
   /// Updates the configuration of an existing domain. Supply only the settings you want to change, such as tracking options, TLS mode, capabilities, or the tracking subdomain.
@@ -279,21 +205,13 @@ class DomainsNamespace {
       SdkOptional<DomainCapabilities> capabilities = const SdkOmitted(),
       SdkOptional<String> trackingSubdomain = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return domains_methods.domainsUpdate(_config,
-        domainId: domainId,
-        openTracking: openTracking,
-        clickTracking: clickTracking,
-        tls: tls,
-        capabilities: capabilities,
-        trackingSubdomain: trackingSubdomain,
-        requestOptions: requestOptions);
+    return domains_methods.domainsUpdate(_config, domainId: domainId, openTracking: openTracking, clickTracking: clickTracking, tls: tls, capabilities: capabilities, trackingSubdomain: trackingSubdomain, requestOptions: requestOptions);
   }
 
   /// Deletes an existing domain. Use `domain_id` to select the domain to remove; the response indicates whether deletion succeeded.
   Future<DeleteDomainResponse> remove(
       {required String domainId, RequestOptions? requestOptions}) async {
-    return domains_methods.domainsRemove(_config,
-        domainId: domainId, requestOptions: requestOptions);
+    return domains_methods.domainsRemove(_config, domainId: domainId, requestOptions: requestOptions);
   }
 
   /// Triggers verification of a domain's DNS records, including DKIM, SPF, and the tracking CNAME when a tracking subdomain is configured. Use this operation after adding the required DNS records to check the domain's verification status.
@@ -301,8 +219,7 @@ class DomainsNamespace {
   /// Triggers verification of the domain's DNS records including DKIM, SPF, and the tracking CNAME (if a tracking subdomain is configured).
   Future<VerifyDomainResponse> verify(
       {required String domainId, RequestOptions? requestOptions}) async {
-    return domains_methods.domainsVerify(_config,
-        domainId: domainId, requestOptions: requestOptions);
+    return domains_methods.domainsVerify(_config, domainId: domainId, requestOptions: requestOptions);
   }
 
   /// Start a claim for a domain that another Resend account has already verified. The domain is recreated under your account with fresh DKIM keys, so the previous account's DNS records cannot be reused. Returns a TXT record to add to your DNS to prove ownership. Uses the same request body as creating a domain.
@@ -314,14 +231,7 @@ class DomainsNamespace {
       SdkOptional<bool> clickTracking = const SdkOmitted(),
       SdkOptional<String> trackingSubdomain = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return domains_methods.domainsCreateClaim(_config,
-        name: name,
-        region: region,
-        customReturnPath: customReturnPath,
-        openTracking: openTracking,
-        clickTracking: clickTracking,
-        trackingSubdomain: trackingSubdomain,
-        requestOptions: requestOptions);
+    return domains_methods.domainsCreateClaim(_config, name: name, region: region, customReturnPath: customReturnPath, openTracking: openTracking, clickTracking: clickTracking, trackingSubdomain: trackingSubdomain, requestOptions: requestOptions);
   }
 
   /// Retrieves the latest claim for the placeholder domain created by a domain claim. Use the claim status and TXT `record` details to track verification and prove ownership of the claimed domain.
@@ -329,8 +239,7 @@ class DomainsNamespace {
   /// Retrieve the latest claim for the placeholder domain created by the claim.
   Future<DomainClaim> getClaim(
       {required String domainId, RequestOptions? requestOptions}) async {
-    return domains_methods.domainsGetClaim(_config,
-        domainId: domainId, requestOptions: requestOptions);
+    return domains_methods.domainsGetClaim(_config, domainId: domainId, requestOptions: requestOptions);
   }
 
   /// Triggers asynchronous DNS verification and ownership transfer for a domain claim. The claim remains `pending` while verification runs, so retrieve the claim to check its status. Once the claim is `completed`, add the transferred domain's new DKIM records to DNS and verify them with the standard domain verification endpoint.
@@ -338,27 +247,21 @@ class DomainsNamespace {
   /// Trigger asynchronous DNS verification and ownership transfer for a domain claim. The claim stays `pending` while verification runs; poll the retrieve endpoint for status. Once `completed`, the transferred domain has new DKIM records that must be added to DNS and verified via the standard domain verify endpoint.
   Future<DomainClaim> verifyClaim(
       {required String domainId, RequestOptions? requestOptions}) async {
-    return domains_methods.domainsVerifyClaim(_config,
-        domainId: domainId, requestOptions: requestOptions);
+    return domains_methods.domainsVerifyClaim(_config, domainId: domainId, requestOptions: requestOptions);
   }
+
 }
 
 class ApiKeysNamespace {
   final ClientConfig _config;
   ApiKeysNamespace(ClientConfig config) : _config = config;
-
   /// Creates a new API key. Supply a `name` and choose whether the key has full access or is restricted to sending emails; a sending-only key can be limited to a specific domain. The response includes the key token, so store it securely when you create the key.
   Future<CreateApiKeyResponse> create(
       {required String name,
-      SdkOptional<CreateApiKeyRequestPermission> permission =
-          const SdkOmitted(),
+      SdkOptional<CreateApiKeyRequestPermission> permission = const SdkOmitted(),
       SdkOptional<String> domainId = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return api_keys_methods.apiKeysCreate(_config,
-        name: name,
-        permission: permission,
-        domainId: domainId,
-        requestOptions: requestOptions);
+    return api_keys_methods.apiKeysCreate(_config, name: name, permission: permission, domainId: domainId, requestOptions: requestOptions);
   }
 
   /// Lists API keys available to the authenticated user. Use `after` or `before` to navigate the results with a cursor, and `limit` to control the number of items returned.
@@ -367,11 +270,7 @@ class ApiKeysNamespace {
       SdkOptional<String> after = const SdkOmitted(),
       SdkOptional<String> before = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return api_keys_methods.apiKeysList(_config,
-        limit: limit,
-        after: after,
-        before: before,
-        requestOptions: requestOptions);
+    return api_keys_methods.apiKeysList(_config, limit: limit, after: after, before: before, requestOptions: requestOptions);
   }
 
   /// Updates the name of an existing API key. Supply the new `name` in the request body and the key's ID in the path. The response identifies the updated API key.
@@ -379,47 +278,40 @@ class ApiKeysNamespace {
       {required String apiKeyId,
       required String name,
       RequestOptions? requestOptions}) async {
-    return api_keys_methods.apiKeysUpdate(_config,
-        apiKeyId: apiKeyId, name: name, requestOptions: requestOptions);
+    return api_keys_methods.apiKeysUpdate(_config, apiKeyId: apiKeyId, name: name, requestOptions: requestOptions);
   }
 
   /// Deletes an existing API key. Supply the key's ID to identify the API key to remove. The response indicates whether the key was deleted.
   Future<DeleteApiKeyResponse> remove(
       {required String apiKeyId, RequestOptions? requestOptions}) async {
-    return api_keys_methods.apiKeysRemove(_config,
-        apiKeyId: apiKeyId, requestOptions: requestOptions);
+    return api_keys_methods.apiKeysRemove(_config, apiKeyId: apiKeyId, requestOptions: requestOptions);
   }
+
 }
 
 class OauthNamespace {
   final ClientConfig _config;
   OauthNamespace(ClientConfig config) : _config = config;
-
   /// Lists OAuth grants available to the authenticated user. Use `after` or `before` to navigate the results with a cursor, and `limit` to control the number of grants returned.
   Future<ListOAuthGrantsResponse> listGrants(
       {SdkOptional<int> limit = const SdkOmitted(),
       SdkOptional<String> after = const SdkOmitted(),
       SdkOptional<String> before = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return oauth_methods.listGrants(_config,
-        limit: limit,
-        after: after,
-        before: before,
-        requestOptions: requestOptions);
+    return oauth_methods.listGrants(_config, limit: limit, after: after, before: before, requestOptions: requestOptions);
   }
 
   /// Revokes an OAuth grant, removing the authorization associated with it. Supply the grant's ID to identify which authorization to revoke. The response includes the revocation time and reason.
   Future<RevokeOAuthGrantResponse> revokeGrant(
       {required String oauthGrantId, RequestOptions? requestOptions}) async {
-    return oauth_methods.revokeOauthGrant(_config,
-        oauthGrantId: oauthGrantId, requestOptions: requestOptions);
+    return oauth_methods.revokeOauthGrant(_config, oauthGrantId: oauthGrantId, requestOptions: requestOptions);
   }
+
 }
 
 class TemplatesNamespace {
   final ClientConfig _config;
   TemplatesNamespace(ClientConfig config) : _config = config;
-
   /// Creates a new email template from its name and HTML content. Supply `name` and `html`; you can also set sender details, reply-to addresses, plain-text content, and template variables.
   Future<CreateTemplateResponseSuccess> create(
       {required String name,
@@ -431,16 +323,7 @@ class TemplatesNamespace {
       SdkOptional<String> text = const SdkOmitted(),
       SdkOptional<List<TemplateVariableInput>> variables = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return templates_methods.templatesCreate(_config,
-        name: name,
-        html: html,
-        alias: alias,
-        from: from,
-        subject: subject,
-        replyTo: replyTo,
-        text: text,
-        variables: variables,
-        requestOptions: requestOptions);
+    return templates_methods.templatesCreate(_config, name: name, html: html, alias: alias, from: from, subject: subject, replyTo: replyTo, text: text, variables: variables, requestOptions: requestOptions);
   }
 
   /// Lists templates available to the authenticated user. Use `after` or `before` to navigate the results with a cursor, and `limit` to control the number of templates returned.
@@ -449,18 +332,13 @@ class TemplatesNamespace {
       SdkOptional<String> after = const SdkOmitted(),
       SdkOptional<String> before = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return templates_methods.templatesList(_config,
-        limit: limit,
-        after: after,
-        before: before,
-        requestOptions: requestOptions);
+    return templates_methods.templatesList(_config, limit: limit, after: after, before: before, requestOptions: requestOptions);
   }
 
   /// Retrieves a template by its ID or alias. Use the returned details to inspect the template content, variables, and publication status.
   Future<Template> get_(
       {required String id, RequestOptions? requestOptions}) async {
-    return templates_methods.templatesGet(_config,
-        id: id, requestOptions: requestOptions);
+    return templates_methods.templatesGet(_config, id: id, requestOptions: requestOptions);
   }
 
   /// Updates an existing template with the fields you provide. Use the `id` path parameter to select the template and send only the template properties you want to change.
@@ -475,45 +353,32 @@ class TemplatesNamespace {
       SdkOptional<String> text = const SdkOmitted(),
       SdkOptional<List<TemplateVariableInput>> variables = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return templates_methods.templatesUpdate(_config,
-        id: id,
-        name: name,
-        alias: alias,
-        from: from,
-        subject: subject,
-        replyTo: replyTo,
-        html: html,
-        text: text,
-        variables: variables,
-        requestOptions: requestOptions);
+    return templates_methods.templatesUpdate(_config, id: id, name: name, alias: alias, from: from, subject: subject, replyTo: replyTo, html: html, text: text, variables: variables, requestOptions: requestOptions);
   }
 
   /// Deletes a template selected by its ID or alias. Use this operation when you want to remove the template; the response indicates whether it was deleted.
   Future<RemoveTemplateResponseSuccess> remove(
       {required String id, RequestOptions? requestOptions}) async {
-    return templates_methods.templatesRemove(_config,
-        id: id, requestOptions: requestOptions);
+    return templates_methods.templatesRemove(_config, id: id, requestOptions: requestOptions);
   }
 
   /// Publishes a template selected by its ID or alias. Use this operation to make the template's current version published.
   Future<PublishTemplateResponseSuccess> publish(
       {required String id, RequestOptions? requestOptions}) async {
-    return templates_methods.templatesPublish(_config,
-        id: id, requestOptions: requestOptions);
+    return templates_methods.templatesPublish(_config, id: id, requestOptions: requestOptions);
   }
 
   /// Creates a duplicate of a template selected by its ID or alias. Use this operation when you want a separate template based on an existing one.
   Future<DuplicateTemplateResponseSuccess> duplicate(
       {required String id, RequestOptions? requestOptions}) async {
-    return templates_methods.templatesDuplicate(_config,
-        id: id, requestOptions: requestOptions);
+    return templates_methods.templatesDuplicate(_config, id: id, requestOptions: requestOptions);
   }
+
 }
 
 class AudiencesNamespace {
   final ClientConfig _config;
   AudiencesNamespace(ClientConfig config) : _config = config;
-
   /// Creates an audience with the name you provide. Use the Segments endpoints instead, because this audience operation is deprecated. This operation is closing down and will be removed on a date not specified in the API definition.
   ///
   /// Deprecated: Use Segments instead. These endpoints still work, but will be removed in the future.
@@ -521,8 +386,7 @@ class AudiencesNamespace {
   /// **Deprecated:** this operation is deprecated and may be removed in a future release.
   Future<CreateAudienceResponseSuccess> create(
       {required String name, RequestOptions? requestOptions}) async {
-    return audiences_methods.audiencesCreate(_config,
-        name: name, requestOptions: requestOptions);
+    return audiences_methods.audiencesCreate(_config, name: name, requestOptions: requestOptions);
   }
 
   /// Lists audiences with their identifiers, names, and creation timestamps. Use the Segments endpoints instead, because this audience operation is deprecated. This operation is closing down and will be removed on a date not specified in the API definition.
@@ -532,8 +396,7 @@ class AudiencesNamespace {
   /// **Deprecated:** this operation is deprecated and may be removed in a future release.
   Future<ListAudiencesResponseSuccess> list(
       {RequestOptions? requestOptions}) async {
-    return audiences_methods.audiencesList(_config,
-        requestOptions: requestOptions);
+    return audiences_methods.audiencesList(_config, requestOptions: requestOptions);
   }
 
   /// Deletes an audience selected by its ID. Use the Segments endpoints instead, because this audience operation is deprecated. This operation is closing down and will be removed on a date not specified in the API definition.
@@ -543,8 +406,7 @@ class AudiencesNamespace {
   /// **Deprecated:** this operation is deprecated and may be removed in a future release.
   Future<RemoveAudienceResponseSuccess> remove(
       {required String id, RequestOptions? requestOptions}) async {
-    return audiences_methods.audiencesRemove(_config,
-        id: id, requestOptions: requestOptions);
+    return audiences_methods.audiencesRemove(_config, id: id, requestOptions: requestOptions);
   }
 
   /// Retrieves an audience by its ID. Use the Segments endpoints instead, because this audience operation is deprecated. This operation is closing down and will be removed on a date not specified in the API definition.
@@ -554,15 +416,14 @@ class AudiencesNamespace {
   /// **Deprecated:** this operation is deprecated and may be removed in a future release.
   Future<GetAudienceResponseSuccess> get_(
       {required String id, RequestOptions? requestOptions}) async {
-    return audiences_methods.audiencesGet(_config,
-        id: id, requestOptions: requestOptions);
+    return audiences_methods.audiencesGet(_config, id: id, requestOptions: requestOptions);
   }
+
 }
 
 class ContactsNamespace {
   final ClientConfig _config;
   ContactsNamespace(ClientConfig config) : _config = config;
-
   /// Creates a contact with an email address and optional profile, subscription, and grouping details. Include `email`; you can also set custom `properties`, add `segments`, or configure `topics`.
   Future<CreateContactResponseSuccess> create(
       {required String email,
@@ -570,22 +431,11 @@ class ContactsNamespace {
       SdkOptional<String> lastName = const SdkOmitted(),
       SdkOptional<bool> unsubscribed = const SdkOmitted(),
       SdkOptional<Map<String, dynamic>> properties = const SdkOmitted(),
-      SdkOptional<List<CreateContactOptionsSegmentsItem>> segments =
-          const SdkOmitted(),
-      SdkOptional<List<CreateContactOptionsTopicsItem>> topics =
-          const SdkOmitted(),
+      SdkOptional<List<CreateContactOptionsSegmentsItem>> segments = const SdkOmitted(),
+      SdkOptional<List<CreateContactOptionsTopicsItem>> topics = const SdkOmitted(),
       SdkOptional<String> audienceId = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return contacts_methods.contactsCreate(_config,
-        email: email,
-        firstName: firstName,
-        lastName: lastName,
-        unsubscribed: unsubscribed,
-        properties: properties,
-        segments: segments,
-        topics: topics,
-        audienceId: audienceId,
-        requestOptions: requestOptions);
+    return contacts_methods.contactsCreate(_config, email: email, firstName: firstName, lastName: lastName, unsubscribed: unsubscribed, properties: properties, segments: segments, topics: topics, audienceId: audienceId, requestOptions: requestOptions);
   }
 
   /// Lists contacts, with each result including contact information. Use `after` or `before` to navigate results by cursor, and `limit` to control the number of items returned.
@@ -594,29 +444,18 @@ class ContactsNamespace {
       SdkOptional<String> after = const SdkOmitted(),
       SdkOptional<String> before = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return contacts_methods.contactsList(_config,
-        limit: limit,
-        after: after,
-        before: before,
-        requestOptions: requestOptions);
+    return contacts_methods.contactsList(_config, limit: limit, after: after, before: before, requestOptions: requestOptions);
   }
 
   /// Creates a contact import from a CSV file. Include the file and optionally provide a column mapping, conflict strategy, segments, or topic subscriptions for imported contacts.
   Future<CreateContactImportResponseSuccess> createImport(
       {required SdkUploadFile file,
       SdkOptional<String> columnMap = const SdkOmitted(),
-      SdkOptional<CreateContactImportOptionsOnConflict> onConflict =
-          const SdkOmitted(),
+      SdkOptional<CreateContactImportOptionsOnConflict> onConflict = const SdkOmitted(),
       SdkOptional<String> segments = const SdkOmitted(),
       SdkOptional<String> topics = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return contacts_methods.contactsCreateImport(_config,
-        file: file,
-        columnMap: columnMap,
-        onConflict: onConflict,
-        segments: segments,
-        topics: topics,
-        requestOptions: requestOptions);
+    return contacts_methods.contactsCreateImport(_config, file: file, columnMap: columnMap, onConflict: onConflict, segments: segments, topics: topics, requestOptions: requestOptions);
   }
 
   /// Lists contact imports and their processing information. Use `status` to filter by import state, and `after` or `before` to navigate results by cursor.
@@ -626,26 +465,19 @@ class ContactsNamespace {
       SdkOptional<String> after = const SdkOmitted(),
       SdkOptional<String> before = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return contacts_methods.contactsListImports(_config,
-        status: status,
-        limit: limit,
-        after: after,
-        before: before,
-        requestOptions: requestOptions);
+    return contacts_methods.contactsListImports(_config, status: status, limit: limit, after: after, before: before, requestOptions: requestOptions);
   }
 
   /// Retrieves a contact import by its identifier. Use the import record to review its status, timestamps, and processing counts.
   Future<GetContactImportResponseSuccess> getImport(
       {required String id, RequestOptions? requestOptions}) async {
-    return contacts_methods.contactsGetImport(_config,
-        id: id, requestOptions: requestOptions);
+    return contacts_methods.contactsGetImport(_config, id: id, requestOptions: requestOptions);
   }
 
   /// Retrieves a contact by its ID or email address. Use this operation to inspect the contact's profile, subscription status, and custom properties.
   Future<GetContactResponseSuccess> get_(
       {required String id, RequestOptions? requestOptions}) async {
-    return contacts_methods.contactsGet(_config,
-        id: id, requestOptions: requestOptions);
+    return contacts_methods.contactsGet(_config, id: id, requestOptions: requestOptions);
   }
 
   /// Updates a contact identified by its ID or email address. Include only the profile, subscription, or custom property fields you want to change.
@@ -657,21 +489,13 @@ class ContactsNamespace {
       SdkOptional<bool> unsubscribed = const SdkOmitted(),
       SdkOptional<Map<String, dynamic>> properties = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return contacts_methods.contactsUpdate(_config,
-        id: id,
-        email: email,
-        firstName: firstName,
-        lastName: lastName,
-        unsubscribed: unsubscribed,
-        properties: properties,
-        requestOptions: requestOptions);
+    return contacts_methods.contactsUpdate(_config, id: id, email: email, firstName: firstName, lastName: lastName, unsubscribed: unsubscribed, properties: properties, requestOptions: requestOptions);
   }
 
   /// Deletes a contact identified by its ID or email address. Use this operation to remove the contact from the contacts resource.
   Future<RemoveContactResponseSuccess> remove(
       {required String id, RequestOptions? requestOptions}) async {
-    return contacts_methods.contactsRemove(_config,
-        id: id, requestOptions: requestOptions);
+    return contacts_methods.contactsRemove(_config, id: id, requestOptions: requestOptions);
   }
 
   /// Lists the segments associated with a contact. Use `contact_id` to select the contact and `after` or `before` to position results relative to a cursor.
@@ -681,12 +505,7 @@ class ContactsNamespace {
       SdkOptional<String> after = const SdkOmitted(),
       SdkOptional<String> before = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return contacts_methods.contactsListSegments(_config,
-        contactId: contactId,
-        limit: limit,
-        after: after,
-        before: before,
-        requestOptions: requestOptions);
+    return contacts_methods.contactsListSegments(_config, contactId: contactId, limit: limit, after: after, before: before, requestOptions: requestOptions);
   }
 
   /// Adds a contact to a segment. Supply the contact’s ID or email address and the segment ID to select the membership to create.
@@ -694,10 +513,7 @@ class ContactsNamespace {
       {required String contactId,
       required String segmentId,
       RequestOptions? requestOptions}) async {
-    return contacts_methods.contactsAddSegment(_config,
-        contactId: contactId,
-        segmentId: segmentId,
-        requestOptions: requestOptions);
+    return contacts_methods.contactsAddSegment(_config, contactId: contactId, segmentId: segmentId, requestOptions: requestOptions);
   }
 
   /// Removes a contact from a segment. Supply the contact’s ID or email address and the segment ID to select the membership to remove.
@@ -705,10 +521,7 @@ class ContactsNamespace {
       {required String contactId,
       required String segmentId,
       RequestOptions? requestOptions}) async {
-    return contacts_methods.contactsRemoveSegment(_config,
-        contactId: contactId,
-        segmentId: segmentId,
-        requestOptions: requestOptions);
+    return contacts_methods.contactsRemoveSegment(_config, contactId: contactId, segmentId: segmentId, requestOptions: requestOptions);
   }
 
   /// Lists the topics and subscription statuses associated with a contact. Use `contact_id` to select the contact and `after` or `before` to position results relative to a cursor.
@@ -718,12 +531,7 @@ class ContactsNamespace {
       SdkOptional<String> after = const SdkOmitted(),
       SdkOptional<String> before = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return contacts_methods.contactsListTopics(_config,
-        contactId: contactId,
-        limit: limit,
-        after: after,
-        before: before,
-        requestOptions: requestOptions);
+    return contacts_methods.contactsListTopics(_config, contactId: contactId, limit: limit, after: after, before: before, requestOptions: requestOptions);
   }
 
   /// Updates a contact’s subscriptions to topics. Supply the required `topics` array with each topic ID and its subscription status.
@@ -731,15 +539,14 @@ class ContactsNamespace {
       {required String contactId,
       required List<UpdateContactTopicsOptionsTopicsItem> topics,
       RequestOptions? requestOptions}) async {
-    return contacts_methods.contactsUpdateTopics(_config,
-        contactId: contactId, topics: topics, requestOptions: requestOptions);
+    return contacts_methods.contactsUpdateTopics(_config, contactId: contactId, topics: topics, requestOptions: requestOptions);
   }
+
 }
 
 class BroadcastsNamespace {
   final ClientConfig _config;
   BroadcastsNamespace(ClientConfig config) : _config = config;
-
   /// Creates a broadcast with sender, subject, and segment details. Include `from`, `subject`, and `segment_id`; optionally provide message content, reply addresses, a topic, or sending and scheduling settings.
   Future<CreateBroadcastResponseSuccess> create(
       {required String segmentId,
@@ -755,20 +562,7 @@ class BroadcastsNamespace {
       SdkOptional<bool> send = const SdkOmitted(),
       SdkOptional<String> scheduledAt = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return broadcasts_methods.broadcastsCreate(_config,
-        segmentId: segmentId,
-        from: from,
-        subject: subject,
-        name: name,
-        audienceId: audienceId,
-        replyTo: replyTo,
-        previewText: previewText,
-        html: html,
-        text: text,
-        topicId: topicId,
-        send: send,
-        scheduledAt: scheduledAt,
-        requestOptions: requestOptions);
+    return broadcasts_methods.broadcastsCreate(_config, segmentId: segmentId, from: from, subject: subject, name: name, audienceId: audienceId, replyTo: replyTo, previewText: previewText, html: html, text: text, topicId: topicId, send: send, scheduledAt: scheduledAt, requestOptions: requestOptions);
   }
 
   /// Lists broadcasts and their delivery or scheduling information. Use `after` or `before` to navigate results by cursor, and `limit` to control the number of items returned.
@@ -777,25 +571,19 @@ class BroadcastsNamespace {
       SdkOptional<String> after = const SdkOmitted(),
       SdkOptional<String> before = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return broadcasts_methods.broadcastsList(_config,
-        limit: limit,
-        after: after,
-        before: before,
-        requestOptions: requestOptions);
+    return broadcasts_methods.broadcastsList(_config, limit: limit, after: after, before: before, requestOptions: requestOptions);
   }
 
   /// Deletes an existing broadcast that is in draft status. Use this operation to remove a draft broadcast that you no longer need.
   Future<RemoveBroadcastResponseSuccess> remove(
       {required String id, RequestOptions? requestOptions}) async {
-    return broadcasts_methods.broadcastsRemove(_config,
-        id: id, requestOptions: requestOptions);
+    return broadcasts_methods.broadcastsRemove(_config, id: id, requestOptions: requestOptions);
   }
 
   /// Retrieves a single broadcast by its identifier. Use this endpoint to inspect the broadcast's audience, sender, content, and delivery status.
   Future<GetBroadcastResponseSuccess> get_(
       {required String id, RequestOptions? requestOptions}) async {
-    return broadcasts_methods.broadcastsGet(_config,
-        id: id, requestOptions: requestOptions);
+    return broadcasts_methods.broadcastsGet(_config, id: id, requestOptions: requestOptions);
   }
 
   /// Updates the name, audience, sender, content, or topic of an existing broadcast. Supply only the fields you want to change; use `segment_id` instead of the deprecated `audience_id` field.
@@ -812,19 +600,7 @@ class BroadcastsNamespace {
       SdkOptional<String> text = const SdkOmitted(),
       SdkOptional<String> topicId = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return broadcasts_methods.broadcastsUpdate(_config,
-        id: id,
-        name: name,
-        audienceId: audienceId,
-        segmentId: segmentId,
-        from: from,
-        subject: subject,
-        replyTo: replyTo,
-        previewText: previewText,
-        html: html,
-        text: text,
-        topicId: topicId,
-        requestOptions: requestOptions);
+    return broadcasts_methods.broadcastsUpdate(_config, id: id, name: name, audienceId: audienceId, segmentId: segmentId, from: from, subject: subject, replyTo: replyTo, previewText: previewText, html: html, text: text, topicId: topicId, requestOptions: requestOptions);
   }
 
   /// Submits a broadcast for sending or schedules it for later delivery. Provide `scheduled_at` in ISO 8601 format when you want the broadcast sent at a specific time; omit it to send without scheduling.
@@ -832,8 +608,7 @@ class BroadcastsNamespace {
       {required String id,
       SdkOptional<String> scheduledAt = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return broadcasts_methods.broadcastsSend(_config,
-        id: id, scheduledAt: scheduledAt, requestOptions: requestOptions);
+    return broadcasts_methods.broadcastsSend(_config, id: id, scheduledAt: scheduledAt, requestOptions: requestOptions);
   }
 
   /// Cancels a queued or scheduled broadcast. Cancelling a queued broadcast stops further delivery, but does not affect emails that have already been sent.
@@ -841,15 +616,13 @@ class BroadcastsNamespace {
   /// Cancels a broadcast that is queued or scheduled. Canceling a queued broadcast stops it mid-send; emails already sent are not affected, but no further emails will go out.
   Future<CancelBroadcastResponseSuccess> cancel(
       {required String id, RequestOptions? requestOptions}) async {
-    return broadcasts_methods.broadcastsCancel(_config,
-        id: id, requestOptions: requestOptions);
+    return broadcasts_methods.broadcastsCancel(_config, id: id, requestOptions: requestOptions);
   }
 
   /// Creates a new draft broadcast with the same segment, topic, sender, subject, reply-to, preview text, and content as the source. The copy is named after the source with " (copy)" appended, truncated to 70 characters.
   Future<DuplicateBroadcastResponseSuccess> duplicate(
       {required String id, RequestOptions? requestOptions}) async {
-    return broadcasts_methods.broadcastsDuplicate(_config,
-        id: id, requestOptions: requestOptions);
+    return broadcasts_methods.broadcastsDuplicate(_config, id: id, requestOptions: requestOptions);
   }
 
   /// Lists recipients of a broadcast filtered by recipient event type, such as opened, clicked, or bounced. Use `type` to select the event and optionally use `email`, `bounce_type`, or cursor parameters to narrow the results.
@@ -864,15 +637,7 @@ class BroadcastsNamespace {
       SdkOptional<String> after = const SdkOmitted(),
       SdkOptional<String> before = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return broadcasts_methods.listRecipients(_config,
-        id: id,
-        type_: type_,
-        email: email,
-        bounceType: bounceType,
-        limit: limit,
-        after: after,
-        before: before,
-        requestOptions: requestOptions);
+    return broadcasts_methods.listRecipients(_config, id: id, type_: type_, email: email, bounceType: bounceType, limit: limit, after: after, before: before, requestOptions: requestOptions);
   }
 
   /// Lists the links clicked in a broadcast and their click counts. Use the cursor parameters to retrieve results before or after a position in the list.
@@ -882,26 +647,20 @@ class BroadcastsNamespace {
       SdkOptional<String> after = const SdkOmitted(),
       SdkOptional<String> before = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return broadcasts_methods.broadcastsListClickedLinks(_config,
-        id: id,
-        limit: limit,
-        after: after,
-        before: before,
-        requestOptions: requestOptions);
+    return broadcasts_methods.broadcastsListClickedLinks(_config, id: id, limit: limit, after: after, before: before, requestOptions: requestOptions);
   }
+
 }
 
 class WebhooksNamespace {
   final ClientConfig _config;
   WebhooksNamespace(ClientConfig config) : _config = config;
-
   /// Creates a webhook subscription that delivers selected event types to a specified endpoint. Provide an `endpoint` URL and at least one event type in `events` to configure the subscription.
   Future<CreateWebhookResponse> create(
       {required String endpoint,
       required List<String> events,
       RequestOptions? requestOptions}) async {
-    return webhooks_methods.webhooksCreate(_config,
-        endpoint: endpoint, events: events, requestOptions: requestOptions);
+    return webhooks_methods.webhooksCreate(_config, endpoint: endpoint, events: events, requestOptions: requestOptions);
   }
 
   /// Lists webhooks configured for your account. Use the pagination cursors to retrieve results before or after a webhook in the list; provide no more than one cursor at a time.
@@ -910,18 +669,13 @@ class WebhooksNamespace {
       SdkOptional<String> after = const SdkOmitted(),
       SdkOptional<String> before = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return webhooks_methods.webhooksList(_config,
-        limit: limit,
-        after: after,
-        before: before,
-        requestOptions: requestOptions);
+    return webhooks_methods.webhooksList(_config, limit: limit, after: after, before: before, requestOptions: requestOptions);
   }
 
   /// Retrieves a webhook by its identifier. Use this endpoint to inspect the webhook's endpoint URL, subscribed event types, status, creation timestamp, and signing secret.
   Future<GetWebhookResponse> get_(
       {required String webhookId, RequestOptions? requestOptions}) async {
-    return webhooks_methods.webhooksGet(_config,
-        webhookId: webhookId, requestOptions: requestOptions);
+    return webhooks_methods.webhooksGet(_config, webhookId: webhookId, requestOptions: requestOptions);
   }
 
   /// Updates the endpoint URL, subscribed event types, or status of a webhook. Supply only the fields you want to change; `status` must be enabled or disabled, and `events` must contain at least one event type.
@@ -931,19 +685,13 @@ class WebhooksNamespace {
       SdkOptional<List<String>> events = const SdkOmitted(),
       SdkOptional<UpdateWebhookRequestStatus> status = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return webhooks_methods.webhooksUpdate(_config,
-        webhookId: webhookId,
-        endpoint: endpoint,
-        events: events,
-        status: status,
-        requestOptions: requestOptions);
+    return webhooks_methods.webhooksUpdate(_config, webhookId: webhookId, endpoint: endpoint, events: events, status: status, requestOptions: requestOptions);
   }
 
   /// Deletes a webhook. Use this endpoint when you no longer want the webhook to receive event deliveries; the response indicates whether deletion succeeded.
   Future<DeleteWebhookResponse> remove(
       {required String webhookId, RequestOptions? requestOptions}) async {
-    return webhooks_methods.webhooksRemove(_config,
-        webhookId: webhookId, requestOptions: requestOptions);
+    return webhooks_methods.webhooksRemove(_config, webhookId: webhookId, requestOptions: requestOptions);
   }
 
   /// Rotates the signing secret for a webhook and returns the new secret. Payloads delivered after rotation use the new secret, while the previous secret remains valid for verifying payloads for 24 hours.
@@ -951,8 +699,7 @@ class WebhooksNamespace {
   /// Generates a new signing secret for the webhook and returns it. Payloads delivered after the rotation are signed with the new secret. The previous secret keeps verifying payloads for 24 hours, so both secrets are accepted during that window. A webhook that does not exist or was removed returns a 404 not_found.
   Future<RotateWebhookSigningSecretResponse> rotateSigningSecret(
       {required String webhookId, RequestOptions? requestOptions}) async {
-    return webhooks_methods.webhooksRotateSigningSecret(_config,
-        webhookId: webhookId, requestOptions: requestOptions);
+    return webhooks_methods.webhooksRotateSigningSecret(_config, webhookId: webhookId, requestOptions: requestOptions);
   }
 
   /// Lists events associated with a webhook. Use `after` to continue from a cursor and `limit` to control the number of results; the response indicates whether more results are available.
@@ -961,11 +708,7 @@ class WebhooksNamespace {
       SdkOptional<int> limit = const SdkOmitted(),
       SdkOptional<String> after = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return webhooks_methods.webhooksListEvents(_config,
-        webhookId: webhookId,
-        limit: limit,
-        after: after,
-        requestOptions: requestOptions);
+    return webhooks_methods.webhooksListEvents(_config, webhookId: webhookId, limit: limit, after: after, requestOptions: requestOptions);
   }
 
   /// Retrieves a specific event associated with a webhook. Use the event details to inspect its delivery status, payload, and any scheduled next delivery attempt.
@@ -973,8 +716,7 @@ class WebhooksNamespace {
       {required String webhookId,
       required String eventId,
       RequestOptions? requestOptions}) async {
-    return webhooks_methods.webhooksGetEvent(_config,
-        webhookId: webhookId, eventId: eventId, requestOptions: requestOptions);
+    return webhooks_methods.webhooksGetEvent(_config, webhookId: webhookId, eventId: eventId, requestOptions: requestOptions);
   }
 
   /// Triggers one additional delivery of a webhook event. The webhook must be enabled, and a manual replay does not schedule automatic retries.
@@ -984,8 +726,7 @@ class WebhooksNamespace {
       {required String webhookId,
       required String eventId,
       RequestOptions? requestOptions}) async {
-    return webhooks_methods.webhooksReplayEvent(_config,
-        webhookId: webhookId, eventId: eventId, requestOptions: requestOptions);
+    return webhooks_methods.webhooksReplayEvent(_config, webhookId: webhookId, eventId: eventId, requestOptions: requestOptions);
   }
 
   /// Lists delivery attempts for a specific event associated with a webhook. Use `after` to continue from a cursor and `limit` to control the number of attempts returned.
@@ -995,30 +736,21 @@ class WebhooksNamespace {
       SdkOptional<int> limit = const SdkOmitted(),
       SdkOptional<String> after = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return webhooks_methods.webhooksListEventAttempts(_config,
-        webhookId: webhookId,
-        eventId: eventId,
-        limit: limit,
-        after: after,
-        requestOptions: requestOptions);
+    return webhooks_methods.webhooksListEventAttempts(_config, webhookId: webhookId, eventId: eventId, limit: limit, after: after, requestOptions: requestOptions);
   }
+
 }
 
 class SegmentsNamespace {
   final ClientConfig _config;
   SegmentsNamespace(ClientConfig config) : _config = config;
-
   /// Creates a segment. Provide a `name` and optionally specify the audience and filter conditions for the segment.
   Future<CreateSegmentResponseSuccess> create(
       {required String name,
       SdkOptional<String> audienceId = const SdkOmitted(),
       SdkOptional<Map<String, dynamic>> filter = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return segments_methods.segmentsCreate(_config,
-        name: name,
-        audienceId: audienceId,
-        filter: filter,
-        requestOptions: requestOptions);
+    return segments_methods.segmentsCreate(_config, name: name, audienceId: audienceId, filter: filter, requestOptions: requestOptions);
   }
 
   /// Lists segments. Use `limit` to control the number of results and `after` or `before` to navigate the results with cursors.
@@ -1027,18 +759,13 @@ class SegmentsNamespace {
       SdkOptional<String> after = const SdkOmitted(),
       SdkOptional<String> before = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return segments_methods.segmentsList(_config,
-        limit: limit,
-        after: after,
-        before: before,
-        requestOptions: requestOptions);
+    return segments_methods.segmentsList(_config, limit: limit, after: after, before: before, requestOptions: requestOptions);
   }
 
   /// Retrieves a segment by its identifier. Use the segment ID to look up a specific segment and its filter conditions.
   Future<GetSegmentResponseSuccess> get_(
       {required String id, RequestOptions? requestOptions}) async {
-    return segments_methods.segmentsGet(_config,
-        id: id, requestOptions: requestOptions);
+    return segments_methods.segmentsGet(_config, id: id, requestOptions: requestOptions);
   }
 
   /// Updates the name of an existing segment. Supply `name` in the request body to set the segment's name.
@@ -1046,15 +773,13 @@ class SegmentsNamespace {
       {required String id,
       required String name,
       RequestOptions? requestOptions}) async {
-    return segments_methods.segmentsUpdate(_config,
-        id: id, name: name, requestOptions: requestOptions);
+    return segments_methods.segmentsUpdate(_config, id: id, name: name, requestOptions: requestOptions);
   }
 
   /// Deletes an existing segment. Use the segment ID to select the segment to remove.
   Future<RemoveSegmentResponseSuccess> remove(
       {required String id, RequestOptions? requestOptions}) async {
-    return segments_methods.segmentsRemove(_config,
-        id: id, requestOptions: requestOptions);
+    return segments_methods.segmentsRemove(_config, id: id, requestOptions: requestOptions);
   }
 
   /// Lists the contacts in a segment. Use `after` or `before` to navigate results with cursors, and `limit` to control the number of contacts returned.
@@ -1064,19 +789,14 @@ class SegmentsNamespace {
       SdkOptional<String> after = const SdkOmitted(),
       SdkOptional<String> before = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return segments_methods.segmentsListContacts(_config,
-        id: id,
-        limit: limit,
-        after: after,
-        before: before,
-        requestOptions: requestOptions);
+    return segments_methods.segmentsListContacts(_config, id: id, limit: limit, after: after, before: before, requestOptions: requestOptions);
   }
+
 }
 
 class TopicsNamespace {
   final ClientConfig _config;
   TopicsNamespace(ClientConfig config) : _config = config;
-
   /// Creates a topic for organizing contact subscriptions. Supply `name` and `default_subscription`, and optionally set a description and visibility; visibility defaults to private when omitted.
   Future<CreateTopicResponseSuccess> create(
       {required String name,
@@ -1084,12 +804,7 @@ class TopicsNamespace {
       SdkOptional<String> description = const SdkOmitted(),
       SdkOptional<CreateTopicOptionsVisibility> visibility = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return topics_methods.topicsCreate(_config,
-        name: name,
-        defaultSubscription: defaultSubscription,
-        description: description,
-        visibility: visibility,
-        requestOptions: requestOptions);
+    return topics_methods.topicsCreate(_config, name: name, defaultSubscription: defaultSubscription, description: description, visibility: visibility, requestOptions: requestOptions);
   }
 
   /// Lists topics with cursor-based pagination. Use `after` or `before` to navigate results and `limit` to control the number of topics returned.
@@ -1098,18 +813,13 @@ class TopicsNamespace {
       SdkOptional<String> after = const SdkOmitted(),
       SdkOptional<String> before = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return topics_methods.topicsList(_config,
-        limit: limit,
-        after: after,
-        before: before,
-        requestOptions: requestOptions);
+    return topics_methods.topicsList(_config, limit: limit, after: after, before: before, requestOptions: requestOptions);
   }
 
   /// Retrieves a topic by its identifier. Use the topic ID to look up its name, subscription default, visibility, and other details.
   Future<GetTopicResponseSuccess> get_(
       {required String id, RequestOptions? requestOptions}) async {
-    return topics_methods.topicsGet(_config,
-        id: id, requestOptions: requestOptions);
+    return topics_methods.topicsGet(_config, id: id, requestOptions: requestOptions);
   }
 
   /// Updates the name, description, or visibility of an existing topic. Supply only the fields you want to change; `visibility` must be `public` or `private`.
@@ -1119,37 +829,27 @@ class TopicsNamespace {
       SdkOptional<String> description = const SdkOmitted(),
       SdkOptional<UpdateTopicOptionsVisibility> visibility = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return topics_methods.topicsUpdate(_config,
-        id: id,
-        name: name,
-        description: description,
-        visibility: visibility,
-        requestOptions: requestOptions);
+    return topics_methods.topicsUpdate(_config, id: id, name: name, description: description, visibility: visibility, requestOptions: requestOptions);
   }
 
   /// Deletes an existing topic. Use the topic ID to select the topic to remove.
   Future<RemoveTopicResponseSuccess> remove(
       {required String id, RequestOptions? requestOptions}) async {
-    return topics_methods.topicsRemove(_config,
-        id: id, requestOptions: requestOptions);
+    return topics_methods.topicsRemove(_config, id: id, requestOptions: requestOptions);
   }
+
 }
 
 class ContactPropertiesNamespace {
   final ClientConfig _config;
   ContactPropertiesNamespace(ClientConfig config) : _config = config;
-
   /// Creates a custom property that you can use to store contact data. Supply `key` and `type`; use `fallback_value` to provide a default that matches the selected type.
   Future<CreateContactPropertyResponseSuccess> create(
       {required String key,
       required CreateContactPropertyOptionsType type_,
       SdkOptional<dynamic> fallbackValue = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return contact_properties_methods.contactPropertiesCreate(_config,
-        key: key,
-        type_: type_,
-        fallbackValue: fallbackValue,
-        requestOptions: requestOptions);
+    return contact_properties_methods.contactPropertiesCreate(_config, key: key, type_: type_, fallbackValue: fallbackValue, requestOptions: requestOptions);
   }
 
   /// Lists contact properties with cursor-based pagination. Use `after` or `before` to navigate results and `limit` to control the number of properties returned.
@@ -1158,18 +858,13 @@ class ContactPropertiesNamespace {
       SdkOptional<String> after = const SdkOmitted(),
       SdkOptional<String> before = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return contact_properties_methods.contactPropertiesList(_config,
-        limit: limit,
-        after: after,
-        before: before,
-        requestOptions: requestOptions);
+    return contact_properties_methods.contactPropertiesList(_config, limit: limit, after: after, before: before, requestOptions: requestOptions);
   }
 
   /// Retrieves a contact property by its identifier. Use the property ID to inspect its key, type, fallback value, and creation timestamp.
   Future<GetContactPropertyResponseSuccess> get_(
       {required String id, RequestOptions? requestOptions}) async {
-    return contact_properties_methods.contactPropertiesGet(_config,
-        id: id, requestOptions: requestOptions);
+    return contact_properties_methods.contactPropertiesGet(_config, id: id, requestOptions: requestOptions);
   }
 
   /// Updates the fallback value for an existing contact property. Supply a `fallback_value` that matches the property’s type to change the default used when the property is unset for a contact.
@@ -1177,47 +872,40 @@ class ContactPropertiesNamespace {
       {required String id,
       SdkOptional<dynamic> fallbackValue = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return contact_properties_methods.contactPropertiesUpdate(_config,
-        id: id, fallbackValue: fallbackValue, requestOptions: requestOptions);
+    return contact_properties_methods.contactPropertiesUpdate(_config, id: id, fallbackValue: fallbackValue, requestOptions: requestOptions);
   }
 
   /// Deletes an existing contact property. Use the property ID to select the property you want to remove.
   Future<RemoveContactPropertyResponseSuccess> remove(
       {required String id, RequestOptions? requestOptions}) async {
-    return contact_properties_methods.contactPropertiesRemove(_config,
-        id: id, requestOptions: requestOptions);
+    return contact_properties_methods.contactPropertiesRemove(_config, id: id, requestOptions: requestOptions);
   }
+
 }
 
 class LogsNamespace {
   final ClientConfig _config;
   LogsNamespace(ClientConfig config) : _config = config;
-
   /// Lists logs with cursor-based pagination. Use `after` or `before` to position results relative to a cursor, and `limit` to control the number of items returned.
   Future<ListLogsResponse> list(
       {SdkOptional<int> limit = const SdkOmitted(),
       SdkOptional<String> after = const SdkOmitted(),
       SdkOptional<String> before = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return logs_methods.logsList(_config,
-        limit: limit,
-        after: after,
-        before: before,
-        requestOptions: requestOptions);
+    return logs_methods.logsList(_config, limit: limit, after: after, before: before, requestOptions: requestOptions);
   }
 
   /// Retrieves a single log record by its identifier. Use the log details to inspect the API endpoint, method, response status, and request or response bodies recorded for the request.
   Future<Log> get_(
       {required String logId, RequestOptions? requestOptions}) async {
-    return logs_methods.logsGet(_config,
-        logId: logId, requestOptions: requestOptions);
+    return logs_methods.logsGet(_config, logId: logId, requestOptions: requestOptions);
   }
+
 }
 
 class AutomationsNamespace {
   final ClientConfig _config;
   AutomationsNamespace(ClientConfig config) : _config = config;
-
   /// Creates an automation workflow from its name, steps, and connections. Supply at least one step, including a `trigger` step, and configure each step with its key, type, and configuration. A 201 response returns the new automation's identifier.
   Future<CreateAutomationResponse> create(
       {required String name,
@@ -1225,12 +913,7 @@ class AutomationsNamespace {
       required List<AutomationConnection> connections,
       SdkOptional<CreateAutomationRequestStatus> status = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return automations_methods.automationsCreate(_config,
-        name: name,
-        steps: steps,
-        connections: connections,
-        status: status,
-        requestOptions: requestOptions);
+    return automations_methods.automationsCreate(_config, name: name, steps: steps, connections: connections, status: status, requestOptions: requestOptions);
   }
 
   /// Lists automations, with optional filtering by status and cursor-based pagination. Use `status` to select enabled or disabled automations, and use `after` or `before` to navigate results.
@@ -1240,19 +923,13 @@ class AutomationsNamespace {
       SdkOptional<String> after = const SdkOmitted(),
       SdkOptional<String> before = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return automations_methods.automationsList(_config,
-        status: status,
-        limit: limit,
-        after: after,
-        before: before,
-        requestOptions: requestOptions);
+    return automations_methods.automationsList(_config, status: status, limit: limit, after: after, before: before, requestOptions: requestOptions);
   }
 
   /// Retrieves a single automation and its active workflow version. Use the automation details to inspect its status, timestamps, steps, and connections.
   Future<Automation> get_(
       {required String automationId, RequestOptions? requestOptions}) async {
-    return automations_methods.automationsGet(_config,
-        automationId: automationId, requestOptions: requestOptions);
+    return automations_methods.automationsGet(_config, automationId: automationId, requestOptions: requestOptions);
   }
 
   /// Updates an automation's name, status, or workflow graph. Supply at least one of `name`, `status`, or both `steps` and `connections`; workflow graph updates require both arrays together. Provide between 1 and 150 steps when updating the graph.
@@ -1263,34 +940,25 @@ class AutomationsNamespace {
       SdkOptional<List<AutomationStep>> steps = const SdkOmitted(),
       SdkOptional<List<AutomationConnection>> connections = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return automations_methods.automationsUpdate(_config,
-        automationId: automationId,
-        name: name,
-        status: status,
-        steps: steps,
-        connections: connections,
-        requestOptions: requestOptions);
+    return automations_methods.automationsUpdate(_config, automationId: automationId, name: name, status: status, steps: steps, connections: connections, requestOptions: requestOptions);
   }
 
   /// Deletes an automation by its identifier. Use this operation to remove an automation you no longer need; the response indicates whether deletion succeeded.
   Future<DeleteAutomationResponse> remove(
       {required String automationId, RequestOptions? requestOptions}) async {
-    return automations_methods.automationsRemove(_config,
-        automationId: automationId, requestOptions: requestOptions);
+    return automations_methods.automationsRemove(_config, automationId: automationId, requestOptions: requestOptions);
   }
 
   /// Duplicates an existing automation to create a separate automation. Supply the source automation's identifier to create the duplicate, then use the returned identifier to access it.
   Future<DuplicateAutomationResponse> duplicate(
       {required String automationId, RequestOptions? requestOptions}) async {
-    return automations_methods.automationsDuplicate(_config,
-        automationId: automationId, requestOptions: requestOptions);
+    return automations_methods.automationsDuplicate(_config, automationId: automationId, requestOptions: requestOptions);
   }
 
   /// Stops an automation by its identifier. Use this operation when you want the automation to stop running; the response includes its status after stopping.
   Future<StopAutomationResponse> stop(
       {required String automationId, RequestOptions? requestOptions}) async {
-    return automations_methods.automationsStop(_config,
-        automationId: automationId, requestOptions: requestOptions);
+    return automations_methods.automationsStop(_config, automationId: automationId, requestOptions: requestOptions);
   }
 
   /// Lists runs for a specific automation, with optional filtering by run status and cursor-based pagination. Use `status` to filter by run state, and use `after` or `before` to navigate the results.
@@ -1301,13 +969,7 @@ class AutomationsNamespace {
       SdkOptional<String> after = const SdkOmitted(),
       SdkOptional<String> before = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return automations_methods.automationsListRuns(_config,
-        automationId: automationId,
-        status: status,
-        limit: limit,
-        after: after,
-        before: before,
-        requestOptions: requestOptions);
+    return automations_methods.automationsListRuns(_config, automationId: automationId, status: status, limit: limit, after: after, before: before, requestOptions: requestOptions);
   }
 
   /// Retrieves a single run for a specific automation. Use the run details to inspect its status, timestamps, and step executions, which are returned in workflow graph order.
@@ -1315,24 +977,20 @@ class AutomationsNamespace {
       {required String automationId,
       required String runId,
       RequestOptions? requestOptions}) async {
-    return automations_methods.automationsGetRun(_config,
-        automationId: automationId,
-        runId: runId,
-        requestOptions: requestOptions);
+    return automations_methods.automationsGetRun(_config, automationId: automationId, runId: runId, requestOptions: requestOptions);
   }
+
 }
 
 class EventsNamespace {
   final ClientConfig _config;
   EventsNamespace(ClientConfig config) : _config = config;
-
   /// Creates a new event with a name and an optional payload schema. The `name` cannot start with the reserved `resend:` prefix, and schema fields support the types `string`, `number`, `boolean`, and `date`.
   Future<CreateEventResponse> create(
       {required String name,
       SdkOptional<Map<String, dynamic>?> schema = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return events_methods.eventsCreate(_config,
-        name: name, schema: schema, requestOptions: requestOptions);
+    return events_methods.eventsCreate(_config, name: name, schema: schema, requestOptions: requestOptions);
   }
 
   /// Lists events available to your account. Use `after` or `before` to navigate results, and `limit` to control the number of items returned per request.
@@ -1341,11 +999,7 @@ class EventsNamespace {
       SdkOptional<String> after = const SdkOmitted(),
       SdkOptional<String> before = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return events_methods.eventsList(_config,
-        limit: limit,
-        after: after,
-        before: before,
-        requestOptions: requestOptions);
+    return events_methods.eventsList(_config, limit: limit, after: after, before: before, requestOptions: requestOptions);
   }
 
   /// Sends an event and associates it with a contact or an email address. Supply the required `event` name and exactly one of `contact_id` or `email`; include `payload` to attach additional key/value data.
@@ -1355,19 +1009,13 @@ class EventsNamespace {
       SdkOptional<String> email = const SdkOmitted(),
       SdkOptional<Map<String, Object?>> payload = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return events_methods.eventsSend(_config,
-        event: event,
-        contactId: contactId,
-        email: email,
-        payload: payload,
-        requestOptions: requestOptions);
+    return events_methods.eventsSend(_config, event: event, contactId: contactId, email: email, payload: payload, requestOptions: requestOptions);
   }
 
   /// Retrieves an event by its UUID or event name. Use the `identifier` path parameter to select the event whose name, payload schema, and timestamps you need.
   Future<Event> get_(
       {required String identifier, RequestOptions? requestOptions}) async {
-    return events_methods.eventsGet(_config,
-        identifier: identifier, requestOptions: requestOptions);
+    return events_methods.eventsGet(_config, identifier: identifier, requestOptions: requestOptions);
   }
 
   /// Updates the payload schema for an existing event. Supply `schema` as a flat key/type map using `string`, `number`, `boolean`, or `date`, or set it to `null` to clear the schema.
@@ -1375,27 +1023,24 @@ class EventsNamespace {
       {required String identifier,
       required Map<String, dynamic>? schema,
       RequestOptions? requestOptions}) async {
-    return events_methods.eventsUpdate(_config,
-        identifier: identifier, schema: schema, requestOptions: requestOptions);
+    return events_methods.eventsUpdate(_config, identifier: identifier, schema: schema, requestOptions: requestOptions);
   }
 
   /// Deletes an event identified by its UUID or name. Use the `identifier` path parameter to specify which event to remove; the response indicates whether the event was deleted.
   Future<RemoveEventResponse> remove(
       {required String identifier, RequestOptions? requestOptions}) async {
-    return events_methods.eventsRemove(_config,
-        identifier: identifier, requestOptions: requestOptions);
+    return events_methods.eventsRemove(_config, identifier: identifier, requestOptions: requestOptions);
   }
+
 }
 
 class SuppressionsNamespace {
   final ClientConfig _config;
   SuppressionsNamespace(ClientConfig config) : _config = config;
-
   /// Creates a suppression for an email address. Supply the required `email` value to add that address to the suppression list.
   Future<CreateSuppressionResponseSuccess> add(
       {required String email, RequestOptions? requestOptions}) async {
-    return suppressions_methods.suppressionsAdd(_config,
-        email: email, requestOptions: requestOptions);
+    return suppressions_methods.suppressionsAdd(_config, email: email, requestOptions: requestOptions);
   }
 
   /// Lists suppressions, with an optional filter for their origin. Use `after` or `before` to navigate results and `limit` to control the number of suppressions returned per request.
@@ -1405,19 +1050,13 @@ class SuppressionsNamespace {
       SdkOptional<String> after = const SdkOmitted(),
       SdkOptional<String> before = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return suppressions_methods.suppressionsList(_config,
-        origin: origin,
-        limit: limit,
-        after: after,
-        before: before,
-        requestOptions: requestOptions);
+    return suppressions_methods.suppressionsList(_config, origin: origin, limit: limit, after: after, before: before, requestOptions: requestOptions);
   }
 
   /// Adds multiple email addresses to the suppression list in one request. Supply an `emails` array containing between 1 and 100 addresses.
   Future<BatchAddSuppressionsResponseSuccess> batchAdd(
       {required List<String> emails, RequestOptions? requestOptions}) async {
-    return suppressions_methods.suppressionsBatchAdd(_config,
-        emails: emails, requestOptions: requestOptions);
+    return suppressions_methods.suppressionsBatchAdd(_config, emails: emails, requestOptions: requestOptions);
   }
 
   /// Removes multiple suppressions from the suppression list in one request. Provide either an `emails` array or an `ids` array, but not both, with between 1 and 100 values in the selected array.
@@ -1425,41 +1064,39 @@ class SuppressionsNamespace {
       {SdkOptional<List<String>> emails = const SdkOmitted(),
       SdkOptional<List<String>> ids = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return suppressions_methods.suppressionsBatchRemove(_config,
-        emails: emails, ids: ids, requestOptions: requestOptions);
+    return suppressions_methods.suppressionsBatchRemove(_config, emails: emails, ids: ids, requestOptions: requestOptions);
   }
 
   /// Retrieves a single suppression by its identifier or email address. Use `suppression` to look up the matching suppression record.
   Future<GetSuppressionResponseSuccess> get_(
       {required String suppression, RequestOptions? requestOptions}) async {
-    return suppressions_methods.suppressionsGet(_config,
-        suppression: suppression, requestOptions: requestOptions);
+    return suppressions_methods.suppressionsGet(_config, suppression: suppression, requestOptions: requestOptions);
   }
 
   /// Deletes a single suppression by its identifier or email address. Use `suppression` to select the suppression to remove.
   Future<RemoveSuppressionResponseSuccess> remove(
       {required String suppression, RequestOptions? requestOptions}) async {
-    return suppressions_methods.suppressionsRemove(_config,
-        suppression: suppression, requestOptions: requestOptions);
+    return suppressions_methods.suppressionsRemove(_config, suppression: suppression, requestOptions: requestOptions);
   }
+
 }
 
 class UsageNamespace {
   final ClientConfig _config;
   UsageNamespace(ClientConfig config) : _config = config;
-
   /// Retrieves current account usage and plan limits. Use the response to review consumption and limits across email, contacts, segments, broadcasts, AI credits, automation runs, domains, and rate limits.
   ///
   /// Retrieve your account's current usage and plan limits.
-  Future<GetUsageResponseSuccess> get_({RequestOptions? requestOptions}) async {
+  Future<GetUsageResponseSuccess> get_(
+      {RequestOptions? requestOptions}) async {
     return usage_methods.usageGet(_config, requestOptions: requestOptions);
   }
+
 }
 
 class InboxesNamespace {
   final ClientConfig _config;
   InboxesNamespace(ClientConfig config) : _config = config;
-
   /// Creates an inbox that sends and receives email at an address on one of the team's domains. Supply `email_address` and choose whether to enable `forwarding`; the domain's verification requirements depend on that setting.
   ///
   /// Creates an inbox that sends and receives email at an address on one of your domains. The domain must belong to the team. Without `forwarding`, the domain must have receiving enabled, with DKIM and SPF verified and the inbound MX record verified or pending. With `forwarding` set to `true`, the domain only needs DKIM and SPF verified for sending, and Resend generates a `receiving_address` on the team inbound domain, and a team without an inbound domain gets a 422. A domain that does not meet these rules returns a 422 validation_error. An address or receiving address that is already in use returns a 409. A team that has reached the inbox limit of its plan returns a 403 validation_error. A blocked account returns a 451.
@@ -1469,12 +1106,7 @@ class InboxesNamespace {
       SdkOptional<String> fromName = const SdkOmitted(),
       SdkOptional<bool> forwarding = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return inboxes_methods.inboxesCreate(_config,
-        emailAddress: emailAddress,
-        name: name,
-        fromName: fromName,
-        forwarding: forwarding,
-        requestOptions: requestOptions);
+    return inboxes_methods.inboxesCreate(_config, emailAddress: emailAddress, name: name, fromName: fromName, forwarding: forwarding, requestOptions: requestOptions);
   }
 
   /// Lists the team's inboxes, ordered from newest to oldest. Use `after` or `before` with an inbox ID to navigate the results; list items include fewer fields than an individual inbox record.
@@ -1485,18 +1117,13 @@ class InboxesNamespace {
       SdkOptional<String> after = const SdkOmitted(),
       SdkOptional<String> before = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return inboxes_methods.inboxesList(_config,
-        limit: limit,
-        after: after,
-        before: before,
-        requestOptions: requestOptions);
+    return inboxes_methods.inboxesList(_config, limit: limit, after: after, before: before, requestOptions: requestOptions);
   }
 
   /// Retrieves a single inbox by its ID or email address. Use an email address for a case-insensitive address lookup, or a UUID to look up the inbox by ID.
   Future<Inbox> get_(
       {required String inboxId, RequestOptions? requestOptions}) async {
-    return inboxes_methods.inboxesGet(_config,
-        inboxId: inboxId, requestOptions: requestOptions);
+    return inboxes_methods.inboxesGet(_config, inboxId: inboxId, requestOptions: requestOptions);
   }
 
   /// Updates an inbox's internal name or the sender name recipients see. Provide at least one of `name` or `from_name`; omitted values remain unchanged.
@@ -1507,11 +1134,7 @@ class InboxesNamespace {
       SdkOptional<String> name = const SdkOmitted(),
       SdkOptional<String> fromName = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return inboxes_methods.inboxesUpdate(_config,
-        inboxId: inboxId,
-        name: name,
-        fromName: fromName,
-        requestOptions: requestOptions);
+    return inboxes_methods.inboxesUpdate(_config, inboxId: inboxId, name: name, fromName: fromName, requestOptions: requestOptions);
   }
 
   /// Deletes an existing inbox. Use its UUID as `inbox_id`; an email address is not accepted for this operation.
@@ -1519,8 +1142,7 @@ class InboxesNamespace {
   /// Removes the inbox. An inbox that does not exist or was already removed returns a 404 not_found.
   Future<RemoveInboxResponseSuccess> remove(
       {required String inboxId, RequestOptions? requestOptions}) async {
-    return inboxes_methods.inboxesRemove(_config,
-        inboxId: inboxId, requestOptions: requestOptions);
+    return inboxes_methods.inboxesRemove(_config, inboxId: inboxId, requestOptions: requestOptions);
   }
 
   /// Retrieves the agent settings for an inbox. An inbox without a configured agent has null `instructions` and `tone` values and an empty `enabled_actions` array.
@@ -1528,8 +1150,7 @@ class InboxesNamespace {
   /// Returns the agent settings of the inbox. An inbox without a configured agent returns empty settings: `instructions` and `tone` are null and `enabled_actions` is an empty array.
   Future<InboxAgent> getAgent(
       {required String inboxId, RequestOptions? requestOptions}) async {
-    return inboxes_methods.inboxesGetAgent(_config,
-        inboxId: inboxId, requestOptions: requestOptions);
+    return inboxes_methods.inboxesGetAgent(_config, inboxId: inboxId, requestOptions: requestOptions);
   }
 
   /// Updates the agent settings for an inbox, creating an agent if one is not configured. Provide at least one of `instructions`, `tone`, or `enabled_actions`; omitted fields keep their current values.
@@ -1539,15 +1160,9 @@ class InboxesNamespace {
       {required String inboxId,
       SdkOptional<String?> instructions = const SdkOmitted(),
       SdkOptional<UpdateInboxAgentOptionsTone?> tone = const SdkOmitted(),
-      SdkOptional<List<UpdateInboxAgentOptionsEnabledActionsItem>>
-          enabledActions = const SdkOmitted(),
+      SdkOptional<List<UpdateInboxAgentOptionsEnabledActionsItem>> enabledActions = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return inboxes_methods.inboxesUpdateAgent(_config,
-        inboxId: inboxId,
-        instructions: instructions,
-        tone: tone,
-        enabledActions: enabledActions,
-        requestOptions: requestOptions);
+    return inboxes_methods.inboxesUpdateAgent(_config, inboxId: inboxId, instructions: instructions, tone: tone, enabledActions: enabledActions, requestOptions: requestOptions);
   }
 
   /// Lists the labels attached to an inbox, ordered from oldest to newest. Use this endpoint to retrieve the inbox’s labels; the complete list is returned without pagination.
@@ -1555,8 +1170,7 @@ class InboxesNamespace {
   /// Returns every label on the inbox, oldest first. The list is not paginated.
   Future<ListInboxLabelsResponseSuccess> listLabels(
       {required String inboxId, RequestOptions? requestOptions}) async {
-    return inboxes_methods.inboxesListLabels(_config,
-        inboxId: inboxId, requestOptions: requestOptions);
+    return inboxes_methods.inboxesListLabels(_config, inboxId: inboxId, requestOptions: requestOptions);
   }
 
   /// Creates a named, colored label on an inbox. Supply a `name` between 1 and 64 characters; names are unique per inbox, without regard to case, and `color` defaults to a random dashboard palette color when omitted.
@@ -1567,11 +1181,7 @@ class InboxesNamespace {
       required String name,
       SdkOptional<String> color = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return inboxes_methods.inboxesCreateLabel(_config,
-        inboxId: inboxId,
-        name: name,
-        color: color,
-        requestOptions: requestOptions);
+    return inboxes_methods.inboxesCreateLabel(_config, inboxId: inboxId, name: name, color: color, requestOptions: requestOptions);
   }
 
   /// Updates the name or color of an inbox label. Supply only the fields you want to change; omitted fields keep their current values, and a new name must remain unique on the inbox without regard to case.
@@ -1583,12 +1193,7 @@ class InboxesNamespace {
       SdkOptional<String> name = const SdkOmitted(),
       SdkOptional<String> color = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return inboxes_methods.inboxesUpdateLabel(_config,
-        inboxId: inboxId,
-        labelId: labelId,
-        name: name,
-        color: color,
-        requestOptions: requestOptions);
+    return inboxes_methods.inboxesUpdateLabel(_config, inboxId: inboxId, labelId: labelId, name: name, color: color, requestOptions: requestOptions);
   }
 
   /// Deletes a label from an inbox and removes it from every thread that carries it. Use this endpoint when you want to remove the label itself as well as its associations with threads.
@@ -1598,8 +1203,7 @@ class InboxesNamespace {
       {required String inboxId,
       required String labelId,
       RequestOptions? requestOptions}) async {
-    return inboxes_methods.inboxesRemoveLabel(_config,
-        inboxId: inboxId, labelId: labelId, requestOptions: requestOptions);
+    return inboxes_methods.inboxesRemoveLabel(_config, inboxId: inboxId, labelId: labelId, requestOptions: requestOptions);
   }
 
   /// Lists threads in an inbox, ordered by most recent activity first. Use `folders`, `labels`, or `read` to filter the results, and use `after` or `before` to navigate by thread ID; you can pass only one cursor at a time.
@@ -1607,23 +1211,14 @@ class InboxesNamespace {
   /// Returns the threads in an inbox, most recently active first. A thread is a conversation made up of one or more emails. The `after` and `before` cursors take a thread ID, and only one of them can be passed. A cursor that is not a UUID, such as a date, returns a 422 validation_error. A cursor thread that is not in the selected folders returns a 404. To find threads by text, sender, recipient, attachment, or date, use the search threads endpoint.
   Future<ListInboxThreadsResponseSuccess> listThreads(
       {required String inboxId,
-      SdkOptional<List<InboxesListThreadsFoldersItem>> folders =
-          const SdkOmitted(),
+      SdkOptional<List<InboxesListThreadsFoldersItem>> folders = const SdkOmitted(),
       SdkOptional<List<String>> labels = const SdkOmitted(),
       SdkOptional<bool> read = const SdkOmitted(),
       SdkOptional<int> limit = const SdkOmitted(),
       SdkOptional<String> after = const SdkOmitted(),
       SdkOptional<String> before = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return inboxes_methods.inboxesListThreads(_config,
-        inboxId: inboxId,
-        folders: folders,
-        labels: labels,
-        read: read,
-        limit: limit,
-        after: after,
-        before: before,
-        requestOptions: requestOptions);
+    return inboxes_methods.inboxesListThreads(_config, inboxId: inboxId, folders: folders, labels: labels, read: read, limit: limit, after: after, before: before, requestOptions: requestOptions);
   }
 
   /// Searches an inbox’s threads by email text, sender or recipient, attachment presence, and date. Combine filters to find threads matching all specified criteria; email-level filters must match the same email, and results may lag new emails by up to about a minute. Search covers the 10,000 threads with the newest matching email when more than 10,000 threads match.
@@ -1639,31 +1234,14 @@ class InboxesNamespace {
       SdkOptional<bool> hasAttachment = const SdkOmitted(),
       SdkOptional<String> startDate = const SdkOmitted(),
       SdkOptional<String> endDate = const SdkOmitted(),
-      SdkOptional<List<InboxesSearchThreadsFoldersItem>> folders =
-          const SdkOmitted(),
+      SdkOptional<List<InboxesSearchThreadsFoldersItem>> folders = const SdkOmitted(),
       SdkOptional<List<String>> labels = const SdkOmitted(),
       SdkOptional<bool> read = const SdkOmitted(),
       SdkOptional<int> limit = const SdkOmitted(),
       SdkOptional<String> after = const SdkOmitted(),
       SdkOptional<String> before = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return inboxes_methods.inboxesSearchThreads(_config,
-        inboxId: inboxId,
-        query: query,
-        from: from,
-        to: to,
-        cc: cc,
-        bcc: bcc,
-        hasAttachment: hasAttachment,
-        startDate: startDate,
-        endDate: endDate,
-        folders: folders,
-        labels: labels,
-        read: read,
-        limit: limit,
-        after: after,
-        before: before,
-        requestOptions: requestOptions);
+    return inboxes_methods.inboxesSearchThreads(_config, inboxId: inboxId, query: query, from: from, to: to, cc: cc, bcc: bcc, hasAttachment: hasAttachment, startDate: startDate, endDate: endDate, folders: folders, labels: labels, read: read, limit: limit, after: after, before: before, requestOptions: requestOptions);
   }
 
   /// Retrieves the summary of a single inbox thread. Use the list thread emails endpoint to retrieve the messages that make up the thread.
@@ -1673,8 +1251,7 @@ class InboxesNamespace {
       {required String inboxId,
       required String threadId,
       RequestOptions? requestOptions}) async {
-    return inboxes_methods.inboxesGetThread(_config,
-        inboxId: inboxId, threadId: threadId, requestOptions: requestOptions);
+    return inboxes_methods.inboxesGetThread(_config, inboxId: inboxId, threadId: threadId, requestOptions: requestOptions);
   }
 
   /// Updates a thread’s read state, folder, or labels. Supply at least one of `read`, `folder`, `add_label_ids`, or `remove_label_ids`; changes apply in that order and are not atomic, so earlier changes may remain applied if a later label operation fails.
@@ -1688,14 +1265,7 @@ class InboxesNamespace {
       SdkOptional<List<String>> addLabelIds = const SdkOmitted(),
       SdkOptional<List<String>> removeLabelIds = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return inboxes_methods.inboxesUpdateThread(_config,
-        inboxId: inboxId,
-        threadId: threadId,
-        read: read,
-        folder: folder,
-        addLabelIds: addLabelIds,
-        removeLabelIds: removeLabelIds,
-        requestOptions: requestOptions);
+    return inboxes_methods.inboxesUpdateThread(_config, inboxId: inboxId, threadId: threadId, read: read, folder: folder, addLabelIds: addLabelIds, removeLabelIds: removeLabelIds, requestOptions: requestOptions);
   }
 
   /// Moves a thread to the `trash` folder and schedules it for deletion in 30 days. The move is reversible; update the thread’s `folder` to `inbox`, `archive`, or `spam` to restore it and clear the deletion deadline.
@@ -1705,8 +1275,7 @@ class InboxesNamespace {
       {required String inboxId,
       required String threadId,
       RequestOptions? requestOptions}) async {
-    return inboxes_methods.inboxesRemoveThread(_config,
-        inboxId: inboxId, threadId: threadId, requestOptions: requestOptions);
+    return inboxes_methods.inboxesRemoveThread(_config, inboxId: inboxId, threadId: threadId, requestOptions: requestOptions);
   }
 
   /// Lists the messages in a thread, ordered from oldest to newest. Use `after` with the last message ID to retrieve a newer page, or `before` with the first message ID to retrieve an older page; pass only one cursor at a time.
@@ -1719,13 +1288,7 @@ class InboxesNamespace {
       SdkOptional<String> after = const SdkOmitted(),
       SdkOptional<String> before = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return inboxes_methods.inboxesListThreadEmails(_config,
-        inboxId: inboxId,
-        threadId: threadId,
-        limit: limit,
-        after: after,
-        before: before,
-        requestOptions: requestOptions);
+    return inboxes_methods.inboxesListThreadEmails(_config, inboxId: inboxId, threadId: threadId, limit: limit, after: after, before: before, requestOptions: requestOptions);
   }
 
   /// Retrieves a specific email from an inbox thread. Use the inbox, thread, and email identifiers to select the message whose details you need.
@@ -1734,11 +1297,7 @@ class InboxesNamespace {
       required String threadId,
       required String emailId,
       RequestOptions? requestOptions}) async {
-    return inboxes_methods.inboxesGetThreadEmail(_config,
-        inboxId: inboxId,
-        threadId: threadId,
-        emailId: emailId,
-        requestOptions: requestOptions);
+    return inboxes_methods.inboxesGetThreadEmail(_config, inboxId: inboxId, threadId: threadId, emailId: emailId, requestOptions: requestOptions);
   }
 
   /// Submits a reply to a message in an inbox thread directly from the inbox address, without storing a draft. Use `html` or `text` for the reply body; recipients are derived from the message, with `reply_all` controlling whether other recipients are copied. The reply is threaded under the original message.
@@ -1758,20 +1317,7 @@ class InboxesNamespace {
       SdkOptional<List<Attachment>?> attachments = const SdkOmitted(),
       SdkOptional<Map<String, String>?> headers = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return inboxes_methods.inboxesReplyThreadEmail(_config,
-        inboxId: inboxId,
-        threadId: threadId,
-        emailId: emailId,
-        idempotencyKey: idempotencyKey,
-        cc: cc,
-        bcc: bcc,
-        html: html,
-        text: text,
-        subject: subject,
-        replyAll: replyAll,
-        attachments: attachments,
-        headers: headers,
-        requestOptions: requestOptions);
+    return inboxes_methods.inboxesReplyThreadEmail(_config, inboxId: inboxId, threadId: threadId, emailId: emailId, idempotencyKey: idempotencyKey, cc: cc, bcc: bcc, html: html, text: text, subject: subject, replyAll: replyAll, attachments: attachments, headers: headers, requestOptions: requestOptions);
   }
 
   /// Submits a forward of a message from the inbox address directly, without storing a draft. Supply `to` recipients and optionally add a note with `html` or `text`; the original message is quoted and its attachments are included. Added attachments share the original message's limit of 10 files and 25 MB of content.
@@ -1791,20 +1337,7 @@ class InboxesNamespace {
       SdkOptional<List<Attachment>?> attachments = const SdkOmitted(),
       SdkOptional<Map<String, String>?> headers = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return inboxes_methods.inboxesForwardThreadEmail(_config,
-        inboxId: inboxId,
-        threadId: threadId,
-        emailId: emailId,
-        to: to,
-        idempotencyKey: idempotencyKey,
-        cc: cc,
-        bcc: bcc,
-        html: html,
-        text: text,
-        subject: subject,
-        attachments: attachments,
-        headers: headers,
-        requestOptions: requestOptions);
+    return inboxes_methods.inboxesForwardThreadEmail(_config, inboxId: inboxId, threadId: threadId, emailId: emailId, to: to, idempotencyKey: idempotencyKey, cc: cc, bcc: bcc, html: html, text: text, subject: subject, attachments: attachments, headers: headers, requestOptions: requestOptions);
   }
 
   /// Lists unsent drafts in an inbox, ordered by most recently updated. Use `after` or `before` with a Draft ID from the current page to navigate results; do not supply both cursors together.
@@ -1816,12 +1349,7 @@ class InboxesNamespace {
       SdkOptional<String> after = const SdkOmitted(),
       SdkOptional<String> before = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return inboxes_methods.inboxesListDrafts(_config,
-        inboxId: inboxId,
-        limit: limit,
-        after: after,
-        before: before,
-        requestOptions: requestOptions);
+    return inboxes_methods.inboxesListDrafts(_config, inboxId: inboxId, limit: limit, after: after, before: before, requestOptions: requestOptions);
   }
 
   /// Creates an unsent draft in an inbox, either as a new thread or as a reply in an existing thread. Supply at least one non-empty recipient, subject, body, or attachment field; reply drafts require both `thread_id` and `reply_to_email_id`. If a reply draft already exists for the target email, the response returns its ID and only a supplied `attachments` value is applied.
@@ -1836,24 +1364,11 @@ class InboxesNamespace {
       SdkOptional<String?> subject = const SdkOmitted(),
       SdkOptional<String?> html = const SdkOmitted(),
       SdkOptional<String?> text = const SdkOmitted(),
-      SdkOptional<List<InboxDraftAttachmentInput>?> attachments =
-          const SdkOmitted(),
+      SdkOptional<List<InboxDraftAttachmentInput>?> attachments = const SdkOmitted(),
       SdkOptional<String> threadId = const SdkOmitted(),
       SdkOptional<String> replyToEmailId = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return inboxes_methods.inboxesCreateDraft(_config,
-        inboxId: inboxId,
-        idempotencyKey: idempotencyKey,
-        to: to,
-        cc: cc,
-        bcc: bcc,
-        subject: subject,
-        html: html,
-        text: text,
-        attachments: attachments,
-        threadId: threadId,
-        replyToEmailId: replyToEmailId,
-        requestOptions: requestOptions);
+    return inboxes_methods.inboxesCreateDraft(_config, inboxId: inboxId, idempotencyKey: idempotencyKey, to: to, cc: cc, bcc: bcc, subject: subject, html: html, text: text, attachments: attachments, threadId: threadId, replyToEmailId: replyToEmailId, requestOptions: requestOptions);
   }
 
   /// Retrieves a specific draft from an inbox. Use the inbox and draft identifiers to inspect its recipients, content, thread association, timestamps, and stored attachments.
@@ -1861,8 +1376,7 @@ class InboxesNamespace {
       {required String inboxId,
       required String draftId,
       RequestOptions? requestOptions}) async {
-    return inboxes_methods.inboxesGetDraft(_config,
-        inboxId: inboxId, draftId: draftId, requestOptions: requestOptions);
+    return inboxes_methods.inboxesGetDraft(_config, inboxId: inboxId, draftId: draftId, requestOptions: requestOptions);
   }
 
   /// Updates the content of an unsent draft in an inbox. Send only the fields you want to change; sending `attachments` replaces all attachments, while sending `text` or `html` replaces the entire body. The merged draft must retain at least one non-empty field and no more than 50 combined recipients.
@@ -1877,20 +1391,9 @@ class InboxesNamespace {
       SdkOptional<String?> subject = const SdkOmitted(),
       SdkOptional<String?> html = const SdkOmitted(),
       SdkOptional<String?> text = const SdkOmitted(),
-      SdkOptional<List<InboxDraftAttachmentInput>?> attachments =
-          const SdkOmitted(),
+      SdkOptional<List<InboxDraftAttachmentInput>?> attachments = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return inboxes_methods.inboxesUpdateDraft(_config,
-        inboxId: inboxId,
-        draftId: draftId,
-        to: to,
-        cc: cc,
-        bcc: bcc,
-        subject: subject,
-        html: html,
-        text: text,
-        attachments: attachments,
-        requestOptions: requestOptions);
+    return inboxes_methods.inboxesUpdateDraft(_config, inboxId: inboxId, draftId: draftId, to: to, cc: cc, bcc: bcc, subject: subject, html: html, text: text, attachments: attachments, requestOptions: requestOptions);
   }
 
   /// Deletes an unsent draft from an inbox. Use the inbox and draft identifiers to select the draft to discard; drafts that have already been sent are not eligible for removal.
@@ -1900,8 +1403,7 @@ class InboxesNamespace {
       {required String inboxId,
       required String draftId,
       RequestOptions? requestOptions}) async {
-    return inboxes_methods.inboxesRemoveDraft(_config,
-        inboxId: inboxId, draftId: draftId, requestOptions: requestOptions);
+    return inboxes_methods.inboxesRemoveDraft(_config, inboxId: inboxId, draftId: draftId, requestOptions: requestOptions);
   }
 
   /// Submits an unsent draft from the inbox address. A reply draft is sent in its existing thread, while a standalone draft starts a new thread; you can add custom headers in the optional request body. Before sending, the draft must have at least one recipient, a non-empty subject, and an HTML or plain-text body.
@@ -1913,13 +1415,9 @@ class InboxesNamespace {
       SdkOptional<String> idempotencyKey = const SdkOmitted(),
       SdkOptional<Map<String, String>?> headers = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return inboxes_methods.inboxesSendDraft(_config,
-        inboxId: inboxId,
-        draftId: draftId,
-        idempotencyKey: idempotencyKey,
-        headers: headers,
-        requestOptions: requestOptions);
+    return inboxes_methods.inboxesSendDraft(_config, inboxId: inboxId, draftId: draftId, idempotencyKey: idempotencyKey, headers: headers, requestOptions: requestOptions);
   }
+
 }
 
 class Resend {
@@ -1991,4 +1489,5 @@ class Resend {
     logging.enabled = enabled ?? true;
     return logging;
   }
+
 }

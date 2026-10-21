@@ -8,242 +8,124 @@ part of 'contacts.dart';
 class ContactImport {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Type of the response object.
   final SdkOptional<String> object;
-
   /// Unique identifier for the contact import.
   final SdkOptional<String> id;
-
   /// Current status of the contact import.
   final SdkOptional<ContactImportStatus> status;
-
   /// Timestamp indicating when the contact import was created.
   final SdkOptional<String> createdAt;
-
   /// Timestamp indicating when the contact import completed.
   final SdkOptional<String?> completedAt;
-
   /// Optional object value serialized in the `counts` wire field.
   final SdkOptional<ContactImportCounts> counts;
 
-  const ContactImport(
-      {this.object = const SdkOmitted(),
-      this.id = const SdkOmitted(),
-      this.status = const SdkOmitted(),
-      this.createdAt = const SdkOmitted(),
-      this.completedAt = const SdkOmitted(),
-      this.counts = const SdkOmitted()});
+  const ContactImport({this.object = const SdkOmitted(), this.id = const SdkOmitted(), this.status = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.completedAt = const SdkOmitted(), this.counts = const SdkOmitted()});
 
-  ContactImport Function(
-      {SdkOptional<String> object,
-      SdkOptional<String> id,
-      SdkOptional<ContactImportStatus> status,
-      SdkOptional<String> createdAt,
-      SdkOptional<String?> completedAt,
-      SdkOptional<ContactImportCounts> counts}) get copyWith => _copyWith;
+  ContactImport Function({SdkOptional<String> object, SdkOptional<String> id, SdkOptional<ContactImportStatus> status, SdkOptional<String> createdAt, SdkOptional<String?> completedAt, SdkOptional<ContactImportCounts> counts}) get copyWith => _copyWith;
 
-  ContactImport _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? status = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? completedAt = sdkOmittedValue,
-          Object? counts = sdkOmittedValue}) =>
-      ContactImport(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as SdkOptional<String>,
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as SdkOptional<ContactImportStatus>,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as SdkOptional<String>,
-        completedAt: identical(completedAt, sdkOmittedValue)
-            ? this.completedAt
-            : completedAt as SdkOptional<String?>,
-        counts: identical(counts, sdkOmittedValue)
-            ? this.counts
-            : counts as SdkOptional<ContactImportCounts>,
-      );
+  ContactImport _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? status = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? completedAt = sdkOmittedValue, Object? counts = sdkOmittedValue}) => ContactImport(
+    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<String>,
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<ContactImportStatus>,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
+    completedAt: identical(completedAt, sdkOmittedValue) ? this.completedAt : completedAt as SdkOptional<String?>,
+    counts: identical(counts, sdkOmittedValue) ? this.counts : counts as SdkOptional<ContactImportCounts>,
+  );
 
   factory ContactImport.fromJson(Map<String, dynamic> json) => ContactImport(
-        object: json['object'] != null
-            ? SdkPresent((json['object'] as String?)!)
-            : const SdkOmitted(),
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-        status: json['status'] != null
-            ? SdkPresent((json['status'] != null
-                ? ContactImportStatus.fromJson(json['status'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        createdAt: json['created_at'] != null
-            ? SdkPresent((json['created_at'] as String?)!)
-            : const SdkOmitted(),
-        completedAt: json.containsKey('completed_at')
-            ? SdkPresent(json['completed_at'] as String?)
-            : const SdkOmitted(),
-        counts: json['counts'] != null
-            ? SdkPresent((json['counts'] != null
-                ? ContactImportCounts.fromJson(
-                    json['counts'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+    object: json['object'] != null ? SdkPresent((json['object'] as String?)!) : const SdkOmitted(),
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+    status: json['status'] != null ? SdkPresent((json['status'] != null ? ContactImportStatus.fromJson(json['status'] as String) : null)!) : const SdkOmitted(),
+    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
+    completedAt: json.containsKey('completed_at') ? SdkPresent(json['completed_at'] as String?) : const SdkOmitted(),
+    counts: json['counts'] != null ? SdkPresent((json['counts'] != null ? ContactImportCounts.fromJson(json['counts'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (object) {
-          SdkPresent<String>(value: final value) => {
-              'object': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (status) {
-          SdkPresent<ContactImportStatus>(value: final value) => {
-              'status': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (createdAt) {
-          SdkPresent<String>(value: final value) => {
-              'created_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (completedAt) {
-          SdkPresent<String?>(value: final value) => {
-              'completed_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (counts) {
-          SdkPresent<ContactImportCounts>(value: final value) => {
-              'counts': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (object) {
+      SdkPresent<String>(value: final value) => {'object': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (status) {
+      SdkPresent<ContactImportStatus>(value: final value) => {'status': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (createdAt) {
+      SdkPresent<String>(value: final value) => {'created_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (completedAt) {
+      SdkPresent<String?>(value: final value) => {'completed_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (counts) {
+      SdkPresent<ContactImportCounts>(value: final value) => {'counts': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `ContactImportCounts` API schema.
 class ContactImportCounts {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Total number of rows processed by the import.
   final SdkOptional<int> total;
-
   /// Number of contacts created by the import.
   final SdkOptional<int> created;
-
   /// Number of contacts updated by the import.
   final SdkOptional<int> updated;
-
   /// Number of rows skipped by the import.
   final SdkOptional<int> skipped;
-
   /// Number of rows that failed during the import.
   final SdkOptional<int> failed;
 
-  const ContactImportCounts(
-      {this.total = const SdkOmitted(),
-      this.created = const SdkOmitted(),
-      this.updated = const SdkOmitted(),
-      this.skipped = const SdkOmitted(),
-      this.failed = const SdkOmitted()});
+  const ContactImportCounts({this.total = const SdkOmitted(), this.created = const SdkOmitted(), this.updated = const SdkOmitted(), this.skipped = const SdkOmitted(), this.failed = const SdkOmitted()});
 
-  ContactImportCounts Function(
-      {SdkOptional<int> total,
-      SdkOptional<int> created,
-      SdkOptional<int> updated,
-      SdkOptional<int> skipped,
-      SdkOptional<int> failed}) get copyWith => _copyWith;
+  ContactImportCounts Function({SdkOptional<int> total, SdkOptional<int> created, SdkOptional<int> updated, SdkOptional<int> skipped, SdkOptional<int> failed}) get copyWith => _copyWith;
 
-  ContactImportCounts _copyWith(
-          {Object? total = sdkOmittedValue,
-          Object? created = sdkOmittedValue,
-          Object? updated = sdkOmittedValue,
-          Object? skipped = sdkOmittedValue,
-          Object? failed = sdkOmittedValue}) =>
-      ContactImportCounts(
-        total: identical(total, sdkOmittedValue)
-            ? this.total
-            : total as SdkOptional<int>,
-        created: identical(created, sdkOmittedValue)
-            ? this.created
-            : created as SdkOptional<int>,
-        updated: identical(updated, sdkOmittedValue)
-            ? this.updated
-            : updated as SdkOptional<int>,
-        skipped: identical(skipped, sdkOmittedValue)
-            ? this.skipped
-            : skipped as SdkOptional<int>,
-        failed: identical(failed, sdkOmittedValue)
-            ? this.failed
-            : failed as SdkOptional<int>,
-      );
+  ContactImportCounts _copyWith({Object? total = sdkOmittedValue, Object? created = sdkOmittedValue, Object? updated = sdkOmittedValue, Object? skipped = sdkOmittedValue, Object? failed = sdkOmittedValue}) => ContactImportCounts(
+    total: identical(total, sdkOmittedValue) ? this.total : total as SdkOptional<int>,
+    created: identical(created, sdkOmittedValue) ? this.created : created as SdkOptional<int>,
+    updated: identical(updated, sdkOmittedValue) ? this.updated : updated as SdkOptional<int>,
+    skipped: identical(skipped, sdkOmittedValue) ? this.skipped : skipped as SdkOptional<int>,
+    failed: identical(failed, sdkOmittedValue) ? this.failed : failed as SdkOptional<int>,
+  );
 
-  factory ContactImportCounts.fromJson(Map<String, dynamic> json) =>
-      ContactImportCounts(
-        total: json['total'] != null
-            ? SdkPresent(((json['total'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        created: json['created'] != null
-            ? SdkPresent(((json['created'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        updated: json['updated'] != null
-            ? SdkPresent(((json['updated'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        skipped: json['skipped'] != null
-            ? SdkPresent(((json['skipped'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        failed: json['failed'] != null
-            ? SdkPresent(((json['failed'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-      );
+  factory ContactImportCounts.fromJson(Map<String, dynamic> json) => ContactImportCounts(
+    total: json['total'] != null ? SdkPresent(((json['total'] as num?)?.toInt())!) : const SdkOmitted(),
+    created: json['created'] != null ? SdkPresent(((json['created'] as num?)?.toInt())!) : const SdkOmitted(),
+    updated: json['updated'] != null ? SdkPresent(((json['updated'] as num?)?.toInt())!) : const SdkOmitted(),
+    skipped: json['skipped'] != null ? SdkPresent(((json['skipped'] as num?)?.toInt())!) : const SdkOmitted(),
+    failed: json['failed'] != null ? SdkPresent(((json['failed'] as num?)?.toInt())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (total) {
-          SdkPresent<int>(value: final value) => {
-              'total': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (created) {
-          SdkPresent<int>(value: final value) => {
-              'created': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (updated) {
-          SdkPresent<int>(value: final value) => {
-              'updated': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (skipped) {
-          SdkPresent<int>(value: final value) => {
-              'skipped': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (failed) {
-          SdkPresent<int>(value: final value) => {
-              'failed': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (total) {
+      SdkPresent<int>(value: final value) => {'total': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (created) {
+      SdkPresent<int>(value: final value) => {'created': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (updated) {
+      SdkPresent<int>(value: final value) => {'updated': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (skipped) {
+      SdkPresent<int>(value: final value) => {'skipped': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (failed) {
+      SdkPresent<int>(value: final value) => {'failed': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

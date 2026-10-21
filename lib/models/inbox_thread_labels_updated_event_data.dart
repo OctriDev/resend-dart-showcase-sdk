@@ -8,102 +8,50 @@ part of 'inbox_thread.dart';
 class InboxThreadLabelsUpdatedEventData {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The labels applied to the thread.
   final List<InboxThreadLabel> added;
-
   /// The labels removed from the thread.
   final List<InboxThreadLabel> removed;
-
   /// What made the change.
   final InboxEventSource source;
-
   /// The ID of the inbox.
   final String inboxId;
-
   /// The ID of the thread.
   final String threadId;
-
   /// The thread as it is when the webhook is sent. Absent when the thread no longer exists.
   final SdkOptional<InboxThreadSummary> thread;
 
-  const InboxThreadLabelsUpdatedEventData(
-      {required this.added,
-      required this.removed,
-      required this.source,
-      required this.inboxId,
-      required this.threadId,
-      this.thread = const SdkOmitted()});
+  const InboxThreadLabelsUpdatedEventData({required this.added, required this.removed, required this.source, required this.inboxId, required this.threadId, this.thread = const SdkOmitted()});
 
-  InboxThreadLabelsUpdatedEventData Function(
-      {List<InboxThreadLabel> added,
-      List<InboxThreadLabel> removed,
-      InboxEventSource source,
-      String inboxId,
-      String threadId,
-      SdkOptional<InboxThreadSummary> thread}) get copyWith => _copyWith;
+  InboxThreadLabelsUpdatedEventData Function({List<InboxThreadLabel> added, List<InboxThreadLabel> removed, InboxEventSource source, String inboxId, String threadId, SdkOptional<InboxThreadSummary> thread}) get copyWith => _copyWith;
 
-  InboxThreadLabelsUpdatedEventData _copyWith(
-          {Object? added = sdkOmittedValue,
-          Object? removed = sdkOmittedValue,
-          Object? source = sdkOmittedValue,
-          Object? inboxId = sdkOmittedValue,
-          Object? threadId = sdkOmittedValue,
-          Object? thread = sdkOmittedValue}) =>
-      InboxThreadLabelsUpdatedEventData(
-        added: identical(added, sdkOmittedValue)
-            ? this.added
-            : added as List<InboxThreadLabel>,
-        removed: identical(removed, sdkOmittedValue)
-            ? this.removed
-            : removed as List<InboxThreadLabel>,
-        source: identical(source, sdkOmittedValue)
-            ? this.source
-            : source as InboxEventSource,
-        inboxId: identical(inboxId, sdkOmittedValue)
-            ? this.inboxId
-            : inboxId as String,
-        threadId: identical(threadId, sdkOmittedValue)
-            ? this.threadId
-            : threadId as String,
-        thread: identical(thread, sdkOmittedValue)
-            ? this.thread
-            : thread as SdkOptional<InboxThreadSummary>,
-      );
+  InboxThreadLabelsUpdatedEventData _copyWith({Object? added = sdkOmittedValue, Object? removed = sdkOmittedValue, Object? source = sdkOmittedValue, Object? inboxId = sdkOmittedValue, Object? threadId = sdkOmittedValue, Object? thread = sdkOmittedValue}) => InboxThreadLabelsUpdatedEventData(
+    added: identical(added, sdkOmittedValue) ? this.added : added as List<InboxThreadLabel>,
+    removed: identical(removed, sdkOmittedValue) ? this.removed : removed as List<InboxThreadLabel>,
+    source: identical(source, sdkOmittedValue) ? this.source : source as InboxEventSource,
+    inboxId: identical(inboxId, sdkOmittedValue) ? this.inboxId : inboxId as String,
+    threadId: identical(threadId, sdkOmittedValue) ? this.threadId : threadId as String,
+    thread: identical(thread, sdkOmittedValue) ? this.thread : thread as SdkOptional<InboxThreadSummary>,
+  );
 
-  factory InboxThreadLabelsUpdatedEventData.fromJson(
-          Map<String, dynamic> json) =>
-      InboxThreadLabelsUpdatedEventData(
-        added: ((json['added'] as List?)
-            ?.map((e) => InboxThreadLabel.fromJson(e as Map<String, dynamic>))
-            .toList())!,
-        removed: ((json['removed'] as List?)
-            ?.map((e) => InboxThreadLabel.fromJson(e as Map<String, dynamic>))
-            .toList())!,
-        source: (json['source'] != null
-            ? InboxEventSource.fromJson(json['source'] as String)
-            : null)!,
-        inboxId: (json['inbox_id'] as String?)!,
-        threadId: (json['thread_id'] as String?)!,
-        thread: json['thread'] != null
-            ? SdkPresent((json['thread'] != null
-                ? InboxThreadSummary.fromJson(
-                    json['thread'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory InboxThreadLabelsUpdatedEventData.fromJson(Map<String, dynamic> json) => InboxThreadLabelsUpdatedEventData(
+    added: ((json['added'] as List?)?.map((e) => InboxThreadLabel.fromJson(e as Map<String, dynamic>)).toList())!,
+    removed: ((json['removed'] as List?)?.map((e) => InboxThreadLabel.fromJson(e as Map<String, dynamic>)).toList())!,
+    source: (json['source'] != null ? InboxEventSource.fromJson(json['source'] as String) : null)!,
+    inboxId: (json['inbox_id'] as String?)!,
+    threadId: (json['thread_id'] as String?)!,
+    thread: json['thread'] != null ? SdkPresent((json['thread'] != null ? InboxThreadSummary.fromJson(json['thread'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'added': added.map((item) => item.toJson()).toList(),
-        'removed': removed.map((item) => item.toJson()).toList(),
-        'source': source.toJson(),
-        'inbox_id': inboxId,
-        'thread_id': threadId,
-        ...switch (thread) {
-          SdkPresent<InboxThreadSummary>(value: final value) => {
-              'thread': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'added': added.map((item) => item.toJson()).toList(),
+    'removed': removed.map((item) => item.toJson()).toList(),
+    'source': source.toJson(),
+    'inbox_id': inboxId,
+    'thread_id': threadId,
+    ...switch (thread) {
+      SdkPresent<InboxThreadSummary>(value: final value) => {'thread': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

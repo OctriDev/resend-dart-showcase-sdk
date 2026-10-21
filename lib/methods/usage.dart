@@ -14,8 +14,7 @@ Future<GetUsageResponseSuccess> usageGet(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'usageGet',
-          fromJsonRaw: (value) =>
-              GetUsageResponseSuccess.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => GetUsageResponseSuccess.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }

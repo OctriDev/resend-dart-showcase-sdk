@@ -9,147 +9,93 @@ sealed class CreateContactPropertyOptionsFallbackValue {
   static const String constructionSurface = 'named';
   const CreateContactPropertyOptionsFallbackValue();
   factory CreateContactPropertyOptionsFallbackValue.fromJson(Object? json) {
-    if (json is String) {
-      return CreateContactPropertyOptionsFallbackValueString(json);
-    }
-    if (json is num) {
-      return CreateContactPropertyOptionsFallbackValueDouble(json.toDouble());
-    }
-    throw FormatException(
-        "No variant matched for CreateContactPropertyOptionsFallbackValue");
+    if (json is String) { return CreateContactPropertyOptionsFallbackValueString(json); }
+    if (json is num) { return CreateContactPropertyOptionsFallbackValueDouble(json.toDouble()); }
+    throw FormatException("No variant matched for CreateContactPropertyOptionsFallbackValue");
   }
   Object? toJson();
 }
 
-final class CreateContactPropertyOptionsFallbackValueString
-    extends CreateContactPropertyOptionsFallbackValue {
+final class CreateContactPropertyOptionsFallbackValueString extends CreateContactPropertyOptionsFallbackValue {
   final String value;
   const CreateContactPropertyOptionsFallbackValueString(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
-final class CreateContactPropertyOptionsFallbackValueDouble
-    extends CreateContactPropertyOptionsFallbackValue {
+final class CreateContactPropertyOptionsFallbackValueDouble extends CreateContactPropertyOptionsFallbackValue {
   final double value;
   const CreateContactPropertyOptionsFallbackValueDouble(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
 /// Typed representation of the `CreateContactPropertyOptions` API schema.
 class CreateContactPropertyOptions {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The property key. Max length is 50 characters. Only alphanumeric characters and underscores are allowed.
   final String key;
-
   /// The property type.
   final CreateContactPropertyOptionsType type_;
-
   /// The default value to use when the property is not set for a contact. Must match the type specified in the type field.
   final SdkOptional<dynamic> fallbackValue;
 
-  const CreateContactPropertyOptions(
-      {required this.key,
-      required this.type_,
-      this.fallbackValue = const SdkOmitted()});
+  const CreateContactPropertyOptions({required this.key, required this.type_, this.fallbackValue = const SdkOmitted()});
 
-  CreateContactPropertyOptions Function(
-      {String key,
-      CreateContactPropertyOptionsType type_,
-      SdkOptional<dynamic> fallbackValue}) get copyWith => _copyWith;
+  CreateContactPropertyOptions Function({String key, CreateContactPropertyOptionsType type_, SdkOptional<dynamic> fallbackValue}) get copyWith => _copyWith;
 
-  CreateContactPropertyOptions _copyWith(
-          {Object? key = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? fallbackValue = sdkOmittedValue}) =>
-      CreateContactPropertyOptions(
-        key: identical(key, sdkOmittedValue) ? this.key : key as String,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as CreateContactPropertyOptionsType,
-        fallbackValue: identical(fallbackValue, sdkOmittedValue)
-            ? this.fallbackValue
-            : fallbackValue as SdkOptional<dynamic>,
-      );
+  CreateContactPropertyOptions _copyWith({Object? key = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? fallbackValue = sdkOmittedValue}) => CreateContactPropertyOptions(
+    key: identical(key, sdkOmittedValue) ? this.key : key as String,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as CreateContactPropertyOptionsType,
+    fallbackValue: identical(fallbackValue, sdkOmittedValue) ? this.fallbackValue : fallbackValue as SdkOptional<dynamic>,
+  );
 
-  factory CreateContactPropertyOptions.fromJson(Map<String, dynamic> json) =>
-      CreateContactPropertyOptions(
-        key: (json['key'] as String?)!,
-        type_: (json['type'] != null
-            ? CreateContactPropertyOptionsType.fromJson(json['type'] as String)
-            : null)!,
-        fallbackValue: json['fallback_value'] != null
-            ? SdkPresent((json['fallback_value'])!)
-            : const SdkOmitted(),
-      );
+  factory CreateContactPropertyOptions.fromJson(Map<String, dynamic> json) => CreateContactPropertyOptions(
+    key: (json['key'] as String?)!,
+    type_: (json['type'] != null ? CreateContactPropertyOptionsType.fromJson(json['type'] as String) : null)!,
+    fallbackValue: json['fallback_value'] != null ? SdkPresent((json['fallback_value'])!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'key': key,
-        'type': type_.toJson(),
-        ...switch (fallbackValue) {
-          SdkPresent<dynamic>(value: final value) => {
-              'fallback_value': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'key': key,
+    'type': type_.toJson(),
+    ...switch (fallbackValue) {
+      SdkPresent<dynamic>(value: final value) => {'fallback_value': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `CreateContactPropertyResponseSuccess` API schema.
 class CreateContactPropertyResponseSuccess {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The ID of the contact property.
   final SdkOptional<String> id;
-
   /// The object type of the response.
   final SdkOptional<String> object;
 
-  const CreateContactPropertyResponseSuccess(
-      {this.id = const SdkOmitted(), this.object = const SdkOmitted()});
+  const CreateContactPropertyResponseSuccess({this.id = const SdkOmitted(), this.object = const SdkOmitted()});
 
-  CreateContactPropertyResponseSuccess Function(
-      {SdkOptional<String> id,
-      SdkOptional<String> object}) get copyWith => _copyWith;
+  CreateContactPropertyResponseSuccess Function({SdkOptional<String> id, SdkOptional<String> object}) get copyWith => _copyWith;
 
-  CreateContactPropertyResponseSuccess _copyWith(
-          {Object? id = sdkOmittedValue, Object? object = sdkOmittedValue}) =>
-      CreateContactPropertyResponseSuccess(
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as SdkOptional<String>,
-      );
+  CreateContactPropertyResponseSuccess _copyWith({Object? id = sdkOmittedValue, Object? object = sdkOmittedValue}) => CreateContactPropertyResponseSuccess(
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<String>,
+  );
 
-  factory CreateContactPropertyResponseSuccess.fromJson(
-          Map<String, dynamic> json) =>
-      CreateContactPropertyResponseSuccess(
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-        object: json['object'] != null
-            ? SdkPresent((json['object'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory CreateContactPropertyResponseSuccess.fromJson(Map<String, dynamic> json) => CreateContactPropertyResponseSuccess(
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+    object: json['object'] != null ? SdkPresent((json['object'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (object) {
-          SdkPresent<String>(value: final value) => {
-              'object': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (object) {
+      SdkPresent<String>(value: final value) => {'object': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

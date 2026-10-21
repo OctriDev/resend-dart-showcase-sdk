@@ -6,12 +6,12 @@ part of 'inline.dart';
 // Inline operation models
 /// The type of record (SPF for sending, DKIM for sending, Receiving for inbound emails, Tracking & TrackingCAA for click and open tracking).
 final class DomainRecordRecord {
+
   final String value;
 
   const DomainRecordRecord._(this.value);
 
-  factory DomainRecordRecord.fromJson(String value) =>
-      DomainRecordRecord._(value);
+  factory DomainRecordRecord.fromJson(String value) => DomainRecordRecord._(value);
 
   static const spf = DomainRecordRecord._('SPF');
   static const dkim = DomainRecordRecord._('DKIM');
@@ -21,25 +21,22 @@ final class DomainRecordRecord {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is DomainRecordRecord && other.value == value;
+  @override bool operator ==(Object other) => other is DomainRecordRecord && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The status of the record.
 final class DomainRecordStatus {
+
   final String value;
 
   const DomainRecordStatus._(this.value);
 
-  factory DomainRecordStatus.fromJson(String value) =>
-      DomainRecordStatus._(value);
+  factory DomainRecordStatus.fromJson(String value) => DomainRecordStatus._(value);
 
   static const pending = DomainRecordStatus._('pending');
   static const verified = DomainRecordStatus._('verified');
@@ -49,19 +46,17 @@ final class DomainRecordStatus {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is DomainRecordStatus && other.value == value;
+  @override bool operator ==(Object other) => other is DomainRecordStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The DNS record type.
 final class DomainRecordType {
+
   final String value;
 
   const DomainRecordType._(this.value);
@@ -75,15 +70,12 @@ final class DomainRecordType {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is DomainRecordType && other.value == value;
+  @override bool operator ==(Object other) => other is DomainRecordType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The event type.
@@ -92,17 +84,14 @@ enum DomainUpdatedEventType {
 
   static DomainUpdatedEventType fromJson(String value) {
     switch (value) {
-      case 'domain.updated':
-        return DomainUpdatedEventType.domainUpdated;
-      default:
-        throw ArgumentError('Unknown DomainUpdatedEventType: $value');
+      case 'domain.updated': return DomainUpdatedEventType.domainUpdated;
+      default: throw ArgumentError('Unknown DomainUpdatedEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case DomainUpdatedEventType.domainUpdated:
-        return 'domain.updated';
+      case DomainUpdatedEventType.domainUpdated: return 'domain.updated';
     }
   }
 
@@ -112,6 +101,7 @@ enum DomainUpdatedEventType {
 
 /// The status of the email.
 final class EmailLastEvent {
+
   final String value;
 
   const EmailLastEvent._(this.value);
@@ -133,15 +123,12 @@ final class EmailLastEvent {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is EmailLastEvent && other.value == value;
+  @override bool operator ==(Object other) => other is EmailLastEvent && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The event type.
@@ -150,17 +137,14 @@ enum EmailBouncedEventType {
 
   static EmailBouncedEventType fromJson(String value) {
     switch (value) {
-      case 'email.bounced':
-        return EmailBouncedEventType.emailBounced;
-      default:
-        throw ArgumentError('Unknown EmailBouncedEventType: $value');
+      case 'email.bounced': return EmailBouncedEventType.emailBounced;
+      default: throw ArgumentError('Unknown EmailBouncedEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case EmailBouncedEventType.emailBounced:
-        return 'email.bounced';
+      case EmailBouncedEventType.emailBounced: return 'email.bounced';
     }
   }
 
@@ -174,17 +158,14 @@ enum EmailClickedEventType {
 
   static EmailClickedEventType fromJson(String value) {
     switch (value) {
-      case 'email.clicked':
-        return EmailClickedEventType.emailClicked;
-      default:
-        throw ArgumentError('Unknown EmailClickedEventType: $value');
+      case 'email.clicked': return EmailClickedEventType.emailClicked;
+      default: throw ArgumentError('Unknown EmailClickedEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case EmailClickedEventType.emailClicked:
-        return 'email.clicked';
+      case EmailClickedEventType.emailClicked: return 'email.clicked';
     }
   }
 
@@ -198,17 +179,14 @@ enum EmailComplainedEventType {
 
   static EmailComplainedEventType fromJson(String value) {
     switch (value) {
-      case 'email.complained':
-        return EmailComplainedEventType.emailComplained;
-      default:
-        throw ArgumentError('Unknown EmailComplainedEventType: $value');
+      case 'email.complained': return EmailComplainedEventType.emailComplained;
+      default: throw ArgumentError('Unknown EmailComplainedEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case EmailComplainedEventType.emailComplained:
-        return 'email.complained';
+      case EmailComplainedEventType.emailComplained: return 'email.complained';
     }
   }
 
@@ -222,17 +200,14 @@ enum EmailDeliveredEventType {
 
   static EmailDeliveredEventType fromJson(String value) {
     switch (value) {
-      case 'email.delivered':
-        return EmailDeliveredEventType.emailDelivered;
-      default:
-        throw ArgumentError('Unknown EmailDeliveredEventType: $value');
+      case 'email.delivered': return EmailDeliveredEventType.emailDelivered;
+      default: throw ArgumentError('Unknown EmailDeliveredEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case EmailDeliveredEventType.emailDelivered:
-        return 'email.delivered';
+      case EmailDeliveredEventType.emailDelivered: return 'email.delivered';
     }
   }
 
@@ -246,17 +221,14 @@ enum EmailDeliveryDelayedEventType {
 
   static EmailDeliveryDelayedEventType fromJson(String value) {
     switch (value) {
-      case 'email.delivery_delayed':
-        return EmailDeliveryDelayedEventType.emailDeliveryDelayed;
-      default:
-        throw ArgumentError('Unknown EmailDeliveryDelayedEventType: $value');
+      case 'email.delivery_delayed': return EmailDeliveryDelayedEventType.emailDeliveryDelayed;
+      default: throw ArgumentError('Unknown EmailDeliveryDelayedEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case EmailDeliveryDelayedEventType.emailDeliveryDelayed:
-        return 'email.delivery_delayed';
+      case EmailDeliveryDelayedEventType.emailDeliveryDelayed: return 'email.delivery_delayed';
     }
   }
 
@@ -270,17 +242,14 @@ enum EmailFailedEventType {
 
   static EmailFailedEventType fromJson(String value) {
     switch (value) {
-      case 'email.failed':
-        return EmailFailedEventType.emailFailed;
-      default:
-        throw ArgumentError('Unknown EmailFailedEventType: $value');
+      case 'email.failed': return EmailFailedEventType.emailFailed;
+      default: throw ArgumentError('Unknown EmailFailedEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case EmailFailedEventType.emailFailed:
-        return 'email.failed';
+      case EmailFailedEventType.emailFailed: return 'email.failed';
     }
   }
 
@@ -294,17 +263,14 @@ enum EmailOpenedEventType {
 
   static EmailOpenedEventType fromJson(String value) {
     switch (value) {
-      case 'email.opened':
-        return EmailOpenedEventType.emailOpened;
-      default:
-        throw ArgumentError('Unknown EmailOpenedEventType: $value');
+      case 'email.opened': return EmailOpenedEventType.emailOpened;
+      default: throw ArgumentError('Unknown EmailOpenedEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case EmailOpenedEventType.emailOpened:
-        return 'email.opened';
+      case EmailOpenedEventType.emailOpened: return 'email.opened';
     }
   }
 

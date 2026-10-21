@@ -8,73 +8,41 @@ part of 'webhooks.dart';
 class DeleteWebhookResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of object.
   final SdkOptional<String> object;
-
   /// The ID of the deleted webhook.
   final SdkOptional<String> id;
-
   /// Indicates whether the webhook was successfully deleted.
   final SdkOptional<bool> deleted;
 
-  const DeleteWebhookResponse(
-      {this.object = const SdkOmitted(),
-      this.id = const SdkOmitted(),
-      this.deleted = const SdkOmitted()});
+  const DeleteWebhookResponse({this.object = const SdkOmitted(), this.id = const SdkOmitted(), this.deleted = const SdkOmitted()});
 
-  DeleteWebhookResponse Function(
-      {SdkOptional<String> object,
-      SdkOptional<String> id,
-      SdkOptional<bool> deleted}) get copyWith => _copyWith;
+  DeleteWebhookResponse Function({SdkOptional<String> object, SdkOptional<String> id, SdkOptional<bool> deleted}) get copyWith => _copyWith;
 
-  DeleteWebhookResponse _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? deleted = sdkOmittedValue}) =>
-      DeleteWebhookResponse(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as SdkOptional<String>,
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-        deleted: identical(deleted, sdkOmittedValue)
-            ? this.deleted
-            : deleted as SdkOptional<bool>,
-      );
+  DeleteWebhookResponse _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? deleted = sdkOmittedValue}) => DeleteWebhookResponse(
+    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<String>,
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+    deleted: identical(deleted, sdkOmittedValue) ? this.deleted : deleted as SdkOptional<bool>,
+  );
 
-  factory DeleteWebhookResponse.fromJson(Map<String, dynamic> json) =>
-      DeleteWebhookResponse(
-        object: json['object'] != null
-            ? SdkPresent((json['object'] as String?)!)
-            : const SdkOmitted(),
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-        deleted: json['deleted'] != null
-            ? SdkPresent((json['deleted'] as bool?)!)
-            : const SdkOmitted(),
-      );
+  factory DeleteWebhookResponse.fromJson(Map<String, dynamic> json) => DeleteWebhookResponse(
+    object: json['object'] != null ? SdkPresent((json['object'] as String?)!) : const SdkOmitted(),
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+    deleted: json['deleted'] != null ? SdkPresent((json['deleted'] as bool?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (object) {
-          SdkPresent<String>(value: final value) => {
-              'object': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (deleted) {
-          SdkPresent<bool>(value: final value) => {
-              'deleted': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (object) {
+      SdkPresent<String>(value: final value) => {'object': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (deleted) {
+      SdkPresent<bool>(value: final value) => {'deleted': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

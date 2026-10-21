@@ -8,35 +8,25 @@ part of 'emails.dart';
 class SendEmailResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The ID of the sent email.
   final SdkOptional<String> id;
 
   const SendEmailResponse({this.id = const SdkOmitted()});
 
-  SendEmailResponse Function({SdkOptional<String> id}) get copyWith =>
-      _copyWith;
+  SendEmailResponse Function({SdkOptional<String> id}) get copyWith => _copyWith;
 
-  SendEmailResponse _copyWith({Object? id = sdkOmittedValue}) =>
-      SendEmailResponse(
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-      );
+  SendEmailResponse _copyWith({Object? id = sdkOmittedValue}) => SendEmailResponse(
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+  );
 
-  factory SendEmailResponse.fromJson(Map<String, dynamic> json) =>
-      SendEmailResponse(
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory SendEmailResponse.fromJson(Map<String, dynamic> json) => SendEmailResponse(
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

@@ -8,74 +8,41 @@ part of 'contacts.dart';
 class AddContactToSegmentResponseSuccess {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The object type.
   final SdkOptional<String> object;
-
   /// The ID of the contact.
   final SdkOptional<String> contactId;
-
   /// The ID of the segment.
   final SdkOptional<String> segmentId;
 
-  const AddContactToSegmentResponseSuccess(
-      {this.object = const SdkOmitted(),
-      this.contactId = const SdkOmitted(),
-      this.segmentId = const SdkOmitted()});
+  const AddContactToSegmentResponseSuccess({this.object = const SdkOmitted(), this.contactId = const SdkOmitted(), this.segmentId = const SdkOmitted()});
 
-  AddContactToSegmentResponseSuccess Function(
-      {SdkOptional<String> object,
-      SdkOptional<String> contactId,
-      SdkOptional<String> segmentId}) get copyWith => _copyWith;
+  AddContactToSegmentResponseSuccess Function({SdkOptional<String> object, SdkOptional<String> contactId, SdkOptional<String> segmentId}) get copyWith => _copyWith;
 
-  AddContactToSegmentResponseSuccess _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? contactId = sdkOmittedValue,
-          Object? segmentId = sdkOmittedValue}) =>
-      AddContactToSegmentResponseSuccess(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as SdkOptional<String>,
-        contactId: identical(contactId, sdkOmittedValue)
-            ? this.contactId
-            : contactId as SdkOptional<String>,
-        segmentId: identical(segmentId, sdkOmittedValue)
-            ? this.segmentId
-            : segmentId as SdkOptional<String>,
-      );
+  AddContactToSegmentResponseSuccess _copyWith({Object? object = sdkOmittedValue, Object? contactId = sdkOmittedValue, Object? segmentId = sdkOmittedValue}) => AddContactToSegmentResponseSuccess(
+    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<String>,
+    contactId: identical(contactId, sdkOmittedValue) ? this.contactId : contactId as SdkOptional<String>,
+    segmentId: identical(segmentId, sdkOmittedValue) ? this.segmentId : segmentId as SdkOptional<String>,
+  );
 
-  factory AddContactToSegmentResponseSuccess.fromJson(
-          Map<String, dynamic> json) =>
-      AddContactToSegmentResponseSuccess(
-        object: json['object'] != null
-            ? SdkPresent((json['object'] as String?)!)
-            : const SdkOmitted(),
-        contactId: json['contact_id'] != null
-            ? SdkPresent((json['contact_id'] as String?)!)
-            : const SdkOmitted(),
-        segmentId: json['segment_id'] != null
-            ? SdkPresent((json['segment_id'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory AddContactToSegmentResponseSuccess.fromJson(Map<String, dynamic> json) => AddContactToSegmentResponseSuccess(
+    object: json['object'] != null ? SdkPresent((json['object'] as String?)!) : const SdkOmitted(),
+    contactId: json['contact_id'] != null ? SdkPresent((json['contact_id'] as String?)!) : const SdkOmitted(),
+    segmentId: json['segment_id'] != null ? SdkPresent((json['segment_id'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (object) {
-          SdkPresent<String>(value: final value) => {
-              'object': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (contactId) {
-          SdkPresent<String>(value: final value) => {
-              'contact_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (segmentId) {
-          SdkPresent<String>(value: final value) => {
-              'segment_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (object) {
+      SdkPresent<String>(value: final value) => {'object': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (contactId) {
+      SdkPresent<String>(value: final value) => {'contact_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (segmentId) {
+      SdkPresent<String>(value: final value) => {'segment_id': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

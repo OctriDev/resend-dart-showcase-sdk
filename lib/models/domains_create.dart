@@ -8,369 +8,177 @@ part of 'domains.dart';
 class CreateDomainRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The name of the domain you want to create.
   final String name;
-
   /// The region where emails will be sent from. Possible values are us-east-1 | eu-west-1 | sa-east-1 | ap-northeast-1
   final SdkOptional<CreateDomainRequestRegion> region;
-
   /// For advanced use cases, choose a subdomain for the Return-Path address. Defaults to 'send' (i.e., send.yourdomain.tld).
   final SdkOptional<String> customReturnPath;
-
   /// Track the open rate of each email.
   final SdkOptional<bool> openTracking;
-
   /// Track clicks within the body of each HTML email.
   final SdkOptional<bool> clickTracking;
-
   /// TLS mode. Opportunistic attempts secure connection but falls back to unencrypted. Enforced requires TLS or email won't be sent.
   final SdkOptional<CreateDomainRequestTls> tls;
-
   /// Configure the domain capabilities for sending and receiving emails. At least one capability must be enabled.
   final SdkOptional<DomainCapabilities> capabilities;
-
   /// The subdomain to use for click and open tracking.
   final SdkOptional<String> trackingSubdomain;
 
-  const CreateDomainRequest(
-      {required this.name,
-      this.region = const SdkOmitted(),
-      this.customReturnPath = const SdkOmitted(),
-      this.openTracking = const SdkOmitted(),
-      this.clickTracking = const SdkOmitted(),
-      this.tls = const SdkOmitted(),
-      this.capabilities = const SdkOmitted(),
-      this.trackingSubdomain = const SdkOmitted()});
+  const CreateDomainRequest({required this.name, this.region = const SdkOmitted(), this.customReturnPath = const SdkOmitted(), this.openTracking = const SdkOmitted(), this.clickTracking = const SdkOmitted(), this.tls = const SdkOmitted(), this.capabilities = const SdkOmitted(), this.trackingSubdomain = const SdkOmitted()});
 
-  CreateDomainRequest Function(
-      {String name,
-      SdkOptional<CreateDomainRequestRegion> region,
-      SdkOptional<String> customReturnPath,
-      SdkOptional<bool> openTracking,
-      SdkOptional<bool> clickTracking,
-      SdkOptional<CreateDomainRequestTls> tls,
-      SdkOptional<DomainCapabilities> capabilities,
-      SdkOptional<String> trackingSubdomain}) get copyWith => _copyWith;
+  CreateDomainRequest Function({String name, SdkOptional<CreateDomainRequestRegion> region, SdkOptional<String> customReturnPath, SdkOptional<bool> openTracking, SdkOptional<bool> clickTracking, SdkOptional<CreateDomainRequestTls> tls, SdkOptional<DomainCapabilities> capabilities, SdkOptional<String> trackingSubdomain}) get copyWith => _copyWith;
 
-  CreateDomainRequest _copyWith(
-          {Object? name = sdkOmittedValue,
-          Object? region = sdkOmittedValue,
-          Object? customReturnPath = sdkOmittedValue,
-          Object? openTracking = sdkOmittedValue,
-          Object? clickTracking = sdkOmittedValue,
-          Object? tls = sdkOmittedValue,
-          Object? capabilities = sdkOmittedValue,
-          Object? trackingSubdomain = sdkOmittedValue}) =>
-      CreateDomainRequest(
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        region: identical(region, sdkOmittedValue)
-            ? this.region
-            : region as SdkOptional<CreateDomainRequestRegion>,
-        customReturnPath: identical(customReturnPath, sdkOmittedValue)
-            ? this.customReturnPath
-            : customReturnPath as SdkOptional<String>,
-        openTracking: identical(openTracking, sdkOmittedValue)
-            ? this.openTracking
-            : openTracking as SdkOptional<bool>,
-        clickTracking: identical(clickTracking, sdkOmittedValue)
-            ? this.clickTracking
-            : clickTracking as SdkOptional<bool>,
-        tls: identical(tls, sdkOmittedValue)
-            ? this.tls
-            : tls as SdkOptional<CreateDomainRequestTls>,
-        capabilities: identical(capabilities, sdkOmittedValue)
-            ? this.capabilities
-            : capabilities as SdkOptional<DomainCapabilities>,
-        trackingSubdomain: identical(trackingSubdomain, sdkOmittedValue)
-            ? this.trackingSubdomain
-            : trackingSubdomain as SdkOptional<String>,
-      );
+  CreateDomainRequest _copyWith({Object? name = sdkOmittedValue, Object? region = sdkOmittedValue, Object? customReturnPath = sdkOmittedValue, Object? openTracking = sdkOmittedValue, Object? clickTracking = sdkOmittedValue, Object? tls = sdkOmittedValue, Object? capabilities = sdkOmittedValue, Object? trackingSubdomain = sdkOmittedValue}) => CreateDomainRequest(
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    region: identical(region, sdkOmittedValue) ? this.region : region as SdkOptional<CreateDomainRequestRegion>,
+    customReturnPath: identical(customReturnPath, sdkOmittedValue) ? this.customReturnPath : customReturnPath as SdkOptional<String>,
+    openTracking: identical(openTracking, sdkOmittedValue) ? this.openTracking : openTracking as SdkOptional<bool>,
+    clickTracking: identical(clickTracking, sdkOmittedValue) ? this.clickTracking : clickTracking as SdkOptional<bool>,
+    tls: identical(tls, sdkOmittedValue) ? this.tls : tls as SdkOptional<CreateDomainRequestTls>,
+    capabilities: identical(capabilities, sdkOmittedValue) ? this.capabilities : capabilities as SdkOptional<DomainCapabilities>,
+    trackingSubdomain: identical(trackingSubdomain, sdkOmittedValue) ? this.trackingSubdomain : trackingSubdomain as SdkOptional<String>,
+  );
 
-  factory CreateDomainRequest.fromJson(Map<String, dynamic> json) =>
-      CreateDomainRequest(
-        name: (json['name'] as String?)!,
-        region: json['region'] != null
-            ? SdkPresent((json['region'] != null
-                ? CreateDomainRequestRegion.fromJson(json['region'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        customReturnPath: json['custom_return_path'] != null
-            ? SdkPresent((json['custom_return_path'] as String?)!)
-            : const SdkOmitted(),
-        openTracking: json['open_tracking'] != null
-            ? SdkPresent((json['open_tracking'] as bool?)!)
-            : const SdkOmitted(),
-        clickTracking: json['click_tracking'] != null
-            ? SdkPresent((json['click_tracking'] as bool?)!)
-            : const SdkOmitted(),
-        tls: json['tls'] != null
-            ? SdkPresent((json['tls'] != null
-                ? CreateDomainRequestTls.fromJson(json['tls'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        capabilities: json['capabilities'] != null
-            ? SdkPresent((json['capabilities'] != null
-                ? DomainCapabilities.fromJson(
-                    json['capabilities'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        trackingSubdomain: json['tracking_subdomain'] != null
-            ? SdkPresent((json['tracking_subdomain'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory CreateDomainRequest.fromJson(Map<String, dynamic> json) => CreateDomainRequest(
+    name: (json['name'] as String?)!,
+    region: json['region'] != null ? SdkPresent((json['region'] != null ? CreateDomainRequestRegion.fromJson(json['region'] as String) : null)!) : const SdkOmitted(),
+    customReturnPath: json['custom_return_path'] != null ? SdkPresent((json['custom_return_path'] as String?)!) : const SdkOmitted(),
+    openTracking: json['open_tracking'] != null ? SdkPresent((json['open_tracking'] as bool?)!) : const SdkOmitted(),
+    clickTracking: json['click_tracking'] != null ? SdkPresent((json['click_tracking'] as bool?)!) : const SdkOmitted(),
+    tls: json['tls'] != null ? SdkPresent((json['tls'] != null ? CreateDomainRequestTls.fromJson(json['tls'] as String) : null)!) : const SdkOmitted(),
+    capabilities: json['capabilities'] != null ? SdkPresent((json['capabilities'] != null ? DomainCapabilities.fromJson(json['capabilities'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    trackingSubdomain: json['tracking_subdomain'] != null ? SdkPresent((json['tracking_subdomain'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'name': name,
-        ...switch (region) {
-          SdkPresent<CreateDomainRequestRegion>(value: final value) => {
-              'region': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (customReturnPath) {
-          SdkPresent<String>(value: final value) => {
-              'custom_return_path': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (openTracking) {
-          SdkPresent<bool>(value: final value) => {
-              'open_tracking': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (clickTracking) {
-          SdkPresent<bool>(value: final value) => {
-              'click_tracking': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (tls) {
-          SdkPresent<CreateDomainRequestTls>(value: final value) => {
-              'tls': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (capabilities) {
-          SdkPresent<DomainCapabilities>(value: final value) => {
-              'capabilities': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (trackingSubdomain) {
-          SdkPresent<String>(value: final value) => {
-              'tracking_subdomain': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'name': name,
+    ...switch (region) {
+      SdkPresent<CreateDomainRequestRegion>(value: final value) => {'region': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (customReturnPath) {
+      SdkPresent<String>(value: final value) => {'custom_return_path': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (openTracking) {
+      SdkPresent<bool>(value: final value) => {'open_tracking': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (clickTracking) {
+      SdkPresent<bool>(value: final value) => {'click_tracking': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (tls) {
+      SdkPresent<CreateDomainRequestTls>(value: final value) => {'tls': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (capabilities) {
+      SdkPresent<DomainCapabilities>(value: final value) => {'capabilities': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (trackingSubdomain) {
+      SdkPresent<String>(value: final value) => {'tracking_subdomain': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `CreateDomainResponse` API schema.
 class CreateDomainResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The ID of the domain.
   final SdkOptional<String> id;
-
   /// The name of the domain.
   final SdkOptional<String> name;
-
   /// The date and time the domain was created.
   final SdkOptional<String> createdAt;
-
   /// The status of the domain.
   final SdkOptional<CreateDomainResponseStatus> status;
-
   /// Configure the domain capabilities for sending and receiving emails. At least one capability must be enabled.
   final SdkOptional<DomainCapabilities> capabilities;
-
   /// Optional array value serialized in the `records` wire field.
   final SdkOptional<List<DomainRecord>> records;
-
   /// The region where the domain is hosted.
   final SdkOptional<String> region;
-
   /// Whether open tracking is enabled for this domain.
   final SdkOptional<bool> openTracking;
-
   /// Whether click tracking is enabled for this domain.
   final SdkOptional<bool> clickTracking;
-
   /// The subdomain used for click and open tracking.
   final SdkOptional<String> trackingSubdomain;
 
-  const CreateDomainResponse(
-      {this.id = const SdkOmitted(),
-      this.name = const SdkOmitted(),
-      this.createdAt = const SdkOmitted(),
-      this.status = const SdkOmitted(),
-      this.capabilities = const SdkOmitted(),
-      this.records = const SdkOmitted(),
-      this.region = const SdkOmitted(),
-      this.openTracking = const SdkOmitted(),
-      this.clickTracking = const SdkOmitted(),
-      this.trackingSubdomain = const SdkOmitted()});
+  const CreateDomainResponse({this.id = const SdkOmitted(), this.name = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.status = const SdkOmitted(), this.capabilities = const SdkOmitted(), this.records = const SdkOmitted(), this.region = const SdkOmitted(), this.openTracking = const SdkOmitted(), this.clickTracking = const SdkOmitted(), this.trackingSubdomain = const SdkOmitted()});
 
-  CreateDomainResponse Function(
-      {SdkOptional<String> id,
-      SdkOptional<String> name,
-      SdkOptional<String> createdAt,
-      SdkOptional<CreateDomainResponseStatus> status,
-      SdkOptional<DomainCapabilities> capabilities,
-      SdkOptional<List<DomainRecord>> records,
-      SdkOptional<String> region,
-      SdkOptional<bool> openTracking,
-      SdkOptional<bool> clickTracking,
-      SdkOptional<String> trackingSubdomain}) get copyWith => _copyWith;
+  CreateDomainResponse Function({SdkOptional<String> id, SdkOptional<String> name, SdkOptional<String> createdAt, SdkOptional<CreateDomainResponseStatus> status, SdkOptional<DomainCapabilities> capabilities, SdkOptional<List<DomainRecord>> records, SdkOptional<String> region, SdkOptional<bool> openTracking, SdkOptional<bool> clickTracking, SdkOptional<String> trackingSubdomain}) get copyWith => _copyWith;
 
-  CreateDomainResponse _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? status = sdkOmittedValue,
-          Object? capabilities = sdkOmittedValue,
-          Object? records = sdkOmittedValue,
-          Object? region = sdkOmittedValue,
-          Object? openTracking = sdkOmittedValue,
-          Object? clickTracking = sdkOmittedValue,
-          Object? trackingSubdomain = sdkOmittedValue}) =>
-      CreateDomainResponse(
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as SdkOptional<String>,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as SdkOptional<CreateDomainResponseStatus>,
-        capabilities: identical(capabilities, sdkOmittedValue)
-            ? this.capabilities
-            : capabilities as SdkOptional<DomainCapabilities>,
-        records: identical(records, sdkOmittedValue)
-            ? this.records
-            : records as SdkOptional<List<DomainRecord>>,
-        region: identical(region, sdkOmittedValue)
-            ? this.region
-            : region as SdkOptional<String>,
-        openTracking: identical(openTracking, sdkOmittedValue)
-            ? this.openTracking
-            : openTracking as SdkOptional<bool>,
-        clickTracking: identical(clickTracking, sdkOmittedValue)
-            ? this.clickTracking
-            : clickTracking as SdkOptional<bool>,
-        trackingSubdomain: identical(trackingSubdomain, sdkOmittedValue)
-            ? this.trackingSubdomain
-            : trackingSubdomain as SdkOptional<String>,
-      );
+  CreateDomainResponse _copyWith({Object? id = sdkOmittedValue, Object? name = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? status = sdkOmittedValue, Object? capabilities = sdkOmittedValue, Object? records = sdkOmittedValue, Object? region = sdkOmittedValue, Object? openTracking = sdkOmittedValue, Object? clickTracking = sdkOmittedValue, Object? trackingSubdomain = sdkOmittedValue}) => CreateDomainResponse(
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
+    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<CreateDomainResponseStatus>,
+    capabilities: identical(capabilities, sdkOmittedValue) ? this.capabilities : capabilities as SdkOptional<DomainCapabilities>,
+    records: identical(records, sdkOmittedValue) ? this.records : records as SdkOptional<List<DomainRecord>>,
+    region: identical(region, sdkOmittedValue) ? this.region : region as SdkOptional<String>,
+    openTracking: identical(openTracking, sdkOmittedValue) ? this.openTracking : openTracking as SdkOptional<bool>,
+    clickTracking: identical(clickTracking, sdkOmittedValue) ? this.clickTracking : clickTracking as SdkOptional<bool>,
+    trackingSubdomain: identical(trackingSubdomain, sdkOmittedValue) ? this.trackingSubdomain : trackingSubdomain as SdkOptional<String>,
+  );
 
-  factory CreateDomainResponse.fromJson(Map<String, dynamic> json) =>
-      CreateDomainResponse(
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-        createdAt: json['created_at'] != null
-            ? SdkPresent((json['created_at'] as String?)!)
-            : const SdkOmitted(),
-        status: json['status'] != null
-            ? SdkPresent((json['status'] != null
-                ? CreateDomainResponseStatus.fromJson(json['status'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        capabilities: json['capabilities'] != null
-            ? SdkPresent((json['capabilities'] != null
-                ? DomainCapabilities.fromJson(
-                    json['capabilities'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        records: json['records'] != null
-            ? SdkPresent(((json['records'] as List?)
-                ?.map((e) => DomainRecord.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        region: json['region'] != null
-            ? SdkPresent((json['region'] as String?)!)
-            : const SdkOmitted(),
-        openTracking: json['open_tracking'] != null
-            ? SdkPresent((json['open_tracking'] as bool?)!)
-            : const SdkOmitted(),
-        clickTracking: json['click_tracking'] != null
-            ? SdkPresent((json['click_tracking'] as bool?)!)
-            : const SdkOmitted(),
-        trackingSubdomain: json['tracking_subdomain'] != null
-            ? SdkPresent((json['tracking_subdomain'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory CreateDomainResponse.fromJson(Map<String, dynamic> json) => CreateDomainResponse(
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
+    status: json['status'] != null ? SdkPresent((json['status'] != null ? CreateDomainResponseStatus.fromJson(json['status'] as String) : null)!) : const SdkOmitted(),
+    capabilities: json['capabilities'] != null ? SdkPresent((json['capabilities'] != null ? DomainCapabilities.fromJson(json['capabilities'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    records: json['records'] != null ? SdkPresent(((json['records'] as List?)?.map((e) => DomainRecord.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    region: json['region'] != null ? SdkPresent((json['region'] as String?)!) : const SdkOmitted(),
+    openTracking: json['open_tracking'] != null ? SdkPresent((json['open_tracking'] as bool?)!) : const SdkOmitted(),
+    clickTracking: json['click_tracking'] != null ? SdkPresent((json['click_tracking'] as bool?)!) : const SdkOmitted(),
+    trackingSubdomain: json['tracking_subdomain'] != null ? SdkPresent((json['tracking_subdomain'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (createdAt) {
-          SdkPresent<String>(value: final value) => {
-              'created_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (status) {
-          SdkPresent<CreateDomainResponseStatus>(value: final value) => {
-              'status': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (capabilities) {
-          SdkPresent<DomainCapabilities>(value: final value) => {
-              'capabilities': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (records) {
-          SdkPresent<List<DomainRecord>>(value: final value) => {
-              'records': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (region) {
-          SdkPresent<String>(value: final value) => {
-              'region': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (openTracking) {
-          SdkPresent<bool>(value: final value) => {
-              'open_tracking': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (clickTracking) {
-          SdkPresent<bool>(value: final value) => {
-              'click_tracking': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (trackingSubdomain) {
-          SdkPresent<String>(value: final value) => {
-              'tracking_subdomain': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (createdAt) {
+      SdkPresent<String>(value: final value) => {'created_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (status) {
+      SdkPresent<CreateDomainResponseStatus>(value: final value) => {'status': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (capabilities) {
+      SdkPresent<DomainCapabilities>(value: final value) => {'capabilities': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (records) {
+      SdkPresent<List<DomainRecord>>(value: final value) => {'records': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (region) {
+      SdkPresent<String>(value: final value) => {'region': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (openTracking) {
+      SdkPresent<bool>(value: final value) => {'open_tracking': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (clickTracking) {
+      SdkPresent<bool>(value: final value) => {'click_tracking': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (trackingSubdomain) {
+      SdkPresent<String>(value: final value) => {'tracking_subdomain': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

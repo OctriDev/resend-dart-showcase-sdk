@@ -8,320 +8,156 @@ part of 'automations.dart';
 class AutomationRun {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Type of the response object.
   final SdkOptional<String> object;
-
   /// The ID of the automation run.
   final SdkOptional<String> id;
-
   /// The current status of the automation run.
   final SdkOptional<AutomationRunStatus> status;
-
   /// The date and time the run started.
   final SdkOptional<String?> startedAt;
-
   /// The date and time the run completed.
   final SdkOptional<String?> completedAt;
-
   /// The date and time the run was created.
   final SdkOptional<String> createdAt;
-
   /// The steps executed in this run, sorted in graph order.
   final SdkOptional<List<AutomationRunStep>> steps;
 
-  const AutomationRun(
-      {this.object = const SdkOmitted(),
-      this.id = const SdkOmitted(),
-      this.status = const SdkOmitted(),
-      this.startedAt = const SdkOmitted(),
-      this.completedAt = const SdkOmitted(),
-      this.createdAt = const SdkOmitted(),
-      this.steps = const SdkOmitted()});
+  const AutomationRun({this.object = const SdkOmitted(), this.id = const SdkOmitted(), this.status = const SdkOmitted(), this.startedAt = const SdkOmitted(), this.completedAt = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.steps = const SdkOmitted()});
 
-  AutomationRun Function(
-      {SdkOptional<String> object,
-      SdkOptional<String> id,
-      SdkOptional<AutomationRunStatus> status,
-      SdkOptional<String?> startedAt,
-      SdkOptional<String?> completedAt,
-      SdkOptional<String> createdAt,
-      SdkOptional<List<AutomationRunStep>> steps}) get copyWith => _copyWith;
+  AutomationRun Function({SdkOptional<String> object, SdkOptional<String> id, SdkOptional<AutomationRunStatus> status, SdkOptional<String?> startedAt, SdkOptional<String?> completedAt, SdkOptional<String> createdAt, SdkOptional<List<AutomationRunStep>> steps}) get copyWith => _copyWith;
 
-  AutomationRun _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? status = sdkOmittedValue,
-          Object? startedAt = sdkOmittedValue,
-          Object? completedAt = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? steps = sdkOmittedValue}) =>
-      AutomationRun(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as SdkOptional<String>,
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as SdkOptional<AutomationRunStatus>,
-        startedAt: identical(startedAt, sdkOmittedValue)
-            ? this.startedAt
-            : startedAt as SdkOptional<String?>,
-        completedAt: identical(completedAt, sdkOmittedValue)
-            ? this.completedAt
-            : completedAt as SdkOptional<String?>,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as SdkOptional<String>,
-        steps: identical(steps, sdkOmittedValue)
-            ? this.steps
-            : steps as SdkOptional<List<AutomationRunStep>>,
-      );
+  AutomationRun _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? status = sdkOmittedValue, Object? startedAt = sdkOmittedValue, Object? completedAt = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? steps = sdkOmittedValue}) => AutomationRun(
+    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<String>,
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<AutomationRunStatus>,
+    startedAt: identical(startedAt, sdkOmittedValue) ? this.startedAt : startedAt as SdkOptional<String?>,
+    completedAt: identical(completedAt, sdkOmittedValue) ? this.completedAt : completedAt as SdkOptional<String?>,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
+    steps: identical(steps, sdkOmittedValue) ? this.steps : steps as SdkOptional<List<AutomationRunStep>>,
+  );
 
   factory AutomationRun.fromJson(Map<String, dynamic> json) => AutomationRun(
-        object: json['object'] != null
-            ? SdkPresent((json['object'] as String?)!)
-            : const SdkOmitted(),
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-        status: json['status'] != null
-            ? SdkPresent((json['status'] != null
-                ? AutomationRunStatus.fromJson(json['status'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        startedAt: json.containsKey('started_at')
-            ? SdkPresent(json['started_at'] as String?)
-            : const SdkOmitted(),
-        completedAt: json.containsKey('completed_at')
-            ? SdkPresent(json['completed_at'] as String?)
-            : const SdkOmitted(),
-        createdAt: json['created_at'] != null
-            ? SdkPresent((json['created_at'] as String?)!)
-            : const SdkOmitted(),
-        steps: json['steps'] != null
-            ? SdkPresent(((json['steps'] as List?)
-                ?.map((e) =>
-                    AutomationRunStep.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+    object: json['object'] != null ? SdkPresent((json['object'] as String?)!) : const SdkOmitted(),
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+    status: json['status'] != null ? SdkPresent((json['status'] != null ? AutomationRunStatus.fromJson(json['status'] as String) : null)!) : const SdkOmitted(),
+    startedAt: json.containsKey('started_at') ? SdkPresent(json['started_at'] as String?) : const SdkOmitted(),
+    completedAt: json.containsKey('completed_at') ? SdkPresent(json['completed_at'] as String?) : const SdkOmitted(),
+    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
+    steps: json['steps'] != null ? SdkPresent(((json['steps'] as List?)?.map((e) => AutomationRunStep.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (object) {
-          SdkPresent<String>(value: final value) => {
-              'object': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (status) {
-          SdkPresent<AutomationRunStatus>(value: final value) => {
-              'status': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (startedAt) {
-          SdkPresent<String?>(value: final value) => {
-              'started_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (completedAt) {
-          SdkPresent<String?>(value: final value) => {
-              'completed_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (createdAt) {
-          SdkPresent<String>(value: final value) => {
-              'created_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (steps) {
-          SdkPresent<List<AutomationRunStep>>(value: final value) => {
-              'steps': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (object) {
+      SdkPresent<String>(value: final value) => {'object': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (status) {
+      SdkPresent<AutomationRunStatus>(value: final value) => {'status': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (startedAt) {
+      SdkPresent<String?>(value: final value) => {'started_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (completedAt) {
+      SdkPresent<String?>(value: final value) => {'completed_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (createdAt) {
+      SdkPresent<String>(value: final value) => {'created_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (steps) {
+      SdkPresent<List<AutomationRunStep>>(value: final value) => {'steps': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// A step execution within an automation run.
 class AutomationRunStep {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The key of the automation step.
   final SdkOptional<String> key;
-
   /// The type of automation step.
   final SdkOptional<AutomationRunStepType> type_;
-
   /// The execution status of this step.
   final SdkOptional<String> status;
-
   /// The date and time the step started executing.
   final SdkOptional<String?> startedAt;
-
   /// The date and time the step completed executing.
   final SdkOptional<String?> completedAt;
-
   /// The output produced by the step, if any.
   final SdkOptional<Map<String, dynamic>?> output;
-
   /// The error produced by the step, if any.
   final SdkOptional<Map<String, dynamic>?> error;
-
   /// The date and time the step record was created.
   final SdkOptional<String> createdAt;
 
-  const AutomationRunStep(
-      {this.key = const SdkOmitted(),
-      this.type_ = const SdkOmitted(),
-      this.status = const SdkOmitted(),
-      this.startedAt = const SdkOmitted(),
-      this.completedAt = const SdkOmitted(),
-      this.output = const SdkOmitted(),
-      this.error = const SdkOmitted(),
-      this.createdAt = const SdkOmitted()});
+  const AutomationRunStep({this.key = const SdkOmitted(), this.type_ = const SdkOmitted(), this.status = const SdkOmitted(), this.startedAt = const SdkOmitted(), this.completedAt = const SdkOmitted(), this.output = const SdkOmitted(), this.error = const SdkOmitted(), this.createdAt = const SdkOmitted()});
 
-  AutomationRunStep Function(
-      {SdkOptional<String> key,
-      SdkOptional<AutomationRunStepType> type_,
-      SdkOptional<String> status,
-      SdkOptional<String?> startedAt,
-      SdkOptional<String?> completedAt,
-      SdkOptional<Map<String, dynamic>?> output,
-      SdkOptional<Map<String, dynamic>?> error,
-      SdkOptional<String> createdAt}) get copyWith => _copyWith;
+  AutomationRunStep Function({SdkOptional<String> key, SdkOptional<AutomationRunStepType> type_, SdkOptional<String> status, SdkOptional<String?> startedAt, SdkOptional<String?> completedAt, SdkOptional<Map<String, dynamic>?> output, SdkOptional<Map<String, dynamic>?> error, SdkOptional<String> createdAt}) get copyWith => _copyWith;
 
-  AutomationRunStep _copyWith(
-          {Object? key = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? status = sdkOmittedValue,
-          Object? startedAt = sdkOmittedValue,
-          Object? completedAt = sdkOmittedValue,
-          Object? output = sdkOmittedValue,
-          Object? error = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue}) =>
-      AutomationRunStep(
-        key: identical(key, sdkOmittedValue)
-            ? this.key
-            : key as SdkOptional<String>,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<AutomationRunStepType>,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as SdkOptional<String>,
-        startedAt: identical(startedAt, sdkOmittedValue)
-            ? this.startedAt
-            : startedAt as SdkOptional<String?>,
-        completedAt: identical(completedAt, sdkOmittedValue)
-            ? this.completedAt
-            : completedAt as SdkOptional<String?>,
-        output: identical(output, sdkOmittedValue)
-            ? this.output
-            : output as SdkOptional<Map<String, dynamic>?>,
-        error: identical(error, sdkOmittedValue)
-            ? this.error
-            : error as SdkOptional<Map<String, dynamic>?>,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as SdkOptional<String>,
-      );
+  AutomationRunStep _copyWith({Object? key = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? status = sdkOmittedValue, Object? startedAt = sdkOmittedValue, Object? completedAt = sdkOmittedValue, Object? output = sdkOmittedValue, Object? error = sdkOmittedValue, Object? createdAt = sdkOmittedValue}) => AutomationRunStep(
+    key: identical(key, sdkOmittedValue) ? this.key : key as SdkOptional<String>,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<AutomationRunStepType>,
+    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<String>,
+    startedAt: identical(startedAt, sdkOmittedValue) ? this.startedAt : startedAt as SdkOptional<String?>,
+    completedAt: identical(completedAt, sdkOmittedValue) ? this.completedAt : completedAt as SdkOptional<String?>,
+    output: identical(output, sdkOmittedValue) ? this.output : output as SdkOptional<Map<String, dynamic>?>,
+    error: identical(error, sdkOmittedValue) ? this.error : error as SdkOptional<Map<String, dynamic>?>,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
+  );
 
-  factory AutomationRunStep.fromJson(Map<String, dynamic> json) =>
-      AutomationRunStep(
-        key: json['key'] != null
-            ? SdkPresent((json['key'] as String?)!)
-            : const SdkOmitted(),
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] != null
-                ? AutomationRunStepType.fromJson(json['type'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        status: json['status'] != null
-            ? SdkPresent((json['status'] as String?)!)
-            : const SdkOmitted(),
-        startedAt: json.containsKey('started_at')
-            ? SdkPresent(json['started_at'] as String?)
-            : const SdkOmitted(),
-        completedAt: json.containsKey('completed_at')
-            ? SdkPresent(json['completed_at'] as String?)
-            : const SdkOmitted(),
-        output: json.containsKey('output')
-            ? SdkPresent(json['output'] == null
-                ? null
-                : json['output'] as Map<String, dynamic>)
-            : const SdkOmitted(),
-        error: json.containsKey('error')
-            ? SdkPresent(json['error'] == null
-                ? null
-                : json['error'] as Map<String, dynamic>)
-            : const SdkOmitted(),
-        createdAt: json['created_at'] != null
-            ? SdkPresent((json['created_at'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory AutomationRunStep.fromJson(Map<String, dynamic> json) => AutomationRunStep(
+    key: json['key'] != null ? SdkPresent((json['key'] as String?)!) : const SdkOmitted(),
+    type_: json['type'] != null ? SdkPresent((json['type'] != null ? AutomationRunStepType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
+    status: json['status'] != null ? SdkPresent((json['status'] as String?)!) : const SdkOmitted(),
+    startedAt: json.containsKey('started_at') ? SdkPresent(json['started_at'] as String?) : const SdkOmitted(),
+    completedAt: json.containsKey('completed_at') ? SdkPresent(json['completed_at'] as String?) : const SdkOmitted(),
+    output: json.containsKey('output') ? SdkPresent(json['output'] == null ? null : json['output'] as Map<String, dynamic>) : const SdkOmitted(),
+    error: json.containsKey('error') ? SdkPresent(json['error'] == null ? null : json['error'] as Map<String, dynamic>) : const SdkOmitted(),
+    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (key) {
-          SdkPresent<String>(value: final value) => {
-              'key': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (type_) {
-          SdkPresent<AutomationRunStepType>(value: final value) => {
-              'type': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (status) {
-          SdkPresent<String>(value: final value) => {
-              'status': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (startedAt) {
-          SdkPresent<String?>(value: final value) => {
-              'started_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (completedAt) {
-          SdkPresent<String?>(value: final value) => {
-              'completed_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (output) {
-          SdkPresent<Map<String, dynamic>?>(value: final value) => {
-              'output': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (error) {
-          SdkPresent<Map<String, dynamic>?>(value: final value) => {
-              'error': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (createdAt) {
-          SdkPresent<String>(value: final value) => {
-              'created_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (key) {
+      SdkPresent<String>(value: final value) => {'key': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (type_) {
+      SdkPresent<AutomationRunStepType>(value: final value) => {'type': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (status) {
+      SdkPresent<String>(value: final value) => {'status': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (startedAt) {
+      SdkPresent<String?>(value: final value) => {'started_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (completedAt) {
+      SdkPresent<String?>(value: final value) => {'completed_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (output) {
+      SdkPresent<Map<String, dynamic>?>(value: final value) => {'output': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (error) {
+      SdkPresent<Map<String, dynamic>?>(value: final value) => {'error': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (createdAt) {
+      SdkPresent<String>(value: final value) => {'created_at': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

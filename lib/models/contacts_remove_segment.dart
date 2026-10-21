@@ -8,92 +8,49 @@ part of 'contacts.dart';
 class RemoveContactFromSegmentResponseSuccess {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The object type.
   final SdkOptional<String> object;
-
   /// The ID of the contact.
   final SdkOptional<String> contactId;
-
   /// The ID of the segment.
   final SdkOptional<String> segmentId;
-
   /// Indicates whether the contact was successfully removed from the segment.
   final SdkOptional<bool> deleted;
 
-  const RemoveContactFromSegmentResponseSuccess(
-      {this.object = const SdkOmitted(),
-      this.contactId = const SdkOmitted(),
-      this.segmentId = const SdkOmitted(),
-      this.deleted = const SdkOmitted()});
+  const RemoveContactFromSegmentResponseSuccess({this.object = const SdkOmitted(), this.contactId = const SdkOmitted(), this.segmentId = const SdkOmitted(), this.deleted = const SdkOmitted()});
 
-  RemoveContactFromSegmentResponseSuccess Function(
-      {SdkOptional<String> object,
-      SdkOptional<String> contactId,
-      SdkOptional<String> segmentId,
-      SdkOptional<bool> deleted}) get copyWith => _copyWith;
+  RemoveContactFromSegmentResponseSuccess Function({SdkOptional<String> object, SdkOptional<String> contactId, SdkOptional<String> segmentId, SdkOptional<bool> deleted}) get copyWith => _copyWith;
 
-  RemoveContactFromSegmentResponseSuccess _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? contactId = sdkOmittedValue,
-          Object? segmentId = sdkOmittedValue,
-          Object? deleted = sdkOmittedValue}) =>
-      RemoveContactFromSegmentResponseSuccess(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as SdkOptional<String>,
-        contactId: identical(contactId, sdkOmittedValue)
-            ? this.contactId
-            : contactId as SdkOptional<String>,
-        segmentId: identical(segmentId, sdkOmittedValue)
-            ? this.segmentId
-            : segmentId as SdkOptional<String>,
-        deleted: identical(deleted, sdkOmittedValue)
-            ? this.deleted
-            : deleted as SdkOptional<bool>,
-      );
+  RemoveContactFromSegmentResponseSuccess _copyWith({Object? object = sdkOmittedValue, Object? contactId = sdkOmittedValue, Object? segmentId = sdkOmittedValue, Object? deleted = sdkOmittedValue}) => RemoveContactFromSegmentResponseSuccess(
+    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<String>,
+    contactId: identical(contactId, sdkOmittedValue) ? this.contactId : contactId as SdkOptional<String>,
+    segmentId: identical(segmentId, sdkOmittedValue) ? this.segmentId : segmentId as SdkOptional<String>,
+    deleted: identical(deleted, sdkOmittedValue) ? this.deleted : deleted as SdkOptional<bool>,
+  );
 
-  factory RemoveContactFromSegmentResponseSuccess.fromJson(
-          Map<String, dynamic> json) =>
-      RemoveContactFromSegmentResponseSuccess(
-        object: json['object'] != null
-            ? SdkPresent((json['object'] as String?)!)
-            : const SdkOmitted(),
-        contactId: json['contact_id'] != null
-            ? SdkPresent((json['contact_id'] as String?)!)
-            : const SdkOmitted(),
-        segmentId: json['segment_id'] != null
-            ? SdkPresent((json['segment_id'] as String?)!)
-            : const SdkOmitted(),
-        deleted: json['deleted'] != null
-            ? SdkPresent((json['deleted'] as bool?)!)
-            : const SdkOmitted(),
-      );
+  factory RemoveContactFromSegmentResponseSuccess.fromJson(Map<String, dynamic> json) => RemoveContactFromSegmentResponseSuccess(
+    object: json['object'] != null ? SdkPresent((json['object'] as String?)!) : const SdkOmitted(),
+    contactId: json['contact_id'] != null ? SdkPresent((json['contact_id'] as String?)!) : const SdkOmitted(),
+    segmentId: json['segment_id'] != null ? SdkPresent((json['segment_id'] as String?)!) : const SdkOmitted(),
+    deleted: json['deleted'] != null ? SdkPresent((json['deleted'] as bool?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (object) {
-          SdkPresent<String>(value: final value) => {
-              'object': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (contactId) {
-          SdkPresent<String>(value: final value) => {
-              'contact_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (segmentId) {
-          SdkPresent<String>(value: final value) => {
-              'segment_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (deleted) {
-          SdkPresent<bool>(value: final value) => {
-              'deleted': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (object) {
+      SdkPresent<String>(value: final value) => {'object': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (contactId) {
+      SdkPresent<String>(value: final value) => {'contact_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (segmentId) {
+      SdkPresent<String>(value: final value) => {'segment_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (deleted) {
+      SdkPresent<bool>(value: final value) => {'deleted': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

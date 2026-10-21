@@ -24,10 +24,8 @@ Future<CreateContactResponseSuccess> contactsCreate(ClientConfig config,
     SdkOptional<String> lastName = const SdkOmitted(),
     SdkOptional<bool> unsubscribed = const SdkOmitted(),
     SdkOptional<Map<String, dynamic>> properties = const SdkOmitted(),
-    SdkOptional<List<CreateContactOptionsSegmentsItem>> segments =
-        const SdkOmitted(),
-    SdkOptional<List<CreateContactOptionsTopicsItem>> topics =
-        const SdkOmitted(),
+    SdkOptional<List<CreateContactOptionsSegmentsItem>> segments = const SdkOmitted(),
+    SdkOptional<List<CreateContactOptionsTopicsItem>> topics = const SdkOmitted(),
     SdkOptional<String> audienceId = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
   return (await sdkRequest<CreateContactResponseSuccess>('POST', '/contacts',
@@ -44,11 +42,11 @@ Future<CreateContactResponseSuccess> contactsCreate(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'contactsCreate',
-          fromJsonRaw: (value) => CreateContactResponseSuccess.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => CreateContactResponseSuccess.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Lists contacts, with each result including contact information. Use `after` or `before` to navigate results by cursor, and `limit` to control the number of items returned.
 ///
@@ -67,20 +65,17 @@ Future<ListContactsResponseSuccess> contactsList(ClientConfig config,
   return (await sdkRequest<ListContactsResponseSuccess>('GET', '/contacts',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
-                style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
-                style: 'form', explode: true),
-            'before': SdkQueryValue(SdkUtils.unwrapOptional(before),
-                style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true),
+            'before': SdkQueryValue(SdkUtils.unwrapOptional(before), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'contactsList',
-          fromJsonRaw: (value) => ListContactsResponseSuccess.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ListContactsResponseSuccess.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Creates a contact import from a CSV file. Include the file and optionally provide a column mapping, conflict strategy, segments, or topic subscriptions for imported contacts.
 ///
@@ -93,15 +88,14 @@ Future<ListContactsResponseSuccess> contactsList(ClientConfig config,
 /// [segments] JSON-encoded array of segments to add imported contacts to.
 /// [topics] JSON-encoded array of topic subscriptions to apply to imported
 ///   contacts. Each `subscription` must be `opt_in` or `opt_out`.
-Future<CreateContactImportResponseSuccess> contactsCreateImport(
-    ClientConfig config,
-    {required SdkUploadFile file,
-    SdkOptional<String> columnMap = const SdkOmitted(),
-    SdkOptional<CreateContactImportOptionsOnConflict> onConflict =
-        const SdkOmitted(),
-    SdkOptional<String> segments = const SdkOmitted(),
-    SdkOptional<String> topics = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<CreateContactImportResponseSuccess>
+    contactsCreateImport(ClientConfig config,
+        {required SdkUploadFile file,
+        SdkOptional<String> columnMap = const SdkOmitted(),
+        SdkOptional<CreateContactImportOptionsOnConflict> onConflict = const SdkOmitted(),
+        SdkOptional<String> segments = const SdkOmitted(),
+        SdkOptional<String> topics = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   return (await sdkRequest<CreateContactImportResponseSuccess>(
           'POST', '/contacts/imports',
           config: config,
@@ -115,11 +109,11 @@ Future<CreateContactImportResponseSuccess> contactsCreateImport(
           contentType: 'multipart/form-data',
           decoder: SdkResponseDecoder.json,
           operationId: 'contactsCreateImport',
-          fromJsonRaw: (value) => CreateContactImportResponseSuccess.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => CreateContactImportResponseSuccess.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Lists contact imports and their processing information. Use `status` to filter by import state, and `after` or `before` to navigate results by cursor.
 ///
@@ -127,13 +121,13 @@ Future<CreateContactImportResponseSuccess> contactsCreateImport(
 /// [limit] Number of items to return.
 /// [after] Return items after this cursor.
 /// [before] Return items before this cursor.
-Future<ListContactImportsResponseSuccess> contactsListImports(
-    ClientConfig config,
-    {SdkOptional<ContactsListImportsStatus> status = const SdkOmitted(),
-    SdkOptional<int> limit = const SdkOmitted(),
-    SdkOptional<String> after = const SdkOmitted(),
-    SdkOptional<String> before = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<ListContactImportsResponseSuccess>
+    contactsListImports(ClientConfig config,
+        {SdkOptional<ContactsListImportsStatus> status = const SdkOmitted(),
+        SdkOptional<int> limit = const SdkOmitted(),
+        SdkOptional<String> after = const SdkOmitted(),
+        SdkOptional<String> before = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   if (limit is SdkPresent<int>) {
     validateRange('limit', limit.value, min: 1, max: 100);
   }
@@ -142,22 +136,18 @@ Future<ListContactImportsResponseSuccess> contactsListImports(
           'GET', '/contacts/imports',
           config: config,
           query: {
-            'status': SdkQueryValue(SdkUtils.unwrapOptional(status),
-                style: 'form', explode: true),
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
-                style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
-                style: 'form', explode: true),
-            'before': SdkQueryValue(SdkUtils.unwrapOptional(before),
-                style: 'form', explode: true)
+            'status': SdkQueryValue(SdkUtils.unwrapOptional(status), style: 'form', explode: true),
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true),
+            'before': SdkQueryValue(SdkUtils.unwrapOptional(before), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'contactsListImports',
-          fromJsonRaw: (value) => ListContactImportsResponseSuccess.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ListContactImportsResponseSuccess.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Retrieves a contact import by its identifier. Use the import record to review its status, timestamps, and processing counts.
 ///
@@ -171,11 +161,11 @@ Future<GetContactImportResponseSuccess> contactsGetImport(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'contactsGetImport',
-          fromJsonRaw: (value) => GetContactImportResponseSuccess.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => GetContactImportResponseSuccess.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Retrieves a contact by its ID or email address. Use this operation to inspect the contact's profile, subscription status, and custom properties.
 ///
@@ -187,11 +177,11 @@ Future<GetContactResponseSuccess> contactsGet(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'contactsGet',
-          fromJsonRaw: (value) =>
-              GetContactResponseSuccess.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => GetContactResponseSuccess.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Updates a contact identified by its ID or email address. Include only the profile, subscription, or custom property fields you want to change.
 ///
@@ -222,11 +212,11 @@ Future<UpdateContactResponseSuccess> contactsUpdate(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'contactsUpdate',
-          fromJsonRaw: (value) => UpdateContactResponseSuccess.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => UpdateContactResponseSuccess.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Deletes a contact identified by its ID or email address. Use this operation to remove the contact from the contacts resource.
 ///
@@ -238,11 +228,11 @@ Future<RemoveContactResponseSuccess> contactsRemove(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'contactsRemove',
-          fromJsonRaw: (value) => RemoveContactResponseSuccess.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => RemoveContactResponseSuccess.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Lists the segments associated with a contact. Use `contact_id` to select the contact and `after` or `before` to position results relative to a cursor.
 ///
@@ -250,13 +240,13 @@ Future<RemoveContactResponseSuccess> contactsRemove(ClientConfig config,
 /// [limit] Number of items to return.
 /// [after] Return items after this cursor.
 /// [before] Return items before this cursor.
-Future<ListContactSegmentsResponseSuccess> contactsListSegments(
-    ClientConfig config,
-    {required String contactId,
-    SdkOptional<int> limit = const SdkOmitted(),
-    SdkOptional<String> after = const SdkOmitted(),
-    SdkOptional<String> before = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<ListContactSegmentsResponseSuccess>
+    contactsListSegments(ClientConfig config,
+        {required String contactId,
+        SdkOptional<int> limit = const SdkOmitted(),
+        SdkOptional<String> after = const SdkOmitted(),
+        SdkOptional<String> before = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   if (limit is SdkPresent<int>) {
     validateRange('limit', limit.value, min: 1, max: 100);
   }
@@ -265,61 +255,57 @@ Future<ListContactSegmentsResponseSuccess> contactsListSegments(
           '/contacts/${Uri.encodeComponent(contactId.toString())}/segments',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
-                style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
-                style: 'form', explode: true),
-            'before': SdkQueryValue(SdkUtils.unwrapOptional(before),
-                style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true),
+            'before': SdkQueryValue(SdkUtils.unwrapOptional(before), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'contactsListSegments',
-          fromJsonRaw: (value) => ListContactSegmentsResponseSuccess.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ListContactSegmentsResponseSuccess.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Adds a contact to a segment. Supply the contact’s ID or email address and the segment ID to select the membership to create.
 ///
 /// [contactId] The Contact ID or email address.
 /// [segmentId] The Segment ID.
-Future<AddContactToSegmentResponseSuccess> contactsAddSegment(
-    ClientConfig config,
-    {required String contactId,
-    required String segmentId,
-    RequestOptions? requestOptions}) async {
+Future<AddContactToSegmentResponseSuccess>
+    contactsAddSegment(ClientConfig config,
+        {required String contactId,
+        required String segmentId,
+        RequestOptions? requestOptions}) async {
   return (await sdkRequest<AddContactToSegmentResponseSuccess>('POST',
           '/contacts/${Uri.encodeComponent(contactId.toString())}/segments/${Uri.encodeComponent(segmentId.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'contactsAddSegment',
-          fromJsonRaw: (value) => AddContactToSegmentResponseSuccess.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => AddContactToSegmentResponseSuccess.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Removes a contact from a segment. Supply the contact’s ID or email address and the segment ID to select the membership to remove.
 ///
 /// [contactId] The Contact ID or email address.
 /// [segmentId] The Segment ID.
-Future<RemoveContactFromSegmentResponseSuccess> contactsRemoveSegment(
-    ClientConfig config,
-    {required String contactId,
-    required String segmentId,
-    RequestOptions? requestOptions}) async {
+Future<RemoveContactFromSegmentResponseSuccess>
+    contactsRemoveSegment(ClientConfig config,
+        {required String contactId,
+        required String segmentId,
+        RequestOptions? requestOptions}) async {
   return (await sdkRequest<RemoveContactFromSegmentResponseSuccess>('DELETE',
           '/contacts/${Uri.encodeComponent(contactId.toString())}/segments/${Uri.encodeComponent(segmentId.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'contactsRemoveSegment',
-          fromJsonRaw: (value) =>
-              RemoveContactFromSegmentResponseSuccess.fromJson(
-                  value as Map<String, dynamic>),
+          fromJsonRaw: (value) => RemoveContactFromSegmentResponseSuccess.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Lists the topics and subscription statuses associated with a contact. Use `contact_id` to select the contact and `after` or `before` to position results relative to a cursor.
 ///
@@ -341,38 +327,34 @@ Future<GetContactTopicsResponseSuccess> contactsListTopics(ClientConfig config,
           '/contacts/${Uri.encodeComponent(contactId.toString())}/topics',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
-                style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
-                style: 'form', explode: true),
-            'before': SdkQueryValue(SdkUtils.unwrapOptional(before),
-                style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true),
+            'before': SdkQueryValue(SdkUtils.unwrapOptional(before), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'contactsListTopics',
-          fromJsonRaw: (value) => GetContactTopicsResponseSuccess.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => GetContactTopicsResponseSuccess.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Updates a contact’s subscriptions to topics. Supply the required `topics` array with each topic ID and its subscription status.
 ///
 /// [contactId] The Contact ID or email address.
 /// [topics] Required array value serialized in the `topics` wire field.
-Future<UpdateContactTopicsResponseSuccess> contactsUpdateTopics(
-    ClientConfig config,
-    {required String contactId,
-    required List<UpdateContactTopicsOptionsTopicsItem> topics,
-    RequestOptions? requestOptions}) async {
+Future<UpdateContactTopicsResponseSuccess>
+    contactsUpdateTopics(ClientConfig config,
+        {required String contactId,
+        required List<UpdateContactTopicsOptionsTopicsItem> topics,
+        RequestOptions? requestOptions}) async {
   return (await sdkRequest<UpdateContactTopicsResponseSuccess>('PATCH',
           '/contacts/${Uri.encodeComponent(contactId.toString())}/topics',
           config: config,
           body: {'topics': topics},
           decoder: SdkResponseDecoder.json,
           operationId: 'contactsUpdateTopics',
-          fromJsonRaw: (value) => UpdateContactTopicsResponseSuccess.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => UpdateContactTopicsResponseSuccess.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }

@@ -6,37 +6,34 @@ part of 'inline.dart';
 // Inline operation models
 /// Whether the email was received by the inbox or sent from it.
 final class InboxEventEmailDirection {
+
   final String value;
 
   const InboxEventEmailDirection._(this.value);
 
-  factory InboxEventEmailDirection.fromJson(String value) =>
-      InboxEventEmailDirection._(value);
+  factory InboxEventEmailDirection.fromJson(String value) => InboxEventEmailDirection._(value);
 
   static const inbound = InboxEventEmailDirection._('inbound');
   static const outbound = InboxEventEmailDirection._('outbound');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is InboxEventEmailDirection && other.value == value;
+  @override bool operator ==(Object other) => other is InboxEventEmailDirection && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The folder the thread is in. Every thread is in exactly one folder. `inbox` holds threads with at least one received email. `archive` and `spam` hold threads moved there. `trash` holds threads scheduled for deletion in 30 days. `sent` holds threads whose emails are all outbound, and is assigned automatically.
 final class InboxThreadFolder {
+
   final String value;
 
   const InboxThreadFolder._(this.value);
 
-  factory InboxThreadFolder.fromJson(String value) =>
-      InboxThreadFolder._(value);
+  factory InboxThreadFolder.fromJson(String value) => InboxThreadFolder._(value);
 
   static const inbox = InboxThreadFolder._('inbox');
   static const archive = InboxThreadFolder._('archive');
@@ -46,15 +43,12 @@ final class InboxThreadFolder {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is InboxThreadFolder && other.value == value;
+  @override bool operator ==(Object other) => other is InboxThreadFolder && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The event type.
@@ -63,17 +57,14 @@ enum InboxThreadAssignedEventType {
 
   static InboxThreadAssignedEventType fromJson(String value) {
     switch (value) {
-      case 'inbox.thread.assigned':
-        return InboxThreadAssignedEventType.inboxThreadAssigned;
-      default:
-        throw ArgumentError('Unknown InboxThreadAssignedEventType: $value');
+      case 'inbox.thread.assigned': return InboxThreadAssignedEventType.inboxThreadAssigned;
+      default: throw ArgumentError('Unknown InboxThreadAssignedEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case InboxThreadAssignedEventType.inboxThreadAssigned:
-        return 'inbox.thread.assigned';
+      case InboxThreadAssignedEventType.inboxThreadAssigned: return 'inbox.thread.assigned';
     }
   }
 
@@ -87,17 +78,14 @@ enum InboxThreadCreatedEventType {
 
   static InboxThreadCreatedEventType fromJson(String value) {
     switch (value) {
-      case 'inbox.thread.created':
-        return InboxThreadCreatedEventType.inboxThreadCreated;
-      default:
-        throw ArgumentError('Unknown InboxThreadCreatedEventType: $value');
+      case 'inbox.thread.created': return InboxThreadCreatedEventType.inboxThreadCreated;
+      default: throw ArgumentError('Unknown InboxThreadCreatedEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case InboxThreadCreatedEventType.inboxThreadCreated:
-        return 'inbox.thread.created';
+      case InboxThreadCreatedEventType.inboxThreadCreated: return 'inbox.thread.created';
     }
   }
 
@@ -107,27 +95,24 @@ enum InboxThreadCreatedEventType {
 
 /// Whether the inbox received the message (`inbound`) or sent it (`outbound`). A message the inbox sent to itself is `inbound`, so a reply to it goes to its sender.
 final class InboxThreadEmailDirection {
+
   final String value;
 
   const InboxThreadEmailDirection._(this.value);
 
-  factory InboxThreadEmailDirection.fromJson(String value) =>
-      InboxThreadEmailDirection._(value);
+  factory InboxThreadEmailDirection.fromJson(String value) => InboxThreadEmailDirection._(value);
 
   static const inbound = InboxThreadEmailDirection._('inbound');
   static const outbound = InboxThreadEmailDirection._('outbound');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is InboxThreadEmailDirection && other.value == value;
+  @override bool operator ==(Object other) => other is InboxThreadEmailDirection && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The event type.
@@ -136,18 +121,14 @@ enum InboxThreadFolderUpdatedEventType {
 
   static InboxThreadFolderUpdatedEventType fromJson(String value) {
     switch (value) {
-      case 'inbox.thread.folder.updated':
-        return InboxThreadFolderUpdatedEventType.inboxThreadFolderUpdated;
-      default:
-        throw ArgumentError(
-            'Unknown InboxThreadFolderUpdatedEventType: $value');
+      case 'inbox.thread.folder.updated': return InboxThreadFolderUpdatedEventType.inboxThreadFolderUpdated;
+      default: throw ArgumentError('Unknown InboxThreadFolderUpdatedEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case InboxThreadFolderUpdatedEventType.inboxThreadFolderUpdated:
-        return 'inbox.thread.folder.updated';
+      case InboxThreadFolderUpdatedEventType.inboxThreadFolderUpdated: return 'inbox.thread.folder.updated';
     }
   }
 
@@ -157,12 +138,12 @@ enum InboxThreadFolderUpdatedEventType {
 
 /// The folder the thread was in.
 final class InboxThreadFolderUpdatedEventDataFrom {
+
   final String value;
 
   const InboxThreadFolderUpdatedEventDataFrom._(this.value);
 
-  factory InboxThreadFolderUpdatedEventDataFrom.fromJson(String value) =>
-      InboxThreadFolderUpdatedEventDataFrom._(value);
+  factory InboxThreadFolderUpdatedEventDataFrom.fromJson(String value) => InboxThreadFolderUpdatedEventDataFrom._(value);
 
   static const inbox = InboxThreadFolderUpdatedEventDataFrom._('inbox');
   static const archive = InboxThreadFolderUpdatedEventDataFrom._('archive');
@@ -171,25 +152,22 @@ final class InboxThreadFolderUpdatedEventDataFrom {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is InboxThreadFolderUpdatedEventDataFrom && other.value == value;
+  @override bool operator ==(Object other) => other is InboxThreadFolderUpdatedEventDataFrom && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The folder the thread moved to.
 final class InboxThreadFolderUpdatedEventDataTo {
+
   final String value;
 
   const InboxThreadFolderUpdatedEventDataTo._(this.value);
 
-  factory InboxThreadFolderUpdatedEventDataTo.fromJson(String value) =>
-      InboxThreadFolderUpdatedEventDataTo._(value);
+  factory InboxThreadFolderUpdatedEventDataTo.fromJson(String value) => InboxThreadFolderUpdatedEventDataTo._(value);
 
   static const inbox = InboxThreadFolderUpdatedEventDataTo._('inbox');
   static const archive = InboxThreadFolderUpdatedEventDataTo._('archive');
@@ -198,15 +176,12 @@ final class InboxThreadFolderUpdatedEventDataTo {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is InboxThreadFolderUpdatedEventDataTo && other.value == value;
+  @override bool operator ==(Object other) => other is InboxThreadFolderUpdatedEventDataTo && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The event type.
@@ -215,18 +190,14 @@ enum InboxThreadLabelsUpdatedEventType {
 
   static InboxThreadLabelsUpdatedEventType fromJson(String value) {
     switch (value) {
-      case 'inbox.thread.labels.updated':
-        return InboxThreadLabelsUpdatedEventType.inboxThreadLabelsUpdated;
-      default:
-        throw ArgumentError(
-            'Unknown InboxThreadLabelsUpdatedEventType: $value');
+      case 'inbox.thread.labels.updated': return InboxThreadLabelsUpdatedEventType.inboxThreadLabelsUpdated;
+      default: throw ArgumentError('Unknown InboxThreadLabelsUpdatedEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case InboxThreadLabelsUpdatedEventType.inboxThreadLabelsUpdated:
-        return 'inbox.thread.labels.updated';
+      case InboxThreadLabelsUpdatedEventType.inboxThreadLabelsUpdated: return 'inbox.thread.labels.updated';
     }
   }
 
@@ -236,12 +207,12 @@ enum InboxThreadLabelsUpdatedEventType {
 
 /// The folder the thread is in.
 final class InboxThreadSummaryFolder {
+
   final String value;
 
   const InboxThreadSummaryFolder._(this.value);
 
-  factory InboxThreadSummaryFolder.fromJson(String value) =>
-      InboxThreadSummaryFolder._(value);
+  factory InboxThreadSummaryFolder.fromJson(String value) => InboxThreadSummaryFolder._(value);
 
   static const inbox = InboxThreadSummaryFolder._('inbox');
   static const archive = InboxThreadSummaryFolder._('archive');
@@ -251,15 +222,12 @@ final class InboxThreadSummaryFolder {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is InboxThreadSummaryFolder && other.value == value;
+  @override bool operator ==(Object other) => other is InboxThreadSummaryFolder && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The event type.
@@ -268,17 +236,14 @@ enum InboxThreadUnassignedEventType {
 
   static InboxThreadUnassignedEventType fromJson(String value) {
     switch (value) {
-      case 'inbox.thread.unassigned':
-        return InboxThreadUnassignedEventType.inboxThreadUnassigned;
-      default:
-        throw ArgumentError('Unknown InboxThreadUnassignedEventType: $value');
+      case 'inbox.thread.unassigned': return InboxThreadUnassignedEventType.inboxThreadUnassigned;
+      default: throw ArgumentError('Unknown InboxThreadUnassignedEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case InboxThreadUnassignedEventType.inboxThreadUnassigned:
-        return 'inbox.thread.unassigned';
+      case InboxThreadUnassignedEventType.inboxThreadUnassigned: return 'inbox.thread.unassigned';
     }
   }
 
@@ -292,17 +257,14 @@ enum InboxUpdatedEventType {
 
   static InboxUpdatedEventType fromJson(String value) {
     switch (value) {
-      case 'inbox.updated':
-        return InboxUpdatedEventType.inboxUpdated;
-      default:
-        throw ArgumentError('Unknown InboxUpdatedEventType: $value');
+      case 'inbox.updated': return InboxUpdatedEventType.inboxUpdated;
+      default: throw ArgumentError('Unknown InboxUpdatedEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case InboxUpdatedEventType.inboxUpdated:
-        return 'inbox.updated';
+      case InboxUpdatedEventType.inboxUpdated: return 'inbox.updated';
     }
   }
 

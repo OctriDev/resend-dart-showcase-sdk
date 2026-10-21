@@ -8,7 +8,6 @@ part of 'segments.dart';
 class UpdateSegmentOptions {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The name of the segment.
   final String name;
 
@@ -16,72 +15,50 @@ class UpdateSegmentOptions {
 
   UpdateSegmentOptions Function({String name}) get copyWith => _copyWith;
 
-  UpdateSegmentOptions _copyWith({Object? name = sdkOmittedValue}) =>
-      UpdateSegmentOptions(
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-      );
+  UpdateSegmentOptions _copyWith({Object? name = sdkOmittedValue}) => UpdateSegmentOptions(
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+  );
 
-  factory UpdateSegmentOptions.fromJson(Map<String, dynamic> json) =>
-      UpdateSegmentOptions(
-        name: (json['name'] as String?)!,
-      );
+  factory UpdateSegmentOptions.fromJson(Map<String, dynamic> json) => UpdateSegmentOptions(
+    name: (json['name'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'name': name,
-      };
+    'name': name,
+  };
 }
 
 /// Typed representation of the `UpdateSegmentResponseSuccess` API schema.
 class UpdateSegmentResponseSuccess {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The ID of the segment.
   final SdkOptional<String> id;
-
   /// The object type.
   final SdkOptional<String> object;
 
-  const UpdateSegmentResponseSuccess(
-      {this.id = const SdkOmitted(), this.object = const SdkOmitted()});
+  const UpdateSegmentResponseSuccess({this.id = const SdkOmitted(), this.object = const SdkOmitted()});
 
-  UpdateSegmentResponseSuccess Function(
-      {SdkOptional<String> id,
-      SdkOptional<String> object}) get copyWith => _copyWith;
+  UpdateSegmentResponseSuccess Function({SdkOptional<String> id, SdkOptional<String> object}) get copyWith => _copyWith;
 
-  UpdateSegmentResponseSuccess _copyWith(
-          {Object? id = sdkOmittedValue, Object? object = sdkOmittedValue}) =>
-      UpdateSegmentResponseSuccess(
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as SdkOptional<String>,
-      );
+  UpdateSegmentResponseSuccess _copyWith({Object? id = sdkOmittedValue, Object? object = sdkOmittedValue}) => UpdateSegmentResponseSuccess(
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<String>,
+  );
 
-  factory UpdateSegmentResponseSuccess.fromJson(Map<String, dynamic> json) =>
-      UpdateSegmentResponseSuccess(
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-        object: json['object'] != null
-            ? SdkPresent((json['object'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory UpdateSegmentResponseSuccess.fromJson(Map<String, dynamic> json) => UpdateSegmentResponseSuccess(
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+    object: json['object'] != null ? SdkPresent((json['object'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (object) {
-          SdkPresent<String>(value: final value) => {
-              'object': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (object) {
+      SdkPresent<String>(value: final value) => {'object': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

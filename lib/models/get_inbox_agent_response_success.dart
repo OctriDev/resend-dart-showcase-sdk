@@ -8,73 +8,37 @@ part of 'get_inbox.dart';
 class GetInboxAgentResponseSuccess {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The object type. Always `inbox_agent`.
   final String object;
-
   /// Instructions the agent follows when it handles the threads of the inbox. Null when no instructions are set.
   final String? instructions;
-
   /// The tone the agent writes in. Null when no tone is set.
   final InboxAgentTone? tone;
-
   /// The actions the agent can take. Empty when no actions are enabled.
   final List<InboxAgentEnabledActionsItem> enabledActions;
 
-  const GetInboxAgentResponseSuccess(
-      {required this.object,
-      required this.instructions,
-      required this.tone,
-      required this.enabledActions});
+  const GetInboxAgentResponseSuccess({required this.object, required this.instructions, required this.tone, required this.enabledActions});
 
-  GetInboxAgentResponseSuccess Function(
-          {String object,
-          String? instructions,
-          InboxAgentTone? tone,
-          List<InboxAgentEnabledActionsItem> enabledActions})
-      get copyWith => _copyWith;
+  GetInboxAgentResponseSuccess Function({String object, String? instructions, InboxAgentTone? tone, List<InboxAgentEnabledActionsItem> enabledActions}) get copyWith => _copyWith;
 
-  GetInboxAgentResponseSuccess _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? instructions = sdkOmittedValue,
-          Object? tone = sdkOmittedValue,
-          Object? enabledActions = sdkOmittedValue}) =>
-      GetInboxAgentResponseSuccess(
-        object:
-            identical(object, sdkOmittedValue) ? this.object : object as String,
-        instructions: identical(instructions, sdkOmittedValue)
-            ? this.instructions
-            : instructions as String?,
-        tone: identical(tone, sdkOmittedValue)
-            ? this.tone
-            : tone as InboxAgentTone?,
-        enabledActions: identical(enabledActions, sdkOmittedValue)
-            ? this.enabledActions
-            : enabledActions as List<InboxAgentEnabledActionsItem>,
-      );
+  GetInboxAgentResponseSuccess _copyWith({Object? object = sdkOmittedValue, Object? instructions = sdkOmittedValue, Object? tone = sdkOmittedValue, Object? enabledActions = sdkOmittedValue}) => GetInboxAgentResponseSuccess(
+    object: identical(object, sdkOmittedValue) ? this.object : object as String,
+    instructions: identical(instructions, sdkOmittedValue) ? this.instructions : instructions as String?,
+    tone: identical(tone, sdkOmittedValue) ? this.tone : tone as InboxAgentTone?,
+    enabledActions: identical(enabledActions, sdkOmittedValue) ? this.enabledActions : enabledActions as List<InboxAgentEnabledActionsItem>,
+  );
 
-  factory GetInboxAgentResponseSuccess.fromJson(Map<String, dynamic> json) =>
-      GetInboxAgentResponseSuccess(
-        object: (json['object'] as String?)!,
-        instructions: json.containsKey('instructions')
-            ? json['instructions'] as String?
-            : throw ArgumentError.value(
-                null, 'instructions', 'Required property is missing'),
-        tone: json.containsKey('tone')
-            ? json['tone'] != null
-                ? InboxAgentTone.fromJson(json['tone'] as String)
-                : null
-            : throw ArgumentError.value(
-                null, 'tone', 'Required property is missing'),
-        enabledActions: ((json['enabled_actions'] as List?)
-            ?.map((e) => InboxAgentEnabledActionsItem.fromJson(e as String))
-            .toList())!,
-      );
+  factory GetInboxAgentResponseSuccess.fromJson(Map<String, dynamic> json) => GetInboxAgentResponseSuccess(
+    object: (json['object'] as String?)!,
+    instructions: json.containsKey('instructions') ? json['instructions'] as String? : throw ArgumentError.value(null, 'instructions', 'Required property is missing'),
+    tone: json.containsKey('tone') ? json['tone'] != null ? InboxAgentTone.fromJson(json['tone'] as String) : null : throw ArgumentError.value(null, 'tone', 'Required property is missing'),
+    enabledActions: ((json['enabled_actions'] as List?)?.map((e) => InboxAgentEnabledActionsItem.fromJson(e as String)).toList())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'object': object,
-        'instructions': instructions,
-        'tone': tone?.toJson(),
-        'enabled_actions': enabledActions.map((item) => item.toJson()).toList(),
-      };
+    'object': object,
+    'instructions': instructions,
+    'tone': tone?.toJson(),
+    'enabled_actions': enabledActions.map((item) => item.toJson()).toList(),
+  };
 }

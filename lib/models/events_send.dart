@@ -8,141 +8,81 @@ part of 'events.dart';
 class SendEventRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The name of the event to send.
   final String event;
-
   /// The ID of the contact to associate with this event. Exactly one of `contact_id` or `email` must be provided.
   final SdkOptional<String> contactId;
-
   /// The email address to associate with this event. Exactly one of `contact_id` or `email` must be provided.
   final SdkOptional<String> email;
-
   /// An optional payload of key/value pairs to include with the event.
   final SdkOptional<Map<String, Object?>> payload;
 
-  const SendEventRequest(
-      {required this.event,
-      this.contactId = const SdkOmitted(),
-      this.email = const SdkOmitted(),
-      this.payload = const SdkOmitted()});
+  const SendEventRequest({required this.event, this.contactId = const SdkOmitted(), this.email = const SdkOmitted(), this.payload = const SdkOmitted()});
 
-  SendEventRequest Function(
-      {String event,
-      SdkOptional<String> contactId,
-      SdkOptional<String> email,
-      SdkOptional<Map<String, Object?>> payload}) get copyWith => _copyWith;
+  SendEventRequest Function({String event, SdkOptional<String> contactId, SdkOptional<String> email, SdkOptional<Map<String, Object?>> payload}) get copyWith => _copyWith;
 
-  SendEventRequest _copyWith(
-          {Object? event = sdkOmittedValue,
-          Object? contactId = sdkOmittedValue,
-          Object? email = sdkOmittedValue,
-          Object? payload = sdkOmittedValue}) =>
-      SendEventRequest(
-        event: identical(event, sdkOmittedValue) ? this.event : event as String,
-        contactId: identical(contactId, sdkOmittedValue)
-            ? this.contactId
-            : contactId as SdkOptional<String>,
-        email: identical(email, sdkOmittedValue)
-            ? this.email
-            : email as SdkOptional<String>,
-        payload: identical(payload, sdkOmittedValue)
-            ? this.payload
-            : payload as SdkOptional<Map<String, Object?>>,
-      );
+  SendEventRequest _copyWith({Object? event = sdkOmittedValue, Object? contactId = sdkOmittedValue, Object? email = sdkOmittedValue, Object? payload = sdkOmittedValue}) => SendEventRequest(
+    event: identical(event, sdkOmittedValue) ? this.event : event as String,
+    contactId: identical(contactId, sdkOmittedValue) ? this.contactId : contactId as SdkOptional<String>,
+    email: identical(email, sdkOmittedValue) ? this.email : email as SdkOptional<String>,
+    payload: identical(payload, sdkOmittedValue) ? this.payload : payload as SdkOptional<Map<String, Object?>>,
+  );
 
-  factory SendEventRequest.fromJson(Map<String, dynamic> json) =>
-      SendEventRequest(
-        event: (json['event'] as String?)!,
-        contactId: json['contact_id'] != null
-            ? SdkPresent((json['contact_id'] as String?)!)
-            : const SdkOmitted(),
-        email: json['email'] != null
-            ? SdkPresent((json['email'] as String?)!)
-            : const SdkOmitted(),
-        payload: json['payload'] != null
-            ? SdkPresent((json['payload'] == null
-                ? null
-                : Map<String, dynamic>.from(json['payload'] as Map)
-                    .map((key, value) => MapEntry(key, value)))!)
-            : const SdkOmitted(),
-      );
+  factory SendEventRequest.fromJson(Map<String, dynamic> json) => SendEventRequest(
+    event: (json['event'] as String?)!,
+    contactId: json['contact_id'] != null ? SdkPresent((json['contact_id'] as String?)!) : const SdkOmitted(),
+    email: json['email'] != null ? SdkPresent((json['email'] as String?)!) : const SdkOmitted(),
+    payload: json['payload'] != null ? SdkPresent((json['payload'] == null ? null : Map<String, dynamic>.from(json['payload'] as Map).map((key, value) => MapEntry(key, value)))!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'event': event,
-        ...switch (contactId) {
-          SdkPresent<String>(value: final value) => {
-              'contact_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (email) {
-          SdkPresent<String>(value: final value) => {
-              'email': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (payload) {
-          SdkPresent<Map<String, Object?>>(value: final value) => {
-              'payload': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'event': event,
+    ...switch (contactId) {
+      SdkPresent<String>(value: final value) => {'contact_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (email) {
+      SdkPresent<String>(value: final value) => {'email': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (payload) {
+      SdkPresent<Map<String, Object?>>(value: final value) => {'payload': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `SendEventResponse` API schema.
 class SendEventResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Type of the response object.
   final SdkOptional<String> object;
-
   /// The name of the event that was sent.
   final SdkOptional<String> event;
 
-  const SendEventResponse(
-      {this.object = const SdkOmitted(), this.event = const SdkOmitted()});
+  const SendEventResponse({this.object = const SdkOmitted(), this.event = const SdkOmitted()});
 
-  SendEventResponse Function(
-      {SdkOptional<String> object,
-      SdkOptional<String> event}) get copyWith => _copyWith;
+  SendEventResponse Function({SdkOptional<String> object, SdkOptional<String> event}) get copyWith => _copyWith;
 
-  SendEventResponse _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? event = sdkOmittedValue}) =>
-      SendEventResponse(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as SdkOptional<String>,
-        event: identical(event, sdkOmittedValue)
-            ? this.event
-            : event as SdkOptional<String>,
-      );
+  SendEventResponse _copyWith({Object? object = sdkOmittedValue, Object? event = sdkOmittedValue}) => SendEventResponse(
+    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<String>,
+    event: identical(event, sdkOmittedValue) ? this.event : event as SdkOptional<String>,
+  );
 
-  factory SendEventResponse.fromJson(Map<String, dynamic> json) =>
-      SendEventResponse(
-        object: json['object'] != null
-            ? SdkPresent((json['object'] as String?)!)
-            : const SdkOmitted(),
-        event: json['event'] != null
-            ? SdkPresent((json['event'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory SendEventResponse.fromJson(Map<String, dynamic> json) => SendEventResponse(
+    object: json['object'] != null ? SdkPresent((json['object'] as String?)!) : const SdkOmitted(),
+    event: json['event'] != null ? SdkPresent((json['event'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (object) {
-          SdkPresent<String>(value: final value) => {
-              'object': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (event) {
-          SdkPresent<String>(value: final value) => {
-              'event': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (object) {
+      SdkPresent<String>(value: final value) => {'object': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (event) {
+      SdkPresent<String>(value: final value) => {'event': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

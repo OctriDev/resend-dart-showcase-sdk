@@ -6,6 +6,7 @@ part of 'inline.dart';
 // Inline operation models
 /// The current status of the automation.
 final class AutomationStatus {
+
   final String value;
 
   const AutomationStatus._(this.value);
@@ -17,79 +18,69 @@ final class AutomationStatus {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is AutomationStatus && other.value == value;
+  @override bool operator ==(Object other) => other is AutomationStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of connection. Defaults to `default`.
 final class AutomationConnectionType {
+
   final String value;
 
   const AutomationConnectionType._(this.value);
 
-  factory AutomationConnectionType.fromJson(String value) =>
-      AutomationConnectionType._(value);
+  factory AutomationConnectionType.fromJson(String value) => AutomationConnectionType._(value);
 
   static const default_ = AutomationConnectionType._('default');
   static const conditionMet = AutomationConnectionType._('condition_met');
-  static const conditionNotMet =
-      AutomationConnectionType._('condition_not_met');
+  static const conditionNotMet = AutomationConnectionType._('condition_not_met');
   static const timeout = AutomationConnectionType._('timeout');
   static const eventReceived = AutomationConnectionType._('event_received');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is AutomationConnectionType && other.value == value;
+  @override bool operator ==(Object other) => other is AutomationConnectionType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The current status of the automation.
 final class AutomationListItemStatus {
+
   final String value;
 
   const AutomationListItemStatus._(this.value);
 
-  factory AutomationListItemStatus.fromJson(String value) =>
-      AutomationListItemStatus._(value);
+  factory AutomationListItemStatus.fromJson(String value) => AutomationListItemStatus._(value);
 
   static const enabled = AutomationListItemStatus._('enabled');
   static const disabled = AutomationListItemStatus._('disabled');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is AutomationListItemStatus && other.value == value;
+  @override bool operator ==(Object other) => other is AutomationListItemStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The current status of the automation run.
 final class AutomationRunStatus {
+
   final String value;
 
   const AutomationRunStatus._(this.value);
 
-  factory AutomationRunStatus.fromJson(String value) =>
-      AutomationRunStatus._(value);
+  factory AutomationRunStatus.fromJson(String value) => AutomationRunStatus._(value);
 
   static const running = AutomationRunStatus._('running');
   static const completed = AutomationRunStatus._('completed');
@@ -98,25 +89,22 @@ final class AutomationRunStatus {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is AutomationRunStatus && other.value == value;
+  @override bool operator ==(Object other) => other is AutomationRunStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The current status of the automation run.
 final class AutomationRunListItemStatus {
+
   final String value;
 
   const AutomationRunListItemStatus._(this.value);
 
-  factory AutomationRunListItemStatus.fromJson(String value) =>
-      AutomationRunListItemStatus._(value);
+  factory AutomationRunListItemStatus.fromJson(String value) => AutomationRunListItemStatus._(value);
 
   static const running = AutomationRunListItemStatus._('running');
   static const completed = AutomationRunListItemStatus._('completed');
@@ -125,25 +113,22 @@ final class AutomationRunListItemStatus {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is AutomationRunListItemStatus && other.value == value;
+  @override bool operator ==(Object other) => other is AutomationRunListItemStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of automation step.
 final class AutomationRunStepType {
+
   final String value;
 
   const AutomationRunStepType._(this.value);
 
-  factory AutomationRunStepType.fromJson(String value) =>
-      AutomationRunStepType._(value);
+  factory AutomationRunStepType.fromJson(String value) => AutomationRunStepType._(value);
 
   static const trigger = AutomationRunStepType._('trigger');
   static const sendEmail = AutomationRunStepType._('send_email');
@@ -156,25 +141,22 @@ final class AutomationRunStepType {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is AutomationRunStepType && other.value == value;
+  @override bool operator ==(Object other) => other is AutomationRunStepType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of automation step.
 final class AutomationStepType {
+
   final String value;
 
   const AutomationStepType._(this.value);
 
-  factory AutomationStepType.fromJson(String value) =>
-      AutomationStepType._(value);
+  factory AutomationStepType.fromJson(String value) => AutomationStepType._(value);
 
   static const trigger = AutomationStepType._('trigger');
   static const sendEmail = AutomationStepType._('send_email');
@@ -187,25 +169,22 @@ final class AutomationStepType {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is AutomationStepType && other.value == value;
+  @override bool operator ==(Object other) => other is AutomationStepType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of automation step.
 final class AutomationStepResponseType {
+
   final String value;
 
   const AutomationStepResponseType._(this.value);
 
-  factory AutomationStepResponseType.fromJson(String value) =>
-      AutomationStepResponseType._(value);
+  factory AutomationStepResponseType.fromJson(String value) => AutomationStepResponseType._(value);
 
   static const trigger = AutomationStepResponseType._('trigger');
   static const sendEmail = AutomationStepResponseType._('send_email');
@@ -218,15 +197,12 @@ final class AutomationStepResponseType {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is AutomationStepResponseType && other.value == value;
+  @override bool operator ==(Object other) => other is AutomationStepResponseType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The event type.
@@ -235,17 +211,14 @@ enum ContactCreatedEventType {
 
   static ContactCreatedEventType fromJson(String value) {
     switch (value) {
-      case 'contact.created':
-        return ContactCreatedEventType.contactCreated;
-      default:
-        throw ArgumentError('Unknown ContactCreatedEventType: $value');
+      case 'contact.created': return ContactCreatedEventType.contactCreated;
+      default: throw ArgumentError('Unknown ContactCreatedEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ContactCreatedEventType.contactCreated:
-        return 'contact.created';
+      case ContactCreatedEventType.contactCreated: return 'contact.created';
     }
   }
 
@@ -259,17 +232,14 @@ enum ContactDeletedEventType {
 
   static ContactDeletedEventType fromJson(String value) {
     switch (value) {
-      case 'contact.deleted':
-        return ContactDeletedEventType.contactDeleted;
-      default:
-        throw ArgumentError('Unknown ContactDeletedEventType: $value');
+      case 'contact.deleted': return ContactDeletedEventType.contactDeleted;
+      default: throw ArgumentError('Unknown ContactDeletedEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ContactDeletedEventType.contactDeleted:
-        return 'contact.deleted';
+      case ContactDeletedEventType.contactDeleted: return 'contact.deleted';
     }
   }
 
@@ -279,12 +249,12 @@ enum ContactDeletedEventType {
 
 /// Current status of the contact import.
 final class ContactImportStatus {
+
   final String value;
 
   const ContactImportStatus._(this.value);
 
-  factory ContactImportStatus.fromJson(String value) =>
-      ContactImportStatus._(value);
+  factory ContactImportStatus.fromJson(String value) => ContactImportStatus._(value);
 
   static const queued = ContactImportStatus._('queued');
   static const inProgress = ContactImportStatus._('in_progress');
@@ -293,40 +263,32 @@ final class ContactImportStatus {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ContactImportStatus && other.value == value;
+  @override bool operator ==(Object other) => other is ContactImportStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The new subscription status for this topic.
 final class ContactTopicsEventDataTopicsItemSubscription {
+
   final String value;
 
   const ContactTopicsEventDataTopicsItemSubscription._(this.value);
 
-  factory ContactTopicsEventDataTopicsItemSubscription.fromJson(String value) =>
-      ContactTopicsEventDataTopicsItemSubscription._(value);
+  factory ContactTopicsEventDataTopicsItemSubscription.fromJson(String value) => ContactTopicsEventDataTopicsItemSubscription._(value);
 
   static const optIn = ContactTopicsEventDataTopicsItemSubscription._('opt_in');
-  static const optOut =
-      ContactTopicsEventDataTopicsItemSubscription._('opt_out');
+  static const optOut = ContactTopicsEventDataTopicsItemSubscription._('opt_out');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ContactTopicsEventDataTopicsItemSubscription &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is ContactTopicsEventDataTopicsItemSubscription && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

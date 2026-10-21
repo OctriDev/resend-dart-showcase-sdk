@@ -30,20 +30,17 @@ Future<ListReceivedEmailsResponse> list(ClientConfig config,
           'GET', '/emails/receiving',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
-                style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
-                style: 'form', explode: true),
-            'before': SdkQueryValue(SdkUtils.unwrapOptional(before),
-                style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true),
+            'before': SdkQueryValue(SdkUtils.unwrapOptional(before), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'list',
-          fromJsonRaw: (value) => ListReceivedEmailsResponse.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ListReceivedEmailsResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Retrieves a received email by its identifier. Use `email_id` to select the email; the response includes its message content, headers, recipients, receipt time, and attachments.
 ///
@@ -57,11 +54,11 @@ Future<GetReceivedEmailResponse> get_(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'get_',
-          fromJsonRaw: (value) =>
-              GetReceivedEmailResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => GetReceivedEmailResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Lists attachments for a received email. Use `email_id` to select the email and `after` or `before` to navigate through attachment results.
 ///
@@ -89,20 +86,17 @@ Future<ListAttachmentsResponse> listAttachments(ClientConfig config,
           '/emails/receiving/${Uri.encodeComponent(emailId.toString())}/attachments',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
-                style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
-                style: 'form', explode: true),
-            'before': SdkQueryValue(SdkUtils.unwrapOptional(before),
-                style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true),
+            'before': SdkQueryValue(SdkUtils.unwrapOptional(before), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listAttachments',
-          fromJsonRaw: (value) =>
-              ListAttachmentsResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ListAttachmentsResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Retrieves an attachment belonging to a received email. Use `email_id` to identify the email and `attachment_id` to select its attachment; the response includes a signed download URL and its expiration time.
 ///
@@ -120,8 +114,7 @@ Future<RetrievedAttachment> getAttachment(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'getAttachment',
-          fromJsonRaw: (value) =>
-              RetrievedAttachment.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => RetrievedAttachment.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }

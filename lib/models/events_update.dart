@@ -8,88 +8,57 @@ part of 'events.dart';
 class UpdateEventRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A flat key/type map defining the event payload schema. Set to `null` to clear the schema. Supported types are `string`, `number`, `boolean`, and `date`.
   final Map<String, dynamic>? schema;
 
   const UpdateEventRequest({required this.schema});
 
-  UpdateEventRequest Function({Map<String, dynamic>? schema}) get copyWith =>
-      _copyWith;
+  UpdateEventRequest Function({Map<String, dynamic>? schema}) get copyWith => _copyWith;
 
-  UpdateEventRequest _copyWith({Object? schema = sdkOmittedValue}) =>
-      UpdateEventRequest(
-        schema: identical(schema, sdkOmittedValue)
-            ? this.schema
-            : schema as Map<String, dynamic>?,
-      );
+  UpdateEventRequest _copyWith({Object? schema = sdkOmittedValue}) => UpdateEventRequest(
+    schema: identical(schema, sdkOmittedValue) ? this.schema : schema as Map<String, dynamic>?,
+  );
 
-  factory UpdateEventRequest.fromJson(Map<String, dynamic> json) =>
-      UpdateEventRequest(
-        schema: json.containsKey('schema')
-            ? json['schema'] == null
-                ? null
-                : json['schema'] as Map<String, dynamic>
-            : throw ArgumentError.value(
-                null, 'schema', 'Required property is missing'),
-      );
+  factory UpdateEventRequest.fromJson(Map<String, dynamic> json) => UpdateEventRequest(
+    schema: json.containsKey('schema') ? json['schema'] == null ? null : json['schema'] as Map<String, dynamic> : throw ArgumentError.value(null, 'schema', 'Required property is missing'),
+  );
 
   Map<String, dynamic> toJson() => {
-        'schema': schema,
-      };
+    'schema': schema,
+  };
 }
 
 /// Typed representation of the `UpdateEventResponse` API schema.
 class UpdateEventResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Type of the response object.
   final SdkOptional<String> object;
-
   /// The ID of the updated event.
   final SdkOptional<String> id;
 
-  const UpdateEventResponse(
-      {this.object = const SdkOmitted(), this.id = const SdkOmitted()});
+  const UpdateEventResponse({this.object = const SdkOmitted(), this.id = const SdkOmitted()});
 
-  UpdateEventResponse Function(
-      {SdkOptional<String> object,
-      SdkOptional<String> id}) get copyWith => _copyWith;
+  UpdateEventResponse Function({SdkOptional<String> object, SdkOptional<String> id}) get copyWith => _copyWith;
 
-  UpdateEventResponse _copyWith(
-          {Object? object = sdkOmittedValue, Object? id = sdkOmittedValue}) =>
-      UpdateEventResponse(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as SdkOptional<String>,
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-      );
+  UpdateEventResponse _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue}) => UpdateEventResponse(
+    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<String>,
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+  );
 
-  factory UpdateEventResponse.fromJson(Map<String, dynamic> json) =>
-      UpdateEventResponse(
-        object: json['object'] != null
-            ? SdkPresent((json['object'] as String?)!)
-            : const SdkOmitted(),
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory UpdateEventResponse.fromJson(Map<String, dynamic> json) => UpdateEventResponse(
+    object: json['object'] != null ? SdkPresent((json['object'] as String?)!) : const SdkOmitted(),
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (object) {
-          SdkPresent<String>(value: final value) => {
-              'object': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (object) {
+      SdkPresent<String>(value: final value) => {'object': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

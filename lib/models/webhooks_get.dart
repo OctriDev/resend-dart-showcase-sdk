@@ -8,146 +8,73 @@ part of 'webhooks.dart';
 class GetWebhookResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of object.
   final SdkOptional<String> object;
-
   /// The ID of the webhook.
   final SdkOptional<String> id;
-
   /// The URL where webhook events are sent.
   final SdkOptional<String> endpoint;
-
   /// Array of event types subscribed to.
   final SdkOptional<List<String>?> events;
-
   /// The status of the webhook.
   final SdkOptional<String> status;
-
   /// Timestamp indicating when the webhook was created.
   final SdkOptional<String> createdAt;
-
   /// The secret key used to verify webhook payloads.
   final SdkOptional<String> signingSecret;
 
-  const GetWebhookResponse(
-      {this.object = const SdkOmitted(),
-      this.id = const SdkOmitted(),
-      this.endpoint = const SdkOmitted(),
-      this.events = const SdkOmitted(),
-      this.status = const SdkOmitted(),
-      this.createdAt = const SdkOmitted(),
-      this.signingSecret = const SdkOmitted()});
+  const GetWebhookResponse({this.object = const SdkOmitted(), this.id = const SdkOmitted(), this.endpoint = const SdkOmitted(), this.events = const SdkOmitted(), this.status = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.signingSecret = const SdkOmitted()});
 
-  GetWebhookResponse Function(
-      {SdkOptional<String> object,
-      SdkOptional<String> id,
-      SdkOptional<String> endpoint,
-      SdkOptional<List<String>?> events,
-      SdkOptional<String> status,
-      SdkOptional<String> createdAt,
-      SdkOptional<String> signingSecret}) get copyWith => _copyWith;
+  GetWebhookResponse Function({SdkOptional<String> object, SdkOptional<String> id, SdkOptional<String> endpoint, SdkOptional<List<String>?> events, SdkOptional<String> status, SdkOptional<String> createdAt, SdkOptional<String> signingSecret}) get copyWith => _copyWith;
 
-  GetWebhookResponse _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? endpoint = sdkOmittedValue,
-          Object? events = sdkOmittedValue,
-          Object? status = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? signingSecret = sdkOmittedValue}) =>
-      GetWebhookResponse(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as SdkOptional<String>,
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-        endpoint: identical(endpoint, sdkOmittedValue)
-            ? this.endpoint
-            : endpoint as SdkOptional<String>,
-        events: identical(events, sdkOmittedValue)
-            ? this.events
-            : events as SdkOptional<List<String>?>,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as SdkOptional<String>,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as SdkOptional<String>,
-        signingSecret: identical(signingSecret, sdkOmittedValue)
-            ? this.signingSecret
-            : signingSecret as SdkOptional<String>,
-      );
+  GetWebhookResponse _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? endpoint = sdkOmittedValue, Object? events = sdkOmittedValue, Object? status = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? signingSecret = sdkOmittedValue}) => GetWebhookResponse(
+    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<String>,
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+    endpoint: identical(endpoint, sdkOmittedValue) ? this.endpoint : endpoint as SdkOptional<String>,
+    events: identical(events, sdkOmittedValue) ? this.events : events as SdkOptional<List<String>?>,
+    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<String>,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
+    signingSecret: identical(signingSecret, sdkOmittedValue) ? this.signingSecret : signingSecret as SdkOptional<String>,
+  );
 
-  factory GetWebhookResponse.fromJson(Map<String, dynamic> json) =>
-      GetWebhookResponse(
-        object: json['object'] != null
-            ? SdkPresent((json['object'] as String?)!)
-            : const SdkOmitted(),
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-        endpoint: json['endpoint'] != null
-            ? SdkPresent((json['endpoint'] as String?)!)
-            : const SdkOmitted(),
-        events: json.containsKey('events')
-            ? SdkPresent(
-                (json['events'] as List?)?.map((e) => e as String).toList())
-            : const SdkOmitted(),
-        status: json['status'] != null
-            ? SdkPresent((json['status'] as String?)!)
-            : const SdkOmitted(),
-        createdAt: json['created_at'] != null
-            ? SdkPresent((json['created_at'] as String?)!)
-            : const SdkOmitted(),
-        signingSecret: json['signing_secret'] != null
-            ? SdkPresent((json['signing_secret'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory GetWebhookResponse.fromJson(Map<String, dynamic> json) => GetWebhookResponse(
+    object: json['object'] != null ? SdkPresent((json['object'] as String?)!) : const SdkOmitted(),
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+    endpoint: json['endpoint'] != null ? SdkPresent((json['endpoint'] as String?)!) : const SdkOmitted(),
+    events: json.containsKey('events') ? SdkPresent((json['events'] as List?)?.map((e) => e as String).toList()) : const SdkOmitted(),
+    status: json['status'] != null ? SdkPresent((json['status'] as String?)!) : const SdkOmitted(),
+    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
+    signingSecret: json['signing_secret'] != null ? SdkPresent((json['signing_secret'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (object) {
-          SdkPresent<String>(value: final value) => {
-              'object': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (endpoint) {
-          SdkPresent<String>(value: final value) => {
-              'endpoint': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (events) {
-          SdkPresent<List<String>?>(value: final value) => {
-              'events': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (status) {
-          SdkPresent<String>(value: final value) => {
-              'status': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (createdAt) {
-          SdkPresent<String>(value: final value) => {
-              'created_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (signingSecret) {
-          SdkPresent<String>(value: final value) => {
-              'signing_secret': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (object) {
+      SdkPresent<String>(value: final value) => {'object': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (endpoint) {
+      SdkPresent<String>(value: final value) => {'endpoint': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (events) {
+      SdkPresent<List<String>?>(value: final value) => {'events': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (status) {
+      SdkPresent<String>(value: final value) => {'status': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (createdAt) {
+      SdkPresent<String>(value: final value) => {'created_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (signingSecret) {
+      SdkPresent<String>(value: final value) => {'signing_secret': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

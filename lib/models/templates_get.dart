@@ -8,315 +8,147 @@ part of 'templates.dart';
 class Template {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of object.
   final SdkOptional<String> object;
-
   /// The ID of the template.
   final SdkOptional<String> id;
-
   /// The ID of the current version of the template.
   final SdkOptional<String> currentVersionId;
-
   /// The name of the template.
   final SdkOptional<String> name;
-
   /// The alias of the template.
   final SdkOptional<String> alias;
-
   /// Sender email address. To include a friendly name, use the format "Your Name &lt;sender@domain.com&gt;".
   final SdkOptional<String> from;
-
   /// Email subject.
   final SdkOptional<String> subject;
-
   /// Reply-to email addresses.
   final SdkOptional<List<String>?> replyTo;
-
   /// The HTML version of the template.
   final SdkOptional<String> html;
-
   /// The plain text version of the template.
   final SdkOptional<String> text;
-
   /// Optional array value serialized in the `variables` wire field.
   final SdkOptional<List<TemplateVariable>> variables;
-
   /// Timestamp indicating when the template was created.
   final SdkOptional<String> createdAt;
-
   /// Timestamp indicating when the template was last updated.
   final SdkOptional<String> updatedAt;
-
   /// The publication status of the template.
   final SdkOptional<TemplateStatus> status;
-
   /// Timestamp indicating when the template was published.
   final SdkOptional<String?> publishedAt;
-
   /// Indicates whether the template has unpublished versions.
   final SdkOptional<bool> hasUnpublishedVersions;
 
-  const Template(
-      {this.object = const SdkOmitted(),
-      this.id = const SdkOmitted(),
-      this.currentVersionId = const SdkOmitted(),
-      this.name = const SdkOmitted(),
-      this.alias = const SdkOmitted(),
-      this.from = const SdkOmitted(),
-      this.subject = const SdkOmitted(),
-      this.replyTo = const SdkOmitted(),
-      this.html = const SdkOmitted(),
-      this.text = const SdkOmitted(),
-      this.variables = const SdkOmitted(),
-      this.createdAt = const SdkOmitted(),
-      this.updatedAt = const SdkOmitted(),
-      this.status = const SdkOmitted(),
-      this.publishedAt = const SdkOmitted(),
-      this.hasUnpublishedVersions = const SdkOmitted()});
+  const Template({this.object = const SdkOmitted(), this.id = const SdkOmitted(), this.currentVersionId = const SdkOmitted(), this.name = const SdkOmitted(), this.alias = const SdkOmitted(), this.from = const SdkOmitted(), this.subject = const SdkOmitted(), this.replyTo = const SdkOmitted(), this.html = const SdkOmitted(), this.text = const SdkOmitted(), this.variables = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.updatedAt = const SdkOmitted(), this.status = const SdkOmitted(), this.publishedAt = const SdkOmitted(), this.hasUnpublishedVersions = const SdkOmitted()});
 
-  Template Function(
-      {SdkOptional<String> object,
-      SdkOptional<String> id,
-      SdkOptional<String> currentVersionId,
-      SdkOptional<String> name,
-      SdkOptional<String> alias,
-      SdkOptional<String> from,
-      SdkOptional<String> subject,
-      SdkOptional<List<String>?> replyTo,
-      SdkOptional<String> html,
-      SdkOptional<String> text,
-      SdkOptional<List<TemplateVariable>> variables,
-      SdkOptional<String> createdAt,
-      SdkOptional<String> updatedAt,
-      SdkOptional<TemplateStatus> status,
-      SdkOptional<String?> publishedAt,
-      SdkOptional<bool> hasUnpublishedVersions}) get copyWith => _copyWith;
+  Template Function({SdkOptional<String> object, SdkOptional<String> id, SdkOptional<String> currentVersionId, SdkOptional<String> name, SdkOptional<String> alias, SdkOptional<String> from, SdkOptional<String> subject, SdkOptional<List<String>?> replyTo, SdkOptional<String> html, SdkOptional<String> text, SdkOptional<List<TemplateVariable>> variables, SdkOptional<String> createdAt, SdkOptional<String> updatedAt, SdkOptional<TemplateStatus> status, SdkOptional<String?> publishedAt, SdkOptional<bool> hasUnpublishedVersions}) get copyWith => _copyWith;
 
-  Template _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? currentVersionId = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? alias = sdkOmittedValue,
-          Object? from = sdkOmittedValue,
-          Object? subject = sdkOmittedValue,
-          Object? replyTo = sdkOmittedValue,
-          Object? html = sdkOmittedValue,
-          Object? text = sdkOmittedValue,
-          Object? variables = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? updatedAt = sdkOmittedValue,
-          Object? status = sdkOmittedValue,
-          Object? publishedAt = sdkOmittedValue,
-          Object? hasUnpublishedVersions = sdkOmittedValue}) =>
-      Template(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as SdkOptional<String>,
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-        currentVersionId: identical(currentVersionId, sdkOmittedValue)
-            ? this.currentVersionId
-            : currentVersionId as SdkOptional<String>,
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-        alias: identical(alias, sdkOmittedValue)
-            ? this.alias
-            : alias as SdkOptional<String>,
-        from: identical(from, sdkOmittedValue)
-            ? this.from
-            : from as SdkOptional<String>,
-        subject: identical(subject, sdkOmittedValue)
-            ? this.subject
-            : subject as SdkOptional<String>,
-        replyTo: identical(replyTo, sdkOmittedValue)
-            ? this.replyTo
-            : replyTo as SdkOptional<List<String>?>,
-        html: identical(html, sdkOmittedValue)
-            ? this.html
-            : html as SdkOptional<String>,
-        text: identical(text, sdkOmittedValue)
-            ? this.text
-            : text as SdkOptional<String>,
-        variables: identical(variables, sdkOmittedValue)
-            ? this.variables
-            : variables as SdkOptional<List<TemplateVariable>>,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as SdkOptional<String>,
-        updatedAt: identical(updatedAt, sdkOmittedValue)
-            ? this.updatedAt
-            : updatedAt as SdkOptional<String>,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as SdkOptional<TemplateStatus>,
-        publishedAt: identical(publishedAt, sdkOmittedValue)
-            ? this.publishedAt
-            : publishedAt as SdkOptional<String?>,
-        hasUnpublishedVersions:
-            identical(hasUnpublishedVersions, sdkOmittedValue)
-                ? this.hasUnpublishedVersions
-                : hasUnpublishedVersions as SdkOptional<bool>,
-      );
+  Template _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? currentVersionId = sdkOmittedValue, Object? name = sdkOmittedValue, Object? alias = sdkOmittedValue, Object? from = sdkOmittedValue, Object? subject = sdkOmittedValue, Object? replyTo = sdkOmittedValue, Object? html = sdkOmittedValue, Object? text = sdkOmittedValue, Object? variables = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue, Object? status = sdkOmittedValue, Object? publishedAt = sdkOmittedValue, Object? hasUnpublishedVersions = sdkOmittedValue}) => Template(
+    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<String>,
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+    currentVersionId: identical(currentVersionId, sdkOmittedValue) ? this.currentVersionId : currentVersionId as SdkOptional<String>,
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+    alias: identical(alias, sdkOmittedValue) ? this.alias : alias as SdkOptional<String>,
+    from: identical(from, sdkOmittedValue) ? this.from : from as SdkOptional<String>,
+    subject: identical(subject, sdkOmittedValue) ? this.subject : subject as SdkOptional<String>,
+    replyTo: identical(replyTo, sdkOmittedValue) ? this.replyTo : replyTo as SdkOptional<List<String>?>,
+    html: identical(html, sdkOmittedValue) ? this.html : html as SdkOptional<String>,
+    text: identical(text, sdkOmittedValue) ? this.text : text as SdkOptional<String>,
+    variables: identical(variables, sdkOmittedValue) ? this.variables : variables as SdkOptional<List<TemplateVariable>>,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
+    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as SdkOptional<String>,
+    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<TemplateStatus>,
+    publishedAt: identical(publishedAt, sdkOmittedValue) ? this.publishedAt : publishedAt as SdkOptional<String?>,
+    hasUnpublishedVersions: identical(hasUnpublishedVersions, sdkOmittedValue) ? this.hasUnpublishedVersions : hasUnpublishedVersions as SdkOptional<bool>,
+  );
 
   factory Template.fromJson(Map<String, dynamic> json) => Template(
-        object: json['object'] != null
-            ? SdkPresent((json['object'] as String?)!)
-            : const SdkOmitted(),
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-        currentVersionId: json['current_version_id'] != null
-            ? SdkPresent((json['current_version_id'] as String?)!)
-            : const SdkOmitted(),
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-        alias: json['alias'] != null
-            ? SdkPresent((json['alias'] as String?)!)
-            : const SdkOmitted(),
-        from: json['from'] != null
-            ? SdkPresent((json['from'] as String?)!)
-            : const SdkOmitted(),
-        subject: json['subject'] != null
-            ? SdkPresent((json['subject'] as String?)!)
-            : const SdkOmitted(),
-        replyTo: json.containsKey('reply_to')
-            ? SdkPresent(
-                (json['reply_to'] as List?)?.map((e) => e as String).toList())
-            : const SdkOmitted(),
-        html: json['html'] != null
-            ? SdkPresent((json['html'] as String?)!)
-            : const SdkOmitted(),
-        text: json['text'] != null
-            ? SdkPresent((json['text'] as String?)!)
-            : const SdkOmitted(),
-        variables: json['variables'] != null
-            ? SdkPresent(((json['variables'] as List?)
-                ?.map(
-                    (e) => TemplateVariable.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        createdAt: json['created_at'] != null
-            ? SdkPresent((json['created_at'] as String?)!)
-            : const SdkOmitted(),
-        updatedAt: json['updated_at'] != null
-            ? SdkPresent((json['updated_at'] as String?)!)
-            : const SdkOmitted(),
-        status: json['status'] != null
-            ? SdkPresent((json['status'] != null
-                ? TemplateStatus.fromJson(json['status'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        publishedAt: json.containsKey('published_at')
-            ? SdkPresent(json['published_at'] as String?)
-            : const SdkOmitted(),
-        hasUnpublishedVersions: json['has_unpublished_versions'] != null
-            ? SdkPresent((json['has_unpublished_versions'] as bool?)!)
-            : const SdkOmitted(),
-      );
+    object: json['object'] != null ? SdkPresent((json['object'] as String?)!) : const SdkOmitted(),
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+    currentVersionId: json['current_version_id'] != null ? SdkPresent((json['current_version_id'] as String?)!) : const SdkOmitted(),
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+    alias: json['alias'] != null ? SdkPresent((json['alias'] as String?)!) : const SdkOmitted(),
+    from: json['from'] != null ? SdkPresent((json['from'] as String?)!) : const SdkOmitted(),
+    subject: json['subject'] != null ? SdkPresent((json['subject'] as String?)!) : const SdkOmitted(),
+    replyTo: json.containsKey('reply_to') ? SdkPresent((json['reply_to'] as List?)?.map((e) => e as String).toList()) : const SdkOmitted(),
+    html: json['html'] != null ? SdkPresent((json['html'] as String?)!) : const SdkOmitted(),
+    text: json['text'] != null ? SdkPresent((json['text'] as String?)!) : const SdkOmitted(),
+    variables: json['variables'] != null ? SdkPresent(((json['variables'] as List?)?.map((e) => TemplateVariable.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
+    updatedAt: json['updated_at'] != null ? SdkPresent((json['updated_at'] as String?)!) : const SdkOmitted(),
+    status: json['status'] != null ? SdkPresent((json['status'] != null ? TemplateStatus.fromJson(json['status'] as String) : null)!) : const SdkOmitted(),
+    publishedAt: json.containsKey('published_at') ? SdkPresent(json['published_at'] as String?) : const SdkOmitted(),
+    hasUnpublishedVersions: json['has_unpublished_versions'] != null ? SdkPresent((json['has_unpublished_versions'] as bool?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (object) {
-          SdkPresent<String>(value: final value) => {
-              'object': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (currentVersionId) {
-          SdkPresent<String>(value: final value) => {
-              'current_version_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (alias) {
-          SdkPresent<String>(value: final value) => {
-              'alias': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (from) {
-          SdkPresent<String>(value: final value) => {
-              'from': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (subject) {
-          SdkPresent<String>(value: final value) => {
-              'subject': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (replyTo) {
-          SdkPresent<List<String>?>(value: final value) => {
-              'reply_to': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (html) {
-          SdkPresent<String>(value: final value) => {
-              'html': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (text) {
-          SdkPresent<String>(value: final value) => {
-              'text': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (variables) {
-          SdkPresent<List<TemplateVariable>>(value: final value) => {
-              'variables': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (createdAt) {
-          SdkPresent<String>(value: final value) => {
-              'created_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (updatedAt) {
-          SdkPresent<String>(value: final value) => {
-              'updated_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (status) {
-          SdkPresent<TemplateStatus>(value: final value) => {
-              'status': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (publishedAt) {
-          SdkPresent<String?>(value: final value) => {
-              'published_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (hasUnpublishedVersions) {
-          SdkPresent<bool>(value: final value) => {
-              'has_unpublished_versions': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (object) {
+      SdkPresent<String>(value: final value) => {'object': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (currentVersionId) {
+      SdkPresent<String>(value: final value) => {'current_version_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (alias) {
+      SdkPresent<String>(value: final value) => {'alias': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (from) {
+      SdkPresent<String>(value: final value) => {'from': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (subject) {
+      SdkPresent<String>(value: final value) => {'subject': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (replyTo) {
+      SdkPresent<List<String>?>(value: final value) => {'reply_to': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (html) {
+      SdkPresent<String>(value: final value) => {'html': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (text) {
+      SdkPresent<String>(value: final value) => {'text': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (variables) {
+      SdkPresent<List<TemplateVariable>>(value: final value) => {'variables': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (createdAt) {
+      SdkPresent<String>(value: final value) => {'created_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (updatedAt) {
+      SdkPresent<String>(value: final value) => {'updated_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (status) {
+      SdkPresent<TemplateStatus>(value: final value) => {'status': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (publishedAt) {
+      SdkPresent<String?>(value: final value) => {'published_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (hasUnpublishedVersions) {
+      SdkPresent<bool>(value: final value) => {'has_unpublished_versions': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 sealed class TemplateVariableFallbackValue {
@@ -324,179 +156,103 @@ sealed class TemplateVariableFallbackValue {
   static const String constructionSurface = 'named';
   const TemplateVariableFallbackValue();
   factory TemplateVariableFallbackValue.fromJson(Object? json) {
-    if (json is String) {
-      return TemplateVariableFallbackValueString(json);
-    }
-    if (json is num) {
-      return TemplateVariableFallbackValueDouble(json.toDouble());
-    }
-    if (json is bool) {
-      return TemplateVariableFallbackValueBool(json);
-    }
-    if (json is List) {
-      return TemplateVariableFallbackValueList(
-          json.map((e) => e).toList().cast<dynamic>());
-    }
-    if (json is Map) {
-      return TemplateVariableFallbackValueMap(Map<String, dynamic>.from(json));
-    }
-    throw FormatException(
-        "No variant matched for TemplateVariableFallbackValue");
+    if (json is String) { return TemplateVariableFallbackValueString(json); }
+    if (json is num) { return TemplateVariableFallbackValueDouble(json.toDouble()); }
+    if (json is bool) { return TemplateVariableFallbackValueBool(json); }
+    if (json is List) { return TemplateVariableFallbackValueList(json.map((e) => e).toList().cast<dynamic>()); }
+    if (json is Map) { return TemplateVariableFallbackValueMap(Map<String, dynamic>.from(json)); }
+    throw FormatException("No variant matched for TemplateVariableFallbackValue");
   }
   Object? toJson();
 }
 
-final class TemplateVariableFallbackValueString
-    extends TemplateVariableFallbackValue {
+final class TemplateVariableFallbackValueString extends TemplateVariableFallbackValue {
   final String value;
   const TemplateVariableFallbackValueString(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
-final class TemplateVariableFallbackValueDouble
-    extends TemplateVariableFallbackValue {
+final class TemplateVariableFallbackValueDouble extends TemplateVariableFallbackValue {
   final double value;
   const TemplateVariableFallbackValueDouble(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
-final class TemplateVariableFallbackValueBool
-    extends TemplateVariableFallbackValue {
+final class TemplateVariableFallbackValueBool extends TemplateVariableFallbackValue {
   final bool value;
   const TemplateVariableFallbackValueBool(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
-final class TemplateVariableFallbackValueMap
-    extends TemplateVariableFallbackValue {
+final class TemplateVariableFallbackValueMap extends TemplateVariableFallbackValue {
   final Map<String, dynamic> value;
   const TemplateVariableFallbackValueMap(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
-final class TemplateVariableFallbackValueList
-    extends TemplateVariableFallbackValue {
+final class TemplateVariableFallbackValueList extends TemplateVariableFallbackValue {
   final List<dynamic> value;
   const TemplateVariableFallbackValueList(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
 /// Typed representation of the `TemplateVariable` API schema.
 class TemplateVariable {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The ID of the template variable.
   final SdkOptional<String> id;
-
   /// The key of the variable.
   final String key;
-
   /// The type of the variable.
   final TemplateVariableType type_;
-
   /// The fallback value of the variable.
   final SdkOptional<dynamic> fallbackValue;
-
   /// Timestamp indicating when the variable was created.
   final SdkOptional<String> createdAt;
-
   /// Timestamp indicating when the variable was last updated.
   final SdkOptional<String> updatedAt;
 
-  const TemplateVariable(
-      {this.id = const SdkOmitted(),
-      required this.key,
-      required this.type_,
-      this.fallbackValue = const SdkOmitted(),
-      this.createdAt = const SdkOmitted(),
-      this.updatedAt = const SdkOmitted()});
+  const TemplateVariable({this.id = const SdkOmitted(), required this.key, required this.type_, this.fallbackValue = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.updatedAt = const SdkOmitted()});
 
-  TemplateVariable Function(
-      {SdkOptional<String> id,
-      String key,
-      TemplateVariableType type_,
-      SdkOptional<dynamic> fallbackValue,
-      SdkOptional<String> createdAt,
-      SdkOptional<String> updatedAt}) get copyWith => _copyWith;
+  TemplateVariable Function({SdkOptional<String> id, String key, TemplateVariableType type_, SdkOptional<dynamic> fallbackValue, SdkOptional<String> createdAt, SdkOptional<String> updatedAt}) get copyWith => _copyWith;
 
-  TemplateVariable _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? key = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? fallbackValue = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? updatedAt = sdkOmittedValue}) =>
-      TemplateVariable(
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-        key: identical(key, sdkOmittedValue) ? this.key : key as String,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as TemplateVariableType,
-        fallbackValue: identical(fallbackValue, sdkOmittedValue)
-            ? this.fallbackValue
-            : fallbackValue as SdkOptional<dynamic>,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as SdkOptional<String>,
-        updatedAt: identical(updatedAt, sdkOmittedValue)
-            ? this.updatedAt
-            : updatedAt as SdkOptional<String>,
-      );
+  TemplateVariable _copyWith({Object? id = sdkOmittedValue, Object? key = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? fallbackValue = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue}) => TemplateVariable(
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+    key: identical(key, sdkOmittedValue) ? this.key : key as String,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as TemplateVariableType,
+    fallbackValue: identical(fallbackValue, sdkOmittedValue) ? this.fallbackValue : fallbackValue as SdkOptional<dynamic>,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
+    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as SdkOptional<String>,
+  );
 
-  factory TemplateVariable.fromJson(Map<String, dynamic> json) =>
-      TemplateVariable(
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-        key: (json['key'] as String?)!,
-        type_: (json['type'] != null
-            ? TemplateVariableType.fromJson(json['type'] as String)
-            : null)!,
-        fallbackValue: json['fallback_value'] != null
-            ? SdkPresent((json['fallback_value'])!)
-            : const SdkOmitted(),
-        createdAt: json['created_at'] != null
-            ? SdkPresent((json['created_at'] as String?)!)
-            : const SdkOmitted(),
-        updatedAt: json['updated_at'] != null
-            ? SdkPresent((json['updated_at'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory TemplateVariable.fromJson(Map<String, dynamic> json) => TemplateVariable(
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+    key: (json['key'] as String?)!,
+    type_: (json['type'] != null ? TemplateVariableType.fromJson(json['type'] as String) : null)!,
+    fallbackValue: json['fallback_value'] != null ? SdkPresent((json['fallback_value'])!) : const SdkOmitted(),
+    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
+    updatedAt: json['updated_at'] != null ? SdkPresent((json['updated_at'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'key': key,
-        'type': type_.toJson(),
-        ...switch (fallbackValue) {
-          SdkPresent<dynamic>(value: final value) => {
-              'fallback_value': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (createdAt) {
-          SdkPresent<String>(value: final value) => {
-              'created_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (updatedAt) {
-          SdkPresent<String>(value: final value) => {
-              'updated_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    'key': key,
+    'type': type_.toJson(),
+    ...switch (fallbackValue) {
+      SdkPresent<dynamic>(value: final value) => {'fallback_value': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (createdAt) {
+      SdkPresent<String>(value: final value) => {'created_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (updatedAt) {
+      SdkPresent<String>(value: final value) => {'updated_at': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

@@ -22,11 +22,11 @@ Future<CreateWebhookResponse> webhooksCreate(ClientConfig config,
           body: {'endpoint': endpoint, 'events': events},
           decoder: SdkResponseDecoder.json,
           operationId: 'webhooksCreate',
-          fromJsonRaw: (value) =>
-              CreateWebhookResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => CreateWebhookResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Lists webhooks configured for your account. Use the pagination cursors to retrieve results before or after a webhook in the list; provide no more than one cursor at a time.
 ///
@@ -50,20 +50,17 @@ Future<ListWebhooksResponse> webhooksList(ClientConfig config,
   return (await sdkRequest<ListWebhooksResponse>('GET', '/webhooks',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
-                style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
-                style: 'form', explode: true),
-            'before': SdkQueryValue(SdkUtils.unwrapOptional(before),
-                style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true),
+            'before': SdkQueryValue(SdkUtils.unwrapOptional(before), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'webhooksList',
-          fromJsonRaw: (value) =>
-              ListWebhooksResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ListWebhooksResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Retrieves a webhook by its identifier. Use this endpoint to inspect the webhook's endpoint URL, subscribed event types, status, creation timestamp, and signing secret.
 ///
@@ -77,11 +74,11 @@ Future<GetWebhookResponse> webhooksGet(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'webhooksGet',
-          fromJsonRaw: (value) =>
-              GetWebhookResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => GetWebhookResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Updates the endpoint URL, subscribed event types, or status of a webhook. Supply only the fields you want to change; `status` must be enabled or disabled, and `events` must contain at least one event type.
 ///
@@ -110,11 +107,11 @@ Future<UpdateWebhookResponse> webhooksUpdate(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'webhooksUpdate',
-          fromJsonRaw: (value) =>
-              UpdateWebhookResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => UpdateWebhookResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Deletes a webhook. Use this endpoint when you no longer want the webhook to receive event deliveries; the response indicates whether deletion succeeded.
 ///
@@ -128,21 +125,19 @@ Future<DeleteWebhookResponse> webhooksRemove(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'webhooksRemove',
-          fromJsonRaw: (value) =>
-              DeleteWebhookResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => DeleteWebhookResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Rotates the signing secret for a webhook and returns the new secret. Payloads delivered after rotation use the new secret, while the previous secret remains valid for verifying payloads for 24 hours.
 ///
 /// Generates a new signing secret for the webhook and returns it. Payloads delivered after the rotation are signed with the new secret. The previous secret keeps verifying payloads for 24 hours, so both secrets are accepted during that window. A webhook that does not exist or was removed returns a 404 not_found.
 ///
 /// [webhookId] The Webhook ID.
-Future<RotateWebhookSigningSecretResponse> webhooksRotateSigningSecret(
-    ClientConfig config,
-    {required String webhookId,
-    RequestOptions? requestOptions}) async {
+Future<RotateWebhookSigningSecretResponse> webhooksRotateSigningSecret(ClientConfig config,
+    {required String webhookId, RequestOptions? requestOptions}) async {
   sdkValidateUuid('webhook_id', webhookId);
 
   return (await sdkRequest<RotateWebhookSigningSecretResponse>('POST',
@@ -150,11 +145,11 @@ Future<RotateWebhookSigningSecretResponse> webhooksRotateSigningSecret(
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'webhooksRotateSigningSecret',
-          fromJsonRaw: (value) => RotateWebhookSigningSecretResponse.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => RotateWebhookSigningSecretResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Lists events associated with a webhook. Use `after` to continue from a cursor and `limit` to control the number of results; the response indicates whether more results are available.
 ///
@@ -175,18 +170,16 @@ Future<ListWebhookEventsResponse> webhooksListEvents(ClientConfig config,
           '/webhooks/${Uri.encodeComponent(webhookId.toString())}/events',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
-                style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
-                style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'webhooksListEvents',
-          fromJsonRaw: (value) =>
-              ListWebhookEventsResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ListWebhookEventsResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Retrieves a specific event associated with a webhook. Use the event details to inspect its delivery status, payload, and any scheduled next delivery attempt.
 ///
@@ -203,11 +196,11 @@ Future<GetWebhookEventResponse> webhooksGetEvent(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'webhooksGetEvent',
-          fromJsonRaw: (value) =>
-              GetWebhookEventResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => GetWebhookEventResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Triggers one additional delivery of a webhook event. The webhook must be enabled, and a manual replay does not schedule automatic retries.
 ///
@@ -226,11 +219,11 @@ Future<ReplayWebhookEventResponse> webhooksReplayEvent(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'webhooksReplayEvent',
-          fromJsonRaw: (value) => ReplayWebhookEventResponse.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ReplayWebhookEventResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Lists delivery attempts for a specific event associated with a webhook. Use `after` to continue from a cursor and `limit` to control the number of attempts returned.
 ///
@@ -238,13 +231,13 @@ Future<ReplayWebhookEventResponse> webhooksReplayEvent(ClientConfig config,
 /// [eventId] The Webhook Event ID.
 /// [limit] Number of items to return.
 /// [after] Return items after this cursor.
-Future<ListWebhookEventAttemptsResponse> webhooksListEventAttempts(
-    ClientConfig config,
-    {required String webhookId,
-    required String eventId,
-    SdkOptional<int> limit = const SdkOmitted(),
-    SdkOptional<String> after = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<ListWebhookEventAttemptsResponse>
+    webhooksListEventAttempts(ClientConfig config,
+        {required String webhookId,
+        required String eventId,
+        SdkOptional<int> limit = const SdkOmitted(),
+        SdkOptional<String> after = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   sdkValidateUuid('webhook_id', webhookId);
   if (limit is SdkPresent<int>) {
     validateRange('limit', limit.value, min: 1, max: 100);
@@ -254,15 +247,12 @@ Future<ListWebhookEventAttemptsResponse> webhooksListEventAttempts(
           '/webhooks/${Uri.encodeComponent(webhookId.toString())}/events/${Uri.encodeComponent(eventId.toString())}/attempts',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
-                style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
-                style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'webhooksListEventAttempts',
-          fromJsonRaw: (value) => ListWebhookEventAttemptsResponse.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ListWebhookEventAttemptsResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }

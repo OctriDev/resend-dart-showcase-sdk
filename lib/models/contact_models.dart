@@ -8,312 +8,176 @@ part of 'contact.dart';
 class ContactCreatedEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The event type.
   final ContactCreatedEventType type_;
-
   /// Timestamp when the event was emitted.
   final String createdAt;
-
   /// Required object value serialized in the `data` wire field.
   final ContactEventData data;
 
-  const ContactCreatedEvent(
-      {required this.type_, required this.createdAt, required this.data});
+  const ContactCreatedEvent({required this.type_, required this.createdAt, required this.data});
 
-  ContactCreatedEvent Function(
-      {ContactCreatedEventType type_,
-      String createdAt,
-      ContactEventData data}) get copyWith => _copyWith;
+  ContactCreatedEvent Function({ContactCreatedEventType type_, String createdAt, ContactEventData data}) get copyWith => _copyWith;
 
-  ContactCreatedEvent _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? data = sdkOmittedValue}) =>
-      ContactCreatedEvent(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as ContactCreatedEventType,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as String,
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as ContactEventData,
-      );
+  ContactCreatedEvent _copyWith({Object? type_ = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? data = sdkOmittedValue}) => ContactCreatedEvent(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ContactCreatedEventType,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as String,
+    data: identical(data, sdkOmittedValue) ? this.data : data as ContactEventData,
+  );
 
-  factory ContactCreatedEvent.fromJson(Map<String, dynamic> json) =>
-      ContactCreatedEvent(
-        type_: (json['type'] != null
-            ? ContactCreatedEventType.fromJson(json['type'] as String)
-            : null)!,
-        createdAt: (json['created_at'] as String?)!,
-        data: (json['data'] != null
-            ? ContactEventData.fromJson(json['data'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory ContactCreatedEvent.fromJson(Map<String, dynamic> json) => ContactCreatedEvent(
+    type_: (json['type'] != null ? ContactCreatedEventType.fromJson(json['type'] as String) : null)!,
+    createdAt: (json['created_at'] as String?)!,
+    data: (json['data'] != null ? ContactEventData.fromJson(json['data'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'created_at': createdAt,
-        'data': data.toJson(),
-      };
+    'type': type_.toJson(),
+    'created_at': createdAt,
+    'data': data.toJson(),
+  };
 }
 
 /// Typed representation of the `ContactDeletedEvent` API schema.
 class ContactDeletedEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The event type.
   final ContactDeletedEventType type_;
-
   /// Timestamp when the event was emitted.
   final String createdAt;
-
   /// Required object value serialized in the `data` wire field.
   final ContactEventData data;
 
-  const ContactDeletedEvent(
-      {required this.type_, required this.createdAt, required this.data});
+  const ContactDeletedEvent({required this.type_, required this.createdAt, required this.data});
 
-  ContactDeletedEvent Function(
-      {ContactDeletedEventType type_,
-      String createdAt,
-      ContactEventData data}) get copyWith => _copyWith;
+  ContactDeletedEvent Function({ContactDeletedEventType type_, String createdAt, ContactEventData data}) get copyWith => _copyWith;
 
-  ContactDeletedEvent _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? data = sdkOmittedValue}) =>
-      ContactDeletedEvent(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as ContactDeletedEventType,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as String,
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as ContactEventData,
-      );
+  ContactDeletedEvent _copyWith({Object? type_ = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? data = sdkOmittedValue}) => ContactDeletedEvent(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ContactDeletedEventType,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as String,
+    data: identical(data, sdkOmittedValue) ? this.data : data as ContactEventData,
+  );
 
-  factory ContactDeletedEvent.fromJson(Map<String, dynamic> json) =>
-      ContactDeletedEvent(
-        type_: (json['type'] != null
-            ? ContactDeletedEventType.fromJson(json['type'] as String)
-            : null)!,
-        createdAt: (json['created_at'] as String?)!,
-        data: (json['data'] != null
-            ? ContactEventData.fromJson(json['data'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory ContactDeletedEvent.fromJson(Map<String, dynamic> json) => ContactDeletedEvent(
+    type_: (json['type'] != null ? ContactDeletedEventType.fromJson(json['type'] as String) : null)!,
+    createdAt: (json['created_at'] as String?)!,
+    data: (json['data'] != null ? ContactEventData.fromJson(json['data'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'created_at': createdAt,
-        'data': data.toJson(),
-      };
+    'type': type_.toJson(),
+    'created_at': createdAt,
+    'data': data.toJson(),
+  };
 }
 
 /// Typed representation of the `ContactEventData` API schema.
 class ContactEventData {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Unique identifier for the contact.
   final String id;
-
   /// Unique identifier for the audience this contact belongs to.
   final SdkOptional<String> audienceId;
-
   /// Array of segment IDs the contact belongs to.
   final SdkOptional<List<String>> segmentIds;
-
   /// Timestamp when the contact was created.
   final String createdAt;
-
   /// Timestamp when the contact was last updated.
   final String updatedAt;
-
   /// Contact's email address.
   final String email;
-
   /// Contact's first name.
   final SdkOptional<String?> firstName;
-
   /// Contact's last name.
   final SdkOptional<String?> lastName;
-
   /// Whether the contact has unsubscribed from all emails sent from your team.
   final bool unsubscribed;
 
-  const ContactEventData(
-      {required this.id,
-      this.audienceId = const SdkOmitted(),
-      this.segmentIds = const SdkOmitted(),
-      required this.createdAt,
-      required this.updatedAt,
-      required this.email,
-      this.firstName = const SdkOmitted(),
-      this.lastName = const SdkOmitted(),
-      required this.unsubscribed});
+  const ContactEventData({required this.id, this.audienceId = const SdkOmitted(), this.segmentIds = const SdkOmitted(), required this.createdAt, required this.updatedAt, required this.email, this.firstName = const SdkOmitted(), this.lastName = const SdkOmitted(), required this.unsubscribed});
 
-  ContactEventData Function(
-      {String id,
-      SdkOptional<String> audienceId,
-      SdkOptional<List<String>> segmentIds,
-      String createdAt,
-      String updatedAt,
-      String email,
-      SdkOptional<String?> firstName,
-      SdkOptional<String?> lastName,
-      bool unsubscribed}) get copyWith => _copyWith;
+  ContactEventData Function({String id, SdkOptional<String> audienceId, SdkOptional<List<String>> segmentIds, String createdAt, String updatedAt, String email, SdkOptional<String?> firstName, SdkOptional<String?> lastName, bool unsubscribed}) get copyWith => _copyWith;
 
-  ContactEventData _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? audienceId = sdkOmittedValue,
-          Object? segmentIds = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? updatedAt = sdkOmittedValue,
-          Object? email = sdkOmittedValue,
-          Object? firstName = sdkOmittedValue,
-          Object? lastName = sdkOmittedValue,
-          Object? unsubscribed = sdkOmittedValue}) =>
-      ContactEventData(
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        audienceId: identical(audienceId, sdkOmittedValue)
-            ? this.audienceId
-            : audienceId as SdkOptional<String>,
-        segmentIds: identical(segmentIds, sdkOmittedValue)
-            ? this.segmentIds
-            : segmentIds as SdkOptional<List<String>>,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as String,
-        updatedAt: identical(updatedAt, sdkOmittedValue)
-            ? this.updatedAt
-            : updatedAt as String,
-        email: identical(email, sdkOmittedValue) ? this.email : email as String,
-        firstName: identical(firstName, sdkOmittedValue)
-            ? this.firstName
-            : firstName as SdkOptional<String?>,
-        lastName: identical(lastName, sdkOmittedValue)
-            ? this.lastName
-            : lastName as SdkOptional<String?>,
-        unsubscribed: identical(unsubscribed, sdkOmittedValue)
-            ? this.unsubscribed
-            : unsubscribed as bool,
-      );
+  ContactEventData _copyWith({Object? id = sdkOmittedValue, Object? audienceId = sdkOmittedValue, Object? segmentIds = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue, Object? email = sdkOmittedValue, Object? firstName = sdkOmittedValue, Object? lastName = sdkOmittedValue, Object? unsubscribed = sdkOmittedValue}) => ContactEventData(
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    audienceId: identical(audienceId, sdkOmittedValue) ? this.audienceId : audienceId as SdkOptional<String>,
+    segmentIds: identical(segmentIds, sdkOmittedValue) ? this.segmentIds : segmentIds as SdkOptional<List<String>>,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as String,
+    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as String,
+    email: identical(email, sdkOmittedValue) ? this.email : email as String,
+    firstName: identical(firstName, sdkOmittedValue) ? this.firstName : firstName as SdkOptional<String?>,
+    lastName: identical(lastName, sdkOmittedValue) ? this.lastName : lastName as SdkOptional<String?>,
+    unsubscribed: identical(unsubscribed, sdkOmittedValue) ? this.unsubscribed : unsubscribed as bool,
+  );
 
-  factory ContactEventData.fromJson(Map<String, dynamic> json) =>
-      ContactEventData(
-        id: (json['id'] as String?)!,
-        audienceId: json['audience_id'] != null
-            ? SdkPresent((json['audience_id'] as String?)!)
-            : const SdkOmitted(),
-        segmentIds: json['segment_ids'] != null
-            ? SdkPresent(((json['segment_ids'] as List?)
-                ?.map((e) => e as String)
-                .toList())!)
-            : const SdkOmitted(),
-        createdAt: (json['created_at'] as String?)!,
-        updatedAt: (json['updated_at'] as String?)!,
-        email: (json['email'] as String?)!,
-        firstName: json.containsKey('first_name')
-            ? SdkPresent(json['first_name'] as String?)
-            : const SdkOmitted(),
-        lastName: json.containsKey('last_name')
-            ? SdkPresent(json['last_name'] as String?)
-            : const SdkOmitted(),
-        unsubscribed: (json['unsubscribed'] as bool?)!,
-      );
+  factory ContactEventData.fromJson(Map<String, dynamic> json) => ContactEventData(
+    id: (json['id'] as String?)!,
+    audienceId: json['audience_id'] != null ? SdkPresent((json['audience_id'] as String?)!) : const SdkOmitted(),
+    segmentIds: json['segment_ids'] != null ? SdkPresent(((json['segment_ids'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    createdAt: (json['created_at'] as String?)!,
+    updatedAt: (json['updated_at'] as String?)!,
+    email: (json['email'] as String?)!,
+    firstName: json.containsKey('first_name') ? SdkPresent(json['first_name'] as String?) : const SdkOmitted(),
+    lastName: json.containsKey('last_name') ? SdkPresent(json['last_name'] as String?) : const SdkOmitted(),
+    unsubscribed: (json['unsubscribed'] as bool?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-        ...switch (audienceId) {
-          SdkPresent<String>(value: final value) => {
-              'audience_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (segmentIds) {
-          SdkPresent<List<String>>(value: final value) => {
-              'segment_ids': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'created_at': createdAt,
-        'updated_at': updatedAt,
-        'email': email,
-        ...switch (firstName) {
-          SdkPresent<String?>(value: final value) => {
-              'first_name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (lastName) {
-          SdkPresent<String?>(value: final value) => {
-              'last_name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'unsubscribed': unsubscribed,
-      };
+    'id': id,
+    ...switch (audienceId) {
+      SdkPresent<String>(value: final value) => {'audience_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (segmentIds) {
+      SdkPresent<List<String>>(value: final value) => {'segment_ids': value,},
+      _ => const <String, dynamic>{},
+    },
+    'created_at': createdAt,
+    'updated_at': updatedAt,
+    'email': email,
+    ...switch (firstName) {
+      SdkPresent<String?>(value: final value) => {'first_name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (lastName) {
+      SdkPresent<String?>(value: final value) => {'last_name': value,},
+      _ => const <String, dynamic>{},
+    },
+    'unsubscribed': unsubscribed,
+  };
 }
 
 /// Typed representation of the `ContactUpdatedEvent` API schema.
 class ContactUpdatedEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The event type.
   final ContactUpdatedEventType type_;
-
   /// Timestamp when the event was emitted.
   final String createdAt;
-
   /// Required object value serialized in the `data` wire field.
   final ContactEventData data;
 
-  const ContactUpdatedEvent(
-      {required this.type_, required this.createdAt, required this.data});
+  const ContactUpdatedEvent({required this.type_, required this.createdAt, required this.data});
 
-  ContactUpdatedEvent Function(
-      {ContactUpdatedEventType type_,
-      String createdAt,
-      ContactEventData data}) get copyWith => _copyWith;
+  ContactUpdatedEvent Function({ContactUpdatedEventType type_, String createdAt, ContactEventData data}) get copyWith => _copyWith;
 
-  ContactUpdatedEvent _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? data = sdkOmittedValue}) =>
-      ContactUpdatedEvent(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as ContactUpdatedEventType,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as String,
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as ContactEventData,
-      );
+  ContactUpdatedEvent _copyWith({Object? type_ = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? data = sdkOmittedValue}) => ContactUpdatedEvent(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ContactUpdatedEventType,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as String,
+    data: identical(data, sdkOmittedValue) ? this.data : data as ContactEventData,
+  );
 
-  factory ContactUpdatedEvent.fromJson(Map<String, dynamic> json) =>
-      ContactUpdatedEvent(
-        type_: (json['type'] != null
-            ? ContactUpdatedEventType.fromJson(json['type'] as String)
-            : null)!,
-        createdAt: (json['created_at'] as String?)!,
-        data: (json['data'] != null
-            ? ContactEventData.fromJson(json['data'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory ContactUpdatedEvent.fromJson(Map<String, dynamic> json) => ContactUpdatedEvent(
+    type_: (json['type'] != null ? ContactUpdatedEventType.fromJson(json['type'] as String) : null)!,
+    createdAt: (json['created_at'] as String?)!,
+    data: (json['data'] != null ? ContactEventData.fromJson(json['data'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'created_at': createdAt,
-        'data': data.toJson(),
-      };
+    'type': type_.toJson(),
+    'created_at': createdAt,
+    'data': data.toJson(),
+  };
 }

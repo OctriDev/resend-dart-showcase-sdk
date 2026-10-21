@@ -8,189 +8,110 @@ part of 'suppression.dart';
 class SuppressionAddedEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The event type.
   final SuppressionAddedEventType type_;
-
   /// Timestamp when the event was emitted.
   final String createdAt;
-
   /// Required object value serialized in the `data` wire field.
   final SuppressionEventData data;
 
-  const SuppressionAddedEvent(
-      {required this.type_, required this.createdAt, required this.data});
+  const SuppressionAddedEvent({required this.type_, required this.createdAt, required this.data});
 
-  SuppressionAddedEvent Function(
-      {SuppressionAddedEventType type_,
-      String createdAt,
-      SuppressionEventData data}) get copyWith => _copyWith;
+  SuppressionAddedEvent Function({SuppressionAddedEventType type_, String createdAt, SuppressionEventData data}) get copyWith => _copyWith;
 
-  SuppressionAddedEvent _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? data = sdkOmittedValue}) =>
-      SuppressionAddedEvent(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SuppressionAddedEventType,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as String,
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as SuppressionEventData,
-      );
+  SuppressionAddedEvent _copyWith({Object? type_ = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? data = sdkOmittedValue}) => SuppressionAddedEvent(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SuppressionAddedEventType,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as String,
+    data: identical(data, sdkOmittedValue) ? this.data : data as SuppressionEventData,
+  );
 
-  factory SuppressionAddedEvent.fromJson(Map<String, dynamic> json) =>
-      SuppressionAddedEvent(
-        type_: (json['type'] != null
-            ? SuppressionAddedEventType.fromJson(json['type'] as String)
-            : null)!,
-        createdAt: (json['created_at'] as String?)!,
-        data: (json['data'] != null
-            ? SuppressionEventData.fromJson(
-                json['data'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory SuppressionAddedEvent.fromJson(Map<String, dynamic> json) => SuppressionAddedEvent(
+    type_: (json['type'] != null ? SuppressionAddedEventType.fromJson(json['type'] as String) : null)!,
+    createdAt: (json['created_at'] as String?)!,
+    data: (json['data'] != null ? SuppressionEventData.fromJson(json['data'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'created_at': createdAt,
-        'data': data.toJson(),
-      };
+    'type': type_.toJson(),
+    'created_at': createdAt,
+    'data': data.toJson(),
+  };
 }
 
 /// Typed representation of the `SuppressionEventData` API schema.
 class SuppressionEventData {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Unique identifier for the suppression.
   final String id;
-
   /// Email address that is suppressed.
   final String email;
-
   /// Origin of the suppression.
   final SuppressionEventDataOrigin origin;
-
   /// Identifier of the event that caused the suppression, such as the email that bounced or complained. Null for manually added suppressions.
   final String? sourceId;
-
   /// Timestamp when the suppression was created.
   final String createdAt;
 
-  const SuppressionEventData(
-      {required this.id,
-      required this.email,
-      required this.origin,
-      required this.sourceId,
-      required this.createdAt});
+  const SuppressionEventData({required this.id, required this.email, required this.origin, required this.sourceId, required this.createdAt});
 
-  SuppressionEventData Function(
-      {String id,
-      String email,
-      SuppressionEventDataOrigin origin,
-      String? sourceId,
-      String createdAt}) get copyWith => _copyWith;
+  SuppressionEventData Function({String id, String email, SuppressionEventDataOrigin origin, String? sourceId, String createdAt}) get copyWith => _copyWith;
 
-  SuppressionEventData _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? email = sdkOmittedValue,
-          Object? origin = sdkOmittedValue,
-          Object? sourceId = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue}) =>
-      SuppressionEventData(
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        email: identical(email, sdkOmittedValue) ? this.email : email as String,
-        origin: identical(origin, sdkOmittedValue)
-            ? this.origin
-            : origin as SuppressionEventDataOrigin,
-        sourceId: identical(sourceId, sdkOmittedValue)
-            ? this.sourceId
-            : sourceId as String?,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as String,
-      );
+  SuppressionEventData _copyWith({Object? id = sdkOmittedValue, Object? email = sdkOmittedValue, Object? origin = sdkOmittedValue, Object? sourceId = sdkOmittedValue, Object? createdAt = sdkOmittedValue}) => SuppressionEventData(
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    email: identical(email, sdkOmittedValue) ? this.email : email as String,
+    origin: identical(origin, sdkOmittedValue) ? this.origin : origin as SuppressionEventDataOrigin,
+    sourceId: identical(sourceId, sdkOmittedValue) ? this.sourceId : sourceId as String?,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as String,
+  );
 
-  factory SuppressionEventData.fromJson(Map<String, dynamic> json) =>
-      SuppressionEventData(
-        id: (json['id'] as String?)!,
-        email: (json['email'] as String?)!,
-        origin: (json['origin'] != null
-            ? SuppressionEventDataOrigin.fromJson(json['origin'] as String)
-            : null)!,
-        sourceId: json.containsKey('source_id')
-            ? json['source_id'] as String?
-            : throw ArgumentError.value(
-                null, 'source_id', 'Required property is missing'),
-        createdAt: (json['created_at'] as String?)!,
-      );
+  factory SuppressionEventData.fromJson(Map<String, dynamic> json) => SuppressionEventData(
+    id: (json['id'] as String?)!,
+    email: (json['email'] as String?)!,
+    origin: (json['origin'] != null ? SuppressionEventDataOrigin.fromJson(json['origin'] as String) : null)!,
+    sourceId: json.containsKey('source_id') ? json['source_id'] as String? : throw ArgumentError.value(null, 'source_id', 'Required property is missing'),
+    createdAt: (json['created_at'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-        'email': email,
-        'origin': origin.toJson(),
-        'source_id': sourceId,
-        'created_at': createdAt,
-      };
+    'id': id,
+    'email': email,
+    'origin': origin.toJson(),
+    'source_id': sourceId,
+    'created_at': createdAt,
+  };
 }
 
 /// Typed representation of the `SuppressionRemovedEvent` API schema.
 class SuppressionRemovedEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The event type.
   final SuppressionRemovedEventType type_;
-
   /// Timestamp when the event was emitted.
   final String createdAt;
-
   /// Required object value serialized in the `data` wire field.
   final SuppressionEventData data;
 
-  const SuppressionRemovedEvent(
-      {required this.type_, required this.createdAt, required this.data});
+  const SuppressionRemovedEvent({required this.type_, required this.createdAt, required this.data});
 
-  SuppressionRemovedEvent Function(
-      {SuppressionRemovedEventType type_,
-      String createdAt,
-      SuppressionEventData data}) get copyWith => _copyWith;
+  SuppressionRemovedEvent Function({SuppressionRemovedEventType type_, String createdAt, SuppressionEventData data}) get copyWith => _copyWith;
 
-  SuppressionRemovedEvent _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? data = sdkOmittedValue}) =>
-      SuppressionRemovedEvent(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SuppressionRemovedEventType,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as String,
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as SuppressionEventData,
-      );
+  SuppressionRemovedEvent _copyWith({Object? type_ = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? data = sdkOmittedValue}) => SuppressionRemovedEvent(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SuppressionRemovedEventType,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as String,
+    data: identical(data, sdkOmittedValue) ? this.data : data as SuppressionEventData,
+  );
 
-  factory SuppressionRemovedEvent.fromJson(Map<String, dynamic> json) =>
-      SuppressionRemovedEvent(
-        type_: (json['type'] != null
-            ? SuppressionRemovedEventType.fromJson(json['type'] as String)
-            : null)!,
-        createdAt: (json['created_at'] as String?)!,
-        data: (json['data'] != null
-            ? SuppressionEventData.fromJson(
-                json['data'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory SuppressionRemovedEvent.fromJson(Map<String, dynamic> json) => SuppressionRemovedEvent(
+    type_: (json['type'] != null ? SuppressionRemovedEventType.fromJson(json['type'] as String) : null)!,
+    createdAt: (json['created_at'] as String?)!,
+    data: (json['data'] != null ? SuppressionEventData.fromJson(json['data'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'created_at': createdAt,
-        'data': data.toJson(),
-      };
+    'type': type_.toJson(),
+    'created_at': createdAt,
+    'data': data.toJson(),
+  };
 }

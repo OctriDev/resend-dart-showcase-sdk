@@ -8,55 +8,32 @@ part of 'inbox_thread.dart';
 class InboxThreadCreatedEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The event type.
   final InboxThreadCreatedEventType type_;
-
   /// Timestamp when the event was emitted.
   final String createdAt;
-
   /// The data of an `inbox.thread.created`, `inbox.email.received` or `inbox.email.sent` event.
   final InboxThreadEmailEventData data;
 
-  const InboxThreadCreatedEvent(
-      {required this.type_, required this.createdAt, required this.data});
+  const InboxThreadCreatedEvent({required this.type_, required this.createdAt, required this.data});
 
-  InboxThreadCreatedEvent Function(
-      {InboxThreadCreatedEventType type_,
-      String createdAt,
-      InboxThreadEmailEventData data}) get copyWith => _copyWith;
+  InboxThreadCreatedEvent Function({InboxThreadCreatedEventType type_, String createdAt, InboxThreadEmailEventData data}) get copyWith => _copyWith;
 
-  InboxThreadCreatedEvent _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? data = sdkOmittedValue}) =>
-      InboxThreadCreatedEvent(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as InboxThreadCreatedEventType,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as String,
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as InboxThreadEmailEventData,
-      );
+  InboxThreadCreatedEvent _copyWith({Object? type_ = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? data = sdkOmittedValue}) => InboxThreadCreatedEvent(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as InboxThreadCreatedEventType,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as String,
+    data: identical(data, sdkOmittedValue) ? this.data : data as InboxThreadEmailEventData,
+  );
 
-  factory InboxThreadCreatedEvent.fromJson(Map<String, dynamic> json) =>
-      InboxThreadCreatedEvent(
-        type_: (json['type'] != null
-            ? InboxThreadCreatedEventType.fromJson(json['type'] as String)
-            : null)!,
-        createdAt: (json['created_at'] as String?)!,
-        data: (json['data'] != null
-            ? InboxThreadEmailEventData.fromJson(
-                json['data'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory InboxThreadCreatedEvent.fromJson(Map<String, dynamic> json) => InboxThreadCreatedEvent(
+    type_: (json['type'] != null ? InboxThreadCreatedEventType.fromJson(json['type'] as String) : null)!,
+    createdAt: (json['created_at'] as String?)!,
+    data: (json['data'] != null ? InboxThreadEmailEventData.fromJson(json['data'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'created_at': createdAt,
-        'data': data.toJson(),
-      };
+    'type': type_.toJson(),
+    'created_at': createdAt,
+    'data': data.toJson(),
+  };
 }

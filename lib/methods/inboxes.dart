@@ -48,11 +48,11 @@ Future<CreateInboxResponseSuccess> inboxesCreate(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'inboxesCreate',
-          fromJsonRaw: (value) => CreateInboxResponseSuccess.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => CreateInboxResponseSuccess.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Lists the team's inboxes, ordered from newest to oldest. Use `after` or `before` with an inbox ID to navigate the results; list items include fewer fields than an individual inbox record.
 ///
@@ -73,20 +73,17 @@ Future<ListInboxesResponseSuccess> inboxesList(ClientConfig config,
   return (await sdkRequest<ListInboxesResponseSuccess>('GET', '/inboxes',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
-                style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
-                style: 'form', explode: true),
-            'before': SdkQueryValue(SdkUtils.unwrapOptional(before),
-                style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true),
+            'before': SdkQueryValue(SdkUtils.unwrapOptional(before), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'inboxesList',
-          fromJsonRaw: (value) => ListInboxesResponseSuccess.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ListInboxesResponseSuccess.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Retrieves a single inbox by its ID or email address. Use an email address for a case-insensitive address lookup, or a UUID to look up the inbox by ID.
 ///
@@ -104,6 +101,7 @@ Future<Inbox> inboxesGet(ClientConfig config,
           options: requestOptions))
       .data;
 }
+
 
 /// Updates an inbox's internal name or the sender name recipients see. Provide at least one of `name` or `from_name`; omitted values remain unchanged.
 ///
@@ -139,11 +137,11 @@ Future<UpdateInboxResponseSuccess> inboxesUpdate(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'inboxesUpdate',
-          fromJsonRaw: (value) => UpdateInboxResponseSuccess.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => UpdateInboxResponseSuccess.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Deletes an existing inbox. Use its UUID as `inbox_id`; an email address is not accepted for this operation.
 ///
@@ -159,11 +157,11 @@ Future<RemoveInboxResponseSuccess> inboxesRemove(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'inboxesRemove',
-          fromJsonRaw: (value) => RemoveInboxResponseSuccess.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => RemoveInboxResponseSuccess.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Retrieves the agent settings for an inbox. An inbox without a configured agent has null `instructions` and `tone` values and an empty `enabled_actions` array.
 ///
@@ -179,11 +177,11 @@ Future<InboxAgent> inboxesGetAgent(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'inboxesGetAgent',
-          fromJsonRaw: (value) =>
-              InboxAgent.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => InboxAgent.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Updates the agent settings for an inbox, creating an agent if one is not configured. Provide at least one of `instructions`, `tone`, or `enabled_actions`; omitted fields keep their current values.
 ///
@@ -201,8 +199,7 @@ Future<UpdateInboxAgentResponseSuccess> inboxesUpdateAgent(ClientConfig config,
     {required String inboxId,
     SdkOptional<String?> instructions = const SdkOmitted(),
     SdkOptional<UpdateInboxAgentOptionsTone?> tone = const SdkOmitted(),
-    SdkOptional<List<UpdateInboxAgentOptionsEnabledActionsItem>>
-        enabledActions = const SdkOmitted(),
+    SdkOptional<List<UpdateInboxAgentOptionsEnabledActionsItem>> enabledActions = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
   sdkValidateUuid('inbox_id', inboxId);
   if (instructions is SdkPresent<String?>) {
@@ -222,11 +219,11 @@ Future<UpdateInboxAgentResponseSuccess> inboxesUpdateAgent(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'inboxesUpdateAgent',
-          fromJsonRaw: (value) => UpdateInboxAgentResponseSuccess.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => UpdateInboxAgentResponseSuccess.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Lists the labels attached to an inbox, ordered from oldest to newest. Use this endpoint to retrieve the inbox’s labels; the complete list is returned without pagination.
 ///
@@ -242,11 +239,11 @@ Future<ListInboxLabelsResponseSuccess> inboxesListLabels(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'inboxesListLabels',
-          fromJsonRaw: (value) => ListInboxLabelsResponseSuccess.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ListInboxLabelsResponseSuccess.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Creates a named, colored label on an inbox. Supply a `name` between 1 and 64 characters; names are unique per inbox, without regard to case, and `color` defaults to a random dashboard palette color when omitted.
 ///
@@ -275,11 +272,11 @@ Future<CreateInboxLabelResponseSuccess> inboxesCreateLabel(ClientConfig config,
           body: {'name': name, 'color': SdkUtils.unwrapOptional(color)},
           decoder: SdkResponseDecoder.json,
           operationId: 'inboxesCreateLabel',
-          fromJsonRaw: (value) => CreateInboxLabelResponseSuccess.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => CreateInboxLabelResponseSuccess.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Updates the name or color of an inbox label. Supply only the fields you want to change; omitted fields keep their current values, and a new name must remain unique on the inbox without regard to case.
 ///
@@ -316,11 +313,11 @@ Future<UpdateInboxLabelResponseSuccess> inboxesUpdateLabel(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'inboxesUpdateLabel',
-          fromJsonRaw: (value) => UpdateInboxLabelResponseSuccess.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => UpdateInboxLabelResponseSuccess.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Deletes a label from an inbox and removes it from every thread that carries it. Use this endpoint when you want to remove the label itself as well as its associations with threads.
 ///
@@ -340,11 +337,11 @@ Future<RemoveInboxLabelResponseSuccess> inboxesRemoveLabel(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'inboxesRemoveLabel',
-          fromJsonRaw: (value) => RemoveInboxLabelResponseSuccess.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => RemoveInboxLabelResponseSuccess.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Lists threads in an inbox, ordered by most recent activity first. Use `folders`, `labels`, or `read` to filter the results, and use `after` or `before` to navigate by thread ID; you can pass only one cursor at a time.
 ///
@@ -368,8 +365,7 @@ Future<RemoveInboxLabelResponseSuccess> inboxesRemoveLabel(ClientConfig config,
 /// [before] Return items before this cursor.
 Future<ListInboxThreadsResponseSuccess> inboxesListThreads(ClientConfig config,
     {required String inboxId,
-    SdkOptional<List<InboxesListThreadsFoldersItem>> folders =
-        const SdkOmitted(),
+    SdkOptional<List<InboxesListThreadsFoldersItem>> folders = const SdkOmitted(),
     SdkOptional<List<String>> labels = const SdkOmitted(),
     SdkOptional<bool> read = const SdkOmitted(),
     SdkOptional<int> limit = const SdkOmitted(),
@@ -388,26 +384,20 @@ Future<ListInboxThreadsResponseSuccess> inboxesListThreads(ClientConfig config,
           'GET', '/inboxes/${Uri.encodeComponent(inboxId.toString())}/threads',
           config: config,
           query: {
-            'folders': SdkQueryValue(SdkUtils.unwrapOptional(folders),
-                style: 'form', explode: false),
-            'labels': SdkQueryValue(SdkUtils.unwrapOptional(labels),
-                style: 'form', explode: false),
-            'read': SdkQueryValue(SdkUtils.unwrapOptional(read),
-                style: 'form', explode: true),
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
-                style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
-                style: 'form', explode: true),
-            'before': SdkQueryValue(SdkUtils.unwrapOptional(before),
-                style: 'form', explode: true)
+            'folders': SdkQueryValue(SdkUtils.unwrapOptional(folders), style: 'form', explode: false),
+            'labels': SdkQueryValue(SdkUtils.unwrapOptional(labels), style: 'form', explode: false),
+            'read': SdkQueryValue(SdkUtils.unwrapOptional(read), style: 'form', explode: true),
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true),
+            'before': SdkQueryValue(SdkUtils.unwrapOptional(before), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'inboxesListThreads',
-          fromJsonRaw: (value) => ListInboxThreadsResponseSuccess.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ListInboxThreadsResponseSuccess.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Searches an inbox’s threads by email text, sender or recipient, attachment presence, and date. Combine filters to find threads matching all specified criteria; email-level filters must match the same email, and results may lag new emails by up to about a minute. Search covers the 10,000 threads with the newest matching email when more than 10,000 threads match.
 ///
@@ -451,25 +441,24 @@ Future<ListInboxThreadsResponseSuccess> inboxesListThreads(ClientConfig config,
 /// [limit] Number of items to return.
 /// [after] Return items after this cursor.
 /// [before] Return items before this cursor.
-Future<SearchInboxThreadsResponseSuccess> inboxesSearchThreads(
-    ClientConfig config,
-    {required String inboxId,
-    SdkOptional<String> query = const SdkOmitted(),
-    SdkOptional<List<String>> from = const SdkOmitted(),
-    SdkOptional<List<String>> to = const SdkOmitted(),
-    SdkOptional<List<String>> cc = const SdkOmitted(),
-    SdkOptional<List<String>> bcc = const SdkOmitted(),
-    SdkOptional<bool> hasAttachment = const SdkOmitted(),
-    SdkOptional<String> startDate = const SdkOmitted(),
-    SdkOptional<String> endDate = const SdkOmitted(),
-    SdkOptional<List<InboxesSearchThreadsFoldersItem>> folders =
-        const SdkOmitted(),
-    SdkOptional<List<String>> labels = const SdkOmitted(),
-    SdkOptional<bool> read = const SdkOmitted(),
-    SdkOptional<int> limit = const SdkOmitted(),
-    SdkOptional<String> after = const SdkOmitted(),
-    SdkOptional<String> before = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<SearchInboxThreadsResponseSuccess>
+    inboxesSearchThreads(ClientConfig config,
+        {required String inboxId,
+        SdkOptional<String> query = const SdkOmitted(),
+        SdkOptional<List<String>> from = const SdkOmitted(),
+        SdkOptional<List<String>> to = const SdkOmitted(),
+        SdkOptional<List<String>> cc = const SdkOmitted(),
+        SdkOptional<List<String>> bcc = const SdkOmitted(),
+        SdkOptional<bool> hasAttachment = const SdkOmitted(),
+        SdkOptional<String> startDate = const SdkOmitted(),
+        SdkOptional<String> endDate = const SdkOmitted(),
+        SdkOptional<List<InboxesSearchThreadsFoldersItem>> folders = const SdkOmitted(),
+        SdkOptional<List<String>> labels = const SdkOmitted(),
+        SdkOptional<bool> read = const SdkOmitted(),
+        SdkOptional<int> limit = const SdkOmitted(),
+        SdkOptional<String> after = const SdkOmitted(),
+        SdkOptional<String> before = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   sdkValidateUuid('inbox_id', inboxId);
   if (query is SdkPresent<String>) {
     validateLength('query', query.value, max: 256);
@@ -497,44 +486,28 @@ Future<SearchInboxThreadsResponseSuccess> inboxesSearchThreads(
           '/inboxes/${Uri.encodeComponent(inboxId.toString())}/threads/search',
           config: config,
           query: {
-            'query': SdkQueryValue(SdkUtils.unwrapOptional(query),
-                style: 'form', explode: true),
-            'from': SdkQueryValue(SdkUtils.unwrapOptional(from),
-                style: 'form', explode: false),
-            'to': SdkQueryValue(SdkUtils.unwrapOptional(to),
-                style: 'form', explode: false),
-            'cc': SdkQueryValue(SdkUtils.unwrapOptional(cc),
-                style: 'form', explode: false),
-            'bcc': SdkQueryValue(SdkUtils.unwrapOptional(bcc),
-                style: 'form', explode: false),
-            'has_attachment': SdkQueryValue(
-                SdkUtils.unwrapOptional(hasAttachment),
-                style: 'form',
-                explode: true),
-            'start_date': SdkQueryValue(SdkUtils.unwrapOptional(startDate),
-                style: 'form', explode: true),
-            'end_date': SdkQueryValue(SdkUtils.unwrapOptional(endDate),
-                style: 'form', explode: true),
-            'folders': SdkQueryValue(SdkUtils.unwrapOptional(folders),
-                style: 'form', explode: false),
-            'labels': SdkQueryValue(SdkUtils.unwrapOptional(labels),
-                style: 'form', explode: false),
-            'read': SdkQueryValue(SdkUtils.unwrapOptional(read),
-                style: 'form', explode: true),
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
-                style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
-                style: 'form', explode: true),
-            'before': SdkQueryValue(SdkUtils.unwrapOptional(before),
-                style: 'form', explode: true)
+            'query': SdkQueryValue(SdkUtils.unwrapOptional(query), style: 'form', explode: true),
+            'from': SdkQueryValue(SdkUtils.unwrapOptional(from), style: 'form', explode: false),
+            'to': SdkQueryValue(SdkUtils.unwrapOptional(to), style: 'form', explode: false),
+            'cc': SdkQueryValue(SdkUtils.unwrapOptional(cc), style: 'form', explode: false),
+            'bcc': SdkQueryValue(SdkUtils.unwrapOptional(bcc), style: 'form', explode: false),
+            'has_attachment': SdkQueryValue(SdkUtils.unwrapOptional(hasAttachment), style: 'form', explode: true),
+            'start_date': SdkQueryValue(SdkUtils.unwrapOptional(startDate), style: 'form', explode: true),
+            'end_date': SdkQueryValue(SdkUtils.unwrapOptional(endDate), style: 'form', explode: true),
+            'folders': SdkQueryValue(SdkUtils.unwrapOptional(folders), style: 'form', explode: false),
+            'labels': SdkQueryValue(SdkUtils.unwrapOptional(labels), style: 'form', explode: false),
+            'read': SdkQueryValue(SdkUtils.unwrapOptional(read), style: 'form', explode: true),
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true),
+            'before': SdkQueryValue(SdkUtils.unwrapOptional(before), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'inboxesSearchThreads',
-          fromJsonRaw: (value) => SearchInboxThreadsResponseSuccess.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => SearchInboxThreadsResponseSuccess.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Retrieves the summary of a single inbox thread. Use the list thread emails endpoint to retrieve the messages that make up the thread.
 ///
@@ -554,11 +527,11 @@ Future<InboxThreadSummary> inboxesGetThread(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'inboxesGetThread',
-          fromJsonRaw: (value) =>
-              InboxThreadSummary.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => InboxThreadSummary.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Updates a thread’s read state, folder, or labels. Supply at least one of `read`, `folder`, `add_label_ids`, or `remove_label_ids`; changes apply in that order and are not atomic, so earlier changes may remain applied if a later label operation fails.
 ///
@@ -602,11 +575,11 @@ Future<InboxThreadSummary> inboxesUpdateThread(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'inboxesUpdateThread',
-          fromJsonRaw: (value) =>
-              InboxThreadSummary.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => InboxThreadSummary.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Moves a thread to the `trash` folder and schedules it for deletion in 30 days. The move is reversible; update the thread’s `folder` to `inbox`, `archive`, or `spam` to restore it and clear the deletion deadline.
 ///
@@ -614,11 +587,11 @@ Future<InboxThreadSummary> inboxesUpdateThread(ClientConfig config,
 ///
 /// [inboxId] The Inbox ID. An email address is not accepted.
 /// [threadId] The Thread ID.
-Future<RemoveInboxThreadResponseSuccess> inboxesRemoveThread(
-    ClientConfig config,
-    {required String inboxId,
-    required String threadId,
-    RequestOptions? requestOptions}) async {
+Future<RemoveInboxThreadResponseSuccess>
+    inboxesRemoveThread(ClientConfig config,
+        {required String inboxId,
+        required String threadId,
+        RequestOptions? requestOptions}) async {
   sdkValidateUuid('inbox_id', inboxId);
   sdkValidateUuid('thread_id', threadId);
 
@@ -627,11 +600,11 @@ Future<RemoveInboxThreadResponseSuccess> inboxesRemoveThread(
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'inboxesRemoveThread',
-          fromJsonRaw: (value) => RemoveInboxThreadResponseSuccess.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => RemoveInboxThreadResponseSuccess.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Lists the messages in a thread, ordered from oldest to newest. Use `after` with the last message ID to retrieve a newer page, or `before` with the first message ID to retrieve an older page; pass only one cursor at a time.
 ///
@@ -642,14 +615,14 @@ Future<RemoveInboxThreadResponseSuccess> inboxesRemoveThread(
 /// [limit] Number of items to return.
 /// [after] Return items after this cursor.
 /// [before] Return items before this cursor.
-Future<ListInboxThreadEmailsResponseSuccess> inboxesListThreadEmails(
-    ClientConfig config,
-    {required String inboxId,
-    required String threadId,
-    SdkOptional<int> limit = const SdkOmitted(),
-    SdkOptional<String> after = const SdkOmitted(),
-    SdkOptional<String> before = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<ListInboxThreadEmailsResponseSuccess>
+    inboxesListThreadEmails(ClientConfig config,
+        {required String inboxId,
+        required String threadId,
+        SdkOptional<int> limit = const SdkOmitted(),
+        SdkOptional<String> after = const SdkOmitted(),
+        SdkOptional<String> before = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   sdkValidateUuid('inbox_id', inboxId);
   sdkValidateUuid('thread_id', threadId);
   if (limit is SdkPresent<int>) {
@@ -660,20 +633,17 @@ Future<ListInboxThreadEmailsResponseSuccess> inboxesListThreadEmails(
           '/inboxes/${Uri.encodeComponent(inboxId.toString())}/threads/${Uri.encodeComponent(threadId.toString())}/emails',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
-                style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
-                style: 'form', explode: true),
-            'before': SdkQueryValue(SdkUtils.unwrapOptional(before),
-                style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true),
+            'before': SdkQueryValue(SdkUtils.unwrapOptional(before), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'inboxesListThreadEmails',
-          fromJsonRaw: (value) => ListInboxThreadEmailsResponseSuccess.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ListInboxThreadEmailsResponseSuccess.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Retrieves a specific email from an inbox thread. Use the inbox, thread, and email identifiers to select the message whose details you need.
 ///
@@ -695,11 +665,11 @@ Future<InboxThreadEmail> inboxesGetThreadEmail(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'inboxesGetThreadEmail',
-          fromJsonRaw: (value) =>
-              InboxThreadEmail.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => InboxThreadEmail.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Submits a reply to a message in an inbox thread directly from the inbox address, without storing a draft. Use `html` or `text` for the reply body; recipients are derived from the message, with `reply_all` controlling whether other recipients are copied. The reply is threaded under the original message.
 ///
@@ -752,21 +722,21 @@ Future<InboxThreadEmail> inboxesGetThreadEmail(ClientConfig config,
 ///   here. Sending one of them, in any letter case, returns a 422. Header names
 ///   cannot be empty, and names and values cannot contain line breaks or null
 ///   characters, or the request returns a 422. `null` means no custom headers.
-Future<ReplyInboxThreadEmailResponseSuccess> inboxesReplyThreadEmail(
-    ClientConfig config,
-    {required String inboxId,
-    required String threadId,
-    required String emailId,
-    SdkOptional<String> idempotencyKey = const SdkOmitted(),
-    SdkOptional<List<String>?> cc = const SdkOmitted(),
-    SdkOptional<List<String>?> bcc = const SdkOmitted(),
-    SdkOptional<String> html = const SdkOmitted(),
-    SdkOptional<String> text = const SdkOmitted(),
-    SdkOptional<String> subject = const SdkOmitted(),
-    SdkOptional<bool> replyAll = const SdkOmitted(),
-    SdkOptional<List<Attachment>?> attachments = const SdkOmitted(),
-    SdkOptional<Map<String, String>?> headers = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<ReplyInboxThreadEmailResponseSuccess>
+    inboxesReplyThreadEmail(ClientConfig config,
+        {required String inboxId,
+        required String threadId,
+        required String emailId,
+        SdkOptional<String> idempotencyKey = const SdkOmitted(),
+        SdkOptional<List<String>?> cc = const SdkOmitted(),
+        SdkOptional<List<String>?> bcc = const SdkOmitted(),
+        SdkOptional<String> html = const SdkOmitted(),
+        SdkOptional<String> text = const SdkOmitted(),
+        SdkOptional<String> subject = const SdkOmitted(),
+        SdkOptional<bool> replyAll = const SdkOmitted(),
+        SdkOptional<List<Attachment>?> attachments = const SdkOmitted(),
+        SdkOptional<Map<String, String>?> headers = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   sdkValidateUuid('inbox_id', inboxId);
   sdkValidateUuid('thread_id', threadId);
   sdkValidateUuid('email_id', emailId);
@@ -803,14 +773,13 @@ Future<ReplyInboxThreadEmailResponseSuccess> inboxesReplyThreadEmail(
             'headers': SdkUtils.unwrapOptional(headers)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Idempotency-Key': SdkUtils.unwrapOptional(idempotencyKey)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Idempotency-Key': SdkUtils.unwrapOptional(idempotencyKey)}),
           operationId: 'inboxesReplyThreadEmail',
-          fromJsonRaw: (value) => ReplyInboxThreadEmailResponseSuccess.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ReplyInboxThreadEmailResponseSuccess.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Submits a forward of a message from the inbox address directly, without storing a draft. Supply `to` recipients and optionally add a note with `html` or `text`; the original message is quoted and its attachments are included. Added attachments share the original message's limit of 10 files and 25 MB of content.
 ///
@@ -858,21 +827,21 @@ Future<ReplyInboxThreadEmailResponseSuccess> inboxesReplyThreadEmail(
 ///   here. Sending one of them, in any letter case, returns a 422. Header names
 ///   cannot be empty, and names and values cannot contain line breaks or null
 ///   characters, or the request returns a 422. `null` means no custom headers.
-Future<ForwardInboxThreadEmailResponseSuccess> inboxesForwardThreadEmail(
-    ClientConfig config,
-    {required String inboxId,
-    required String threadId,
-    required String emailId,
-    required List<String> to,
-    SdkOptional<String> idempotencyKey = const SdkOmitted(),
-    SdkOptional<List<String>?> cc = const SdkOmitted(),
-    SdkOptional<List<String>?> bcc = const SdkOmitted(),
-    SdkOptional<String> html = const SdkOmitted(),
-    SdkOptional<String> text = const SdkOmitted(),
-    SdkOptional<String> subject = const SdkOmitted(),
-    SdkOptional<List<Attachment>?> attachments = const SdkOmitted(),
-    SdkOptional<Map<String, String>?> headers = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<ForwardInboxThreadEmailResponseSuccess>
+    inboxesForwardThreadEmail(ClientConfig config,
+        {required String inboxId,
+        required String threadId,
+        required String emailId,
+        required List<String> to,
+        SdkOptional<String> idempotencyKey = const SdkOmitted(),
+        SdkOptional<List<String>?> cc = const SdkOmitted(),
+        SdkOptional<List<String>?> bcc = const SdkOmitted(),
+        SdkOptional<String> html = const SdkOmitted(),
+        SdkOptional<String> text = const SdkOmitted(),
+        SdkOptional<String> subject = const SdkOmitted(),
+        SdkOptional<List<Attachment>?> attachments = const SdkOmitted(),
+        SdkOptional<Map<String, String>?> headers = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   sdkValidateUuid('inbox_id', inboxId);
   sdkValidateUuid('thread_id', threadId);
   sdkValidateUuid('email_id', emailId);
@@ -910,15 +879,13 @@ Future<ForwardInboxThreadEmailResponseSuccess> inboxesForwardThreadEmail(
             'headers': SdkUtils.unwrapOptional(headers)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Idempotency-Key': SdkUtils.unwrapOptional(idempotencyKey)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Idempotency-Key': SdkUtils.unwrapOptional(idempotencyKey)}),
           operationId: 'inboxesForwardThreadEmail',
-          fromJsonRaw: (value) =>
-              ForwardInboxThreadEmailResponseSuccess.fromJson(
-                  value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ForwardInboxThreadEmailResponseSuccess.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Lists unsent drafts in an inbox, ordered by most recently updated. Use `after` or `before` with a Draft ID from the current page to navigate results; do not supply both cursors together.
 ///
@@ -943,20 +910,17 @@ Future<ListInboxDraftsResponseSuccess> inboxesListDrafts(ClientConfig config,
           'GET', '/inboxes/${Uri.encodeComponent(inboxId.toString())}/drafts',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
-                style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
-                style: 'form', explode: true),
-            'before': SdkQueryValue(SdkUtils.unwrapOptional(before),
-                style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true),
+            'before': SdkQueryValue(SdkUtils.unwrapOptional(before), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'inboxesListDrafts',
-          fromJsonRaw: (value) => ListInboxDraftsResponseSuccess.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ListInboxDraftsResponseSuccess.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Creates an unsent draft in an inbox, either as a new thread or as a reply in an existing thread. Supply at least one non-empty recipient, subject, body, or attachment field; reply drafts require both `thread_id` and `reply_to_email_id`. If a reply draft already exists for the target email, the response returns its ID and only a supplied `attachments` value is applied.
 ///
@@ -1002,8 +966,7 @@ Future<CreateInboxDraftResponseSuccess> inboxesCreateDraft(ClientConfig config,
     SdkOptional<String?> subject = const SdkOmitted(),
     SdkOptional<String?> html = const SdkOmitted(),
     SdkOptional<String?> text = const SdkOmitted(),
-    SdkOptional<List<InboxDraftAttachmentInput>?> attachments =
-        const SdkOmitted(),
+    SdkOptional<List<InboxDraftAttachmentInput>?> attachments = const SdkOmitted(),
     SdkOptional<String> threadId = const SdkOmitted(),
     SdkOptional<String> replyToEmailId = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
@@ -1057,14 +1020,13 @@ Future<CreateInboxDraftResponseSuccess> inboxesCreateDraft(ClientConfig config,
             'reply_to_email_id': SdkUtils.unwrapOptional(replyToEmailId)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Idempotency-Key': SdkUtils.unwrapOptional(idempotencyKey)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Idempotency-Key': SdkUtils.unwrapOptional(idempotencyKey)}),
           operationId: 'inboxesCreateDraft',
-          fromJsonRaw: (value) => CreateInboxDraftResponseSuccess.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => CreateInboxDraftResponseSuccess.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Retrieves a specific draft from an inbox. Use the inbox and draft identifiers to inspect its recipients, content, thread association, timestamps, and stored attachments.
 ///
@@ -1082,11 +1044,11 @@ Future<InboxDraft> inboxesGetDraft(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'inboxesGetDraft',
-          fromJsonRaw: (value) =>
-              InboxDraft.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => InboxDraft.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Updates the content of an unsent draft in an inbox. Send only the fields you want to change; sending `attachments` replaces all attachments, while sending `text` or `html` replaces the entire body. The merged draft must retain at least one non-empty field and no more than 50 combined recipients.
 ///
@@ -1123,8 +1085,7 @@ Future<InboxDraft> inboxesUpdateDraft(ClientConfig config,
     SdkOptional<String?> subject = const SdkOmitted(),
     SdkOptional<String?> html = const SdkOmitted(),
     SdkOptional<String?> text = const SdkOmitted(),
-    SdkOptional<List<InboxDraftAttachmentInput>?> attachments =
-        const SdkOmitted(),
+    SdkOptional<List<InboxDraftAttachmentInput>?> attachments = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
   sdkValidateUuid('inbox_id', inboxId);
   sdkValidateUuid('draft_id', draftId);
@@ -1167,11 +1128,11 @@ Future<InboxDraft> inboxesUpdateDraft(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'inboxesUpdateDraft',
-          fromJsonRaw: (value) =>
-              InboxDraft.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => InboxDraft.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Deletes an unsent draft from an inbox. Use the inbox and draft identifiers to select the draft to discard; drafts that have already been sent are not eligible for removal.
 ///
@@ -1191,11 +1152,11 @@ Future<RemoveInboxDraftResponseSuccess> inboxesRemoveDraft(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'inboxesRemoveDraft',
-          fromJsonRaw: (value) => RemoveInboxDraftResponseSuccess.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => RemoveInboxDraftResponseSuccess.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Submits an unsent draft from the inbox address. A reply draft is sent in its existing thread, while a standalone draft starts a new thread; you can add custom headers in the optional request body. Before sending, the draft must have at least one recipient, a non-empty subject, and an HTML or plain-text body.
 ///
@@ -1233,11 +1194,9 @@ Future<SendInboxDraftResponseSuccess> inboxesSendDraft(ClientConfig config,
           config: config,
           body: {'headers': SdkUtils.unwrapOptional(headers)},
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Idempotency-Key': SdkUtils.unwrapOptional(idempotencyKey)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Idempotency-Key': SdkUtils.unwrapOptional(idempotencyKey)}),
           operationId: 'inboxesSendDraft',
-          fromJsonRaw: (value) => SendInboxDraftResponseSuccess.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => SendInboxDraftResponseSuccess.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
