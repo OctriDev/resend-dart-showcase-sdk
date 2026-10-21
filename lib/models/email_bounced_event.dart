@@ -7,4 +7,4 @@ import 'inline.dart';
 import 'misc.dart';
 import 'webhook_event_bounce.dart';
 
-part 'email_bounced_event_part1.dart';
+part 'email_bounced_event_models.dart';

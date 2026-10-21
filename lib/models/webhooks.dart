@@ -5,6 +5,13 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'webhooks_part1.dart';
-part 'webhooks_part2.dart';
-part 'webhooks_part3.dart';
+part 'webhooks_create.dart';
+part 'webhooks_remove.dart';
+part 'webhooks_get_event.dart';
+part 'webhooks_get.dart';
+part 'webhooks_list_event_attempts.dart';
+part 'webhooks_list_events.dart';
+part 'webhooks_list.dart';
+part 'webhooks_replay_event.dart';
+part 'webhooks_rotate_signing_secret.dart';
+part 'webhooks_update.dart';

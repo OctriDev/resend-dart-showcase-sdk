@@ -5,7 +5,13 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'broadcasts_part1.dart';
-part 'broadcasts_part2.dart';
-part 'broadcasts_part3.dart';
-part 'broadcasts_part4.dart';
+part 'broadcasts_cancel.dart';
+part 'broadcasts_create.dart';
+part 'broadcasts_duplicate.dart';
+part 'broadcasts_get.dart';
+part 'broadcasts_list_clicked_links.dart';
+part 'broadcasts_list_recipients.dart';
+part 'broadcasts_list.dart';
+part 'broadcasts_remove.dart';
+part 'broadcasts_send.dart';
+part 'broadcasts_update.dart';

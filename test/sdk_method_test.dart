@@ -2236,8 +2236,9 @@ void main() {
       );
     });
 
-    test("revokeGrant reaches the mock and decodes its response", () async {
-      final actual = await sdk_methods_11.revokeGrant(
+    test("revokeOauthGrant reaches the mock and decodes its response",
+        () async {
+      final actual = await sdk_methods_11.revokeOauthGrant(
         config,
         oauthGrantId: (jsonDecode("\"oauth_grant-1\"") as String),
       );

@@ -5,7 +5,11 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'domains_part1.dart';
-part 'domains_part2.dart';
-part 'domains_part3.dart';
-part 'domains_part4.dart';
+part 'domains_create_claim.dart';
+part 'domains_create.dart';
+part 'domains_remove.dart';
+part 'domains_get.dart';
+part 'domains_shared.dart';
+part 'domains_list.dart';
+part 'domains_update.dart';
+part 'domains_verify.dart';

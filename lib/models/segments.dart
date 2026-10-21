@@ -4,5 +4,8 @@
 // segments domain model library.
 import '../sdk_utils.dart';
 
-part 'segments_part1.dart';
-part 'segments_part2.dart';
+part 'segments_create.dart';
+part 'segments_get.dart';
+part 'segments_list.dart';
+part 'segments_remove.dart';
+part 'segments_update.dart';

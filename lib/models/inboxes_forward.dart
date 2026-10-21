@@ -5,4 +5,4 @@
 import '../sdk_utils.dart';
 import 'shared.dart';
 
-part 'inboxes_forward_part1.dart';
+part 'inboxes_forward_models.dart';

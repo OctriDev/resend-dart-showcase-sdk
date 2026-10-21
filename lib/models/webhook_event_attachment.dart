@@ -4,4 +4,4 @@
 // webhook_event_attachment domain model library.
 import '../sdk_utils.dart';
 
-part 'webhook_event_attachment_part1.dart';
+part 'webhook_event_attachment_models.dart';

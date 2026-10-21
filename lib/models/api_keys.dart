@@ -5,4 +5,4 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'api_keys_part1.dart';
+part 'api_keys_models.dart';

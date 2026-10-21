@@ -5,4 +5,4 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'logs_part1.dart';
+part 'logs_models.dart';

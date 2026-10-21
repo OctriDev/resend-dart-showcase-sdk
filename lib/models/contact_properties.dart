@@ -5,5 +5,8 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'contact_properties_part1.dart';
-part 'contact_properties_part2.dart';
+part 'contact_properties_create.dart';
+part 'contact_properties_get.dart';
+part 'contact_properties_list.dart';
+part 'contact_properties_remove.dart';
+part 'contact_properties_update.dart';

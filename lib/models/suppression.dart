@@ -5,4 +5,4 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'suppression_part1.dart';
+part 'suppression_models.dart';

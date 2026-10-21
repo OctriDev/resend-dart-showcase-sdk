@@ -4,5 +4,9 @@
 // events domain model library.
 import '../sdk_utils.dart';
 
-part 'events_part1.dart';
-part 'events_part2.dart';
+part 'events_create.dart';
+part 'events_get.dart';
+part 'events_list.dart';
+part 'events_remove.dart';
+part 'events_send.dart';
+part 'events_update.dart';

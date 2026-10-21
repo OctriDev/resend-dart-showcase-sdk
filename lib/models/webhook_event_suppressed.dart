@@ -5,4 +5,4 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'webhook_event_suppressed_part1.dart';
+part 'webhook_event_suppressed_models.dart';

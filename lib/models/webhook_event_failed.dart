@@ -4,4 +4,4 @@
 // webhook_event_failed domain model library.
 import '../sdk_utils.dart';
 
-part 'webhook_event_failed_part1.dart';
+part 'webhook_event_failed_models.dart';

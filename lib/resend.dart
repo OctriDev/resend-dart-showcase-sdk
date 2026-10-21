@@ -411,7 +411,7 @@ class OauthNamespace {
   /// Revokes an OAuth grant, removing the authorization associated with it. Supply the grant's ID to identify which authorization to revoke. The response includes the revocation time and reason.
   Future<RevokeOAuthGrantResponse> revokeGrant(
       {required String oauthGrantId, RequestOptions? requestOptions}) async {
-    return oauth_methods.revokeGrant(_config,
+    return oauth_methods.revokeOauthGrant(_config,
         oauthGrantId: oauthGrantId, requestOptions: requestOptions);
   }
 }

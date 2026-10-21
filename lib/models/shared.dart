@@ -6,5 +6,7 @@ import 'dart:convert';
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'shared_part1.dart';
-part 'shared_part2.dart';
+part 'shared_attachment.dart';
+part 'shared_list_attachments_response.dart';
+part 'shared_list_contacts_response_success.dart';
+part 'shared_retrieved_attachment.dart';

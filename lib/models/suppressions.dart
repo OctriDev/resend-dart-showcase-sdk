@@ -5,5 +5,9 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'suppressions_part1.dart';
-part 'suppressions_part2.dart';
+part 'suppressions_batch_add.dart';
+part 'suppressions_batch_remove.dart';
+part 'suppressions_add.dart';
+part 'suppressions_get.dart';
+part 'suppressions_list.dart';
+part 'suppressions_remove.dart';

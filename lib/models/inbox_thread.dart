@@ -7,5 +7,13 @@ import 'inbox_event.dart';
 import 'inboxes_inbox.dart';
 import 'inline.dart';
 
-part 'inbox_thread_part1.dart';
-part 'inbox_thread_part2.dart';
+part 'inbox_thread_assigned_event.dart';
+part 'inbox_thread_assigned_event_data.dart';
+part 'inbox_thread_created_event.dart';
+part 'inbox_thread_email_event_data.dart';
+part 'inbox_thread_folder_updated_event.dart';
+part 'inbox_thread_folder_updated_event_data.dart';
+part 'inbox_thread_labels_updated_event.dart';
+part 'inbox_thread_labels_updated_event_data.dart';
+part 'inbox_thread_unassigned_event.dart';
+part 'inbox_thread_unassigned_event_data.dart';

@@ -4,4 +4,4 @@
 // inboxes_send domain model library.
 import '../sdk_utils.dart';
 
-part 'inboxes_send_part1.dart';
+part 'inboxes_send_models.dart';

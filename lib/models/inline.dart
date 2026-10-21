@@ -2,15 +2,15 @@
 // This file is machine-generated from your OpenAPI spec.
 
 // Models declared inline by operations.
-part 'inline_part1.dart';
-part 'inline_part2.dart';
-part 'inline_part3.dart';
-part 'inline_part4.dart';
-part 'inline_part5.dart';
-part 'inline_part6.dart';
-part 'inline_part7.dart';
-part 'inline_part8.dart';
-part 'inline_part9.dart';
-part 'inline_part10.dart';
-part 'inline_part11.dart';
-part 'inline_part12.dart';
+part 'inline_automation_status.dart';
+part 'inline_contact_topics_updated_event_type.dart';
+part 'inline_create_topic_options_visibility.dart';
+part 'inline_domain_record_record.dart';
+part 'inline_email_received_event_type.dart';
+part 'inline_inbox_agent_enabled_actions_item.dart';
+part 'inline_inbox_event_email_direction.dart';
+part 'inline_list_attachments_response_data_item_content_disposition.dart';
+part 'inline_retrieved_attachment_content_disposition.dart';
+part 'inline_update_contact_topics_response_success_topics_item_subscription.dart';
+part 'inline_webhook_event_suppressed_reason.dart';
+part 'inline_suppressions_list_origin.dart';

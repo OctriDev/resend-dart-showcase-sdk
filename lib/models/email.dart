@@ -6,4 +6,4 @@ import '../sdk_utils.dart';
 import 'inline.dart';
 import 'misc.dart';
 
-part 'email_part1.dart';
+part 'email_models.dart';

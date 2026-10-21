@@ -7,4 +7,4 @@ import 'inbox_event.dart';
 import 'inboxes_inbox.dart';
 import 'inline.dart';
 
-part 'inbox_draft_part1.dart';
+part 'inbox_draft_models.dart';
