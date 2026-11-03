@@ -42,11 +42,11 @@ Future<CreateTemplateResponseSuccess> templatesCreate(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'templatesCreate',
-          fromJsonRaw: (value) => CreateTemplateResponseSuccess.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => CreateTemplateResponseSuccess.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
-
 
 /// Lists templates available to the authenticated user. Use `after` or `before` to navigate the results with a cursor, and `limit` to control the number of templates returned.
 ///
@@ -65,17 +65,20 @@ Future<ListTemplatesResponseSuccess> templatesList(ClientConfig config,
   return (await sdkRequest<ListTemplatesResponseSuccess>('GET', '/templates',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true),
-            'before': SdkQueryValue(SdkUtils.unwrapOptional(before), style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
+                style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
+                style: 'form', explode: true),
+            'before': SdkQueryValue(SdkUtils.unwrapOptional(before),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'templatesList',
-          fromJsonRaw: (value) => ListTemplatesResponseSuccess.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ListTemplatesResponseSuccess.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
-
 
 /// Retrieves a template by its ID or alias. Use the returned details to inspect the template content, variables, and publication status.
 ///
@@ -87,11 +90,11 @@ Future<Template> templatesGet(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'templatesGet',
-          fromJsonRaw: (value) => Template.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Template.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
-
 
 /// Updates an existing template with the fields you provide. Use the `id` path parameter to select the template and send only the template properties you want to change.
 ///
@@ -131,11 +134,11 @@ Future<UpdateTemplateResponseSuccess> templatesUpdate(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'templatesUpdate',
-          fromJsonRaw: (value) => UpdateTemplateResponseSuccess.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => UpdateTemplateResponseSuccess.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
-
 
 /// Deletes a template selected by its ID or alias. Use this operation when you want to remove the template; the response indicates whether it was deleted.
 ///
@@ -147,11 +150,11 @@ Future<RemoveTemplateResponseSuccess> templatesRemove(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'templatesRemove',
-          fromJsonRaw: (value) => RemoveTemplateResponseSuccess.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => RemoveTemplateResponseSuccess.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
-
 
 /// Publishes a template selected by its ID or alias. Use this operation to make the template's current version published.
 ///
@@ -163,11 +166,11 @@ Future<PublishTemplateResponseSuccess> templatesPublish(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'templatesPublish',
-          fromJsonRaw: (value) => PublishTemplateResponseSuccess.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => PublishTemplateResponseSuccess.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
-
 
 /// Creates a duplicate of a template selected by its ID or alias. Use this operation when you want a separate template based on an existing one.
 ///
@@ -179,7 +182,8 @@ Future<DuplicateTemplateResponseSuccess> templatesDuplicate(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'templatesDuplicate',
-          fromJsonRaw: (value) => DuplicateTemplateResponseSuccess.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => DuplicateTemplateResponseSuccess.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }

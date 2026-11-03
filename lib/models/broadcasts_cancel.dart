@@ -8,34 +8,56 @@ part of 'broadcasts.dart';
 class CancelBroadcastResponseSuccess implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The ID of the broadcast.
   final SdkOptional<String> id;
+
   /// The object type of the response.
   final SdkOptional<String> object;
 
-  const CancelBroadcastResponseSuccess({this.id = const SdkOmitted(), this.object = const SdkOmitted()});
+  const CancelBroadcastResponseSuccess(
+      {this.id = const SdkOmitted(), this.object = const SdkOmitted()});
 
-  CancelBroadcastResponseSuccess Function({SdkOptional<String> id, SdkOptional<String> object}) get copyWith => _copyWith;
+  CancelBroadcastResponseSuccess Function(
+      {SdkOptional<String> id,
+      SdkOptional<String> object}) get copyWith => _copyWith;
 
-  CancelBroadcastResponseSuccess _copyWith({Object? id = sdkOmittedValue, Object? object = sdkOmittedValue}) => CancelBroadcastResponseSuccess(
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<String>,
-  );
+  CancelBroadcastResponseSuccess _copyWith(
+          {Object? id = sdkOmittedValue, Object? object = sdkOmittedValue}) =>
+      CancelBroadcastResponseSuccess(
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as SdkOptional<String>,
+      );
 
-  factory CancelBroadcastResponseSuccess.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(CancelBroadcastResponseSuccess(
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    object: json['object'] != null ? SdkPresent((json['object'] as String?)!) : const SdkOmitted(),
-  ), json);
+  factory CancelBroadcastResponseSuccess.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          CancelBroadcastResponseSuccess(
+            id: json['id'] != null
+                ? SdkPresent((json['id'] as String?)!)
+                : const SdkOmitted(),
+            object: json['object'] != null
+                ? SdkPresent((json['object'] as String?)!)
+                : const SdkOmitted(),
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (object) {
-      SdkPresent<String>(value: final value) => {'object': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (object) {
+          SdkPresent<String>(value: final value) => {
+              'object': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

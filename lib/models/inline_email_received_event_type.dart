@@ -10,14 +10,17 @@ enum EmailReceivedEventType {
 
   static EmailReceivedEventType fromJson(String value) {
     switch (value) {
-      case 'email.received': return EmailReceivedEventType.emailReceived;
-      default: throw ArgumentError('Unknown EmailReceivedEventType: $value');
+      case 'email.received':
+        return EmailReceivedEventType.emailReceived;
+      default:
+        throw ArgumentError('Unknown EmailReceivedEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case EmailReceivedEventType.emailReceived: return 'email.received';
+      case EmailReceivedEventType.emailReceived:
+        return 'email.received';
     }
   }
 
@@ -31,14 +34,17 @@ enum EmailScheduledEventType {
 
   static EmailScheduledEventType fromJson(String value) {
     switch (value) {
-      case 'email.scheduled': return EmailScheduledEventType.emailScheduled;
-      default: throw ArgumentError('Unknown EmailScheduledEventType: $value');
+      case 'email.scheduled':
+        return EmailScheduledEventType.emailScheduled;
+      default:
+        throw ArgumentError('Unknown EmailScheduledEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case EmailScheduledEventType.emailScheduled: return 'email.scheduled';
+      case EmailScheduledEventType.emailScheduled:
+        return 'email.scheduled';
     }
   }
 
@@ -52,14 +58,17 @@ enum EmailSentEventType {
 
   static EmailSentEventType fromJson(String value) {
     switch (value) {
-      case 'email.sent': return EmailSentEventType.emailSent;
-      default: throw ArgumentError('Unknown EmailSentEventType: $value');
+      case 'email.sent':
+        return EmailSentEventType.emailSent;
+      default:
+        throw ArgumentError('Unknown EmailSentEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case EmailSentEventType.emailSent: return 'email.sent';
+      case EmailSentEventType.emailSent:
+        return 'email.sent';
     }
   }
 
@@ -73,14 +82,17 @@ enum EmailSuppressedEventType {
 
   static EmailSuppressedEventType fromJson(String value) {
     switch (value) {
-      case 'email.suppressed': return EmailSuppressedEventType.emailSuppressed;
-      default: throw ArgumentError('Unknown EmailSuppressedEventType: $value');
+      case 'email.suppressed':
+        return EmailSuppressedEventType.emailSuppressed;
+      default:
+        throw ArgumentError('Unknown EmailSuppressedEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case EmailSuppressedEventType.emailSuppressed: return 'email.suppressed';
+      case EmailSuppressedEventType.emailSuppressed:
+        return 'email.suppressed';
     }
   }
 
@@ -90,58 +102,69 @@ enum EmailSuppressedEventType {
 
 /// The subscription status for this topic.
 final class GetContactTopicsResponseSuccessDataItemSubscription {
-
   final String value;
 
   const GetContactTopicsResponseSuccessDataItemSubscription._(this.value);
 
-  factory GetContactTopicsResponseSuccessDataItemSubscription.fromJson(String value) => GetContactTopicsResponseSuccessDataItemSubscription._(value);
+  factory GetContactTopicsResponseSuccessDataItemSubscription.fromJson(
+          String value) =>
+      GetContactTopicsResponseSuccessDataItemSubscription._(value);
 
-  static const optIn = GetContactTopicsResponseSuccessDataItemSubscription._('opt_in');
-  static const optOut = GetContactTopicsResponseSuccessDataItemSubscription._('opt_out');
+  static const optIn =
+      GetContactTopicsResponseSuccessDataItemSubscription._('opt_in');
+  static const optOut =
+      GetContactTopicsResponseSuccessDataItemSubscription._('opt_out');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is GetContactTopicsResponseSuccessDataItemSubscription && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is GetContactTopicsResponseSuccessDataItemSubscription &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `dimensions[]` wire field.
 final class GetEmailsMetricsResponseDimensionsItem {
-
   final String value;
 
   const GetEmailsMetricsResponseDimensionsItem._(this.value);
 
-  factory GetEmailsMetricsResponseDimensionsItem.fromJson(String value) => GetEmailsMetricsResponseDimensionsItem._(value);
+  factory GetEmailsMetricsResponseDimensionsItem.fromJson(String value) =>
+      GetEmailsMetricsResponseDimensionsItem._(value);
 
   static const period = GetEmailsMetricsResponseDimensionsItem._('period');
   static const domain = GetEmailsMetricsResponseDimensionsItem._('domain');
   static const email = GetEmailsMetricsResponseDimensionsItem._('email');
-  static const broadcast = GetEmailsMetricsResponseDimensionsItem._('broadcast');
+  static const broadcast =
+      GetEmailsMetricsResponseDimensionsItem._('broadcast');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is GetEmailsMetricsResponseDimensionsItem && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is GetEmailsMetricsResponseDimensionsItem && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The bucket size used when `period` is in `dimensions`.
 final class GetEmailsMetricsResponseGranularity {
-
   final String value;
 
   const GetEmailsMetricsResponseGranularity._(this.value);
 
-  factory GetEmailsMetricsResponseGranularity.fromJson(String value) => GetEmailsMetricsResponseGranularity._(value);
+  factory GetEmailsMetricsResponseGranularity.fromJson(String value) =>
+      GetEmailsMetricsResponseGranularity._(value);
 
   static const hourly = GetEmailsMetricsResponseGranularity._('hourly');
   static const daily = GetEmailsMetricsResponseGranularity._('daily');
@@ -150,44 +173,54 @@ final class GetEmailsMetricsResponseGranularity {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is GetEmailsMetricsResponseGranularity && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is GetEmailsMetricsResponseGranularity && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// How the attachment should be displayed.
 final class GetReceivedEmailResponseAttachmentsItemContentDisposition {
-
   final String value;
 
   const GetReceivedEmailResponseAttachmentsItemContentDisposition._(this.value);
 
-  factory GetReceivedEmailResponseAttachmentsItemContentDisposition.fromJson(String value) => GetReceivedEmailResponseAttachmentsItemContentDisposition._(value);
+  factory GetReceivedEmailResponseAttachmentsItemContentDisposition.fromJson(
+          String value) =>
+      GetReceivedEmailResponseAttachmentsItemContentDisposition._(value);
 
-  static const inline = GetReceivedEmailResponseAttachmentsItemContentDisposition._('inline');
-  static const attachment = GetReceivedEmailResponseAttachmentsItemContentDisposition._('attachment');
+  static const inline =
+      GetReceivedEmailResponseAttachmentsItemContentDisposition._('inline');
+  static const attachment =
+      GetReceivedEmailResponseAttachmentsItemContentDisposition._('attachment');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is GetReceivedEmailResponseAttachmentsItemContentDisposition && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is GetReceivedEmailResponseAttachmentsItemContentDisposition &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Origin of the suppression.
 final class GetSuppressionResponseSuccessOrigin {
-
   final String value;
 
   const GetSuppressionResponseSuccessOrigin._(this.value);
 
-  factory GetSuppressionResponseSuccessOrigin.fromJson(String value) => GetSuppressionResponseSuccessOrigin._(value);
+  factory GetSuppressionResponseSuccessOrigin.fromJson(String value) =>
+      GetSuppressionResponseSuccessOrigin._(value);
 
   static const bounce = GetSuppressionResponseSuccessOrigin._('bounce');
   static const complaint = GetSuppressionResponseSuccessOrigin._('complaint');
@@ -195,66 +228,76 @@ final class GetSuppressionResponseSuccessOrigin {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is GetSuppressionResponseSuccessOrigin && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is GetSuppressionResponseSuccessOrigin && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The default subscription status for the topic.
 final class GetTopicResponseSuccessDefaultSubscription {
-
   final String value;
 
   const GetTopicResponseSuccessDefaultSubscription._(this.value);
 
-  factory GetTopicResponseSuccessDefaultSubscription.fromJson(String value) => GetTopicResponseSuccessDefaultSubscription._(value);
+  factory GetTopicResponseSuccessDefaultSubscription.fromJson(String value) =>
+      GetTopicResponseSuccessDefaultSubscription._(value);
 
   static const optIn = GetTopicResponseSuccessDefaultSubscription._('opt_in');
   static const optOut = GetTopicResponseSuccessDefaultSubscription._('opt_out');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is GetTopicResponseSuccessDefaultSubscription && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is GetTopicResponseSuccessDefaultSubscription &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The visibility of the topic.
 final class GetTopicResponseSuccessVisibility {
-
   final String value;
 
   const GetTopicResponseSuccessVisibility._(this.value);
 
-  factory GetTopicResponseSuccessVisibility.fromJson(String value) => GetTopicResponseSuccessVisibility._(value);
+  factory GetTopicResponseSuccessVisibility.fromJson(String value) =>
+      GetTopicResponseSuccessVisibility._(value);
 
   static const public = GetTopicResponseSuccessVisibility._('public');
   static const private = GetTopicResponseSuccessVisibility._('private');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is GetTopicResponseSuccessVisibility && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is GetTopicResponseSuccessVisibility && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The delivery status of the event for this webhook.
 final class GetWebhookEventResponseStatus {
-
   final String value;
 
   const GetWebhookEventResponseStatus._(this.value);
 
-  factory GetWebhookEventResponseStatus.fromJson(String value) => GetWebhookEventResponseStatus._(value);
+  factory GetWebhookEventResponseStatus.fromJson(String value) =>
+      GetWebhookEventResponseStatus._(value);
 
   static const pending = GetWebhookEventResponseStatus._('pending');
   static const attempting = GetWebhookEventResponseStatus._('attempting');
@@ -263,10 +306,13 @@ final class GetWebhookEventResponseStatus {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is GetWebhookEventResponseStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is GetWebhookEventResponseStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

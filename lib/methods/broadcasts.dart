@@ -56,11 +56,11 @@ Future<CreateBroadcastResponseSuccess> broadcastsCreate(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'broadcastsCreate',
-          fromJsonRaw: (value) => CreateBroadcastResponseSuccess.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => CreateBroadcastResponseSuccess.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
-
 
 /// Lists broadcasts and their delivery or scheduling information. Use `after` or `before` to navigate results by cursor, and `limit` to control the number of items returned.
 ///
@@ -79,17 +79,20 @@ Future<ListBroadcastsResponseSuccess> broadcastsList(ClientConfig config,
   return (await sdkRequest<ListBroadcastsResponseSuccess>('GET', '/broadcasts',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true),
-            'before': SdkQueryValue(SdkUtils.unwrapOptional(before), style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
+                style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
+                style: 'form', explode: true),
+            'before': SdkQueryValue(SdkUtils.unwrapOptional(before),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'broadcastsList',
-          fromJsonRaw: (value) => ListBroadcastsResponseSuccess.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ListBroadcastsResponseSuccess.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
-
 
 /// Deletes an existing broadcast that is in draft status. Use this operation to remove a draft broadcast that you no longer need.
 ///
@@ -101,11 +104,11 @@ Future<RemoveBroadcastResponseSuccess> broadcastsRemove(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'broadcastsRemove',
-          fromJsonRaw: (value) => RemoveBroadcastResponseSuccess.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => RemoveBroadcastResponseSuccess.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
-
 
 /// Retrieves a single broadcast by its identifier. Use this endpoint to inspect the broadcast's audience, sender, content, and delivery status.
 ///
@@ -117,11 +120,11 @@ Future<GetBroadcastResponseSuccess> broadcastsGet(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'broadcastsGet',
-          fromJsonRaw: (value) => GetBroadcastResponseSuccess.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => GetBroadcastResponseSuccess.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
-
 
 /// Updates the name, audience, sender, content, or topic of an existing broadcast. Supply only the fields you want to change; use `segment_id` instead of the deprecated `audience_id` field.
 ///
@@ -167,11 +170,11 @@ Future<UpdateBroadcastResponseSuccess> broadcastsUpdate(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'broadcastsUpdate',
-          fromJsonRaw: (value) => UpdateBroadcastResponseSuccess.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => UpdateBroadcastResponseSuccess.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
-
 
 /// Submits a broadcast for sending or schedules it for later delivery. Provide `scheduled_at` in ISO 8601 format when you want the broadcast sent at a specific time; omit it to send without scheduling.
 ///
@@ -188,11 +191,11 @@ Future<SendBroadcastResponseSuccess> broadcastsSend(ClientConfig config,
           body: {'scheduled_at': SdkUtils.unwrapOptional(scheduledAt)},
           decoder: SdkResponseDecoder.json,
           operationId: 'broadcastsSend',
-          fromJsonRaw: (value) => SendBroadcastResponseSuccess.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => SendBroadcastResponseSuccess.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
-
 
 /// Cancels a queued or scheduled broadcast. Cancelling a queued broadcast stops further delivery, but does not affect emails that have already been sent.
 ///
@@ -208,17 +211,19 @@ Future<CancelBroadcastResponseSuccess> broadcastsCancel(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'broadcastsCancel',
-          fromJsonRaw: (value) => CancelBroadcastResponseSuccess.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => CancelBroadcastResponseSuccess.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
 
-
 /// Creates a new draft broadcast with the same segment, topic, sender, subject, reply-to, preview text, and content as the source. The copy is named after the source with " (copy)" appended, truncated to 70 characters.
 ///
 /// [id] The Broadcast ID.
-Future<DuplicateBroadcastResponseSuccess> broadcastsDuplicate(ClientConfig config,
-    {required String id, RequestOptions? requestOptions}) async {
+Future<DuplicateBroadcastResponseSuccess> broadcastsDuplicate(
+    ClientConfig config,
+    {required String id,
+    RequestOptions? requestOptions}) async {
   sdkValidateUuid('id', id);
 
   return (await sdkRequest<DuplicateBroadcastResponseSuccess>(
@@ -226,11 +231,11 @@ Future<DuplicateBroadcastResponseSuccess> broadcastsDuplicate(ClientConfig confi
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'broadcastsDuplicate',
-          fromJsonRaw: (value) => DuplicateBroadcastResponseSuccess.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => DuplicateBroadcastResponseSuccess.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
-
 
 /// Lists recipients of a broadcast filtered by recipient event type, such as opened, clicked, or bounced. Use `type` to select the event and optionally use `email`, `bounce_type`, or cursor parameters to narrow the results.
 ///
@@ -244,16 +249,16 @@ Future<DuplicateBroadcastResponseSuccess> broadcastsDuplicate(ClientConfig confi
 /// [limit] Number of items to return.
 /// [after] Return items after this cursor.
 /// [before] Return items before this cursor.
-Future<ListBroadcastRecipientsResponseSuccess>
-    listRecipients(ClientConfig config,
-        {required String id,
-        required ListRecipientsType type_,
-        SdkOptional<String> email = const SdkOmitted(),
-        SdkOptional<ListRecipientsBounceType> bounceType = const SdkOmitted(),
-        SdkOptional<int> limit = const SdkOmitted(),
-        SdkOptional<String> after = const SdkOmitted(),
-        SdkOptional<String> before = const SdkOmitted(),
-        RequestOptions? requestOptions}) async {
+Future<ListBroadcastRecipientsResponseSuccess> listRecipients(
+    ClientConfig config,
+    {required String id,
+    required ListRecipientsType type_,
+    SdkOptional<String> email = const SdkOmitted(),
+    SdkOptional<ListRecipientsBounceType> bounceType = const SdkOmitted(),
+    SdkOptional<int> limit = const SdkOmitted(),
+    SdkOptional<String> after = const SdkOmitted(),
+    SdkOptional<String> before = const SdkOmitted(),
+    RequestOptions? requestOptions}) async {
   sdkValidateUuid('id', id);
   if (limit is SdkPresent<int>) {
     validateRange('limit', limit.value, min: 1, max: 100);
@@ -264,19 +269,25 @@ Future<ListBroadcastRecipientsResponseSuccess>
           config: config,
           query: {
             'type': SdkQueryValue(type_, style: 'form', explode: true),
-            'email': SdkQueryValue(SdkUtils.unwrapOptional(email), style: 'form', explode: true),
-            'bounce_type': SdkQueryValue(SdkUtils.unwrapOptional(bounceType), style: 'form', explode: true),
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true),
-            'before': SdkQueryValue(SdkUtils.unwrapOptional(before), style: 'form', explode: true)
+            'email': SdkQueryValue(SdkUtils.unwrapOptional(email),
+                style: 'form', explode: true),
+            'bounce_type': SdkQueryValue(SdkUtils.unwrapOptional(bounceType),
+                style: 'form', explode: true),
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
+                style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
+                style: 'form', explode: true),
+            'before': SdkQueryValue(SdkUtils.unwrapOptional(before),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listRecipients',
-          fromJsonRaw: (value) => ListBroadcastRecipientsResponseSuccess.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ListBroadcastRecipientsResponseSuccess.fromJson(
+                  value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
-
 
 /// Lists the links clicked in a broadcast and their click counts. Use the cursor parameters to retrieve results before or after a position in the list.
 ///
@@ -284,13 +295,13 @@ Future<ListBroadcastRecipientsResponseSuccess>
 /// [limit] Number of items to return.
 /// [after] Return items after this cursor.
 /// [before] Return items before this cursor.
-Future<ListBroadcastClickedLinksResponseSuccess>
-    broadcastsListClickedLinks(ClientConfig config,
-        {required String id,
-        SdkOptional<int> limit = const SdkOmitted(),
-        SdkOptional<String> after = const SdkOmitted(),
-        SdkOptional<String> before = const SdkOmitted(),
-        RequestOptions? requestOptions}) async {
+Future<ListBroadcastClickedLinksResponseSuccess> broadcastsListClickedLinks(
+    ClientConfig config,
+    {required String id,
+    SdkOptional<int> limit = const SdkOmitted(),
+    SdkOptional<String> after = const SdkOmitted(),
+    SdkOptional<String> before = const SdkOmitted(),
+    RequestOptions? requestOptions}) async {
   sdkValidateUuid('id', id);
   if (limit is SdkPresent<int>) {
     validateRange('limit', limit.value, min: 1, max: 100);
@@ -300,13 +311,18 @@ Future<ListBroadcastClickedLinksResponseSuccess>
           '/broadcasts/${Uri.encodeComponent(id.toString())}/clicked-links',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true),
-            'before': SdkQueryValue(SdkUtils.unwrapOptional(before), style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
+                style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
+                style: 'form', explode: true),
+            'before': SdkQueryValue(SdkUtils.unwrapOptional(before),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'broadcastsListClickedLinks',
-          fromJsonRaw: (value) => ListBroadcastClickedLinksResponseSuccess.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ListBroadcastClickedLinksResponseSuccess.fromJson(
+                  value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
